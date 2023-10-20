@@ -65,9 +65,13 @@ header>a:first-child{
     background-color: #69dac2;
     color: black;
     overflow-y: scroll;
-    max-height: 78vh;
-    margin-top: 30%;
-    margin-left: 20%;
+    overflow-x: hidden;
+    position: absolute;
+    top: 30%;
+    margin: 3%;
+    padding: 2%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 legend{
