@@ -1,3 +1,7 @@
+@font-face {
+    font-family: futura;
+    src: url(../font/SansSerifBldFLF.otf);
+}
 * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0;
     background-color: #04245c;
