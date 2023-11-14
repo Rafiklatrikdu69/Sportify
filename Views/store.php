@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="storestyle.css">
+    <link rel="stylesheet" href="Views/css/storestyle.css">
     <title>Document</title>
 </head>
 <body>
     <header>
-        <a id="accueil" href="actu.html"><img src="images/logo.png"></a>
+        <a id="accueil" href="actu.html"><img src="Views/images/logo.png"></a>
         <a id="actu" href="">Actu</a>
         <a id="prono" href="">Prono</a>
         <a id="boutique" href="">Boutique</a>

@@ -3,7 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="Views/css/style2.css">
   <style>
 
 
@@ -12,7 +12,7 @@
 
 <body>
   <div class="div1">
-    <img src="../images/logo.png" alt="running">
+    <img src="Views/images/logo.png"alt="running">
   </div>
   <div class="slideshow-container">
 
@@ -51,7 +51,7 @@
     <span class="dot" onclick="currentSlide(3)"></span>
   </div> -->
 
-  <script src="index.js"></script>
+  <script src="Views/js/index.js"></script>
 
 </body>
 
