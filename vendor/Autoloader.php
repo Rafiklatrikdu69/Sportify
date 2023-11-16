@@ -17,6 +17,6 @@ class Autoloader {
 
 
 $autoloader_classes = new Autoloader('Controllers/');
-$autoloader_admin = new Autoloader('Route/');
+$autoloader_admin = new Autoloader('/');
 
 

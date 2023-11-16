@@ -1,10 +1,13 @@
-version : '3'
+version : '3.2'
 
 services:
     php:
-        build: .
-        volumes: 
-             - ./:/var/www/html
+      
+      image: php:8.2-apache
+      container_name: php
+      build: .
+      volumes: 
+             - ./:/var/www/html/
              - /var/log/apache2/app:/var/log/apache2/
-        ports:
-             - 8080:80
+      ports:
+             - 8000:80

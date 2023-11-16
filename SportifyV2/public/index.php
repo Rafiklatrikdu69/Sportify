@@ -1,10 +1,9 @@
 <?php
 
 
-require 'vendor/Autoloader.php';
+require  '../vendor/Autoloader.php';
 
 $route = new Router();
-
 
 $request = $_SERVER['REQUEST_URI'];
 
