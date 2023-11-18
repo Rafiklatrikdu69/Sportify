@@ -588,7 +588,9 @@
   
   @font-face {
             font-family: futura;
+
             src: url(font/SansSerifBldFLF.otf);
+
         }
   
   *{
