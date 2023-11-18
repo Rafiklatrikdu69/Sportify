@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html>
+<?php
+
+use \App\Utils;
+use \App\Config;
+
+?>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style2.css">
-  <style>
-
-
-  </style>
+    <link rel="stylesheet" href="css/styleinscription.css">
+    <title>Sportify</title>
 </head>
+
 
 <body>
   <div class="div1">
@@ -49,8 +50,7 @@
     <span class="dot" onclick="currentSlide(3)"></span>
   </div>
 
-  <script src="index.js"></script>
+  <script src="js/index.js"></script>
 
 </body>
 
-</html>

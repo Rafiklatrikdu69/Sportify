@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+
+use \App\Utils;
+use \App\Config;
+
+?>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="storestyle.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/storestyle.css">
+    <title>Sportify</title>
 </head>
 <body>
     <header>
@@ -38,4 +41,4 @@
         </aside>
     </section>
 </body>
-</html>
+
