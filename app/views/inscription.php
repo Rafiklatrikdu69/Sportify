@@ -14,14 +14,15 @@ use \App\Config;
 <body>
   <div class="div1">
     <img src="images/logo.png" alt="running">
+    <div id="title">Sportify</div>
   </div>
   <div class="slideshow-container">
 
     <div class="mySlides fade">
-
+      <div class="flex-input">
       <label>Nom d'utilisateur</label>
       <input type="text">
-
+      </div>
     </div>
 
     <div class="mySlides fade">
@@ -38,17 +39,20 @@ use \App\Config;
 
     </div>
 
-    <p><a class="prev" onclick="plusSlides(-1)">Precedent</a></p>
-    <p><a class="next" onclick="plusSlides(1)">Avancer</a></p>
+    
 
   </div>
+  <div></div>
+    <!-- <div></div> -->
   <br>
-
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
+  <div class="arrow">
+  <a class="prev" onclick="plusSlides(-1)"></a>
   </div>
+  <div class="arrow-left">
+  <a class="next" onclick="plusSlides(1)"></a>
+  </div>
+
+
 
   <script src="js/index.js"></script>
 

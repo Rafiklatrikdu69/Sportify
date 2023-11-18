@@ -1,6 +1,6 @@
 <?php
 
-
+//cette classe est un debut -> a changer !
 
 class BaseController 
 {
@@ -24,7 +24,7 @@ public function inscription(){
 }
 protected function view($view,$data =null) {
     
-    $viewChemin = '../app/views/'.$view.'.php';
+    $viewChemin = '../app/Views/'.$view.'.php';
     
      //var_dump($viewChemin);
     if (file_exists($viewChemin)) {
