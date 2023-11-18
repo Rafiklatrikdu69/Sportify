@@ -84,41 +84,49 @@ main{
     font-size: 200%;
 }
 
-.button-24 {
-  background: #FF4742;
-  border: 1px solid #FF4742;
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 16px;
-  min-height: 40px;
-  outline: 0;
-  padding: 12px 14px;
-  text-align: center;
-  text-rendering: geometricprecision;
-  text-transform: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-}
-
-.button-24:hover,
-.button-24:active {
-  background-color: initial;
-  background-position: 0 0;
-  color: #FF4742;
-}
-
-.button-24:active {
-  opacity: .5;
-}
+.btn {
+    cursor: pointer;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 50px; }
+    .btn:hover, .btn:active, .btn:focus {
+      outline: none; }
+    .btn.btn-primary {
+      background: #f35588;
+      border: 1px solid #04245c;
+      color: #fff;
+      background: #f75959;
+      background: -moz-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
+      background: -webkit-gradient(left top, right bottom, color-stop(0%, #f75959), color-stop(100%, #f35587));
+      background: -webkit-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
+      background: -o-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
+      background: -ms-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
+      background: -webkit-linear-gradient(315deg, #f75959 0%, #f35587 100%);
+      background: -o-linear-gradient(315deg, #f75959 0%, #f35587 100%);
+      background: linear-gradient(315deg,#04245c 0% ,black 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 ); }
+      .btn.btn-primary:hover {
+        border: 1px solid #69dac2;
+        background: linear-gradient(315deg,#04245c 0% ,#69dac2 100%);;
+        color: #fff; }
+    .btn.btn-white {
+      background: #fff;
+      border: 1px solid #fff;
+      color: #fff; }
+      .btn.btn-white:hover {
+        border: 1px solid #fff;
+        background: transparent;
+        color: #fff; }
+      .btn.btn-white.btn-outline-white {
+        border: 1px solid #fff;
+        background: transparent;
+        color: #fff; }
+        .btn.btn-white.btn-outline-white:hover {
+          border: 1px solid transparent;
+          background: #fff;
+          color: #000; }
 
 header{
     background-color: #04245c;
