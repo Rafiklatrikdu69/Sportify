@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+
+use \App\Utils;
+use \App\Config;
+
+?>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Views/css/storestyle.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/storestyle.css">
+    <title>Sportify</title>
 </head>
 <body>
     <header>
-        <a id="accueil" href="actu.html"><img src="Views/images/logo.png"></a>
+        <a id="accueil" href="actu.html"><img src="images/logo.png"></a>
         <a id="actu" href="">Actu</a>
         <a id="prono" href="">Prono</a>
         <a id="boutique" href="">Boutique</a>
@@ -38,4 +41,4 @@
         </aside>
     </section>
 </body>
-</html>
+
