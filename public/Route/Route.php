@@ -1,5 +1,6 @@
 <?php
-class Router {
+
+class Route {
 
 private $routes = [];
 
@@ -24,7 +25,7 @@ public function resolve(String $url, $method){
         echo "Route inexistante";
         return null;
     }else{
-        echo "La vue existe ";
+        //echo "La vue existe ";
     }
 
     
