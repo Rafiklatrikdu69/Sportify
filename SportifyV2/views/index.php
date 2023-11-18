@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Sportify</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     
     <script src="" defer></script>
 </head>
