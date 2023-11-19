@@ -12,20 +12,32 @@ $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     
     case '/public/':
-        $route->get('/public/',[new BaseController(),'index']);
+        $route->get('/public/',[new HomeController(),'index']);
     break;
 
     case '/public/connexion':       
-     $route->get('/public/connexion',[new BaseController(),'login']);
+      $route->get('/public/connexion',[new ConnexionController(),'index']);
+      $route->get('/public/verif',[new ConnexionController(),'verifFormulaire']);
+    break;
+
+    case '/public/verification-connexion': 
+        $route->get('/public/verification-connexion',[new ConnexionController(),'verifFormulaire']);
     break;
 
     case '/public/inscription':       
-        $route->get('/public/inscription',[new BaseController(),'inscription']);
+         $route->get('/public/inscription',[new InscriptionControllers(),'index']);
+         
+    break;
+    default:
+ 
+    $route->get('/public/error-404',[new InscriptionControllers(),'index']);
+         
+
     break;
 
-    case '/public/boutique':
-    $route->get('/public/boutique',[new BaseController(),'boutique']);
-    break;
+    // case '/public/boutique':
+    // $route->get('/public/boutique',[new BaseController(),'boutique']);
+    // break;
                 
 }
 
