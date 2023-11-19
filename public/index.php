@@ -17,7 +17,7 @@ switch ($request) {
 
     case '/public/connexion':       
       $route->get('/public/connexion',[new ConnexionController(),'index']);
-      $route->get('/public/verif',[new ConnexionController(),'verifFormulaire']);
+
     break;
 
     case '/public/verification-connexion': 
@@ -30,7 +30,7 @@ switch ($request) {
     break;
     default:
  
-    $route->get('/public/error-404',[new InscriptionControllers(),'index']);
+    // $route->get($request,[new InscriptionControllers(),'index']);
          
 
     break;
