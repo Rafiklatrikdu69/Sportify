@@ -1,6 +1,6 @@
 <?php
 
-require ("../app/vendor/Autoloader.php");
+require '../vendor/Autoloader.php';
 
 
 $route = new Route();

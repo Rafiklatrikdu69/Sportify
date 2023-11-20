@@ -2,28 +2,32 @@ version: '3'
 
 services:
  # Service de la base de données MySQL
-    db:
-      image: mysql:5.7
-      container_name: mysql_container
-      environment:
-        MYSQL_DATABASE: test
-        MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-
-      volumes:
-        - ./Sportify.sql:/docker-entrypoint-initdb.d/Sportify.sql
-      ports:
-        - "3306:3306"
-    php:
-      build: .
-      volumes:
-        - ./:/var/www/html
-        - /var/log/apache2/app:/var/log/apache2/
+    
+  php:
+    build: .
+    volumes:
+      - ./:/var/www/html
+      - /var/log/apache2/app:/var/log/apache2/
         
-      ports:
-        - 80:80
-      depends_on:
-      - db
+    ports:
+      - 80:80
+  mysql_db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - 8001:80
+    environment:
+      - PMA_ARBITRARY=1
 
+      
+     
 
+ 
 
  
