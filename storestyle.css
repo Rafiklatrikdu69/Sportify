@@ -1,0 +1,79 @@
+@font-face {
+    font-family: futura;
+    src: url(font/SansSerifBldFLF.otf);
+}
+
+*{
+    font-family: futura;
+}
+body{
+    margin: 0;
+    background-color: #04245c;
+}
+
+header{
+    background-color: black ;
+    display: grid;
+    grid-template: 1fr / 10% 1fr 1fr 1fr 1fr;
+    align-items: center;
+    height: auto;
+}
+
+header img{
+    grid-area: 1/1/2/2;
+    width: 4rem;
+    height: 4rem;
+}
+
+a{
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+header>a:hover, div>a:hover{
+    background-color: #69dac2;;
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+header>a:first-child{
+    background-color: black;
+    color: black;
+}
+
+#boutique{
+    /* changer la couleur pour montrer qu'on est sure cette page */
+    background-color: #69dac2;
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+#corps{
+    margin: 0;
+    display: grid;
+    grid-template: 1fr 1fr  / 2fr 3fr 3fr 2fr;
+}
+
+#categorie{
+    grid-area: 1/1/3/2;
+    background-color: #69dac2;
+    color: black;
+    overflow-y: scroll;
+    max-height: 78vh;
+    margin-top: 30%;
+    margin-left: 20%;
+}
+
+legend{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+

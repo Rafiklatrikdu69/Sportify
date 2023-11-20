@@ -8,6 +8,7 @@ use \App\Config;
 <head>
     <link rel="stylesheet" href="css/storestyle.css">
     <title>Sportify</title>
+    
 </head>
 <body>
     <header>
@@ -35,10 +36,42 @@ use \App\Config;
         </aside>
 
         <section id="articles">
+            <div class="card">
+                <img src="images/tshirt.png">
+                <h1>T-shirt Fornite</h1>
+                <p class="price">120 points</p>
+                <p>Le skin t-shirt plus apprécié des utilisateurs</p>
+                <p><button>Acheter</button></p>
+            </div> 
+
+            <div class="card">
+                <img src="images/tshirt.png">
+                <h1>T-shirt Fornite</h1>
+                <p class="price">120 points</p>
+                <p>Le skin t-shirt plus apprécié des utilisateurs</p>
+                <p><button>Acheter</button></p>
+            </div> 
+
+            <div class="card">
+                <img src="images/tshirt.png">
+                <h1>T-shirt Fornite</h1>
+                <p class="price">120 points</p>
+                <p>Le skin t-shirt plus apprécié des utilisateurs</p>
+                <p><button>Acheter</button></p>
+            </div> 
+
+            <div class="card">
+                <img src="images/tshirt.png">
+                <h1>T-shirt Fornite</h1>
+                <p class="price">120 points</p>
+                <p>Le skin t-shirt plus apprécié des utilisateurs</p>
+                <p><button>Acheter</button></p>
+            </div> 
         </section>
         
         <aside id="options">
         </aside>
     </section>
+    <script src="../../public/js/store.js"></script>
 </body>
 
