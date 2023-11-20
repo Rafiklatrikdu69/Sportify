@@ -12,7 +12,7 @@ body{
 }
 
 header{
-    background-color: black ;
+    background: linear-gradient(black 50%, #04245c);
     display: grid;
     grid-template: 1fr / 10% 1fr 1fr 1fr 1fr;
     align-items: center;
@@ -34,21 +34,19 @@ a{
 }
 
 header>a:hover, div>a:hover{
-    background-color: #69dac2;;
-    color: black;
+    color: #69dac2;
     margin-left: 10%;
     margin-right: 10%;
 }
 
 header>a:first-child{
-    background-color: black;
+    background: linear-gradient(black 50%, #04245c); 
     color: black;
 }
 
 #boutique{
     /* changer la couleur pour montrer qu'on est sure cette page */
-    background-color: #69dac2;
-    color: black;
+    color: #69dac2;
     margin-left: 10%;
     margin-right: 10%;
 }
