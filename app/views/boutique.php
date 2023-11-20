@@ -70,6 +70,7 @@ use \App\Config;
         </section>
         
         <aside id="options">
+            <a></a>
         </aside>
     </section>
     <script src="../../public/js/store.js"></script>
