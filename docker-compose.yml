@@ -1,33 +1,32 @@
 version: '3'
 
 services:
- # Service de la base de données MySQL
-    
+  # Service de la base de données MySQL
+  mysql_db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    # Variables d'environnement pour la base de données
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: Sportify
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    volumes:
+      - "./db:/docker-entrypoint-initdb.d"
+
+  # Service PHP
   php:
     build: .
     volumes:
       - ./:/var/www/html
       - /var/log/apache2/app:/var/log/apache2/
-        
     ports:
       - 80:80
-  mysql_db:
-    image: mysql:latest
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
+
+  # Service phpMyAdmin
   phpmyadmin:
     image: phpmyadmin:latest
-    restart: always
     ports:
-      - 8001:80
+      - "8001:80"
     environment:
       - PMA_ARBITRARY=1
-
-      
-     
-
- 
-
- 
