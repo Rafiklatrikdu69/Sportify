@@ -1,0 +1,79 @@
+
+/* Police d'écriture */
+@font-face {
+    font-family: futura;
+    src: url(font/SansSerifBldFLF.otf);
+}
+
+*{
+    font-family: futura;
+}
+
+html{
+    height: 100%;
+}
+
+/* Mise a 0 du style css */
+body{
+    margin: 0;
+    background-color: #04245c;
+    height: 100%;
+}
+
+
+/* CSS Relatif au header */
+header{
+    background-color: black ;
+    display: grid;
+    grid-template: 1fr / 10% 1fr 1fr 1fr 1fr;
+    align-items: center;
+    height: auto;
+}
+
+header img{
+    grid-area: 1/1/2/2;
+    width: 4rem;
+    height: 4rem;
+}
+
+a{
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+header>a:hover, div>a:hover{
+    background-color: #69dac2;
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+header>a:first-child{
+    background-color: black;
+    color: black;
+}
+
+#prono{
+    background-color: #69dac2;
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* CSS Relatif au corps */
+
+#base{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100%;
+}
+
+#image_sport{
+    width: 5%;
+}
