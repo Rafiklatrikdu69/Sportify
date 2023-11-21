@@ -23,15 +23,21 @@ use \App\Config;
         <aside id="categorie">
             <form>
                 <fieldset>
-                    <legend>Catégories</legend>
+                    <legend>Types d'item</legend>
                     <input type="checkbox" name="categorie" value="tshirt">T-shirt<br>
                     <input type="checkbox" name="categorie" value="pull">Pull<br>
                     <input type="checkbox" name="categorie" value="casquette">Casquette<br>
                     <input type="checkbox" name="categorie" value="short">Short<br>
                     <input type="checkbox" name="categorie" value="pantalon">Pantalon<br>
                     <input type="checkbox" name="categorie" value="chaussure">Chaussure<br>
-                    <input type="submit" value="Filtrer">
+                    <legend>Prix max</legend>
+                    <div class="range-wrap">
+                    <input type="range" class="range" min="20" max="940">
+                    <output class="bubble"></output>
+                    </div><br>
+                       
                 </fieldset>
+                <script src="../../public/js/prix.js"></script>
             </form>
         </aside>
 
@@ -70,7 +76,17 @@ use \App\Config;
         </section>
         
         <aside id="options">
-            <a></a>
+            <div>
+                <p>120 Sportycoins</p>
+            </div>
+            <div>
+                <img src="images/tshirt.png">
+                <p>Pseudo</p>
+                <p>Classement</p>
+                <p>Prono réussi</p>
+                <p>Badges</p>
+                <p>Equipe préférée</p>
+            </div>
         </aside>
     </section>
     <script src="../../public/js/store.js"></script>

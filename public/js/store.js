@@ -11,6 +11,6 @@ function chbgon() {
 }
 
 function chbgout() {    
-    document.getElementById('boutique').style.backgroundColor = '#00838d';
+    document.getElementById('boutique').style.backgroundColor = '#40A798';
     document.getElementById('boutique').style.color = 'black';
 }
