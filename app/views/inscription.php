@@ -19,10 +19,11 @@ use \App\Config;
   <div class="slideshow-container">
 
     <div class="mySlides fade">
-      <div class="flex-input">
+  
+      
       <label>Nom d'utilisateur</label>
+     
       <input type="text">
-      </div>
     </div>
 
     <div class="mySlides fade">
