@@ -31,14 +31,10 @@ function showSlides(n) {
   }
 
   for (i = 0; i < dots.length; i++) {
-
     dots[i].className = dots[i].replace(" active", "");
-
   }
-
   
   slides[slideIndex - 1].style.display = "block";
-
   dots[slideIndex - 1] += " active";
 
 }
@@ -52,6 +48,4 @@ function checkEtape() {
     form[0].submit();
     console.log("Étape égale à 3!");
   }
-
 }
-

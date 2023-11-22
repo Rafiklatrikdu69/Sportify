@@ -24,6 +24,10 @@ switch ($request) {
         $route->get('/public/inscription', [new InscriptionControllers(), 'index']);
         break;
 
+    case '/public/verification-formulaire-inscription':
+        $route->post('/public/verification-formulaire-inscription', [new FormConnexionController(), 'verification']);
+    break;
+
     case '/public/boutique':
         $route->get('/public/boutique', [new StoreController(), 'index']);
         break;

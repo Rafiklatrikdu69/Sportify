@@ -2,7 +2,7 @@
 
 use \App\Utils;
 use \App\Config;
-//
+
 ?>
 
 <head>
@@ -17,16 +17,15 @@ use \App\Config;
     <div id="title">Sportify</div>
   </div>
 
-
- <form  action="" method="post" id="my_form" class="forms"> 
-
+ <form  action="/public/verification-formulaire-inscription" method="POST" id="my_form" class="forms"> 
+  <div class="slideshow-container">
 
     <div class="mySlides fade">
   
       
       <label>Nom d'utilisateur</label>
      
-      <input type="text" name="nom">
+      <input type="text">
     </div>
 
     <div class="mySlides fade">
@@ -43,12 +42,10 @@ use \App\Config;
 
     </div>
 
-    <input type="submit" value="envoyer" style="display:none;">
-
+    
 
   </div>
  </form>
-
 
   <br>
   <div class="arrow">
@@ -63,4 +60,3 @@ use \App\Config;
   <script src="js/index.js"></script>
 
 </body>
-
