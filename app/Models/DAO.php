@@ -59,4 +59,25 @@ abstract class DAO
 	} 
     return $res;
   }
+
+  public function insert($sql){
+    try{
+      $pdostmt = $this->_requete($sql, null);
+      $res = $pdostmt->rowCount();
+      $pdostmt->closeCursor();
+    }
+    catch(PDOException $e)
+    {
+      if($this->_debug)
+            die($e->getMessage());
+          $this->_erreur = 'insert';
+      $res = false;
+    }
+    return $res;
+  }
+
+  public function delete($sql){
+
+  }
+
 }

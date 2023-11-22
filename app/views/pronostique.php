@@ -1,5 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+
+use \App\Utils;
+use \App\Config;
+
+?>
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +39,23 @@
         </aside>
     </aside>
     <main>
-        <section id="prono_ev">
+            <!--TODO: Millieu de page a actualiser avec BD -->
+    
+    </main>
+    <aside>
+        <input type="text" placeholder="Rechercher">
+        <a>100 Sporticoin</a>
+    </aside>
+</div>
+</body>
+</html>
+<script src="../../public/js/prono.js"></script>
+
+
+
+<!-- Paterne a intégrer dans le main 
+
+<section id="prono_ev">
             <div class="div1">
                 <img src="../../public/images/football.svg" id="image_sport">
             </div>
@@ -50,46 +72,5 @@
                 <button>Cote 2</button>
             </div>
         </section>
-        <section id="prono_ev">
-            <div class="div1">
-                <img src="../../public/images/football.svg" id="image_sport">
-            </div>
-            <div class="div2">
-                <p>Equipe 1 - Equipe 2</p>
-                <p>Evenement</p>
-                <p>Sport</p>
-                <p>Date</p>
-            </div>
-            <div class="div3">
-                <button>Cote 1</button>
-            </div>
-            <div class="div4">
-                <button>Cote 2</button>
-            </div>
-        </section>  
-        <section id="prono_ev">
-            <div class="div1">
-                <img src="../../public/images/football.svg" id="image_sport">
-            </div>
-            <div class="div2">
-                <p>Equipe 1 - Equipe 2</p>
-                <p>Evenement</p>
-                <p>Sport</p>
-                <p>Date</p>
-            </div>
-            <div class="div3">
-                <button>Cote 1</button>
-            </div>
-            <div class="div4">
-                <button>Cote 2</button>
-            </div>
-        </section>      
-    </main>
-    <aside>
-        <input type="text" placeholder="Rechercher">
-        <a>100 Sporticoin</a>
-    </aside>
-</div>
-</body>
-</html>
-<script src="../../public/js/prono.js"></script>
+-->
+        

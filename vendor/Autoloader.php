@@ -21,5 +21,4 @@ $autoloader_app = new Autoloader('app/');
 $autoloader_route = new Autoloader('../public/Route/');
 $autoloader_classes = new Autoloader('../app/classes/');
 $autoloader_interfaces = new Autoloader('../app/Controllers/classesAbstraites/');
-$autoloader_config= new Autoloader('config/');
-
+$autoloader_config = new Autoloader('config/');
