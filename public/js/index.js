@@ -45,7 +45,24 @@ function checkEtape() {
   console.log("Étape: " + etape);
   if (etape === -3) {
     let form = document.getElementsByClassName("forms");
-    form[0].submit();
+    if(checkForm() == false){
+      console.log("Formulaire non valide");
+    }else{
+      form[0].submit();
+    }
     console.log("Étape égale à 3!");
   }
+}
+
+function checkForm(){
+  /* verifier le champ email */
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let a = emailRegex.test(document.getElementById("email").value);
+  /* verifier le password */
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    let b = passwordRegex.test(document.getElementById("password").value);
+  /* verifier le champ nom */
+    const nameRegex = /^[a-zA-Z]+$/;
+    let c = nameRegex.test(document.getElementById("name").value);
+    return a && b && c;
 }

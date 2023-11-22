@@ -25,20 +25,20 @@ use \App\Config;
       
       <label>Nom d'utilisateur</label>
      
-      <input type="text">
+      <input type="text" id="user">
     </div>
 
     <div class="mySlides fade">
 
       <label> Adresse mail</label>
-      <input type="email">
+      <input type="email" id="email">
 
     </div>
 
     <div class="mySlides fade">
 
       <label>Mot de passe</label>
-      <input type="text">
+      <input type="text" id="mdp">
 
     </div>
 
