@@ -1,15 +1,25 @@
 let slideIndex = 1;
 showSlides(slideIndex);
 
+var etape = 0;
+
 function plusSlides(n) {
   showSlides(slideIndex += n);
+  if(n === -1){
+    etape--;
+  }else{
+    etape++;
+  }
+  console.log(etape);
 }
+
+
 
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-function showSlides(n) {
+function showSlides(n) {  
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
@@ -26,9 +36,16 @@ function showSlides(n) {
   
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1] += " active";
+
+}
   
-  if(slideIndex == 2) {
+setInterval(checkEtape, 500);
+
+function checkEtape() {
+  console.log("Étape: " + etape);
+  if (etape === -3) {
     let form = document.getElementsByClassName("forms");
     form[0].submit();
+    console.log("Étape égale à 3!");
   }
 }

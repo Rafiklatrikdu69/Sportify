@@ -49,7 +49,7 @@ use \App\Config;
 
   <br>
   <div class="arrow">
-  <a class="prev" onclick="plusSlides(-1)"></a>
+  <a class="prev" onclick="plusSlides(-1) "></a>
   </div>
   <div class="arrow-left">
   <a class="next" onclick="plusSlides(1)"></a>
