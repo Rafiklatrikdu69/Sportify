@@ -21,9 +21,14 @@ function showSlides(n) {
   }
 
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+    dots[i].className = dots[i].replace(" active", "");
   }
   
   slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
+  dots[slideIndex - 1] += " active";
+  
+  if(slideIndex == 2) {
+    let form = document.getElementsByClassName("forms");
+    form[0].submit();
+  }
 }

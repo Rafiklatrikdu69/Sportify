@@ -16,6 +16,8 @@ use \App\Config;
     <img src="images/logo.png" alt="running">
     <div id="title">Sportify</div>
   </div>
+
+ <form  action="" method="post" id="my_form" class="forms"> 
   <div class="slideshow-container">
 
     <div class="mySlides fade">
@@ -43,8 +45,8 @@ use \App\Config;
     
 
   </div>
-  <div></div>
-    <!-- <div></div> -->
+ </form>
+
   <br>
   <div class="arrow">
   <a class="prev" onclick="plusSlides(-1)"></a>
