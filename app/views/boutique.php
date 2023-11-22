@@ -102,4 +102,3 @@ use \App\Config;
     </section>
     <script src="../../public/js/store.js"></script>
 </body>
-

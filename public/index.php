@@ -1,6 +1,6 @@
 <?php
 
-require ("../app/vendor/Autoloader.php");
+require '../vendor/Autoloader.php';
 
 
 $route = new Route();
@@ -28,9 +28,15 @@ switch ($request) {
          $route->get('/public/inscription',[new InscriptionControllers(),'index']);
          
     break;
-     case '/public/boutique':
-         $route->get('/public/boutique',[new StoreController(),'index']);
-         break;
+
+    case '/public/boutique':
+        $route->get('/public/boutique',[new StoreController(),'index']);
+    break;
+    case '/public/pronostique':
+        $route->get('/public/pronostique',[new PronoController(),'index']);
+    break;
+
+
     default:
  
     // $route->get($request,[new InscriptionControllers(),'index']);
