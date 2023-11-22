@@ -2,7 +2,7 @@
 
 use \App\Utils;
 use \App\Config;
-
+//
 ?>
 
 <head>
@@ -16,14 +16,14 @@ use \App\Config;
     <img src="images/logo.png" alt="running">
     <div id="title">Sportify</div>
   </div>
-  <div class="slideshow-container">
+  <form class="slideshow-container">
 
     <div class="mySlides fade">
   
       
       <label>Nom d'utilisateur</label>
      
-      <input type="text">
+      <input type="text" name="nom">
     </div>
 
     <div class="mySlides fade">
@@ -40,9 +40,9 @@ use \App\Config;
 
     </div>
 
-    
+    <input type="submit" value="envoyer" style="display:none;">
 
-  </div>
+  </form>
   <div></div>
     <!-- <div></div> -->
   <br>

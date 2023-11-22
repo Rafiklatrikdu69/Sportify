@@ -9,7 +9,7 @@ class Singleton
   private function __construct ()
   {
     //creer la connexion a la BD
-	$this->_bdd = new PDO('mysql:host='.Config::$host.'; dbname='.Config::$db.'; charset=utf8', Config::$db_user, Config::$db_password);
+	$this->_bdd = new PDO('mysql:host='.config::$host.'; dbname='.config::$db.'; charset=utf8', config::$db_user, config::$db_password);
 	$this->_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 

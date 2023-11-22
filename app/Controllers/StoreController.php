@@ -4,14 +4,14 @@
 
 class StoreController  extends Controllers
 {
-    
-public function index()
-{
    
-   View::View('boutique',['name'=>'']);
+   public function index()
+   {
+      
+      View::View('boutique',['name'=>'']);
+      
+   }
    
-}
-
 }
 
 

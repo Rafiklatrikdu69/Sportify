@@ -1,25 +1,34 @@
 <?php
-
 class Autoloader {
 
-    private $path;
-    public function __construct($path) {
-       $this->path = $path;
-       spl_autoload_register(array($this, 'load') );
+    private $paths;
+
+    public function __construct($paths) {
+        $this->paths = $paths;
+        spl_autoload_register(array($this, 'load'));
     }
-        //Cette methode charge toute les classe des dossier avec le chemin specicifier
-    function load( $file ) {
-        if (is_file($this->path . '/' . $file . '.php')) {
-            require_once( $this->path . '/' . $file . '.php' );
+
+    // Cette méthode charge toutes les classes des dossiers spécifiés
+    public function load($class) {
+        foreach ($this->paths as $path) {
+            $file = $path . '/' . $class . '.php';
+            if (is_file($file)) {
+                require_once($file);
+                return; 
+            }
         }
     }
 }
 
-$autoloader_controllers= new Autoloader('../app/Controllers/');
-$autoloader_models= new Autoloader('../app/Models/');
-$autoloader_app = new Autoloader('app/');
-$autoloader_route = new Autoloader('../public/Route/');
-$autoloader_classes = new Autoloader('../app/classes/');
-$autoloader_interfaces = new Autoloader('../app/Controllers/classesAbstraites/');
-$autoloader_config= new Autoloader('config/');
+$paths = [
+    '../app/Controllers/',
+    '../app/Models/',
+    'app/',
+    '../public/Route/',
+    '../app/classes/',
+    '../app/Controllers/classesAbstraites/',
+    '../config/',
+    '../app/Controllers/Formulaire',
+];
 
+$autoloader = new Autoloader($paths);

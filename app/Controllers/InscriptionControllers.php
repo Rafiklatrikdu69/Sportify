@@ -6,8 +6,5 @@ class InscriptionControllers extends Controllers{
     }
 
 
-    public function verifFormulaire(){
-        echo "test a effectuer";
-    }
 
 }

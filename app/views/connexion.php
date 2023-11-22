@@ -9,7 +9,7 @@ use \App\Config;
 <link rel="stylesheet" href="css/style2.css">
     <title>Sportify</title>
 </head>
-<!-- <?php echo $name;?> -->
+<!-- <?php echo $name?> -->
 <body>
 	<section class="ftco-section">
 		<div class="container">
@@ -20,7 +20,7 @@ use \App\Config;
 							<div class="text w-100">
 								<h2>Bienvenue</h2>
 								<p>Pas encore de compte ?</p>
-								<a href="../inscription/inscription.html" class="btn btn-white btn-outline-white">S'inscrire</a>
+								<a href="/public/inscription" class="btn btn-white btn-outline-white">S'inscrire</a>
 							</div>
 			      </div>
 						<div class="login-wrap p-4 p-lg-5">
@@ -29,16 +29,17 @@ use \App\Config;
 			      			<h3 class="mb-4">Connexion</h3>
 			      		</div>
 			      	</div>
-							<form action="#" class="signin-form">
+							<form action="/public/verification-formulaire-connexion" class="signin-form" method="POST">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">Pseudo</label>
-			      			<input type="text" class="form-control" placeholder="Pseudo" required>
+			      			<input name="nom" type="text" class="form-control" placeholder="Pseudo" required>
 			      		</div>
 		            <div class="form-group mb-3">
 		            	<label class="label" for="password">Mot de passe</label>
-		              <input type="password" class="form-control" placeholder="Mot de passe" required>
+		              <input name="mdp"type="password" class="form-control" placeholder="Mot de passe" required>
 		            </div>
 		            <div class="form-group">
+					
 		            	<button type="submit" class="form-control btn btn-primary submit px-3">Connexion</button>
 						
 		            </div>
