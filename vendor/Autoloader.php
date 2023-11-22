@@ -27,6 +27,7 @@ $paths = [
     '../public/Route/',
     '../app/classes/',
     '../app/Controllers/classesAbstraites/',
+    'config/',
     '../config/',
     '../app/Controllers/Formulaire',
 ];
