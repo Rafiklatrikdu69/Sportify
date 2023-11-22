@@ -56,14 +56,96 @@ header>a:first-child{
     color: black;
 }
 
+main{
+    margin-top: 5%;
+    display: grid;
+    /* Add space between the cards */
+    grid-gap: 2%;
+}
+
 #prono{
-    background-color: #69dac2;
+    /* changer la couleur pour montrer qu'on est sure cette page */
+    background-color: #00838d;
     color: black;
     margin-left: 10%;
     margin-right: 10%;
 }
 
-/* CSS Relatif au corps */
+header>a:hover, div>a:hover{
+    background-color: #00838d;
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+
+#prono_ev{
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 70%;
+    max-height: 80%;
+    text-align: center;
+    font-family: arial;
+    margin: auto;
+    border-radius: 5%;
+    transition: 0.3s;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    /* Division a l'interieur de l'event */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1 { grid-area: 1 / 1 / 3 / 2; 
+    display: flex;
+    justify-content: center;
+
+}
+.div2 { grid-area: 1 / 2 / 2 / 4; 
+    /* Allign content on the left of the div */
+    text-align: left;
+}
+.div3 { grid-area: 2 / 2 / 3 / 3; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div4 { grid-area: 2 / 3 / 3 / 4; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p{
+    font-size:25px;
+    margin-bottom:0;
+    padding-top:0;
+    margin: 0;
+}
+
+#prono_ev button{
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 95%;
+    font-size: 18px;
+}
+
+#prono_ev button:hover {
+    opacity: 0.7;
+}
 
 #base{
     display: grid;
@@ -75,5 +157,5 @@ header>a:first-child{
 }
 
 #image_sport{
-    width: 5%;
+    width: 70%;
 }
