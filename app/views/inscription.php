@@ -25,7 +25,7 @@ use \App\Config;
       
       <label>Nom d'utilisateur</label>
      
-      <input type="text" id="user">
+      <input type="text" id="username">
     </div>
 
     <div class="mySlides fade">
@@ -38,7 +38,7 @@ use \App\Config;
     <div class="mySlides fade">
 
       <label>Mot de passe</label>
-      <input type="text" id="mdp">
+      <input type="text" id="password">
 
     </div>
 
