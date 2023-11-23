@@ -16,8 +16,15 @@ class EvenementDAO extends DAO{
     
         public function getAll(){
             $sql = "SELECT * FROM `EVENEMENT`";
+
             $sth = $this->queryAll($sql);
-            return $sth;
+            $tab = [];
+            foreach($sth as $event){
+                $evenement = new Evenement($event[0],$event[1],$event[2],$event[3],$event[4],$event[5],$event[6],$event[7]);
+              
+                $tab[] = $evenement;
+            }
+            return $tab;
         }
     
         public function insertEvenement($data){
