@@ -25,7 +25,7 @@ switch ($request) {
         break;
 
     case '/public/verification-formulaire-inscription':
-        $route->post('/public/verification-formulaire-inscription', [new FormConnexionController(), 'verification']);
+        $route->post('/public/verification-formulaire-inscription', [new FormInscriptionController, 'verification']);
     break;
 
     case '/public/boutique':
@@ -35,12 +35,10 @@ switch ($request) {
     case '/public/pronostique':
         $route->get('/public/pronostique', [new PronoController(), 'index']);
         break;
-
     default:
         // Gestion des erreurs ou redirection par défaut
         break;
 }
-
 
 $route->resolve($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
 ?>

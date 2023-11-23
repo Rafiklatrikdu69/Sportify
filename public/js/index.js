@@ -48,6 +48,7 @@ function checkGen(){
     name_check = checkName()
     if(name_check === false){
       plusSlides(1)
+      alert("Veuillez mettre un pseudo valide")
       console.log("Name is false")
     }
   }
@@ -56,6 +57,7 @@ function checkGen(){
     if(password_check === false){
       plusSlides(1)
       console.log("Password is false")
+      alert("Veuillez mettre un mot de passe valide")
     }
   }
   if(etape === -3){
@@ -63,6 +65,7 @@ function checkGen(){
     if(email_check === false){
       plusSlides(1)
       console.log("Email is false")
+      alert("Veuillez mettre un email valide")
     }
     else{
       checkform()
@@ -88,7 +91,7 @@ function checkform(){
   }
 
   function checkPassword(){
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$/;
     let b = passwordRegex.test(document.getElementById("password").value);
     return b;
   }
