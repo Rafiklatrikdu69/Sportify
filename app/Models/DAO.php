@@ -63,7 +63,7 @@ abstract class DAO
   public function insert($sql){
     try{
       $pdostmt = $this->_requete($sql, null);
-      $res = $pdostmt->rowCount();
+     
       $pdostmt->closeCursor();
     }
     catch(PDOException $e)
@@ -73,7 +73,7 @@ abstract class DAO
           $this->_erreur = 'insert';
       $res = false;
     }
-    return $res;
+    
   }
 
   public function delete($sql){
