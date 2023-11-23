@@ -40,7 +40,7 @@ use \App\Config;
     </aside>
     <main>
             <!--TODO: Millieu de page a actualiser avec BD -->
-    
+            <?php echo traitement_prono(); ?>
     </main>
     <aside>
         <input type="text" placeholder="Rechercher">
@@ -52,7 +52,38 @@ use \App\Config;
 <script src="../../public/js/prono.js"></script>
 
 
+<?php
 
+function traitement_prono(){
+    //Utiliser getAll() de EvenementDAO
+    $evenementDAO = new EvenementDAO();
+    $evenements = $evenementDAO->getAll();
+    $html = "";
+    foreach($evenements as $evenement){
+        $html .= "<section id='prono_ev'>
+        <div class='div1'>
+            <img src='../../public/images/football.svg' id='image_sport'>
+        </div>
+        <div class='div2'>
+            <p>" .$evenement["EQUIPE_DOMICILE"]. " - " .$evenement["EQUIPE_EXTERIEUR"]. "</p>
+            <p>" .$evenement["NOM_EVENEMENT"]. "</p>
+            <p>" .$evenement["CAT_SPORT"]. "</p>
+            <p>" .$evenement["DATE_EVENEMENT"]. "</p>
+        </div>
+        <div class='div3'>
+            <button>" .$evenement["COTE_DOMICILE"]. "</button>
+        </div>
+        <div class='div4'>
+            <button>" .$evenement["COTE_EXTERIEUR"]. "</button>
+        </div>
+    
+    </section>";
+    }
+    return $html;
+}
+
+
+?>
 <!-- Paterne a intégrer dans le main 
 
 <section id="prono_ev">
