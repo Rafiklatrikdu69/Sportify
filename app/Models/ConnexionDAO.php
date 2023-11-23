@@ -8,11 +8,12 @@ class ConnexionDAO extends DAO{
         'mail'=>$mdp));
         if($res){   
             echo "utilisateur present";
+            /* TODO : Insertion des données dans la session */
             $user = new Utilisateur($res['id'],$res[''],$res[''],$res['']);
             return $user;
         }
         else{
-            echo "Utilisateur pas present";
+            echo "Utilisateur inconnue";
             
         }
     }
