@@ -22,25 +22,35 @@ use \App\Config;
         <a id="deconnexion" href="">Déconnexion</a>
     </header>
     <div id="base">
-    <aside>
-        <button> Actualité</button>
         <aside id="categorie">
             <form>
                 <fieldset>
-                    <legend>Catégories</legend>
-                    <input type="checkbox" name="categorie" value="foot">Football<br>
-                    <input type="checkbox" name="categorie" value="basketball">Basketball<br>
-                    <input type="checkbox" name="categorie" value="rugby">Rugby<br>
-                    <input type="checkbox" name="categorie" value="boxe">Boxe<br>
-                    <input type="checkbox" name="categorie" value="tennis">Tennis<br>
-                    <input type="submit" value="Filtrer">
+                    <legend>Filtres</legend>
+                    <legend>Types d'item</legend>
+                    <input type="radio" name="categorie" value="icone">Icône<br>
+                    <input type="radio" name="categorie" value="fond">Fond<br>
+                    <input type="radio" name="categorie" value="badges">Badges<br>
+                    <input type="radio" name="categorie" value="badges">Style nom<br>
+                    <legend>Couleur</legend>
+                    <select id="couleur">
+                        <option value="">Aucune</option>
+                        <option value="dog">Rouge</option>
+                        <option value="cat">Vert</option>
+                        <option value="hamster">Bleu</option>
+                        <option value="parrot">Noir</option>
+                        <option value="spider">Blanc</option>
+                    </select>
+                    <br>
+                    <legend>Disponibilité</legend>
+                    <input type="radio" name="dispo" value="possédé">Possédé<br>
+                    <input type="radio" name="dispo" value="possédé">Non possédé<br>
+                       
                 </fieldset>
             </form>
         </aside>
-    </aside>
-    <main>
+        <main>
             <!--TODO: Millieu de page a actualiser avec BD -->
-    <?php 
+        <?php 
              foreach($tableau as $evenement){?>
 <section id='prono_ev'>
          <div class='div1'>
@@ -64,11 +74,11 @@ use \App\Config;
             <?php }?>
             
     </main>
-    <aside>
+    <aside id="profil">
         <input type="text" placeholder="Rechercher">
         <a>100 Sporticoin</a>
     </aside>
-</div>
+    </div>
 </body>
 </html>
 <script src="../../public/js/prono.js"></script>
