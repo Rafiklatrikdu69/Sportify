@@ -17,7 +17,7 @@ use \App\Config;
     <div id="title">Sportify</div>
   </div>
 
- <form  action="" method="post" id="my_form" class="forms"> 
+ <form  action="/public/verification" method="post" id="my_form" class="forms"> 
   <div class="slideshow-container">
 
     <div class="mySlides fade">
