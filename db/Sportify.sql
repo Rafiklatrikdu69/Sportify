@@ -40,10 +40,10 @@ CREATE TABLE `ADMINISTRATEUR` (
 CREATE TABLE `EVENEMENT` (
   `EVENEMENT_ID` int NOT NULL,
   `ADMIN_ID` int NOT NULL,
-  `NOM_EVENEMENT` varchar(255) NOT NULL,
-  `LIEU_EVENEMENT` varchar(255) NOT NULL,
+  `NOM_EVENEMENT` varchar(25) NOT NULL,
+  `LIEU_EVENEMENT` varchar(25) NOT NULL,
   `DATE_EVENEMENT` date NOT NULL,
-  `DESCRIPTION_EVENT` varchar(255) DEFAULT ' ',
+  `DESCRIPTION_EVENT` varchar(25) DEFAULT ' ',
   `DUREE` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -55,8 +55,8 @@ CREATE TABLE `EVENEMENT` (
 
 CREATE TABLE `MATCHS` (
   `MATCH_ID` int NOT NULL,
-  `EQUIPE_DOMICILE` varchar(255) NOT NULL,
-  `EQUIPE_EXTERIEUR` varchar(255) NOT NULL
+  `EQUIPE_DOMICILE` varchar(25) NOT NULL,
+  `EQUIPE_EXTERIEUR` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -68,8 +68,8 @@ CREATE TABLE `MATCHS` (
 CREATE TABLE `POST` (
   `POST_ID` int NOT NULL,
   `AUTEUR_ID` int NOT NULL,
-  `NOM_TOPIC` varchar(255) NOT NULL,
-  `DESCRIPTION_POST` varchar(255) DEFAULT ' ',
+  `NOM_TOPIC` varchar(25) NOT NULL,
+  `DESCRIPTION_POST` varchar(25) DEFAULT ' ',
   `NB_LIKE` int DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -87,7 +87,7 @@ CREATE TABLE `PRONOSTIC` (
   `PRONOSTIQUE_EQUIPE_PERDANTE` int NOT NULL,
   `DATE_PRONO` date NOT NULL,
   `MISE` int DEFAULT '0',
-  `STATUS` varchar(255) NOT NULL
+  `STATUS` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -109,14 +109,15 @@ CREATE TABLE `USER_ADMIN` (
 
 CREATE TABLE `UTILISATEUR` (
   `UTILISATEUR_ID` int NOT NULL,
-  `PSEUDO` varchar(255) NOT NULL,
-  `EMAIL` varchar(255) NOT NULL,
+  `PSEUDO` varchar(25) NOT NULL,
+  `EMAIL` varchar(25) NOT NULL,
+  `MOT_DE_PASSE` varchar(25) NOT NULL,
   `POINT_ACTUEL` int DEFAULT '0',
   `POINT_CLASSEMENT` int DEFAULT '0',
-  `STATUS` varchar(255) NOT NULL,
+  `STATUS` int DEFAULT 0,
   `SCORE_JEU` int DEFAULT '0',
-  `NB_POST` int DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 --
 -- Index pour les tables déchargées
