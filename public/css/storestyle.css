@@ -7,6 +7,7 @@
 
 *{
     font-family: futura;
+    transition: 0.3s;
 }
 body{
     margin: 0;
@@ -168,13 +169,13 @@ legend:nth-of-type(4){
   height: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
-  pointer-events: none; /* Remove pointer events on Bubble so user can click on the actual thumb beaneath it!  */
+  pointer-events: none; 
   color: transparent;
   display: grid;
-  place-items: center; /*  Place the number on the center  */
+  place-items: center; 
   font-weight: bold;
   transition: color 100ms ease, transform 100ms ease;
-  user-select: none; /*  Prevent Accidentally highlighting the number while sliding the cursor  */
+  user-select: none;
 }
 
 .range-wrap:hover .bubble,
@@ -248,7 +249,7 @@ legend:nth-of-type(4){
   
   .card img {
     width: 30%;
-    height: 30%;
+    height: 27%;
     border-radius: 5%;
   }
 
@@ -261,8 +262,6 @@ legend:nth-of-type(4){
     color: white;
 
   }
-  
-
   
   .card button {
     border: none;
@@ -286,55 +285,92 @@ legend:nth-of-type(4){
   }
   
 
-  * {
-    transition : 0.3s; 
-  }
+
+
+
 
 
 /* aside droit/options */
 #profil {
     position: fixed;
-    top: 15%; /* Ajustez cette valeur en fonction de la disposition souhaitée */
-    right: 1%; /* Ajustez cette valeur pour le décalage par rapport à la droite */
+    top: 9.5%; 
+    right: 1%; 
     display: grid;
+    grid-area:  1/4/5/5;
     grid-template: 1fr 10fr / 1fr;
     color: black;
     padding: 2%;
-    border-radius: 4px;
-    width: 20%; /* Ajustez la largeur selon vos préférences */
-    /* z-index: 1000; /* Assure que l'élément est au-dessus des autres contenus */
-} */
-
-#profil div:first-child{
-    background-color: #FFEBD3;
-    color: black;
-    grid-area: 1/1/2/2;
-    width: 90%;
-    text-align: center;
-    height: 50%;
-    border-radius: 4px;
-    font-weight: bold;
-    margin-left: 10%;
+}
+#profil div:first-child {
+  display: grid;
+  grid-area: 1/1/2/2;
+  text-align: center;
+  background-color: #FFEBD3;
+  color: black;
+  border-radius: 4px;
+  margin-bottom: 20%;
 }
 
 /* 2eme div, soit le aside des options */
 #profil div:last-child {
-    display: grid;
-    grid-area: 2/1/2/3;
-    grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr;
-    background-color: #FFEBD3;
-    color: black;
-    grid-area: 2/1/6/2;
-    text-align: center;
-    border-radius: 4px;
-    font-weight: bold;
-    margin-left: 10%;
-    margin-right: 1%;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFEBD3;
+  color: black;
+  grid-area: 2/1/6/2;
+  text-align: center;
+  border-radius: 4px;
+  height: 50%;
+  outline-offset: 10px;
+  outline: 10px solid #FFEBD3;
+
 }
 
 #profil div:last-child img{
   grid-area: 1/1/2/2;
-  width: 80%;
+  width: 40%;
   margin-bottom: 10%;
   border-radius: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  outline: 4px solid #40A798;
 }
+
+#profil div:last-child p:nth-of-type(1){
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+#profil div:last-child p:nth-of-type(2){
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+#profil div:last-child p:nth-of-type(3){
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+#profil div:last-child p:nth-of-type(4){
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+#profil div:last-child p:nth-of-type(5){
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+#profil div:last-child p:nth-of-type(6){
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+

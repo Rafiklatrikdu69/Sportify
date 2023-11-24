@@ -54,7 +54,7 @@ use \App\Config;
 
         <section id="articles">
             <div class="card">
-                <img src="images/tshirt.png">
+                <img src="images/logo.png">
                 <h1>T-shirt Fornite</h1>
                 <p class="price">120 points</p>
                 <p>Le skin t-shirt plus apprécié des utilisateurs</p>
@@ -62,7 +62,7 @@ use \App\Config;
             </div> 
 
             <div class="card">
-                <img src="images/tshirt.png">
+                <img src="images/logo.png">
                 <h1>T-shirt Fornite</h1>
                 <p class="price">120 points</p>
                 <p>Le skin t-shirt plus apprécié des utilisateurs</p>
@@ -70,7 +70,7 @@ use \App\Config;
             </div> 
 
             <div class="card">
-                <img src="images/tshirt.png">
+                <img src="images/logo.png">
                 <h1>T-shirt Fornite</h1>
                 <p class="price">120 points</p>
                 <p>Le skin t-shirt plus apprécié des utilisateurs</p>
@@ -78,7 +78,7 @@ use \App\Config;
             </div> 
 
             <div class="card">
-                <img src="images/tshirt.png">
+                <img src="images/logo.png">
                 <h1>T-shirt Fornite</h1>
                 <p class="price">120 points</p>
                 <p>Le skin t-shirt plus apprécié des utilisateurs</p>
@@ -91,7 +91,7 @@ use \App\Config;
                 <p>120 Sportycoins</p>
             </div>
             <div>
-                <img src="images/tshirt.png">
+                <img src="images/logo.png">
                 <p>Pseudo</p>
                 <p>Classement</p>
                 <p>Prono réussi</p>
