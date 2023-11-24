@@ -117,10 +117,12 @@ CREATE TABLE `UTILISATEUR` (
   `POINT_CLASSEMENT` int DEFAULT '0',
   `STATUS` int DEFAULT 0,
   `SCORE_JEU` int DEFAULT '0'
-
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
--- --------------------------------------------------------
 
+
+--
+-- Index pour les tables déchargées
+--
 --
 -- Structure de la table `ITEMS`
 --
@@ -134,12 +136,6 @@ CREATE TABLE `ITEMS` (
   `COULEUR` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `INVENTAIRE`
---
-
 CREATE TABLE `INVENTAIRE` (
   `INVENTAIRE_ID` int NOT NULL,
   `UTILISATEUR_ID` int NOT NULL,
@@ -147,9 +143,6 @@ CREATE TABLE `INVENTAIRE` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
---
--- Index pour les tables déchargées
---
 
 --
 -- Index pour la table `ADMINISTRATEUR`
@@ -199,23 +192,18 @@ ALTER TABLE `UTILISATEUR`
   ADD UNIQUE KEY `U_E` (`EMAIL`);
 
 --
+-- Contraintes pour les tables déchargées
+--
 -- Index pour la table `ITEMS`
 --
 ALTER TABLE `ITEMS`
   ADD PRIMARY KEY (`ITEM_ID`);
-
---
--- Index pour la table `INVENTAIRE`
---
 ALTER TABLE `INVENTAIRE`
   ADD PRIMARY KEY (`INVENTAIRE_ID`),
   ADD KEY `FK_UTILISATEUR` (`UTILISATEUR_ID`),
   ADD KEY `FK_ITEM` (`ITEM_ID`);
 
 
---
--- Contraintes pour les tables déchargées
---
 
 --
 -- Contraintes pour la table `EVENEMENT`
@@ -241,16 +229,10 @@ ALTER TABLE `USER_ADMIN`
   ADD CONSTRAINT `FK_ADMIN` FOREIGN KEY (`ADMIN_ID`) REFERENCES `ADMINISTRATEUR` (`ADMIN_ID`),
   ADD CONSTRAINT `FK_USER` FOREIGN KEY (`USER_ID`) REFERENCES `UTILISATEUR` (`UTILISATEUR_ID`);
 COMMIT;
-
---
--- Contraintes pour la table `INVENTAIRE`
---
-
 ALTER TABLE `INVENTAIRE`
   ADD CONSTRAINT `FK_UTILISATEUR` FOREIGN KEY (`UTILISATEUR_ID`) REFERENCES `UTILISATEUR` (`UTILISATEUR_ID`),
   ADD CONSTRAINT `FK_ITEM` FOREIGN KEY (`ITEM_ID`) REFERENCES `ITEMS` (`ITEM_ID`);
 COMMIT;
-
 
 
 INSERT INTO EVENEMENT (EVENEMENT_ID, NOM_EVENEMENT, DATE_EVENEMENT, EQUIPE_DOMICILE, EQUIPE_EXTERIEUR, COTE_DOMICILE, COTE_EXTERIEUR, CAT_SPORT) VALUES (1, 'LIGUE 1', '2023-11-21', 'PSG', 'OM', 1.5, 2.5, 'Football');
@@ -259,18 +241,6 @@ INSERT INTO EVENEMENT (EVENEMENT_ID, NOM_EVENEMENT, DATE_EVENEMENT, EQUIPE_DOMIC
 INSERT INTO EVENEMENT (EVENEMENT_ID, NOM_EVENEMENT, DATE_EVENEMENT, EQUIPE_DOMICILE, EQUIPE_EXTERIEUR, COTE_DOMICILE, COTE_EXTERIEUR, CAT_SPORT) VALUES (4, 'LIGA', '2023-12-21', 'ATLETICO MADRID', 'SEVILLE', 1.5, 2.5, 'Football');
 
 INSERT INTO EVENEMENT (EVENEMENT_ID, NOM_EVENEMENT, DATE_EVENEMENT, EQUIPE_DOMICILE, EQUIPE_EXTERIEUR, COTE_DOMICILE, COTE_EXTERIEUR, CAT_SPORT) VALUES (2, 'LIGA', '2023-11-21', 'BARCELONE', 'REAL MADRID', 1.5, 2.5, 'Football');
-
--- Insérer un utilisateur avec des valeurs spécifiques
-INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`, `POINT_ACTUEL`, `POINT_CLASSEMENT`, `STATUS`, `SCORE_JEU`)
-VALUES (1, 'Utilisateur1', 'utilisateur1@email.com', 'motdepasse1', 100, 50, 1, 500);
-
--- Insérer un autre utilisateur
-INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`, `POINT_ACTUEL`, `POINT_CLASSEMENT`, `STATUS`, `SCORE_JEU`)
-VALUES (2, 'Utilisateur2', 'utilisateur2@email.com', 'motdepasse2', 150, 75, 1, 700);
-
--- Insérer un utilisateur avec des valeurs par défaut
-INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`)
-VALUES (3, 'Utilisateur3', 'utilisateur3@email.com', 'motdepasse3');
 
 
 /*test insertion 6 items différents*/
