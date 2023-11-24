@@ -1,47 +1,88 @@
 <?php
 
-class Utilisateur{
-    private $id;
-    private $nom;
-    private $prenom;
+class Utilisateur {
+    private $utilisateur_id;
+    private $pseudo;
     private $email;
-    private $mdp;
-    function __construct($id, $nom, $prenom, $email, $mdp) {
-        $this->id = $id;
-        $this->nom = $nom;
-        $this->prenom = $prenom;
+    private $mot_de_passe;
+    private $point_actuel;
+    private $point_classement;
+    private $status;
+    private $score_jeu;
+
+    function __construct($id, $pseudo, $email, $motDePasse, $pointActuel, $pointClassement, $status, $scoreJeu) {
+        $this->utilisateur_id = $id;
+        $this->pseudo = $pseudo;
         $this->email = $email;
-        $this->mdp = $mdp;
+        $this->mot_de_passe = $motDePasse;
+        $this->point_actuel = $pointActuel;
+        $this->point_classement = $pointClassement;
+        $this->status = $status;
+        $this->score_jeu = $scoreJeu;
     }
-    function getId() {
-        return $this->id;
+
+    function getUtilisateurId() {
+        return $this->utilisateur_id;
     }
-    function setId($id) {
-        $this->id = $id;
+
+    function setUtilisateurId($id) {
+        $this->utilisateur_id = $id;
     }
-    function getNom() {
-        return $this->nom;
+
+    function getPseudo() {
+        return $this->pseudo;
     }
-    function setNom($nom) {
-        $this->nom = $nom;
+
+    function setPseudo($pseudo) {
+        $this->pseudo = $pseudo;
     }
-    function getPrenom() {
-        return $this->prenom;
-    }
-    function setPrenom($prenom) {
-        $this->prenom = $prenom;
-    }
+
     function getEmail() {
         return $this->email;
     }
+
     function setEmail($email) {
         $this->email = $email;
     }
-    function getMdp() {
-        return $this->mdp;
+
+    function getMotDePasse() {
+        return $this->mot_de_passe;
     }
-    function setMdp($mdp) {
-        $this->mdp = $mdp;
+
+    function setMotDePasse($motDePasse) {
+        $this->mot_de_passe = $motDePasse;
     }
-    
+
+    function getPointActuel() {
+        return $this->point_actuel;
+    }
+
+    function setPointActuel($pointActuel) {
+        $this->point_actuel = $pointActuel;
+    }
+
+    function getPointClassement() {
+        return $this->point_classement;
+    }
+
+    function setPointClassement($pointClassement) {
+        $this->point_classement = $pointClassement;
+    }
+
+    function getStatus() {
+        return $this->status;
+    }
+
+    function setStatus($status) {
+        $this->status = $status;
+    }
+
+    function getScoreJeu() {
+        return $this->score_jeu;
+    }
+
+    function setScoreJeu($scoreJeu) {
+        $this->score_jeu = $scoreJeu;
+    }
 }
+?>
