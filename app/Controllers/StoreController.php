@@ -4,14 +4,10 @@
 
 class StoreController  extends Controllers
 {
-   
    public function index()
    {
-      
-      View::View('boutique',['name'=>'']);
-      
+      View::View('boutique',['tabItems'=>(new ItemsDAO())->getAll()]);
    }
-   
 }
 
 

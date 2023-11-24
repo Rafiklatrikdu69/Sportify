@@ -53,37 +53,27 @@ use \App\Config;
         </aside>
 
         <section id="articles">
-            <div class="card">
-                <img src="images/logo.png">
-                <h1>T-shirt Fornite</h1>
-                <p class="price">120 points</p>
-                <p>Le skin t-shirt plus apprécié des utilisateurs</p>
-                <p><button>Acheter</button></p>
-            </div> 
 
+        <?php
+            foreach($tabItems as $item){?>
             <div class="card">
                 <img src="images/logo.png">
-                <h1>T-shirt Fornite</h1>
-                <p class="price">120 points</p>
-                <p>Le skin t-shirt plus apprécié des utilisateurs</p>
+                <h1><?php echo $item->getName()?></h1>
+                <p class="price"><?php echo $item->getPrice()?> points</p>
+                <p><?php echo $item->getDescription()?></p>
                 <p><button>Acheter</button></p>
-            </div> 
+            </div>
+            <?php }?>
 
-            <div class="card">
+            <!-- <div class="card">
                 <img src="images/logo.png">
                 <h1>T-shirt Fornite</h1>
                 <p class="price">120 points</p>
                 <p>Le skin t-shirt plus apprécié des utilisateurs</p>
                 <p><button>Acheter</button></p>
-            </div> 
+            </div>  -->
 
-            <div class="card">
-                <img src="images/logo.png">
-                <h1>T-shirt Fornite</h1>
-                <p class="price">120 points</p>
-                <p>Le skin t-shirt plus apprécié des utilisateurs</p>
-                <p><button>Acheter</button></p>
-            </div> 
+            
         </section>
         
         <aside id="profil">
@@ -102,3 +92,7 @@ use \App\Config;
     </section>
     <script src="../../public/js/store.js"></script>
 </body>
+
+
+
+
