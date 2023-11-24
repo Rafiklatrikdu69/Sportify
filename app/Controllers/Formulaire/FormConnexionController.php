@@ -2,14 +2,20 @@
 
 class FormConnexionController extends DefaultFormController{
     public function verification(){
+        ob_start();
         if(!empty($_POST['nom'])&& !empty($_POST['mdp'])){
-            
+            echo "osfd";
             $nom =   Validate::html($_POST['nom']);
             $mdp =  Validate::html($_POST['mdp']);
+            echo $mdp;
+           
             $select =  (new UtilisateurDAO())->select($nom,$mdp);
             
+            if($select){Redirect::redirect('/public/pronostique');}
+             else{Redirect::redirect('/public/connexion');}
         }else{
             Redirect::redirect('/public/connexion');
         }
+        ob_end_clean();
     }
 }

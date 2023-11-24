@@ -2,25 +2,34 @@
 
 
 class UtilisateurDAO extends DAO{
-    public function select($nom,$mdp){
-        $sql = "SELECT * from `UTILISATEUR` where PSEUDO like :pseudo and MOT_DE_PASSE like :mdp";
-        $res=  $this->queryRow($sql,array('pseudo'=>$nom,
-        'mdp'=>$mdp));
+    public function select($nom, $mdp) {
+        $sql = "SELECT * FROM `UTILISATEUR` WHERE PSEUDO LIKE :pseudo";
+        $res = $this->queryRow($sql, array('pseudo' => $nom));
+    
         $bool = FALSE;
-        if($res){   
-            echo "utilisateur present";
-            
-            $bool = TRUE;
-        }
-        else{
+    
+        if ($res) {
+            // Mot de passe stocké dans la base de données
+            $motDePasseBD = $res['MOT_DE_PASSE'];
+            echo "BD : ". $motDePasseBD."<br>";
+            echo "mdp : ".$mdp;
            
+            if (password_verify($mdp, $motDePasseBD)) {
             
-            echo "Utilisateur inconnue";
-            
+                echo "Utilisateur présent";
+                $bool = TRUE;
+            } else {
+               
+                echo "Mot de passe incorrect";
+            }
+        } else {
+           
+            echo "Utilisateur inconnu";
         }
+    
         return $bool;
-        
     }
+    
     public function insertUtilisateur($utilisateur) {
         $sql = "INSERT INTO `UTILISATEUR` (`PSEUDO`, `EMAIL`, `MOT_DE_PASSE`, `POINT_ACTUEL`, `POINT_CLASSEMENT`, `STATUS`, `SCORE_JEU`) VALUES 
         (:pseudo, :mail, :mdp, :point_actuel, :points_classement, :statut, :score_jeu)";

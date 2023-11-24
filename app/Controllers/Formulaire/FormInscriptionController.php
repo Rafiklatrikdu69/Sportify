@@ -9,12 +9,15 @@ class FormInscriptionController extends DefaultFormController{
             $email =  Validate::html($_POST['email']);
             $mdp =  Validate::html($_POST['password']);
             echo $nom . $email . $mdp;
-            $select =  (new UtilisateurDAO())->selectInscription($nom,$mdp,$email);
+            $pass_protect = password_hash($mdp, PASSWORD_DEFAULT);
+           
+            $select =  (new UtilisateurDAO())->selectInscription($nom,$pass_protect,$email);
             if(!$select){
-                $utilisateur = new Utilisateur(0,$nom,$email,$mdp,0,0,0,0);
+                $utilisateur = new Utilisateur(0,$nom,$email,$pass_protect,0,0,0,0);
                 (new UtilisateurDAO())->insertUtilisateur($utilisateur);
+                echo "insert reussi !";
             }
-            echo "insert reussi !";
+          
         }else{
             Redirect::redirect('/public/connexion');
         }
