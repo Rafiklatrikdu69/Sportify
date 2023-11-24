@@ -11,7 +11,8 @@ use \App\Config;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sportify</title>
     <link rel="stylesheet" href="../../public/css/pronostique_style.css">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
 </head>
 <body>
     <header>
@@ -49,6 +50,7 @@ use \App\Config;
             </form>
         </aside>
         <main>
+        <p> This is another example paragraph. </p> 
             <!--TODO: Millieu de page a actualiser avec BD -->
         <?php 
              foreach($tableau as $evenement){?>
@@ -63,7 +65,7 @@ use \App\Config;
              <p><?php  echo $evenement->getDate_evenement() ?></p>
          </div>
          <div class='div3'>
-             <button id="cote_dom" class="openModal" onclick="alert(this.parentNode.getElementsByTagName('div')[1].getElementsByTagName('p')[1];)"><?php  echo $evenement->getCote_domicile() ?></button>
+             <button id="cote_dom" class="openModal" ><?php  echo $evenement->getCote_domicile() ?><a></a></button>
          </div>
          <div class='div4'>
              <button id="cote_ext" class="openModal"><?php  echo $evenement->getCote_exterieur() ?></button>
@@ -72,7 +74,15 @@ use \App\Config;
     </section>
 
             <?php }?>
-            
+            <script>  
+            var para = document.getElementsByTagName('p')[0]; 
+            para.id = 'example2';
+            $(document).ready(function() {
+            $(".openModal").on("click", function() {
+                console.log($(this).attr("id"));
+            });
+            });
+  </script>
     </main>
     <aside id="profil">
         <input type="text" placeholder="Rechercher">

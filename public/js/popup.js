@@ -3,13 +3,6 @@ const closeBtn = document.getElementById("closeModal");
 const modal = document.getElementById("modal");
 
 
-for (i of openBtn) {
-    i.addEventListener("click",()=>{
-        modal.classList.add("open");
-    });
-  }
-
-
-closeBtn.addEventListener("click",()=>{
-    modal.classList.remove("open")
-})
+window.addEventListener('popstate', function(){
+    console.log("User clicked the browser buttons popstate");
+});
