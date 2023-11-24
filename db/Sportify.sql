@@ -186,10 +186,7 @@ ALTER TABLE `USER_ADMIN`
 --
 -- Index pour la table `UTILISATEUR`
 --
-ALTER TABLE `UTILISATEUR`
-  ADD PRIMARY KEY (`UTILISATEUR_ID`),
-  ADD UNIQUE KEY `U_PS` (`PSEUDO`),
-  ADD UNIQUE KEY `U_E` (`EMAIL`);
+
 
 --
 -- Contraintes pour les tables déchargées
