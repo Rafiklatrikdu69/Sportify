@@ -110,17 +110,19 @@ CREATE TABLE `USER_ADMIN` (
 
 CREATE TABLE `UTILISATEUR` (
   `UTILISATEUR_ID` int NOT NULL,
-  `PSEUDO` varchar(25) NOT NULL,
-  `EMAIL` varchar(25) NOT NULL,
-  `MOT_DE_PASSE` varchar(25) NOT NULL,
+  `PSEUDO` varchar(50) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL,
+  `MOT_DE_PASSE` varchar(150) NOT NULL,
   `POINT_ACTUEL` int DEFAULT '0',
   `POINT_CLASSEMENT` int DEFAULT '0',
   `STATUS` int DEFAULT 0,
   `SCORE_JEU` int DEFAULT '0'
-
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
--- --------------------------------------------------------
 
+
+--
+-- Index pour les tables déchargées
+--
 --
 -- Structure de la table `ITEMS`
 --
@@ -134,12 +136,6 @@ CREATE TABLE `ITEMS` (
   `COULEUR` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `INVENTAIRE`
---
-
 CREATE TABLE `INVENTAIRE` (
   `INVENTAIRE_ID` int NOT NULL,
   `UTILISATEUR_ID` int NOT NULL,
@@ -147,9 +143,6 @@ CREATE TABLE `INVENTAIRE` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
---
--- Index pour les tables déchargées
---
 
 --
 -- Index pour la table `ADMINISTRATEUR`
@@ -199,23 +192,18 @@ ALTER TABLE `UTILISATEUR`
   ADD UNIQUE KEY `U_E` (`EMAIL`);
 
 --
+-- Contraintes pour les tables déchargées
+--
 -- Index pour la table `ITEMS`
 --
 ALTER TABLE `ITEMS`
   ADD PRIMARY KEY (`ITEM_ID`);
-
---
--- Index pour la table `INVENTAIRE`
---
 ALTER TABLE `INVENTAIRE`
   ADD PRIMARY KEY (`INVENTAIRE_ID`),
   ADD KEY `FK_UTILISATEUR` (`UTILISATEUR_ID`),
   ADD KEY `FK_ITEM` (`ITEM_ID`);
 
 
---
--- Contraintes pour les tables déchargées
---
 
 --
 -- Contraintes pour la table `EVENEMENT`
@@ -241,16 +229,10 @@ ALTER TABLE `USER_ADMIN`
   ADD CONSTRAINT `FK_ADMIN` FOREIGN KEY (`ADMIN_ID`) REFERENCES `ADMINISTRATEUR` (`ADMIN_ID`),
   ADD CONSTRAINT `FK_USER` FOREIGN KEY (`USER_ID`) REFERENCES `UTILISATEUR` (`UTILISATEUR_ID`);
 COMMIT;
-
---
--- Contraintes pour la table `INVENTAIRE`
---
-
 ALTER TABLE `INVENTAIRE`
   ADD CONSTRAINT `FK_UTILISATEUR` FOREIGN KEY (`UTILISATEUR_ID`) REFERENCES `UTILISATEUR` (`UTILISATEUR_ID`),
   ADD CONSTRAINT `FK_ITEM` FOREIGN KEY (`ITEM_ID`) REFERENCES `ITEMS` (`ITEM_ID`);
 COMMIT;
-
 
 
 INSERT INTO EVENEMENT (EVENEMENT_ID, NOM_EVENEMENT, DATE_EVENEMENT, EQUIPE_DOMICILE, EQUIPE_EXTERIEUR, COTE_DOMICILE, COTE_EXTERIEUR, CAT_SPORT) VALUES (1, 'LIGUE 1', '2023-11-21', 'PSG', 'OM', 1.5, 2.5, 'Football');
