@@ -81,7 +81,7 @@ header>a:hover, div>a:hover{
 }
 
 
-#prono_ev{
+.prono_ev{
     color: black;
     margin-left: 10%;
     margin-right: 10%;
@@ -136,7 +136,7 @@ p{
     margin: 0;
 }
 
-#prono_ev button{
+.prono_ev button{
     border: none;
     outline: 0;
     padding: 12px;
@@ -148,7 +148,7 @@ p{
     font-size: 18px;
 }
 
-#prono_ev button:hover {
+.prono_ev button:hover {
     opacity: 0.7;
 }
 

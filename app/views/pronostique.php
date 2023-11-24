@@ -52,7 +52,7 @@ use \App\Config;
             <!--TODO: Millieu de page a actualiser avec BD -->
         <?php 
              foreach($tableau as $evenement){?>
-<section id='prono_ev'>
+<section class='prono_ev' id='p<?php echo $evenement->getId()?>'>
          <div class='div1'>
              <img src='../../public/images/football.svg' id='image_sport'>
          </div>
@@ -78,6 +78,19 @@ use \App\Config;
         <input type="text" placeholder="Rechercher">
         <a>100 Sporticoin</a>
     </aside>
+    </div>
+    <div class="modal id="modal">
+        <div class="modal-inner">
+                <h2>Confirmation</h2>
+                <p>Êtes-vous sûr de vouloir parier sur ce match ?</p>
+                <form>
+                    <input type="number" name="mise" id="mise" placeholder="0">
+                    <input type="submit" value="Valider">
+                </form>
+                <button id="closeModal">Annuler</button>
+        </div>
+    </div>
+                
     </div>
 </body>
 </html>
