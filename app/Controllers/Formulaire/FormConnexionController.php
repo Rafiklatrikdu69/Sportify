@@ -7,7 +7,7 @@ class FormConnexionController extends DefaultFormController{
             $nom =   Validate::html($_POST['nom']);
             $mdp =  Validate::html($_POST['mdp']);
             $select =  (new UtilisateurDAO())->select($nom,$mdp);
-       
+            
         }else{
             Redirect::redirect('/public/connexion');
         }
