@@ -60,9 +60,9 @@ abstract class DAO
     return $res;
   }
 
-  public function insert($sql){
+  public function insert($sql,$args =null){
     try{
-      $pdostmt = $this->_requete($sql, null);
+      $pdostmt = $this->_requete($sql, $args);
      
       $pdostmt->closeCursor();
     }
