@@ -57,16 +57,16 @@ use \App\Config;
              <img src='../../public/images/football.svg' id='image_sport'>
          </div>
          <div class='div2'>
-             <p><?php  echo $evenement["EQUIPE_DOMICILE"]. " - " .$evenement["EQUIPE_EXTERIEUR"] ?></p>
-             <p><?php echo $evenement["NOM_EVENEMENT"] ?></p>
-             <p><?php echo $evenement["CAT_SPORT"]?></p>
-             <p><?php  echo $evenement["DATE_EVENEMENT"]?></p>
+             <p><?php  echo $evenement->getEquipe_domicile() ." - " .$evenement->getEquipe_exterieur() ?></p>
+             <p><?php echo $evenement->getNomEvenement()?></p>
+             <p><?php echo $evenement->getCatSport()?></p>
+             <p><?php  echo $evenement->getDate_evenement() ?></p>
          </div>
          <div class='div3'>
-             <button><?php  echo $evenement["COTE_DOMICILE"] ?></button>
+             <button><?php  echo $evenement->getCote_domicile() ?></button>
          </div>
          <div class='div4'>
-             <button><?php  echo $evenement["COTE_EXTERIEUR"]?></button>
+             <button><?php  echo $evenement->getCote_exterieur() ?></button>
         </div>
     
     </section>
