@@ -63,10 +63,10 @@ use \App\Config;
              <p><?php  echo $evenement->getDate_evenement() ?></p>
          </div>
          <div class='div3'>
-             <button><?php  echo $evenement->getCote_domicile() ?></button>
+             <button id="cote_dom" class="openModal" onclick="alert(this.parentNode.getElementsByTagName('div')[1].getElementsByTagName('p')[1];)"><?php  echo $evenement->getCote_domicile() ?></button>
          </div>
          <div class='div4'>
-             <button><?php  echo $evenement->getCote_exterieur() ?></button>
+             <button id="cote_ext" class="openModal"><?php  echo $evenement->getCote_exterieur() ?></button>
         </div>
     
     </section>
@@ -79,10 +79,11 @@ use \App\Config;
         <a>100 Sporticoin</a>
     </aside>
     </div>
-    <div class="modal id="modal">
+    <div class="modal" id="modal">
         <div class="modal-inner">
                 <h2>Confirmation</h2>
                 <p>Êtes-vous sûr de vouloir parier sur ce match ?</p>
+                
                 <form>
                     <input type="number" name="mise" id="mise" placeholder="0">
                     <input type="submit" value="Valider">
@@ -95,5 +96,6 @@ use \App\Config;
 </body>
 </html>
 <script src="../../public/js/prono.js"></script>
+<script src="../../public/js/popup.js"></script>
 
 
