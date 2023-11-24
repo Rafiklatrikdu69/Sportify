@@ -81,7 +81,7 @@ header>a:hover, div>a:hover{
 }
 
 
-#prono_ev{
+.prono_ev{
     color: black;
     margin-left: 10%;
     margin-right: 10%;
@@ -136,7 +136,7 @@ p{
     margin: 0;
 }
 
-#prono_ev button{
+.prono_ev button{
     border: none;
     outline: 0;
     padding: 12px;
@@ -148,7 +148,7 @@ p{
     font-size: 18px;
 }
 
-#prono_ev button:hover {
+.prono_ev button:hover {
     opacity: 0.7;
 }
 
@@ -270,4 +270,42 @@ legend:nth-of-type(3){
   color: black;
   transform: translateY(-50%) scale(1.2);
   padding: 0.1em;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0,3s ease-in-out;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.open{
+    opacity: 1;
+    z-index: 999;
+}
+
+.modal-inner{
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    padding: 15px 25px;
+    text-align: center;
+    width: 380px;
+}
+
+.modal-inner h2{
+    margin: 0;
+}
+
+.modal-inner p{
+    line-height: 24px;
+    margin: 10px 0;
 }
