@@ -1,6 +1,6 @@
 <?php
 
-
+require 'DAO.php';
 class EvenementDAO extends DAO{
         public function get($id){
             $sql = "SELECT * FROM Evenement WHERE id = :id";
@@ -24,6 +24,9 @@ class EvenementDAO extends DAO{
                 $tab[] = $evenement;
             }
             return $tab;
+
+
+      
         }
     
         public function insertEvenement($data){
@@ -50,4 +53,20 @@ class EvenementDAO extends DAO{
     
     
         
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            
+    $data = file_get_contents("php://input");
+
+  
+    $prono = json_decode($data, true);
+
+    
+    $resultat = "La mise : " . $prono['mise'];
+
+  
+    echo $resultat;
+   
 }

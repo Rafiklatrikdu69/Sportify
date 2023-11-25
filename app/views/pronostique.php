@@ -14,6 +14,7 @@ use \App\Config;
     
 </head>
 <body>
+<div id="resultat"></div>
     <header>
         <a id="accueil" href="actu.html"><img src="../../public/images/logo.png"></a>
         <a id="actu" href="">Actu</a>

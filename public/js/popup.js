@@ -48,3 +48,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
+
+function Pronostique(pronostiqueur_id, match_id, pronostique_equipe_g, pronostique_equipe_p, date_prono, mise, status) {
+    this.pronostiqueur_id = pronostiqueur_id;
+    this.match_id = match_id;
+    this.pronostique_equipe_g = pronostique_equipe_g;
+    this.pronostique_equipe_p = pronostique_equipe_p;
+    this.date_prono = date_prono;
+    this.mise = mise;
+    this.status = status;
+}
+
+
+var pronostique1 = new Pronostique(1, 123, 'équipeA', 'équipeB', '2023-11-24', 50, 'En cours');
+
+
+// Sélectionner un élément avec l'ID "resultat" (ajustez selon votre structure HTML)
+let resultatElement = document.getElementById("resultat");
+
+fetch("../../app/Models/EvenementDAO.php", {
+    "method": "POST",
+    "headers": {
+        "Content-Type": "application/json; charset=utf-8"
+    },
+    "body": JSON.stringify(pronostique1)
+})
+    .then(function (response) {
+        return response.text();
+    })
+    .then(function (data) {
+        // Mettre à jour le contenu de l'élément avec le résultat
+        resultatElement.textContent = data;
+    })
+    .catch(function (error) {
+        console.error('Erreur lors de la requête :', error);
+    });
