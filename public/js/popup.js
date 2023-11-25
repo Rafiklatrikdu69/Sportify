@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let resultatElement = document.getElementById("resultat");
 
-fetch("../../app/Models/EvenementDAO.php", {
+fetch("../../app/Models/PronostiqueDAO.php", {
     "method": "POST",
     "headers": {
         "Content-Type": "application/json; charset=utf-8"
