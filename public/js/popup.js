@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Ajouter un gestionnaire d'événements pour le formulaire
     pariForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        // Ajouter ici la logique pour soumettre le formulaire si nécessaire
+       // TODO Traiter le formulaire 
     });
 
 
