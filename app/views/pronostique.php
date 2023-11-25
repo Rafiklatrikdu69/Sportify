@@ -63,14 +63,12 @@ use \App\Config;
              <p><?php  echo $evenement->getDate_evenement() ?></p>
          </div>
          <div class='div3'>
-             <button id="cote_dom" class="openModal" onclick="alert(this.parentNode.getElementsByTagName('div')[1].getElementsByTagName('p')[1];)"><?php  echo $evenement->getCote_domicile() ?></button>
+             <button id="<?php  echo $evenement->getCote_domicile(). "+" .$evenement->getId()?>" class="openModal" onclick="reply_click(this.id)"><?php  echo $evenement->getCote_domicile() ?></button>
          </div>
          <div class='div4'>
-             <button id="cote_ext" class="openModal"><?php  echo $evenement->getCote_exterieur() ?></button>
+             <button id="<?php echo $evenement->getCote_exterieur()?>" class="openModal" onclick="reply_click(this.id)"><?php  echo $evenement->getCote_exterieur() ?></button>
         </div>
-    
     </section>
-
             <?php }?>
             
     </main>
@@ -83,11 +81,13 @@ use \App\Config;
         <div class="modal-inner">
                 <h2>Confirmation</h2>
                 <p>Êtes-vous sûr de vouloir parier sur ce match ?</p>
-                
-                <form>
+                <p id="match_joue"></p>
+                <p>Vous avez choisi la cote <span id="cote_joue"></span></p>
+                <form id="pariForm">
                     <input type="number" name="mise" id="mise" placeholder="0">
                     <input type="submit" value="Valider">
                 </form>
+                <p id="gain">Votre gain potentiel est de : </p>
                 <button id="closeModal">Annuler</button>
         </div>
     </div>
@@ -97,5 +97,3 @@ use \App\Config;
 </html>
 <script src="../../public/js/prono.js"></script>
 <script src="../../public/js/popup.js"></script>
-
-
