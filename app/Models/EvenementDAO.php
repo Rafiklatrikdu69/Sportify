@@ -63,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
     $prono = json_decode($data, true);
 
-    
-    $resultat = "La mise : " . $prono['mise'];
+    var_dump($prono);
+    $resultat = "La mise : " . $prono['mise']. "Match prono : ".$prono['match_prono'];
 
   
     echo $resultat;

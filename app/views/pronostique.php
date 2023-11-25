@@ -22,6 +22,8 @@ use \App\Config;
         <a id="boutique" href="">Boutique</a>
         <a id="deconnexion" href="">Déconnexion</a>
     </header>
+    <?php
+    echo $_SESSION['nom'] ;?>
     <div id="base">
         <aside id="categorie">
             <form>
@@ -67,7 +69,7 @@ use \App\Config;
              <button id="<?php  echo $evenement->getCote_domicile(). "+" .$evenement->getId()?>" class="openModal" onclick="reply_click(this.id)"><?php  echo $evenement->getCote_domicile() ?></button>
          </div>
          <div class='div4'>
-             <button id="<?php echo $evenement->getCote_exterieur()?>" class="openModal" onclick="reply_click(this.id)"><?php  echo $evenement->getCote_exterieur() ?></button>
+             <button id="<?php echo $evenement->getCote_exterieur(). "+" .$evenement->getId()?>" class="openModal" onclick="reply_click(this.id)"><?php  echo $evenement->getCote_exterieur() ?></button>
         </div>
     </section>
             <?php }?>

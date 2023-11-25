@@ -19,7 +19,7 @@ class FormInscriptionController extends DefaultFormController{
             }
           
         }else{
-            Redirect::redirect('/public/connexion');
+            Redirect::redirect('/public/inscription');
         }
     }
 }

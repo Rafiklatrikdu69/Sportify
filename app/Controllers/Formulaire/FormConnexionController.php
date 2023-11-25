@@ -7,11 +7,14 @@ class FormConnexionController extends DefaultFormController{
             echo "osfd";
             $nom =   Validate::html($_POST['nom']);
             $mdp =  Validate::html($_POST['mdp']);
+           
             echo $mdp;
            
             $select =  (new UtilisateurDAO())->select($nom,$mdp);
             
-            if($select){Redirect::redirect('/public/pronostique');}
+            if($select){
+                $_SESSION['nom'] = $nom;
+                Redirect::redirect('/public/pronostique');}
              else{Redirect::redirect('/public/connexion');}
         }else{
             Redirect::redirect('/public/connexion');
