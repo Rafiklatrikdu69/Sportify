@@ -66,7 +66,31 @@ class UtilisateurDAO extends DAO{
         return $bool;
         
     }
- 
+
+    public function getUtilisateurByName($nom){
+        // Vérifiez si $_SESSION['nom'] est défini
+        if (isset($nom)) {
+            // Utilisez $nom pour récupérer l'ID de l'utilisateur depuis votre base de données
+            // Notez que vous devez ajuster cette partie en fonction de la structure de votre base de données
+            $sql = "SELECT UTILISATEUR_ID FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+            $result = $this->queryRow($sql, array('pseudo' => $nom));
     
+            // Vérifiez si la requête a réussi et renvoyez l'ID de l'utilisateur
+            if ($result) {
+                return $result['UTILISATEUR_ID'];
+            } else {
+                echo "Erreur : Impossible de récupérer l'ID de l'utilisateur depuis la base de données.";
+                return null;
+            }
+        } else {
+            echo "Erreur : La variable de session 'nom' n'est pas définie.";
+            return null;
+        }
+    }
     
-}
+   
+    }
+  
+   
+    // echo "quoicoubeh". (new UtilisateurDAO())->getUtilisateurByName()."lksjdaskd";
+    
