@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require '../vendor/Autoloader.php';
 
 $route = new Route();

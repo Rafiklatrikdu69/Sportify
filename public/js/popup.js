@@ -13,11 +13,13 @@ for (i of openBtn) {
 closeBtn.addEventListener("click",()=>{
     modal.classList.remove("open")
 })
-
+let d = null;
+let cote = null;
 function reply_click(clicked_id){
     var parties = clicked_id.split(/\+/);
-    document.getElementById("match_joue").innerHTML = parties[1];
+   d =  document.getElementById("match_joue").value = parties[1];
     document.getElementById("cote_joue").innerHTML = parties[0];
+   cote =  document.getElementById("cote_joue").value = parties[0];
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -39,32 +41,16 @@ document.addEventListener('DOMContentLoaded', function () {
             gainOutput.textContent = 'Veuillez entrer des valeurs valides pour la mise.';
         }
     });
-
+    let pronostique1 = null;
     // Ajouter un gestionnaire d'événements pour le formulaire
     pariForm.addEventListener('submit', function (event) {
         event.preventDefault();
-       // TODO Traiter le formulaire 
-    });
+        var mise = parseFloat(miseInput.value);
+        console.log(d);
+         pronostique1 = new Pronostique(123,  d, cote, '2023-11-24', mise, 0);
+        console.log(pronostique1);
 
-
-});
-
-function Pronostique(pronostiqueur_id, match_id, pronostique_equipe_g, pronostique_equipe_p, date_prono, mise, status) {
-    this.pronostiqueur_id = pronostiqueur_id;
-    this.match_id = match_id;
-    this.pronostique_equipe_g = pronostique_equipe_g;
-    this.pronostique_equipe_p = pronostique_equipe_p;
-    this.date_prono = date_prono;
-    this.mise = mise;
-    this.status = status;
-}
-
-
-var pronostique1 = new Pronostique(1, 123, 'équipeA', 'équipeB', '2023-11-24', 50, 'En cours');
-
-
-// Sélectionner un élément avec l'ID "resultat" (ajustez selon votre structure HTML)
-let resultatElement = document.getElementById("resultat");
+        let resultatElement = document.getElementById("resultat");
 
 fetch("../../app/Models/EvenementDAO.php", {
     "method": "POST",
@@ -83,3 +69,23 @@ fetch("../../app/Models/EvenementDAO.php", {
     .catch(function (error) {
         console.error('Erreur lors de la requête :', error);
     });
+
+
+    });
+
+
+});
+
+function Pronostique(pronostiqueur_id,match_prono,cote_prono,date_prono,mise,status) {
+    this.pronostiqueur_id = pronostiqueur_id;
+    this.match_prono = match_prono;
+    this.cote_prono = cote_prono;
+    this.date_prono = date_prono;
+    this.mise = mise;
+    this.status = status;
+}
+
+
+
+
+// Sélectionner un élément avec l'ID "resultat" (ajustez selon votre structure HTML)
