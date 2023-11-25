@@ -14,7 +14,7 @@ class EvenementDAO extends DAO{
         }
     
         public function getAll(){
-            $sql = "SELECT * FROM `EVENEMENT`";
+            $sql = "SELECT * FROM `EVENEMENT` WHERE ACTIVE = 1";
 
             $sth = $this->queryAll($sql);
             $tab = [];
