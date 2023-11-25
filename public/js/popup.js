@@ -16,6 +16,7 @@ closeBtn.addEventListener("click",()=>{
 
 function reply_click(clicked_id){
     var parties = clicked_id.split(/\+/);
+    console.log(parties);
     document.getElementById("match_joue").innerHTML = parties[1];
     document.getElementById("cote_joue").innerHTML = parties[0];
 }
