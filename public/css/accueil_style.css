@@ -13,8 +13,8 @@
 html, body {height : 100%;}
 
 body{
-  background-color: #04245c;
-  color: #69dac2;
+  background-color: #226B80;
+  color: black;
   font-family: futura;
   /* overflow-x: hidden; */
 }
@@ -94,23 +94,16 @@ main{
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    background: #f35588;
-    border: 1px solid #04245c;
-    color: #fff;
-    background: #f75959;
-    background: -moz-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, #f75959), color-stop(100%, #f35587));
-    background: -webkit-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
-    background: -o-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
-    background: -ms-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
-    background: -webkit-linear-gradient(315deg, #f75959 0%, #f35587 100%);
-    background: -o-linear-gradient(315deg, #f75959 0%, #f35587 100%);
-    background: linear-gradient(315deg,#04245c 0% ,black 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 ); }
+    background: #FFEBD3;
+    border: 1px solid white;
+    color: #000000;
+    background: #FFEBD3;
+    background: linear-gradient(315deg,#FFEBD3 0% ,#40A798 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFEBD3', endColorstr='#f35587', GradientType=1 ); }
     .btn.btn-primary:hover {
-      border: 1px solid #69dac2;
-      background: linear-gradient(315deg,#04245c 0% ,#69dac2 100%);;
-      color: #fff; }
+      border: 1px solid white;
+      background: linear-gradient(315deg,#FFEBD3 0% ,#40A798 100%);;
+      color: #000000; }
   .btn.btn-white {
     background: #fff;
     border: 1px solid #fff;
