@@ -26,8 +26,9 @@ class PronostiqueDAO extends DAO{
     
     public function selectIDPronostiqueur($pronoID){
         $bool = FALSE;
-        $sql ="SELECT PRONOSTIQUEUR_ID FROM `PRONOSTIC` WHERE :id_prono = PRONOSTIQUEUR_ID";
-        $res = $this->queryRow($sql,array("id_prono"=>$pronoID["pronostiqueur_id"]));
+        $sql ="SELECT PRONOSTIQUEUR_ID,MATCH_PRONO FROM `PRONOSTIC` WHERE :id_prono = PRONOSTIQUEUR_ID and :match_prono = MATCH_PRONO ";
+        $res = $this->queryRow($sql,array("id_prono"=>$pronoID["pronostiqueur_id"],
+                                "match_prono"=>$pronoID['match_prono']));
         if($res){
             $bool = TRUE;
         }
