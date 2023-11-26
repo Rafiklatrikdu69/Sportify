@@ -31,7 +31,7 @@ class Route
         $action = $this->routes[$method][$path] ?? null;
         // var_dump($action);
         if (is_null($action)) {
-            echo "Route inexistante";
+            //echo "Route inexistante";
             return null;
         } else {
             call_user_func($action);

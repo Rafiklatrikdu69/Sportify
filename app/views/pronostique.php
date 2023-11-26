@@ -47,26 +47,7 @@ use \App\Config;
         </aside>
         <main>
             <!--TODO: Millieu de page a actualiser avec BD -->
-        <?php 
-             foreach($tableau as $evenement){?>
-<section class='prono_ev' id='p<?php echo $evenement->getId()?>'>
-         <div class='div1'>
-             <img src='../../public/images/football.svg' id='image_sport'>
-         </div>
-         <div class='div2'>
-             <p><?php  echo $evenement->getEquipe_domicile() ." - " .$evenement->getEquipe_exterieur() ?></p>
-             <p><?php echo $evenement->getNomEvenement()?></p>
-             <p><?php echo $evenement->getCatSport()?></p>
-             <p><?php  echo $evenement->getDate_evenement() ?></p>
-         </div>
-         <div class='div3'>
-             <button id="<?php  echo $evenement->getCote_domicile(). "+" .$evenement->getId()?>" class="openModal" onclick="reply_click(this.id)"><?php  echo $evenement->getCote_domicile() ?></button>
-         </div>
-         <div class='div4'>
-             <button id="<?php echo $evenement->getCote_exterieur(). "+" .$evenement->getId()?>" class="openModal" onclick="reply_click(this.id)"><?php  echo $evenement->getCote_exterieur() ?></button>
-        </div>
-    </section>
-            <?php }?>
+            <!-- la section avec les pronostics est ici -->
             
     </main>
     <aside id="profil">

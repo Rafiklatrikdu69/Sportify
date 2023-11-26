@@ -59,12 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data = file_get_contents("php://input");
         $prono = json_decode($data, true);
         
-        
+     
         $prono['pronostiqueur_id'] = $pronostiqueur_id;
-        echo  $prono['pronostiqueur_id'];
+       echo  $prono['pronostiqueur_id'];
         
         $resultat = "La mise : " . $prono['mise'] . " Match prono : " . $prono['match_prono'];
-        echo $resultat;
+
+       // echo $resultat;
         if( (new PronostiqueDAO())->selectIDPronostiqueur($prono)==FALSE ) {
             (new PronostiqueDAO())->insertPronostique($prono);
         }else{
@@ -75,6 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         echo "Erreur : Impossible de récupérer l'ID du pronostiqueur depuis la session.";
     }
+
+
+    
+    
 }
+
 
 

@@ -1,84 +1,4 @@
-const openBtn = document.getElementsByClassName("openModal");
-const closeBtn = document.getElementById("closeModal");
-const modal = document.getElementById("modal");
-
-
-for (i of openBtn) {
-    i.addEventListener("click",()=>{
-        modal.classList.add("open");
-    });
-  }
-
-
-closeBtn.addEventListener("click",()=>{
-    modal.classList.remove("open")
-})
-let d = null;
-let cote = null;
-function reply_click(clicked_id){
-    var parties = clicked_id.split(/\+/);
-
-   d =  document.getElementById("match_joue").value = parties[1];
-
-    document.getElementById("cote_joue").innerHTML = parties[0];
-   cote =  document.getElementById("cote_joue").value = parties[0];
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-
-    var miseInput = document.getElementById('mise');
-    var gainOutput = document.getElementById('gain');
-    var pariForm = document.getElementById('pariForm');
-
-
-    miseInput.addEventListener('input', function () {
-        var mise = parseFloat(miseInput.value);
-        
-        var cote = parseFloat(document.getElementById('cote_joue').innerText);
-        if (!isNaN(mise) && !isNaN(cote)) {
-            var gainPotentiel = mise * cote;
-            gainOutput.textContent = 'Votre gain potentiel est de : ' + gainPotentiel.toFixed(2);
-        }
-        else {
-            gainOutput.textContent = 'Veuillez entrer des valeurs valides pour la mise.';
-        }
-    });
-    let pronostique1 = null;
-    // Ajouter un gestionnaire d'événements pour le formulaire
-    pariForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        var mise = parseFloat(miseInput.value);
-        console.log(d);
-         pronostique1 = new Pronostique(123,  d, cote, '2023-11-24', mise, 0);
-        console.log(pronostique1);
-
-        let resultatElement = document.getElementById("resultat");
-
-fetch("../../app/Models/PronostiqueDAO.php", {
-    "method": "POST",
-    "headers": {
-        "Content-Type": "application/json; charset=utf-8"
-    },
-    "body": JSON.stringify(pronostique1)
-})
-    .then(function (response) {
-        return response.text();
-    })
-    .then(function (data) {
-        // Mettre à jour le contenu de l'élément avec le résultat
-        resultatElement.textContent = data;
-    })
-    .catch(function (error) {
-        console.error('Erreur lors de la requête :', error);
-    });
-
-
-    });
-
-
-});
-
-function Pronostique(pronostiqueur_id,match_prono,cote_prono,date_prono,mise,status) {
+function Pronostique(pronostiqueur_id, match_prono, cote_prono, date_prono, mise, status) {
     this.pronostiqueur_id = pronostiqueur_id;
     this.match_prono = match_prono;
     this.cote_prono = cote_prono;
@@ -87,5 +7,133 @@ function Pronostique(pronostiqueur_id,match_prono,cote_prono,date_prono,mise,sta
     this.status = status;
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const closeBtn = document.getElementById("closeModal");
+    const modal = document.getElementById("modal");
+    const matchJoue = document.getElementById("match_joue");
+    const coteJoue = document.getElementById("cote_joue");
+    const miseInput = document.getElementById("mise");
+    const gainOutput = document.getElementById("gain");
+    const pariForm = document.getElementById("pariForm");
+
+    closeBtn.addEventListener("click", () => {
+        modal.classList.remove("open");
+    });
+
+    function reply_click(clicked_id) {
+        var parties = clicked_id.split(/\+/);
+        console.log("Button clicked with ID: " + clicked_id);
+        matchJoue.innerText = parties[1];
+        coteJoue.innerText = parties[0];
+        miseInput.value = ""; // Réinitialisez la valeur de mise
+        gainOutput.textContent = ""; // Réinitialisez le texte du gain
+        modal.classList.add("open");
+    }
+
+    miseInput.addEventListener('input', function () {
+        var mise = parseFloat(miseInput.value);
+        var cote = parseFloat(coteJoue.innerText);
+        if (!isNaN(mise) && !isNaN(cote)) {
+            var gainPotentiel = mise * cote;
+            gainOutput.textContent = 'Votre gain potentiel est de : ' + gainPotentiel.toFixed(2);
+        } else {
+            gainOutput.textContent = 'Veuillez entrer des valeurs valides pour la mise.';
+        }
+    });
+
+
+    let pronostique1 = null;
+
+    pariForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var mise = parseFloat(miseInput.value);
+        pronostique1 = new Pronostique(123, matchJoue.innerText, coteJoue.innerText, '2023-11-24', mise, 0);
+    
+        let resultatElement = document.getElementById("resultat");
+    
+        fetch("../../app/Models/PronostiqueDAO.php", {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            "body": JSON.stringify(pronostique1)
+        })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (data) {
+                console.log(data);
+                resultatElement.textContent = data;
+            })
+            .catch(function (error) {
+                console.error('Erreur lors de la requête :', error);
+            });
+    });
+   
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            for (let index = 0; index < data.length; index++) {
+                const section = document.createElement('section');
+                section.setAttribute("class", "prono_ev");
+                section.setAttribute("id", "p" + data[index].id);
+
+                const div1 = document.createElement('div');
+                div1.setAttribute("class", "div1");
+                const img = document.createElement('img');
+                img.setAttribute("src", "../../public/images/football.svg");
+                img.setAttribute("id", "image_sport");
+                div1.appendChild(img);
+                
+
+                const div2 = document.createElement('div');
+                div2.setAttribute("class", "div2");
+
+                const p1 = document.createElement("p");
+                p1.innerHTML = data[index].equipe_domicile + " - " + data[index].equipe_exterieur;
+                const p2 = document.createElement("p");
+                p2.innerHTML = data[index].nom_evenement;
+                const p3 = document.createElement("p");
+                p3.innerHTML = data[index].cat_sport;
+                const p4 = document.createElement("p");
+                p4.innerHTML = data[index].date_evenement;
+                div2.appendChild(p4);
+                div2.appendChild(p3);
+                div2.appendChild(p2);
+                div2.appendChild(p1);
+               
+                const div3 = document.createElement('div');
+                div3.setAttribute("class", "div3");
+                const bouton1 = document.createElement('button');
+                bouton1.setAttribute("id", data[index].cote_domicile + "+" + data[index].id);
+                bouton1.setAttribute("class", "openModal");
+                bouton1.addEventListener("click", function () {
+                    reply_click(this.id);
+                });
+                bouton1.innerHTML = data[index].cote_domicile;
+                div3.appendChild(bouton1);
+               
+
+                const div4 = document.createElement('div');
+                div4.setAttribute("class", "div4");
+                const bouton2 = document.createElement('button');
+                bouton2.setAttribute("id", data[index].cote_exterieur + "+" + data[index].id);
+                bouton2.setAttribute("class", "openModal");
+                bouton2.addEventListener("click", function () {
+                    reply_click(this.id);
+                });
+                bouton2.innerHTML = data[index].cote_exterieur;
+                div4.appendChild(bouton2);
+                section.appendChild(div4);
+                section.appendChild(div3);
+                section.appendChild(div2);
+                section.appendChild(div1);
+
+                document.querySelector('main').appendChild(section);
+            }
+        })
+        .catch(error => console.error('Erreur lors du chargement des données:', error));
+
+});
 
 
