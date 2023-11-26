@@ -89,5 +89,3 @@ function Pronostique(pronostiqueur_id,match_prono,cote_prono,date_prono,mise,sta
 
 
 
-
-// Sélectionner un élément avec l'ID "resultat" (ajustez selon votre structure HTML)
