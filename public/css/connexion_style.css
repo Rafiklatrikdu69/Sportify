@@ -4,7 +4,7 @@
     --indigo: #6610f2;
     --purple: #6f42c1;
     --pink: #e83e8c;
-    --red: #04245c;
+    --red: #226B80;
     --orange: #fd7e14;
     --yellow: #ffc107;
     --green: #28a745;
@@ -18,7 +18,7 @@
     --success: #28a745;
     --info: #17a2b8;
     --warning: #ffc107;
-    --danger: #04245c;
+    --danger: #226B80;
     --light: #f8f9fa;
     --dark: #343a40;
     --breakpoint-xs: 0;
@@ -52,7 +52,7 @@
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #04245c; 
+    background-color: #226B80; 
   }
   
    h2, h3 {
@@ -470,7 +470,7 @@
     background: -webkit-linear-gradient(315deg, #f75959 0%, #f35587 100%);
     background: -o-linear-gradient(315deg, #f75959 0%, #f35587 100%);
     /*zebi*/
-    background: linear-gradient(135deg, #04245c 0%, black 100%);
+    background: linear-gradient(135deg, #226B80 0%, black 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
     color: #fff; }
     .text-wrap .text h2 {
@@ -553,7 +553,7 @@
       outline: none; }
     .btn.btn-primary {
       background: #f35588;
-      border: 1px solid #04245c;
+      border: 1px solid #226B80;
       color: #fff;
       background: #f75959;
       background: -moz-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
@@ -563,11 +563,11 @@
       background: -ms-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
       background: -webkit-linear-gradient(315deg, #f75959 0%, #f35587 100%);
       background: -o-linear-gradient(315deg, #f75959 0%, #f35587 100%);
-      background: linear-gradient(315deg,#04245c 0% ,black 100%);
+      background: linear-gradient(315deg,#226B80 0% ,black 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 ); }
       .btn.btn-primary:hover {
         border: 1px solid #69dac2;
-        background: linear-gradient(315deg,#04245c 0% ,#69dac2 100%);;
+        background: linear-gradient(315deg,#226B80 0% ,#69dac2 100%);;
         color: #fff; }
     .btn.btn-white {
       background: #fff;

@@ -6,7 +6,7 @@ use \App\Config;
 ?>
 
 <head>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accueil_style.css">
     <title>Sportify</title>
 </head>
 

@@ -6,7 +6,7 @@ use \App\Config;
 ?>
 
 <head>
-    <link rel="stylesheet" href="css/storestyle.css">
+    <link rel="stylesheet" href="css/boutique_style.css">
     <title>Sportify</title>
     
 </head>

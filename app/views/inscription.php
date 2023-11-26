@@ -6,7 +6,7 @@ use \App\Config;
 ?>
 
 <head>
-    <link rel="stylesheet" href="css/styleinscription.css">
+    <link rel="stylesheet" href="css/inscription_style.css">
     <title>Sportify</title>
 </head>
 <body>

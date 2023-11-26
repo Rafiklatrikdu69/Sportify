@@ -6,7 +6,7 @@ use \App\Config;
 ?>
 
 <head>
-<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="css/connexion_style.css">
     <title>Sportify</title>
 </head>
 <!-- <?php echo $name?> -->
