@@ -9,7 +9,7 @@ class UtilisateurDAO extends DAO{
         $bool = FALSE;
     
         if ($res) {
-            // Mot de passe stocké dans la base de données
+          
             $motDePasseBD = $res['MOT_DE_PASSE'];
             echo "BD : ". $motDePasseBD."<br>";
             echo "mdp : ".$mdp;
@@ -68,14 +68,13 @@ class UtilisateurDAO extends DAO{
     }
 
     public function getUtilisateurByName($nom){
-        // Vérifiez si $_SESSION['nom'] est défini
+      
         if (isset($nom)) {
-            // Utilisez $nom pour récupérer l'ID de l'utilisateur depuis votre base de données
-            // Notez que vous devez ajuster cette partie en fonction de la structure de votre base de données
+
             $sql = "SELECT UTILISATEUR_ID FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
             $result = $this->queryRow($sql, array('pseudo' => $nom));
     
-            // Vérifiez si la requête a réussi et renvoyez l'ID de l'utilisateur
+          
             if ($result) {
                 return $result['UTILISATEUR_ID'];
             } else {
