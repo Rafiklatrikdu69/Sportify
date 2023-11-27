@@ -3,7 +3,7 @@
 
 class FormInscriptionController extends DefaultFormController{
     public function verification(){
-        if(!empty($_POST['username'])&& !empty($_POST['email']) && !empty($_POST['password'])){
+        if(!empty($_POST['username'])&& !empty($_POST['email']) && !empty($_POST['password'])&&$_SERVER['REQUEST_METHOD'] === 'POST'){
             
             $nom =   Validate::html($_POST['username']);
             $email =  Validate::html($_POST['email']);

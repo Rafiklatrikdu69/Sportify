@@ -3,7 +3,7 @@
 class FormConnexionController extends DefaultFormController{
     public function verification(){
         ob_start();
-        if(!empty($_POST['nom'])&& !empty($_POST['mdp'])){
+        if(!empty($_POST['nom'])&& !empty($_POST['mdp'])&&$_SERVER['REQUEST_METHOD'] === 'POST'){
             echo "osfd";
             $nom =   Validate::html($_POST['nom']);
             $mdp =  Validate::html($_POST['mdp']);

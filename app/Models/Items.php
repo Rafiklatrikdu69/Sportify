@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Items{
 
     // variables (attributs)

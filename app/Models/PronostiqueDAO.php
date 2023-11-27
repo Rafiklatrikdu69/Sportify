@@ -28,7 +28,7 @@ class PronostiqueDAO extends DAO{
         $bool = FALSE;
         $sql ="SELECT PRONOSTIQUEUR_ID,MATCH_PRONO FROM `PRONOSTIC` WHERE :id_prono = PRONOSTIQUEUR_ID and :match_prono = MATCH_PRONO ";
         $res = $this->queryRow($sql,array("id_prono"=>$pronoID["pronostiqueur_id"],
-                                "match_prono"=>$pronoID['match_prono']));
+        "match_prono"=>$pronoID['match_prono']));
         if($res){
             $bool = TRUE;
         }
@@ -36,51 +36,63 @@ class PronostiqueDAO extends DAO{
         
     }
     
-    
-    
-    
-    
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    session_start();
-    
-    
-    $pronostiqueur_id = null;
-    if (isset($_SESSION['nom'])) {
-        $nom = $_SESSION['nom'];
-      
-        $pronostiqueur_id = (new UtilisateurDAO())->getUtilisateurByName($nom);
-    }
-    
-    
-    if ($pronostiqueur_id !== null) {
-        $data = file_get_contents("php://input");
-        $prono = json_decode($data, true);
-        
-     
-        $prono['pronostiqueur_id'] = $pronostiqueur_id;
-       echo  $prono['pronostiqueur_id'];
-        
-        $resultat = "La mise : " . $prono['mise'] . " Match prono : " . $prono['match_prono'];
-
-       // echo $resultat;
-        if( (new PronostiqueDAO())->selectIDPronostiqueur($prono)==FALSE ) {
-            (new PronostiqueDAO())->insertPronostique($prono);
-        }else{
-            echo "Vous avez deja pronostiquer sur ce match !";
+    public function selectMisePronoById($prono){
+        $bool = null;
+        $sql ="SELECT POINT_ACTUEL FROM `UTILISATEUR` WHERE :id = UTILISATEUR_ID";
+        $res = $this->queryRow($sql,array("id"=>$prono["pronostiqueur_id"]));
+        if($res){
+            $bool = $res;
         }
+        return $bool;
         
-    } else {
-        
-        echo "Erreur : Impossible de récupérer l'ID du pronostiqueur depuis la session.";
     }
-
-
     
-    
+    public function verificationProno(){ 
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            
+            session_start();
+            
+            
+            $pronostiqueur_id = null;
+            if (isset($_SESSION['nom'])) {
+                $nom = $_SESSION['nom'];
+                
+                $pronostiqueur_id = (new UtilisateurDAO())->getUtilisateurByName($nom);
+            }
+            
+            
+            if ($pronostiqueur_id !== null) {
+                $data = file_get_contents("php://input");
+                $prono = json_decode($data, true);
+                
+                
+                $prono['pronostiqueur_id'] = $pronostiqueur_id;
+                // echo  $prono['pronostiqueur_id'];
+                
+                $resultat = "La mise : " . $prono['mise'] . " Match prono : " . $prono['match_prono'];
+                
+                // echo $resultat;
+                $res = (new PronostiqueDAO())->selectMisePronoById($prono);
+                if( !is_null($res)){ 
+                    //echo "point actuels  :" .$res[0];
+                    if($res[0]>=$prono['mise']){ 
+                        if( (new PronostiqueDAO())->selectIDPronostiqueur($prono)==FALSE ) {
+                            (new PronostiqueDAO())->insertPronostique($prono);
+                        }else{
+                            echo "Vous avez deja pronostiquer sur ce match !";
+                        }
+                    }else{ 
+                        echo "vous n'avez pas assez de points";
+                    }
+                }
+            } else {
+                
+                echo "Erreur : Impossible de récupérer l'ID du pronostiqueur depuis la session.";
+            }
+        }       
+    }
 }
 
 
-
+(new PronostiqueDAO())->verificationProno();

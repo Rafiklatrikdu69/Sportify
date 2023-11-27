@@ -5,6 +5,7 @@ class PronoController extends Controllers{
      
        (new VerifSession());
         View::View('pronostique',["tableau"=>(new EvenementDAO())->getAll()]);
+       
         $testData=(new EvenementDAO())->getAll();
         $encodedDataArray = [];
         $tab = [];
