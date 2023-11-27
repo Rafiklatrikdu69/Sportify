@@ -10,7 +10,6 @@ class PronostiqueDAO extends DAO{
     public function insertPronostique($prono) {
         $sql = "INSERT INTO `PRONOSTIC` (`PRONOSTIQUEUR_ID`, `MATCH_PRONO`, `COTE_PRONO`, `DATE_PRONO`, `MISE`, `STATUS`)
         VALUES (:pronostiqueur_id, :match_prono, :cote_prono, :date_prono, :mise, :statu)";
-        
         $this->insert($sql, array(
             "pronostiqueur_id" => $prono["pronostiqueur_id"],
             "match_prono" => $prono["match_prono"],
@@ -19,9 +18,6 @@ class PronostiqueDAO extends DAO{
             "mise" => $prono["mise"],
             "statu" => $prono["status"] 
         ));
-        
-        
-        
     }
     
     public function selectIDPronostiqueur($pronoID){
@@ -79,6 +75,7 @@ class PronostiqueDAO extends DAO{
                     if($res[0]>=$prono['mise']){ 
                         if( (new PronostiqueDAO())->selectIDPronostiqueur($prono)==FALSE ) {
                             (new PronostiqueDAO())->insertPronostique($prono);
+                            (new UtilisateurDAO())->updatePoint($prono['pronostiqueur_id'],$res[0],$prono['mise']);
                         }else{
                             echo true;
                         }
@@ -87,7 +84,6 @@ class PronostiqueDAO extends DAO{
                     }
                 }
             } else {
-                
                 echo "Erreur : Impossible de récupérer l'ID du pronostiqueur depuis la session.";
             }
         }       

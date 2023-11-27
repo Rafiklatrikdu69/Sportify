@@ -88,8 +88,15 @@ class UtilisateurDAO extends DAO{
     }
     
    
+    
+    public function updatePoint($id, $pointActuel, $mise) {
+        $sql = "UPDATE `UTILISATEUR` SET POINT_ACTUEL = POINT_ACTUEL - :mise WHERE UTILISATEUR_ID = :id";
+        $this->update($sql, array(
+            "id" => $id,
+            "mise" => $mise
+        ));
     }
-  
    
     // echo "quoicoubeh". (new UtilisateurDAO())->getUtilisateurByName()."lksjdaskd";
     
+}
