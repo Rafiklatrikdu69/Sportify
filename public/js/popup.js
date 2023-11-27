@@ -37,7 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var cote = parseFloat(coteJoue.innerText);
         if (!isNaN(mise) && !isNaN(cote)) {
             var gainPotentiel = mise * cote;
-            gainOutput.textContent = 'Votre gain potentiel est de : ' + gainPotentiel.toFixed(2);
+            // Arrondir a l'entier le plus proche
+            gainPotentiel = Math.ceil(gainPotentiel);
+            gainOutput.textContent = `Votre gain potentiel est de : ${gainPotentiel}`;
         } else {
             gainOutput.textContent = 'Veuillez entrer des valeurs valides pour la mise.';
         }
