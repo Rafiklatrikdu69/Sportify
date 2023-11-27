@@ -14,7 +14,7 @@ use \App\Config;
     
 </head>
 <body>
-<div id="resultat"></div>
+
 
     
     <?php header::header()?>
@@ -61,6 +61,7 @@ use \App\Config;
                 <p>Êtes-vous sûr de vouloir parier sur ce match ?</p>
                 <p id="match_joue"></p>
                 <p>Vous avez choisi la cote <span id="cote_joue"></span></p>
+                <p class="match-deja-jouer" id="resultat">Vous avez deja parier sur ce match</p>
                 <form id="pariForm">
                     <input type="number" name="mise" id="mise" placeholder="0">
                     <input type="submit" value="Valider">
