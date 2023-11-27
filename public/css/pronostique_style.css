@@ -320,4 +320,87 @@ legend:nth-of-type(3){
     color: red;
 }
 
+#profil {
+    position: fixed;
+    top: 9.5%; 
+    right: 1%; 
+    display: grid;
+    grid-area:  1/4/5/5;
+    grid-template: 1fr 10fr / 1fr;
+    color: black;
+    padding: 2%;
+}
+#profil div:first-child {
+  display: grid;
+  grid-area: 1/1/2/2;
+  text-align: center;
+  background-color: #FFEBD3;
+  color: black;
+  border-radius: 4px;
+  margin-bottom: 20%;
+}
 
+
+#profil div:last-child {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFEBD3;
+    color: black;
+    grid-area: 2/1/6/2;
+    text-align: center;
+    border-radius: 4px;
+    height: 50%;
+    outline-offset: 10px;
+    outline: 10px solid #FFEBD3;
+  
+  }
+  
+  #profil div:last-child img{
+    grid-area: 1/1/2/2;
+    width: 40%;
+    margin-bottom: 10%;
+    border-radius: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    outline: 4px solid #40A798;
+  }
+  
+  #profil div:last-child p:nth-of-type(1){
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5%;
+  }
+  
+  #profil div:last-child p:nth-of-type(2){
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5%;
+  }
+  
+  #profil div:last-child p:nth-of-type(3){
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5%;
+  }
+  
+  #profil div:last-child p:nth-of-type(4){
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5%;
+  }
+  
+  #profil div:last-child p:nth-of-type(5){
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5%;
+  }
+  
+  #profil div:last-child p:nth-of-type(6){
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5%;
+  }
+  
+  
+  

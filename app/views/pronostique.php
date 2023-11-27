@@ -14,9 +14,6 @@ use \App\Config;
     
 </head>
 <body>
-
-
-    
     <?php header::header()?>
     <div id="base">
         <aside id="categorie">
@@ -49,11 +46,20 @@ use \App\Config;
             <!--TODO: Millieu de page a actualiser avec BD -->
             <!-- la section avec les pronostics est ici -->
             
-    </main>
+        </main>
     <aside id="profil">
-        <input type="text" placeholder="Rechercher">
-        <a>100 Sporticoin</a>
-    </aside>
+            <div>
+                <p>120 Sportycoins</p>
+            </div>
+            <div>
+                <img src="images/logo.png">
+                <p>Pseudo</p>
+                <p>Classement</p>
+                <p>Prono réussi</p>
+                <p>Badges</p>
+                <p>Equipe préférée</p>
+            </div>
+        </aside>
     </div>
     <div class="modal" id="modal">
         <div class="modal-inner">
