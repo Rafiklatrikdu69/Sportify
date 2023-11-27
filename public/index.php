@@ -41,6 +41,9 @@ switch ($request) {
             break;
         
     default:
+    case '/public/administration':
+        $route->get('/public/administration', [new AdministrationController(), 'index']);
+        break;
         // Gestion des erreurs ou redirection par défaut
         break;
 }

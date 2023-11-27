@@ -80,10 +80,10 @@ class PronostiqueDAO extends DAO{
                         if( (new PronostiqueDAO())->selectIDPronostiqueur($prono)==FALSE ) {
                             (new PronostiqueDAO())->insertPronostique($prono);
                         }else{
-                            echo "Vous avez deja pronostiquer sur ce match !";
+                            echo true;
                         }
                     }else{ 
-                        echo "vous n'avez pas assez de points";
+                        echo "point";
                     }
                 }
             } else {

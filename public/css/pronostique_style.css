@@ -314,3 +314,10 @@ legend:nth-of-type(3){
 #match_joue{
     display: none;
 }
+.match-deja-jouer{
+    
+    visibility: hidden;
+    color: red;
+}
+
+

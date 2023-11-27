@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const pariForm = document.getElementById("pariForm");
 
     closeBtn.addEventListener("click", () => {
+        document.getElementsByClassName('match-deja-jouer')[0].style.visibility = "hidden";
+                    
         modal.classList.remove("open");
     });
 
@@ -47,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     pariForm.addEventListener('submit', function (event) {
         event.preventDefault();
         var mise = parseFloat(miseInput.value);
-        pronostique1 = new Pronostique(123, matchJoue.innerText, coteJoue.innerText, '2023-11-24', mise, 0);
+        pronostique1 = new Pronostique(12, matchJoue.innerText, coteJoue.innerText, '2023-11-24', mise, 0);
     
         let resultatElement = document.getElementById("resultat");
     
@@ -63,7 +65,19 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(function (data) {
                 console.log(data);
-                resultatElement.textContent = data;
+                if(data==true){
+                    resultatElement.textContent = "Vous avez deja pronostiquer !";
+                    document.getElementsByClassName('match-deja-jouer')[0].style.visibility = "visible";
+                    
+                }
+                if(data==="point"){
+                    resultatElement.textContent = "Vous n'avez pas assez de points !";
+                    document.getElementsByClassName('match-deja-jouer')[0].style.visibility = "visible";
+                    
+                }
+
+              
+               
             })
             .catch(function (error) {
                 console.error('Erreur lors de la requête :', error);
