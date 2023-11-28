@@ -66,7 +66,7 @@ use \App\Config;
         
         <aside id="profil">
             <div>
-                <p>120 Sportycoins</p>
+            <p id="coin"><?php echo $pointsUser; ?> Sporticoins</p>
             </div>
             <div>
                 <img src="images/logo.png">
@@ -78,6 +78,17 @@ use \App\Config;
             </div>
         </aside>
     </section>
+
+    <div class="modal" id="modal">
+        <div class="modal-inner">
+            <h2>Confirmation d'achat</h2>
+            <p>Voulez-vous acheter l'article <span id="itemToBuy"></span> ?</p>
+            <button id="confirmPurchase">Confirmer</button>
+            <button id="closeModal">Annuler</button>
+        </div>
+    </div>
+
+    
     <script src="../../public/js/store.js"></script>
 </body>
 

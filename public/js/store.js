@@ -27,3 +27,30 @@ function chbgout() {
     boutique.style.marginLeft = "10%"
     boutique.style.marginRight = "10%"
 }
+
+
+
+// pour bouton achat (gestion achat utilisateur)
+
+
+function showConfirmation(itemId, itemName) {
+    const modal = document.getElementById('modal');
+    document.getElementById('itemToBuy').textContent = itemName;
+    modal.classList.add('open');
+
+    const confirmPurchaseBtn = document.getElementById('confirmPurchase');
+    confirmPurchaseBtn.addEventListener('click', function () {
+        // Placez ici la logique pour finaliser l'achat de l'article sélectionné
+        // Cela peut inclure des appels AJAX pour enregistrer l'achat dans la base de données
+
+        // Ferme la boîte modale après l'achat confirmé
+        modal.classList.remove('open');
+    });
+}
+
+const closeModalBtn = document.getElementById('closeModal');
+closeModalBtn.addEventListener('click', function () {
+    const modal = document.getElementById('modal');
+    modal.classList.remove('open');
+});
+

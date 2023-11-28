@@ -50,10 +50,10 @@ class Items{
         '<div class="card">'. 
         '<img src="images/logo.png">'.
         '<h1>'.$this->item_name.'</h1>'.
-        '<p class="price">'.$this->item_price.'points</p>'.
+        '<p class="price">'.$this->item_price.' points</p>'.
         '<p>'.$this->item_description.'</p>'.
-        '<p><button>Acheter</button></p>'.
+        '<p><button id="buy'.$this->item_id.'" onclick="showConfirmation('.$this->item_id.', \''.$this->item_name.'\')">Acheter</button></p>'. 
         '</div>';
     }
-
 }
+
