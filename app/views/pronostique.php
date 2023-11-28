@@ -43,13 +43,12 @@ use \App\Config;
             </form>
         </aside>
         <main>
-            <!--TODO: Millieu de page a actualiser avec BD -->
             <!-- la section avec les pronostics est ici -->
             
         </main>
     <aside id="profil">
             <div>
-                <p>120 Sportycoins</p>
+                <p id="coin"><?php //Afficher le nombre de points actuellement  ?></p>
             </div>
             <div>
                 <img src="images/logo.png">

@@ -40,10 +40,11 @@ switch ($request) {
             $route->get('/public/deconnexion', [new DeconnexionController(), 'index']);
             break;
         
-    default:
+    
     case '/public/administration':
         $route->get('/public/administration', [new AdministrationController(), 'index']);
         break;
+    default:
         // Gestion des erreurs ou redirection par défaut
         break;
 }
