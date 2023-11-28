@@ -26,8 +26,6 @@ class EvenementDAO extends DAO{
             }
             return $tab;
 
-
-      
         }
     
         public function insertEvenement($data){
@@ -51,7 +49,101 @@ class EvenementDAO extends DAO{
         }
         */
 
-    
-    
+            public function getEarly(){
+            $sql = "SELECT * FROM `EVENEMENT` WHERE ACTIVE = 1 AND DATE_EVENEMENT > NOW();";
+
+            $sth = $this->queryAll($sql);
+            $tab = [];
+            foreach($sth as $event){
+                $evenement = new Evenement($event[0],$event[1],$event[2],$event[3],$event[4],$event[5],$event[6],$event[7]);
+              
+                $tab[] = $evenement;
+            }
+            return $tab;
+        }
+
+        public function getLate(){
+            $sql = "SELECT * FROM `EVENEMENT` WHERE ACTIVE = 1 AND DATE_EVENEMENT < NOW();";
+
+            $sth = $this->queryAll($sql);
+            $tab = [];
+            foreach($sth as $event){
+                $evenement = new Evenement($event[0],$event[1],$event[2],$event[3],$event[4],$event[5],$event[6],$event[7]);
+              
+                $tab[] = $evenement;
+            }
+            return $tab;
+        }
+
+        public function getCategorie($categorie){
+            $sql = "SELECT * FROM `EVENEMENT` WHERE ACTIVE = 1 AND CATEGORIE = :categorie;";
+
+            $params = array(":categorie" => $categorie);
+            $sth = $this->queryAll($sql, $params);
+            $tab = [];
+            foreach($sth as $event){
+                $evenement = new Evenement($event[0],$event[1],$event[2],$event[3],$event[4],$event[5],$event[6],$event[7]);
+              
+                $tab[] = $evenement;
+            }
+            return $tab;
+        }
+
+        public function getEvenementName($nom){
+            $sql = "SELECT * FROM `EVENEMENT` WHERE ACTIVE = 1 AND NOM_EVENEMENT = :nom;";
+            $params = array(":nom" => $nom);
+            $sth = $this->queryAll($sql, $params);
+            $tab = [];
+            foreach($sth as $event){
+                $evenement = new Evenement($event[0],$event[1],$event[2],$event[3],$event[4],$event[5],$event[6],$event[7]);
+              
+                $tab[] = $evenement;
+            }
+            return $tab;
+        }
+
+        public function getHigestCote(){
+            $sql = "SELECT *FROM `EVENEMENT` WHERE ACTIVE = 1 ORDER BY GREATEST(COTE_DOMICILE, COTE_EXTERIEUR) DESC;";
+            $sth = $this->queryAll($sql);
+            $tab = [];
+            foreach($sth as $event){
+                $evenement = new Evenement($event[0],$event[1],$event[2],$event[3],$event[4],$event[5],$event[6],$event[7]);
+                $tab[] = $evenement;
+            }
+            return $tab;
+        }
+
+        public function getLowestCote(){
+            $sql = "SELECT *FROM `EVENEMENT` WHERE ACTIVE = 1 ORDER BY GREATEST(COTE_DOMICILE, COTE_EXTERIEUR) ASC;";
+            $sth = $this->queryAll($sql);
+            $tab = [];
+            foreach($sth as $event){
+                $evenement = new Evenement($event[0],$event[1],$event[2],$event[3],$event[4],$event[5],$event[6],$event[7]);
+                $tab[] = $evenement;
+            }
+            return $tab;
+        }
+
+        public function getHigestCoteDomicile(){
+            $sql = "SELECT *FROM `EVENEMENT` WHERE ACTIVE = 1 ORDER BY COTE_DOMICILE DESC;";
+            $sth = $this->queryAll($sql);
+            $tab = [];
+            foreach($sth as $event){
+                $evenement = new Evenement($event[0],$event[1],$event[2],$event[3],$event[4],$event[5],$event[6],$event[7]);
+                $tab[] = $evenement;
+            }
+            return $tab;
+        }
+        
+        public function getLowestCoteDomicile(){
+            $sql = "SELECT *FROM `EVENEMENT` WHERE ACTIVE = 1 ORDER BY COTE_DOMICILE ASC;";
+            $sth = $this->queryAll($sql);
+            $tab = [];
+            foreach($sth as $event){
+                $evenement = new Evenement($event[0],$event[1],$event[2],$event[3],$event[4],$event[5],$event[6],$event[7]);
+                $tab[] = $evenement;
+            }
+            return $tab;
+        }
         
 }
