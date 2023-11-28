@@ -49,7 +49,14 @@ class PronostiqueDAO extends DAO{
             "match_id" => $match_id,
             "cote" => $cote
         ));
+        // Add points to the user
         $sql = "UPDATE `PRONOSTIC` SET `STATUS` = -1 WHERE `PRONOSTIC`.`MATCH_PRONO` = :match_id AND `PRONOSTIC`.`COTE_PRONO` != :cote";
+        $this->insert($sql, array(
+            "match_id" => $match_id,
+            "cote" => $cote
+        ));
+        
+        $sql = "UPDATE `UTILISATEUR` SET `POINT_ACTUEL` = `POINT_ACTUEL` + `MISE` * `COTE_PRONO` WHERE `UTILISATEUR`.`UTILISATEUR_ID` = (SELECT `PRONOSTIQUEUR_ID` FROM `PRONOSTIC` WHERE `MATCH_PRONO` = :match_id AND `COTE_PRONO` = :cote)";
         $this->insert($sql, array(
             "match_id" => $match_id,
             "cote" => $cote
