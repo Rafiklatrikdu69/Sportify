@@ -110,4 +110,14 @@ class UtilisateurDAO extends DAO{
     }
     // echo "quoicoubeh". (new UtilisateurDAO())->getUtilisateurByName()."lksjdaskd";
     
+    public function getUserId($nom){
+        $sql = "SELECT UTILISATEUR_ID FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $result = $this->queryRow($sql, array('pseudo' => $nom));
+        if ($result) {
+            return $result['UTILISATEUR_ID'];
+        } else {
+            echo "Erreur : Impossible de récupérer l'ID de l'utilisateur depuis la base de données.";
+            return null;
+        }
+    }
 }

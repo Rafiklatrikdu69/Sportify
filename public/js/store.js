@@ -40,8 +40,8 @@ function showConfirmation(itemId, itemName) {
 
     const confirmPurchaseBtn = document.getElementById('confirmPurchase');
     confirmPurchaseBtn.addEventListener('click', function () {
-        // Placez ici la logique pour finaliser l'achat de l'article sélectionné
-        // Cela peut inclure des appels AJAX pour enregistrer l'achat dans la base de données
+        // vérifier si l'utilisateur à assez de Sporticoins (en utilisant la fonction: purchaseItem($itemId, $userId) dans ItemsDAO.php)
+        
 
         // Ferme la boîte modale après l'achat confirmé
         modal.classList.remove('open');
@@ -53,4 +53,6 @@ closeModalBtn.addEventListener('click', function () {
     const modal = document.getElementById('modal');
     modal.classList.remove('open');
 });
+
+
 

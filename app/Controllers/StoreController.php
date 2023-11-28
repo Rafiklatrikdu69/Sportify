@@ -8,7 +8,11 @@ class StoreController  extends Controllers
    {
       (new VerifSession());
       View::View('boutique',['tabItems'=>(new ItemsDAO())->getAll(), 
-                              "pointsUser"=>( new utilisateurDAO())->getPointUser($_SESSION['nom'])]);
+      "pointsUser"=>( new utilisateurDAO())->getPointUser($_SESSION['nom']),
+      "userId"=>( new utilisateurDAO())->getUserId($_SESSION['nom'])]);
+
+      
+
    }
 }
 

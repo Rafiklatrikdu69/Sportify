@@ -26,11 +26,11 @@ use \App\Config;
                     <legend>Couleur</legend>
                     <select id="couleur">
                         <option value="">Aucune</option>
-                        <option value="dog">Rouge</option>
-                        <option value="cat">Vert</option>
-                        <option value="hamster">Bleu</option>
-                        <option value="parrot">Noir</option>
-                        <option value="spider">Blanc</option>
+                        <option value="red">Rouge</option>
+                        <option value="green">Vert</option>
+                        <option value="blue">Bleu</option>
+                        <option value="black">Noir</option>
+                        <option value=white>Blanc</option>
                     </select>
                     <legend>Prix max</legend>
                     <div class="range-wrap">
