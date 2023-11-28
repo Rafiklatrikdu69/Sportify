@@ -48,7 +48,7 @@ use \App\Config;
         </main>
     <aside id="profil">
             <div>
-                <p id="coin"><?php //Afficher le nombre de points actuellement  ?>Sporticoin</p>
+                <p id="coin"><?php echo $pointsUser; ?> Sporticoins</p>
             </div>
             <div>
                 <img src="images/logo.png">

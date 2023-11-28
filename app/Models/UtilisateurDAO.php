@@ -1,6 +1,6 @@
 <?php
 
-
+// seulement l'id et le mail sont unique, deux personnes peuvent avoir le meme nom, prenom, mot de passe
 class UtilisateurDAO extends DAO{
     public function select($nom, $mdp) {
         $sql = "SELECT * FROM `UTILISATEUR` WHERE PSEUDO LIKE :pseudo";
@@ -97,6 +97,17 @@ class UtilisateurDAO extends DAO{
         ));
     }
    
+
+    public function getPointUser($nom){
+        $sql = "SELECT POINT_ACTUEL FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $result = $this->queryRow($sql, array('pseudo' => $nom));
+        if ($result) {
+            return $result['POINT_ACTUEL'];
+        } else {
+            echo "Erreur : Impossible de récupérer le nombre de points de l'utilisateur depuis la base de données.";
+            return null;
+        }
+    }
     // echo "quoicoubeh". (new UtilisateurDAO())->getUtilisateurByName()."lksjdaskd";
     
 }

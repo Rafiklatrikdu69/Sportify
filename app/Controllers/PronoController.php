@@ -4,7 +4,8 @@ class PronoController extends Controllers{
     public  function index(){
      
        (new VerifSession());
-        View::View('pronostique',["tableau"=>(new EvenementDAO())->getAll()]);
+        View::View('pronostique',["tableau"=>(new EvenementDAO())->getAll(),
+    "pointsUser"=>( new utilisateurDAO())->getPointUser($_SESSION['nom'])]);
        
         $testData=(new EvenementDAO())->getAll();
         $encodedDataArray = [];
