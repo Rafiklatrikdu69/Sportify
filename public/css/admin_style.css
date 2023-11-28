@@ -1,0 +1,203 @@
+@font-face {
+    font-family: futura;
+    src: url(font/SansSerifBldFLF.otf);
+}
+
+
+body {
+    font-family: futura;
+    display: grid;
+    grid-template-areas:
+    "nav-bar     nav-bar      nav-bar      nav-bar"
+    "part-left part-middle part-middle part-right"
+    "part-left part-middle part-middle part-right"
+    "part-left part-middle part-middle part-right";
+    grid-template-columns: 1fr 3fr 3fr 1fr; 
+    gap: 10px;
+    height: 100vh;
+}
+
+.nav-bar {
+    background-color: aliceblue;
+    grid-area: nav-bar;
+    grid-column: span 4; 
+}
+
+
+.part-left, .part-middle, .part-right {
+    height: 100%;
+    box-shadow: #1C84FF;
+}
+
+.part-left {
+    grid-area: part-left; 
+}
+
+.part-middle {
+    grid-area: part-middle; 
+}
+
+.part-right {
+    grid-area: part-right; /* Positionner dans la zone "part-right" */
+}
+
+.part-left,.part-middle{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+img{
+    height: 10px;
+    width: 10px;
+}
+.button-flex {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+.button-flex img {
+    height: 20px; 
+    width: 20px; 
+}
+
+
+
+
+
+
+.button {
+    align-items: center;
+    appearance: button;
+    background-color: #0276FF;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-family: "RM Neue",sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    padding: 10px 21px;
+    text-align: center;
+    text-transform: none;
+    transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-22:active {
+    background-color: #006AE8;
+}
+
+.button-22:hover {
+    background-color: #1C84FF;
+}
+
+
+#searchbar{
+    margin-left: 15%;
+    padding:15px;
+    border-radius: 10px;
+}
+
+input[type=text] {
+    width: 30%;
+    -webkit-transition: width 0.15s ease-in-out;
+    transition: width 0.15s ease-in-out;
+    border-style: none;
+}
+
+
+input[type=text]:focus {
+    width: 70%;
+}
+
+.user{
+    width: 100%;
+    background-color: #1C84FF;
+    border-radius: 15px;
+}
+
+.dropbtn {
+    background-color: #0276FF;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+.dropdown-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.dropdown-content li {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+
+.dropdown-content li:hover {
+    background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.user{
+    text-align: center;
+    display: grid;
+    grid-template-areas:
+    "prenom    nom      adresse-mail      dropdown";
+    
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr ; 
+
+    align-items: center;
+}
+.prenom{
+    grid-area: prenom;
+}
+.nom{
+    grid-area: nom;
+}
+.adresse_mail{
+    grid-area: adresse-mail;
+}
+.dropdown{
+    grid-area: dropdown;
+}
+.button span{
+    font-family: futura;
+    color: black;
+}
+.user-flex{
+    
+    display: flex;
+    flex-direction: row;
+   
+}
