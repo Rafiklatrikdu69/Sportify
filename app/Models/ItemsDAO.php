@@ -1,9 +1,10 @@
 <?php
 
-
-// comme pour les autres DAO, on hérite de la classe DAO
-
-require_once 'DAO.php';
+// require '../../vendor/Autoloader.php';
+require 'DAO.php';
+require 'UtilisateurDAO.php';
+require 'Singleton.php';
+// require '../../config/Config.php';
 
 class ItemsDAO extends DAO{
         public function get($id){
@@ -51,41 +52,59 @@ class ItemsDAO extends DAO{
         }
         */
         
-        public function purchaseItem($itemId, $userId) {
-            // Vérifier si l'article existe et que l'utilisateur a assez de points pour l'acheter
-            $sql = "SELECT * FROM ITEMS WHERE ITEM_ID = :itemId";
-            $params = array(":itemId" => $itemId);
-            $sth = $this->queryRow($sql, $params);
-            $item = $sth->fetch(PDO::FETCH_ASSOC);
-        
-            $sql = "SELECT * FROM UTILISATEUR WHERE UTILISATEUR_ID = :userId";
-            $params = array(":userId" => $userId);
-            $sth = $this->queryRow($sql, $params);
-            $user = $sth->fetch(PDO::FETCH_ASSOC);
-        
-            if (!$item || !$user || $user['POINT_ACTUEL'] < $item['PRIX']) {
-                return false; // L'article n'existe pas ou l'utilisateur n'a pas assez de points
+        public function purchaseItem($itemId) {
+            $userId = null;
+            if (isset($_SESSION['nom'])) {
+                $nom = $_SESSION['nom'];
+                $userId = (new UtilisateurDAO())->getUtilisateurByName($nom);
             }
         
-            // Effectuer l'achat en ajoutant l'article à l'inventaire de l'utilisateur et déduire les points
-            $sql = "INSERT INTO INVENTAIRE (UTILISATEUR_ID, ITEM_ID) VALUES (:userId, :itemId)";
-            $params = array(":userId" => $userId, ":itemId" => $itemId);
-            $sth = $this->insert($sql, $params);
+            if ($userId) {
+                // Récupérer les détails de l'utilisateur
+                $sqlUser = "SELECT * FROM UTILISATEUR WHERE UTILISATEUR_ID = :userId";
+                $paramsUser = array(":userId" => $userId);
+                $user = $this->queryRow($sqlUser, $paramsUser);
         
-            if ($sth->rowCount() == 0) {
-                return false; // Erreur lors de l'ajout à l'inventaire
+                // Vérifier si l'utilisateur existe
+                if (!$user) {
+                    return false; // Utilisateur introuvable
+                }
+        
+                // Vérifier si l'article existe et que l'utilisateur a assez de points pour l'acheter
+                $sqlItem = "SELECT * FROM ITEMS WHERE ITEM_ID = :itemId";
+                $paramsItem = array(":itemId" => $itemId);
+                $item = $this->queryRow($sqlItem, $paramsItem);
+        
+                if (!$item || $user['POINT_ACTUEL'] < $item['PRIX']) {
+                    return false; // L'article n'existe pas ou l'utilisateur n'a pas assez de points
+                }
+        
+                // Effectuer l'achat en ajoutant l'article à l'inventaire de l'utilisateur et déduire les points
+                $sqlInsert = "INSERT INTO INVENTAIRE (UTILISATEUR_ID, ITEM_ID) VALUES (:userId, :itemId)";
+                $paramsInsert = array(":userId" => $userId, ":itemId" => $itemId);
+                $sthInsert = $this->insert($sqlInsert, $paramsInsert);
+        
+                if (!$sthInsert || $sthInsert->rowCount() == 0) {
+                    return false; // Erreur lors de l'ajout à l'inventaire
+                }
+        
+                // Mettre à jour le nombre de points de l'utilisateur après l'achat
+                $newPoints = $user['POINT_ACTUEL'] - $item['PRIX'];
+                $sqlUpdate = "UPDATE UTILISATEUR SET POINT_ACTUEL = :newPoints WHERE UTILISATEUR_ID = :userId";
+                $paramsUpdate = array(":newPoints" => $newPoints, ":userId" => $userId);
+                $sthUpdate = $this->update($sqlUpdate, $paramsUpdate);
+        
+                if (!$sthUpdate || $sthUpdate->rowCount() == 0) {
+                    return false; // Erreur lors de la mise à jour des points
+                }
+        
+                return true; // Achat effectué avec succès
+            } else {
+                return false; // Utilisateur non trouvé ou non connecté
             }
-        
-            $newPoints = $user['POINT_ACTUEL'] - $item['PRIX'];
-            $sql = "UPDATE UTILISATEUR SET POINT_ACTUEL = :newPoints WHERE UTILISATEUR_ID = :userId";
-            $params = array(":newPoints" => $newPoints, ":userId" => $userId);
-            $sth = $this->update($sql, $params);
-        
-            if ($sth->rowCount() == 0) {
-                return false; // Erreur lors de la mise à jour des points
-            }
-        
-            return true; // Achat effectué avec succès
         }
         
+        
 }
+
+(new ItemsDAO())->purchaseItem(1); // Test de la fonction purchaseItem() avec l'ID de l'article à acheter en paramètre

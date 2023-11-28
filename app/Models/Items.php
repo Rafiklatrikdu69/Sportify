@@ -48,7 +48,7 @@ class Items{
     function toString(){
         return 
         '<div class="card">'. 
-        '<img src="images/logo.png">'.
+        '<img src="images/img'.$this->item_id.'.jpg">'. // chercher l'image de nom img[itemId].jpg en local
         '<h1>'.$this->item_name.'</h1>'.
         '<p class="price">'.$this->item_price.' points</p>'.
         '<p>'.$this->item_description.'</p>'.

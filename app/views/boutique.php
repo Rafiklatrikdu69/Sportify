@@ -70,7 +70,7 @@ use \App\Config;
             </div>
             <div>
                 <img src="images/logo.png">
-                <p>Pseudo</p>
+                <p><?php echo $_SESSION['nom']?></p>
                 <p>Classement</p>
                 <p>Prono réussi</p>
                 <p>Badges</p>
