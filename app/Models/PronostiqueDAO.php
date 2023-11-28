@@ -42,6 +42,21 @@ class PronostiqueDAO extends DAO{
         return $bool;
         
     }
+
+    public function makeWin($match_id, $cote) {
+        $sql = "UPDATE `PRONOSTIC` SET `STATUS` = 1 WHERE `PRONOSTIC`.`MATCH_PRONO` = :match_id AND `PRONOSTIC`.`COTE_PRONO` = :cote";
+        $this->insert($sql, array(
+            "match_id" => $match_id,
+            "cote" => $cote
+        ));
+        $sql = "UPDATE `PRONOSTIC` SET `STATUS` = -1 WHERE `PRONOSTIC`.`MATCH_PRONO` = :match_id AND `PRONOSTIC`.`COTE_PRONO` != :cote";
+        $this->insert($sql, array(
+            "match_id" => $match_id,
+            "cote" => $cote
+        ));
+    }
+
+    
     
     public function verificationProno(){ 
         
