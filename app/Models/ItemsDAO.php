@@ -25,7 +25,7 @@ class ItemsDAO extends DAO{
             foreach($sth as $item){
                 $items = new Items($item[0],$item[1],$item[2],$item[3],$item[4],$item[5]);
               
-                $tab[] = $items;
+                $tab[] = $items->toString();
             }
             return $tab;
         }
@@ -49,11 +49,5 @@ class ItemsDAO extends DAO{
             $sth = $this->delete($sql);
             return $sth->rowCount();
         }
-        */
-
-        
-
-    
-    
-        
+        */  
 }
