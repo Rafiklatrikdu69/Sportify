@@ -2,6 +2,21 @@
 
 // seulement l'id et le mail sont unique, deux personnes peuvent avoir le meme nom, prenom, mot de passe
 class UtilisateurDAO extends DAO{
+
+
+    public function getAllUSers(){
+        $sql = "SELECT * FROM `UTILISATEUR`";
+        $res = $this->queryAll($sql);
+        $tab =[];
+     //   var_dump($res);
+    foreach($res as $user){
+             $users[] = new Utilisateur($user[0],$user[1],$user[2],$user[3],$user[4],$user[5],$user[6],$user[7]);
+          
+             $tab[] = $users;
+         }
+        return $tab;
+    }
+
     public function select($nom, $mdp) {
         $sql = "SELECT * FROM `UTILISATEUR` WHERE PSEUDO LIKE :pseudo";
         $res = $this->queryRow($sql, array('pseudo' => $nom));
@@ -46,10 +61,10 @@ class UtilisateurDAO extends DAO{
         
         
     }
+    //a changer 
     public function selectInscription($nom,$mdp,$email){
-        $sql = "SELECT * from `UTILISATEUR` where PSEUDO like :pseudo or MOT_DE_PASSE like :mdp or EMAIL like :mail";
+        $sql = "SELECT * from `UTILISATEUR` where PSEUDO like :pseudo  or EMAIL like :mail";
         $res=  $this->queryRow($sql,array('pseudo'=>$nom,
-        'mdp'=>$mdp,
     'mail'=>$email));
         $bool = FALSE;
         if($res){   

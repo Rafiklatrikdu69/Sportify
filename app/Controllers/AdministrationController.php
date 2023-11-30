@@ -2,6 +2,6 @@
 
 class AdministrationController extends Controllers{
     public function index(){
-        View::view("admin",[]);
+        View::view("admin",["users"=>(new UtilisateurDAO())->getAllUsers()]);
     }
 }
