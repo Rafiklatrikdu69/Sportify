@@ -1,10 +1,7 @@
 <?php
 
-require '../../vendor/Autoloader.php';
-require 'DAO.php';
-require 'UtilisateurDAO.php';
-require 'Singleton.php';
-require '../../config/Config.php';
+
+
 class PronostiqueDAO extends DAO{
     
     public function insertPronostique($prono) {
@@ -70,52 +67,7 @@ class PronostiqueDAO extends DAO{
 
     
     
-    public function verificationProno(){ 
-        
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
-            session_start();
-            
-            
-            $pronostiqueur_id = null;
-            if (isset($_SESSION['nom'])) {
-                $nom = $_SESSION['nom'];
-                
-                $pronostiqueur_id = (new UtilisateurDAO())->getUtilisateurByName($nom);
-            }
-            
-            
-            if ($pronostiqueur_id !== null) {
-                $data = file_get_contents("php://input");
-                $prono = json_decode($data, true);
-                
-                
-                $prono['pronostiqueur_id'] = $pronostiqueur_id;
-                // echo  $prono['pronostiqueur_id'];
-                
-                $resultat = "La mise : " . $prono['mise'] . " Match prono : " . $prono['match_prono'];
-                
-                // echo $resultat;
-                $res = (new PronostiqueDAO())->selectMisePronoById($prono);
-                if( !is_null($res)){ 
-                    //echo "point actuels  :" .$res[0];
-                    if($res[0]>=$prono['mise']){ 
-                        if( (new PronostiqueDAO())->selectIDPronostiqueur($prono)==FALSE ) {
-                            (new PronostiqueDAO())->insertPronostique($prono);
-                            (new UtilisateurDAO())->updatePoint($prono['pronostiqueur_id'],$res[0],$prono['mise']);
-                        }else{
-                            echo true;
-                        }
-                    }else{ 
-                        echo "point";
-                    }
-                }
-            } else {
-                echo "Erreur : Impossible de récupérer l'ID du pronostiqueur depuis la session.";
-            }
-        }       
-    }
+    
 }
 
 
-(new PronostiqueDAO())->verificationProno();
