@@ -3,6 +3,7 @@
 
 
 require 'Singleton.php';
+require 'DAO.php';
 
 // seulement l'id et le mail sont unique, deux personnes peuvent avoir le meme nom, prenom, mot de passe
 class UtilisateurDAO extends DAO{
@@ -130,7 +131,8 @@ class UtilisateurDAO extends DAO{
     public function supprimerUtilisateur(){ 
         $data = file_get_contents("php://input");
         $user = json_decode($data, true);  
-        var_dump($data);      
+        var_dump($data);  
+        echo $data;    
     }
     
     // echo "quoicoubeh". (new UtilisateurDAO())->getUtilisateurByName()."lksjdaskd";

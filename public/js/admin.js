@@ -13,13 +13,13 @@ boutonSuppr.addEventListener("click",function(){
         "headers": {
             "Content-Type": "application/json; charset=utf-8"
         },
-        "body": JSON.stringify("jnedjwjkd")
+        "body": JSON.stringify(document.getElementsByClassName("id").value)
     })
         .then(function (response) {
             return response.text();
         })
         .then(function (data) {
-            //console.log(data);
+            console.log(data);
            
         })
         .catch(function (error) {
