@@ -50,7 +50,7 @@ use \App\Config;
 
         <?php
             foreach($tabItems as $item){
-                echo $item;
+                echo $item->toString();
             }
         ?>
 

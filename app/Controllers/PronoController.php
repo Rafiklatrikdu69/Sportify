@@ -1,5 +1,4 @@
 <?php
-
 class PronoController extends Controllers{
     public  function index(){
      

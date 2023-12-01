@@ -56,50 +56,112 @@ closeModalBtn.addEventListener('click', function () {
 });
 
 
+
+// function showConfirmation(itemId, itemName) {
+//     const modal = document.getElementById('modal');
+//     document.getElementById('itemToBuy').textContent = itemName;
+//     modal.classList.add('open');
+
+//     const confirmPurchaseBtn = document.getElementById('confirmPurchase');
+//     confirmPurchaseBtn.addEventListener('click', function () {
+//         // Récupérer l'ID de l'utilisateur depuis votre système (peut-être stocké dans une variable JavaScript ou récupéré depuis le backend)
+//         purchaseItem(itemId);
+
+//         // Ferme la boîte modale après l'achat confirmé
+//         modal.classList.remove('open');
+//     });
+// }
+
 function showConfirmation(itemId, itemName) {
     const modal = document.getElementById('modal');
     document.getElementById('itemToBuy').textContent = itemName;
     modal.classList.add('open');
 
     const confirmPurchaseBtn = document.getElementById('confirmPurchase');
-    confirmPurchaseBtn.addEventListener('click', function () {
+
+    // Supprimer d'abord l'événement click précédent pour éviter les déclenchements multiples
+    confirmPurchaseBtn.removeEventListener('click', handleConfirmPurchase);
+
+    // Ajouter l'événement click avec la fonction handleConfirmPurchase
+    confirmPurchaseBtn.addEventListener('click', handleConfirmPurchase);
+
+    // Sans les 2 lignes précédentes, 2 messages d'achat s'afficheraient si l'utilisateur achète 2 items (clique 2 fois sur le bouton achat), 3 si 3, 4 si 4, etc.
+    function handleConfirmPurchase() {
         // Récupérer l'ID de l'utilisateur depuis votre système (peut-être stocké dans une variable JavaScript ou récupéré depuis le backend)
-        const userId = getUserIdSomehow(); // Mettez ici la logique pour obtenir l'ID de l'utilisateur
-
-        // Vérifier si l'utilisateur a assez de Sporticoins
-        fetch('../../app/Models/ItemsDAO.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                itemId: itemId,
-                userId: userId
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // L'utilisateur a suffisamment de Sporticoins pour acheter l'article
-                // Appelez ici une fonction pour finaliser l'achat ou effectuer d'autres actions nécessaire
-
-                console.log('Achat effectué avec succès');
-            } else {
-                // L'utilisateur n'a pas assez de Sporticoins pour acheter l'article
-                console.log('Fonds insuffisants pour l\'achat');
-            }
-        })
-        .catch(error => {
-            console.error('Erreur lors de la requête : ', error);
-        });
+        purchaseItem(itemId);
 
         // Ferme la boîte modale après l'achat confirmé
         modal.classList.remove('open');
+
+        // Supprimer l'événement click après son exécution pour éviter les déclenchements multiples
+        confirmPurchaseBtn.removeEventListener('click', handleConfirmPurchase);
+    }
+}
+
+function purchaseItem(itemId) {
+    // Effectuer une requête vers le backend pour exécuter la fonction purchaseItem du fichier ItemsDAO.php
+    fetch('../../app/Models/ItemsDAO.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            itemId: itemId,
+        })
+    })
+    .then(response => response.json()) 
+    .then(data => {
+        console.log(data);
+        if (data.success) {
+            alert("Achat effectué avec succès");
+        } else {
+            alert("Achat échoué");
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
 }
 
-// Fonction factice pour récupérer l'ID de l'utilisateur
-function getUserIdSomehow() {
-    return 1; // test à 1 pour l'instant
+
+function purchaseItem(itemId) {
+    // Effectuer une requête vers le backend pour exécuter la fonction purchaseItem du fichier ItemsDAO.php
+    fetch('../../app/Models/ItemsDAO.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            itemId: itemId,
+        })
+    })
+    .then(response => response.json()) // Utiliser response.json() pour traiter la réponse JSON
+    .then(data => {
+        // Gérer la réponse du backend ici (peut-être afficher un message à l'utilisateur)
+        console.log(data); // Afficher la réponse du backend dans la console à titre d'exemple
+        if (data.success) { // Vérifier la propriété 'success' dans la réponse JSON
+            alert("Achat effectué avec succès");
+        } else {
+            alert("Achat échoué");
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    fetch('items.json')
+        .then(response => response.json())
+        .then(data => {
+            // Gérer la réponse du backend ici (peut-être afficher un message à l'utilisateur)
+            console.log(data); // Afficher la réponse du backend dans la console à titre d'exemple
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    
 }
+
+
+
+
 
