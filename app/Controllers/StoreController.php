@@ -7,7 +7,12 @@ class StoreController  extends Controllers
    public function index()
    {
       (new VerifSession());
-      View::View('boutique',['tabItems'=>(new ItemsDAO())->getAll()]);
+      View::View('boutique',['tabItems'=>(new ItemsDAO())->getAll(), 
+      "pointsUser"=>( new utilisateurDAO())->getPointUser($_SESSION['nom']),
+      "userId"=>( new utilisateurDAO())->getUserId($_SESSION['nom'])]);
+
+      
+
    }
 }
 

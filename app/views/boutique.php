@@ -26,11 +26,11 @@ use \App\Config;
                     <legend>Couleur</legend>
                     <select id="couleur">
                         <option value="">Aucune</option>
-                        <option value="dog">Rouge</option>
-                        <option value="cat">Vert</option>
-                        <option value="hamster">Bleu</option>
-                        <option value="parrot">Noir</option>
-                        <option value="spider">Blanc</option>
+                        <option value="red">Rouge</option>
+                        <option value="green">Vert</option>
+                        <option value="blue">Bleu</option>
+                        <option value="black">Noir</option>
+                        <option value=white>Blanc</option>
                     </select>
                     <legend>Prix max</legend>
                     <div class="range-wrap">
@@ -66,11 +66,11 @@ use \App\Config;
         
         <aside id="profil">
             <div>
-                <p>120 Sportycoins</p>
+            <p id="coin"><?php echo $pointsUser; ?> Sporticoins</p>
             </div>
             <div>
                 <img src="images/logo.png">
-                <p>Pseudo</p>
+                <p><?php echo $_SESSION['nom']?></p>
                 <p>Classement</p>
                 <p>Prono réussi</p>
                 <p>Badges</p>
@@ -78,6 +78,17 @@ use \App\Config;
             </div>
         </aside>
     </section>
+
+    <div class="modal" id="modal">
+        <div class="modal-inner">
+            <h2>Confirmation d'achat</h2>
+            <p>Voulez-vous acheter l'article <span id="itemToBuy"></span> ?</p>
+            <button id="confirmPurchase">Confirmer</button>
+            <button id="closeModal">Annuler</button>
+        </div>
+    </div>
+
+    
     <script src="../../public/js/store.js"></script>
 </body>
 
