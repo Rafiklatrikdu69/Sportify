@@ -45,14 +45,5 @@ class Items{
         return $this->item_color;
     }
 
-    function toString(){
-        return 
-        '<div class="card">'. 
-        '<img src="images/img'.$this->item_id.'.jpg">'. // chercher l'image de nom img[itemId].jpg en local
-        '<h1>'.$this->item_name.'</h1>'.
-        '<p class="price">'.$this->item_price.' points</p>'.
-        '<p>'.$this->item_description.'</p>'.
-        '<p><button id="buy'.$this->item_id.'" onclick="showConfirmation('.$this->item_id.', \''.$this->item_name.'\')">Acheter</button></p>'. 
-        '</div>';
-    }
+  
 }
