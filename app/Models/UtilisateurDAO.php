@@ -2,23 +2,20 @@
 
 
 
-require 'Singleton.php';
-require 'DAO.php';
-
+// include '../vendor/Autoloader.php';
 // seulement l'id et le mail sont unique, deux personnes peuvent avoir le meme nom, prenom, mot de passe
 class UtilisateurDAO extends DAO{
     
-    
-    public function getAllUSers(){
+    public function getAllUsers(){
         $sql = "SELECT * FROM `UTILISATEUR`";
         $res = $this->queryAll($sql);
-        $tab =[];
-        //   var_dump($res);
+        $tab = [];
+    
         foreach($res as $user){
-            $users[] = new Utilisateur($user[0],$user[1],$user[2],$user[3],$user[4],$user[5],$user[6],$user[7]);
-            
-            $tab[] = $users;
+           $us = new Utilisateur($user[0],$user[1],$user[2],$user[3],$user[4],$user[5],$user[6],$user[7]);
+           $tab[]  = $us;
         }
+  
         return $tab;
     }
     
@@ -128,14 +125,13 @@ class UtilisateurDAO extends DAO{
             return null;
         }
     }
-    public function supprimerUtilisateur(){ 
-        $data = file_get_contents("php://input");
-        $user = json_decode($data, true);  
-        var_dump($data);  
-        echo $data;    
+
+    public function deleteUtilisateurByID($id){
+        $sql = "DELETE FROM `UTILISATEUR` WHERE UTILISATEUR_ID = :id";
+        $this->queryRow($sql, array('id' => $id));
     }
+    
     
     // echo "quoicoubeh". (new UtilisateurDAO())->getUtilisateurByName()."lksjdaskd";
     
 }
-(new UtilisateurDAO())->supprimerUtilisateur();

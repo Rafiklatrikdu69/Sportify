@@ -10,6 +10,9 @@ switch ($request) {
     case '/public/':
         $route->get('/public/', [new HomeController(), 'index']);
         break;
+        case '/public/json':
+            $route->post('/public/json', [new JsonController(), 'supp']);
+            break;
 
     case '/public/connexion':
     $route->get('/public/connexion', [new ConnexionController(), 'index']);
@@ -18,7 +21,7 @@ switch ($request) {
     break;
     case '/public/verification-formulaire-connexion':
         $route->post('/public/verification-formulaire-connexion', [new FormConnexionController(), 'verification']);
-
+    break;
     case '/public/inscription':
 
         $route->get('/public/inscription', [new InscriptionControllers(), 'index']);

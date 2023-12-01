@@ -68,12 +68,12 @@
 	
 		<?php foreach($users as $user){?>
 			<div class="user">
-				<div class="id"><?php echo $user[0]->getUtilisateurId();?></div>
-				<div class="pseudo"><?php echo $user[0]->getPseudo();?></div>
-				<div class="adresse-mail"><?php echo $user[0]->getEmail();?></div>
-				<div class="point"><?php echo $user[0]->getPointActuel();?></div>
-				<div class="point-class"><?php echo $user[0]->getPointClassement();?></div>
-				<div class="score"><?php  echo $user[0]->getScoreJeu()?></div>
+				<div class="id" id="<?php echo $user->getUtilisateurId();?>"><?php echo $user->getUtilisateurId();?></div>
+				<div class="pseudo"><?php echo $user->getPseudo();?></div>
+				<div class="adresse-mail"><?php echo $user->getEmail();?></div>
+				<div class="point"><?php echo $user->getPointActuel();?></div>
+				<div class="point-class"><?php echo $user->getPointClassement();?></div>
+				<div class="score"><?php  echo $user->getScoreJeu()?></div>
 				<div class="dropdown">
 					<button class="dropbtn">Actions</button>
 					<div class="dropdown-content">
