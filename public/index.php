@@ -13,6 +13,9 @@ switch ($request) {
         case '/public/json':
             $route->post('/public/json', [new JsonController(), 'supp']);
             break;
+            case '/public/json-item':
+                $route->post('/public/json-item', [new JsonControllerItem(), 'ajout']);
+                break;
 
     case '/public/connexion':
     $route->get('/public/connexion', [new ConnexionController(), 'index']);

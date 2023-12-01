@@ -49,10 +49,16 @@ use \App\Config;
         <section id="articles">
 
         <?php
-            foreach($tabItems as $item){
-                echo $item;
-            }
-        ?>
+            foreach($tabItems as $item){?>
+            <div class="card">
+                <img src="images/logo.png">
+                <h1 class="nom" id="<?php echo $item->getId()?>"><?php echo $item->getName()?></h1>
+                <p class="price" id="<?php echo $item->getPrice()?>"><?php echo $item->getPrice()?> points</p>
+                <p><?php echo $item->getDescription()?></p>
+                <p><button id="achat">Acheter</button></p>
+            </div>
+            <?php }?>
+
 
             <!-- <div class="card">
                 <img src="images/logo.png">
