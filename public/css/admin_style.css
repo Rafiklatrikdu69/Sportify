@@ -3,15 +3,22 @@
     src: url(font/SansSerifBldFLF.otf);
 }
 
-
+label{
+    color: black;
+}
+#liste{
+    color: black;
+}
 body {
+    overflow: hidden;
+    color: rgb(0, 0, 0);
     font-family: futura;
     display: grid;
     grid-template-areas:
     "nav-bar     nav-bar      nav-bar      nav-bar"
-    "part-left part-middle part-middle part-right"
-    "part-left part-middle part-middle part-right"
-    "part-left part-middle part-middle part-right";
+    "part-left part-middle part-middle part-middle"
+    "part-left part-middle part-middle part-middle"
+    "part-left part-middle part-middle part-middle";
     grid-template-columns: 1fr 3fr 3fr 1fr; 
     gap: 10px;
     height: 100vh;
@@ -24,7 +31,7 @@ body {
 }
 
 
-.part-left, .part-middle, .part-right {
+.part-left, .part-middle {
     height: 100%;
     box-shadow: #1C84FF;
 }
@@ -37,9 +44,7 @@ body {
     grid-area: part-middle; 
 }
 
-.part-right {
-    grid-area: part-right; /* Positionner dans la zone "part-right" */
-}
+
 
 .part-left,.part-middle{
     padding: 5px;
@@ -124,6 +129,7 @@ input[type=text]:focus {
 
 .user{
     width: 100%;
+    height: 60px;
     background-color: #1C84FF;
     border-radius: 15px;
 }
@@ -173,31 +179,43 @@ input[type=text]:focus {
     text-align: center;
     display: grid;
     grid-template-areas:
-    "prenom    nom      adresse-mail      dropdown";
+    "id    pseudo      adresse-mail           point    point-class    score      dropdown";
     
-    grid-template-columns: 0.5fr 1fr 1fr 0.5fr ; 
+    grid-template-columns: 0.5fr 0.5fr  0.5fr 0.5fr 0.5fr 0.5fr 0.5fr; 
 
     align-items: center;
 }
-.prenom{
-    grid-area: prenom;
+.id{
+    grid-area: id;
 }
-.nom{
-    grid-area: nom;
+.pseudo{
+    grid-area: pseudo;
 }
 .adresse_mail{
     grid-area: adresse-mail;
 }
+
+.point{
+    grid-area: point;
+}
+.point-class{
+    grid-area: point-class;
+}
+.score{
+    grid-area: score;
+}
 .dropdown{
     grid-area: dropdown;
 }
+
 .button span{
     font-family: futura;
-    color: black;
+    color: rgb(255, 255, 255);
 }
-.user-flex{
-    
-    display: flex;
-    flex-direction: row;
-   
+
+.part-middle  {
+    overflow-y: auto;
+    height: auto;
+display: flex;
+flex-direction: column;
 }
