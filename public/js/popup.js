@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         let resultatElement = document.getElementById("resultat");
     
-        fetch("../../app/Models/PronostiqueDAO.php", {
+        fetch("/public/json-prono", {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json; charset=utf-8"

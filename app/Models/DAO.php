@@ -91,5 +91,20 @@ abstract class DAO
     
   }
 
+  public function delete($sql,$args =null){
+    try{
+      $pdostmt = $this->_requete($sql, $args);
+      $pdostmt->closeCursor();
+    }
+    catch(PDOException $e)
+    {
+      if($this->_debug)
+            die($e->getMessage());
+          $this->_erreur = 'delete';
+      $res = false;
+    }
+    
+  }
+
 
 }
