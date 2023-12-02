@@ -45,15 +45,5 @@ class Items{
         return $this->item_color;
     }
 
-    function toString(){
-        return 
-        '<div class="card">'. 
-        '<img src="images/logo.png">'.
-        '<h1>'.$this->item_name.'</h1>'.
-        '<p class="price">'.$this->item_price.'points</p>'.
-        '<p>'.$this->item_description.'</p>'.
-        '<p><button>Acheter</button></p>'.
-        '</div>';
-    }
-
+  
 }

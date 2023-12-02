@@ -12,7 +12,7 @@
             foreach ($this->paths as $path) {
                 $file = realpath($path . '/' . str_replace('\\', '/', $class) . '.php');
                 if ($file && is_file($file)) {
-                    require_once($file);
+                    include($file);
                     return;
                 }
             }

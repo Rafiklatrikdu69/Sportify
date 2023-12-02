@@ -1,32 +1,49 @@
 <?php
 
+
+
+// include '../vendor/Autoloader.php';
 // seulement l'id et le mail sont unique, deux personnes peuvent avoir le meme nom, prenom, mot de passe
 class UtilisateurDAO extends DAO{
+    
+    public function getAllUsers(){
+        $sql = "SELECT * FROM `UTILISATEUR`";
+        $res = $this->queryAll($sql);
+        $tab = [];
+    
+        foreach($res as $user){
+           $us = new Utilisateur($user[0],$user[1],$user[2],$user[3],$user[4],$user[5],$user[6],$user[7]);
+           $tab[]  = $us;
+        }
+  
+        return $tab;
+    }
+    
     public function select($nom, $mdp) {
         $sql = "SELECT * FROM `UTILISATEUR` WHERE PSEUDO LIKE :pseudo";
         $res = $this->queryRow($sql, array('pseudo' => $nom));
-    
+        
         $bool = FALSE;
-    
+        
         if ($res) {
-          
+            
             $motDePasseBD = $res['MOT_DE_PASSE'];
             echo "BD : ". $motDePasseBD."<br>";
             echo "mdp : ".$mdp;
-           
-            if (password_verify($mdp, $motDePasseBD)) {
             
+            if (password_verify($mdp, $motDePasseBD)) {
+                
                 echo "Utilisateur présent";
                 $bool = TRUE;
             } else {
-               
+                
                 echo "Mot de passe incorrect";
             }
         } else {
-           
+            
             echo "Utilisateur inconnu";
         }
-    
+        
         return $bool;
     }
     
@@ -46,11 +63,11 @@ class UtilisateurDAO extends DAO{
         
         
     }
+    //a changer 
     public function selectInscription($nom,$mdp,$email){
-        $sql = "SELECT * from `UTILISATEUR` where PSEUDO like :pseudo or MOT_DE_PASSE like :mdp or EMAIL like :mail";
+        $sql = "SELECT * from `UTILISATEUR` where PSEUDO like :pseudo  or EMAIL like :mail";
         $res=  $this->queryRow($sql,array('pseudo'=>$nom,
-        'mdp'=>$mdp,
-    'mail'=>$email));
+        'mail'=>$email));
         $bool = FALSE;
         if($res){   
             echo "utilisateur present";
@@ -58,7 +75,7 @@ class UtilisateurDAO extends DAO{
             $bool = TRUE;
         }
         else{
-           
+            
             
             echo "Utilisateur inconnue";
             
@@ -66,15 +83,15 @@ class UtilisateurDAO extends DAO{
         return $bool;
         
     }
-
+    
     public function getUtilisateurByName($nom){
-      
+        
         if (isset($nom)) {
-
+            
             $sql = "SELECT UTILISATEUR_ID FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
             $result = $this->queryRow($sql, array('pseudo' => $nom));
-    
-          
+            
+            
             if ($result) {
                 return $result['UTILISATEUR_ID'];
             } else {
@@ -87,7 +104,7 @@ class UtilisateurDAO extends DAO{
         }
     }
     
-   
+    
     
     public function updatePoint($id, $pointActuel, $mise) {
         $sql = "UPDATE `UTILISATEUR` SET POINT_ACTUEL = POINT_ACTUEL - :mise WHERE UTILISATEUR_ID = :id";
@@ -96,8 +113,8 @@ class UtilisateurDAO extends DAO{
             "mise" => $mise
         ));
     }
-   
-
+    
+    
     public function getPointUser($nom){
         $sql = "SELECT POINT_ACTUEL FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
         $result = $this->queryRow($sql, array('pseudo' => $nom));
@@ -108,6 +125,24 @@ class UtilisateurDAO extends DAO{
             return null;
         }
     }
-    // echo "quoicoubeh". (new UtilisateurDAO())->getUtilisateurByName()."lksjdaskd";
+
+    public function deleteUtilisateurByID($id){
+        $sql = "DELETE  FROM UTILISATEUR WHERE UTILISATEUR_ID = :id";
+        $this->delete($sql, array('id' => $id));
+    }
     
+    
+    // echo "quoicoubeh". (new UtilisateurDAO())->getUtilisateurByName()."lksjdaskd";
+
+    public function getUserId($nom){
+        $sql = "SELECT UTILISATEUR_ID FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $result = $this->queryRow($sql, array('pseudo' => $nom));
+        if ($result) {
+            return $result['UTILISATEUR_ID'];
+        } else {
+            echo "Erreur : Impossible de récupérer l'ID de l'utilisateur depuis la base de données.";
+            return null;
+        }
+    }
 }
+

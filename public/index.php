@@ -10,6 +10,15 @@ switch ($request) {
     case '/public/':
         $route->get('/public/', [new HomeController(), 'index']);
         break;
+        case '/public/json':
+            $route->post('/public/json', [new JsonController(), 'supp']);
+            break;
+            case '/public/json-item':
+                $route->post('/public/json-item', [new JsonControllerItem(), 'ajout']);
+                break;
+                case '/public/json-prono':
+                    $route->post('/public/json-prono', [new JsonControllerProno(), 'verificationProno']);
+                    break;
 
     case '/public/connexion':
     $route->get('/public/connexion', [new ConnexionController(), 'index']);
@@ -18,7 +27,7 @@ switch ($request) {
     break;
     case '/public/verification-formulaire-connexion':
         $route->post('/public/verification-formulaire-connexion', [new FormConnexionController(), 'verification']);
-
+    break;
     case '/public/inscription':
 
         $route->get('/public/inscription', [new InscriptionControllers(), 'index']);
@@ -44,6 +53,9 @@ switch ($request) {
     case '/public/administration':
         $route->get('/public/administration', [new AdministrationController(), 'index']);
         break;
+        case '/public/administration/suppr':
+            $route->get('/public/suppr', [new SuppressionController(), 'suppr']);
+            break;
     default:
         // Gestion des erreurs ou redirection par défaut
         break;

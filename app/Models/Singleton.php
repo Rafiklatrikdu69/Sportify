@@ -1,4 +1,6 @@
 <?php
+
+
 // Implémente le pattern Singleton
 class Singleton 
 {
