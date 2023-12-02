@@ -1,0 +1,144 @@
+
+/* Police d'écriture */
+@font-face {
+    font-family: futura;
+    src: url(font/SansSerifBldFLF.otf);
+}
+
+*{
+    font-family: futura;
+}
+
+html{
+    height: 100%;
+}
+
+/* Mise a 0 du style css */
+body{
+    margin: 0;
+    background-color: #04245c;
+    height: 100%;
+}
+
+
+/* CSS Relatif au header */
+header{
+    background-color: black ;
+    display: grid;
+    grid-template: 1fr / 10% 1fr 1fr 1fr 1fr;
+    align-items: center;
+    height: auto;
+}
+
+header img{
+    grid-area: 1/1/2/2;
+    width: 4rem;
+    height: 4rem;
+}
+
+a{
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+header>a:hover, div>a:hover{
+    background-color: #69dac2;
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+header>a:first-child{
+    background-color: black;
+    color: black;
+}
+
+main{
+    margin-top: 5%;
+    display: grid;
+    /* Add space between the cards */
+    grid-gap: 2%;
+}
+
+#prono{
+    /* changer la couleur pour montrer qu'on est sure cette page */
+    background-color: #00838d;
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+header>a:hover, div>a:hover{
+    background-color: #00838d;
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+
+#actualite{
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: auto;
+    max-height: auto;
+    text-align: center;
+    font-family: arial;
+    margin: auto;
+    border-radius: 5%;
+    transition: 0.3s;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    /* Division a l'interieur de l'event */
+    display: grid;
+    grid-template-columns: 0.2fr 0.5fr 0.5fr;
+    grid-template-rows: 0.2fr 0.3fr 1fr 0.2fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.photo { grid-area: 1 / 1 / 2 / 2; }
+#like,#comment{
+    max-width: 20%;
+    height: auto;
+}
+#pp{
+    max-width: 100%;
+    height: auto;
+}
+
+.auteur { grid-area: 1 / 2 / 2 / 4;
+        /* Alligne le texte a gauche au millieu de la hauteur*/
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+}
+.titre { grid-area: 2 / 2 / 3 / 4; }
+.contenue { grid-area: 3 / 2 / 4 / 4; }
+.like { grid-area: 4 / 2 / 5 / 3; }
+.comment { grid-area: 4 / 3 / 5 / 4; }
+
+p{
+    font-size:25px;
+    margin-bottom:0;
+    padding-top:0;
+    margin: 0;
+}
+
+
+
+#base{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100%;
+}
+
