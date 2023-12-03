@@ -86,8 +86,8 @@ header>a:hover, div>a:hover{
     margin-right: 10%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: auto;
-    max-height: auto;
+    max-width: 70%;
+    max-height: 99%;
     text-align: center;
     font-family: arial;
     margin: auto;
@@ -97,15 +97,19 @@ header>a:hover, div>a:hover{
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     /* Division a l'interieur de l'event */
     display: grid;
-    grid-template-columns: 0.2fr 0.5fr 0.5fr;
+    grid-template-columns: 0.2fr 0.9fr 0.5fr;
     grid-template-rows: 0.2fr 0.3fr 1fr 0.2fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
 
 .photo { grid-area: 1 / 1 / 2 / 2; }
-#like,#comment{
+#like{
     max-width: 20%;
+    height: auto;
+}
+#comment{
+    max-width: 35%;
     height: auto;
 }
 #pp{
@@ -119,9 +123,27 @@ header>a:hover, div>a:hover{
         align-items: center;
         justify-content: flex-start;
 }
-.titre { grid-area: 2 / 2 / 3 / 4; }
-.contenue { grid-area: 3 / 2 / 4 / 4; }
-.like { grid-area: 4 / 2 / 5 / 3; }
+.titre { grid-area: 2 / 2 / 3 / 4;
+    /* Alligne le texte en haut a gauche*/
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+.contenue { grid-area: 3 / 2 / 4 / 4; 
+        /* Debut du texte en haut a gauche*/
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+}
+.like { grid-area: 4 / 2 / 5 / 3;
+        /* Alligne l'image a droite'*/
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    
+        
+}
 .comment { grid-area: 4 / 3 / 5 / 4; }
 
 p{
