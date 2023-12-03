@@ -1,6 +1,6 @@
 <?php
 
-require 'DAO.php';
+
 
 class EvenementDAO extends DAO{
         public function get($id){
