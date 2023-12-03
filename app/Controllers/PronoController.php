@@ -8,7 +8,6 @@ class PronoController extends Controllers{
        
         $testData=(new EvenementDAO())->getAll();
         $encodedDataArray = [];
-        $tab = [];
         
         foreach ($testData as $event) {
             if (!empty($event)) {

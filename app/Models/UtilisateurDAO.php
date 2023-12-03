@@ -127,8 +127,8 @@ class UtilisateurDAO extends DAO{
     }
 
     public function deleteUtilisateurByID($id){
-        $sql = "DELETE FROM `UTILISATEUR` WHERE UTILISATEUR_ID = :id";
-        $this->queryRow($sql, array('id' => $id));
+        $sql = "DELETE  FROM UTILISATEUR WHERE UTILISATEUR_ID = :id";
+        $this->delete($sql, array('id' => $id));
     }
     
     
