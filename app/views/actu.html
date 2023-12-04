@@ -17,7 +17,7 @@
     </header>
     <div id="base">
     <aside>
-        <button> Actualité</button>
+        <button id="openModal"> Actualité</button>
         <aside id="categorie">
             <form>
                 <fieldset>
@@ -49,7 +49,7 @@
             <p>120 Sportycoins</p>
         </div>
         <div>
-            <img src="images/logo.png">
+            <img src="../../public/images/logo.png">
             <p>Pseudo</p>
             <p>Classement</p>
             <p>Prono réussi</p>
@@ -57,7 +57,24 @@
             <p>Equipe préférée</p>
         </div>
     </aside>
+    <div class="modal" id="modal">
+        <div class="modal-inner">
+                <form>
+                    <fieldset>
+                        <legend>Ajouter une actualité</legend>
+                        <label for="titre">Titre</label>
+                        <input type="text" name="titre" id="titre"  required>
+                        <br>
+                        <label for="contenue">Contenue</label>
+                        <textarea name="contenue" id="contenue" cols="30" rows="10"  required></textarea>
+                        <input type="submit" value="Ajouter">
+                    </fieldset>
+                </form>
+                <button id="closeModal">Annuler</button>
+        </div>
+    </div>
 </div>
 </body>
 </html>
-<script src="../../public/js/prono.js"></script>
+<script src="../../public/js/actu.js"></script>
+<script src="../../public/js/ajt_actu.js"></script>
