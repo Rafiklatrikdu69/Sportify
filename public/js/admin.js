@@ -1,3 +1,12 @@
+function Pronostique(pronostiqueur_id, match_prono, cote_prono, date_prono, mise, status) {
+    this.pronostiqueur_id = pronostiqueur_id;
+    this.match_prono = match_prono;
+    this.cote_prono = cote_prono;
+    this.date_prono = date_prono;
+    this.mise = mise;
+    this.status = status;
+}
+
 let post = document.getElementById('post');
 let user = document.getElementById('user');
 let pronostique = document.getElementById('pronostique');
@@ -5,6 +14,8 @@ let items = document.getElementById('items');
 let boutonSuppr = document.querySelectorAll('#supp');
 let events = document.getElementById('events');
 let ajoutUtils = document.getElementById('ajout-util');
+let terminerMatch = document.querySelectorAll('.myBtn');
+let choixCote = document.querySelectorAll('#btn-cote');
 function usere(id) {
     this.id = id;
 }
@@ -61,13 +72,106 @@ ajoutUtils.addEventListener("click",function(){
 pronostique.addEventListener("click", function () {
     reset();
     console.log("pronostique");
-    document.getElementById('part-3').style.visibility = "visible"; 
+    document.getElementById('part-3').style.visibility = "visible";
+   
+    
 });
+
+// for(let i = 0;i<terminerMatch.length;i++){
+//     terminerMatch[i].addEventListener('click',function(){
+
+//         reset();
+   
+
+//     })
+// }
+
 events.addEventListener("click",function(){
     reset();
-    console.log("pronostique");
-    document.getElementById('part-4').style.visibility = "visible"; 
+    console.log("evenement");
+    //document.getElementById('part-4').style.visibility = "visible"; 
 })
 items.addEventListener("click", function () {
     console.log("items");
 });
+// const closeBtn = document.getElementById("closeModal");
+// const modal = document.getElementById("modal");
+// const openBtn = document.getElementById("openModal");
+
+// closeBtn.addEventListener("click", () => {
+//     modal.classList.remove("open");
+// });
+
+// openBtn.addEventListener("click", () => {
+//     console.log("Button clicked");
+//     modal.classList.add("open");
+// });
+
+// Get the modal
+var modal = document.querySelectorAll("#myModal");
+let contentModal = document.querySelectorAll('.modal-content');
+var buttons = document.getElementsByTagName("button");
+
+
+// Get the button that opens the modal
+var btn = document.querySelectorAll(".myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.querySelectorAll(".close");
+
+// When the user clicks the button, open the modal 
+function victoire(match_id,cote){
+    this.match_id = match_id;
+    this.cote = cote;
+    }
+    var tmp = 0;
+    
+for(let j = 0 ;j<btn.length;j++){
+btn[j].onclick = function() {
+    tmp = terminerMatch[j].id;
+    console.log(terminerMatch[j].id);
+     modal[j].style.display = "block";
+     
+    
+}
+
+}
+
+for(let i = 0;i<buttons.length;i++){
+ buttons[i].onclick= function(){
+    vic = new victoire(tmp,buttons[i].className)
+    fetch("/public/json-prono-victoire", {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": JSON.stringify(vic)
+    })
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (data) {
+            console.log(data);
+        }
+        );
+console.log(buttons[i].className);
+
+ }
+}
+
+
+// When the user clicks on <span> (x), close the modal
+for(let i = 0 ;i<span.length;i++){
+span[i].onclick = function() {
+  modal[i].style.display = "none";
+}
+}
+
+
+
+// When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }

@@ -19,6 +19,9 @@ switch ($request) {
                 case '/public/json-prono':
                     $route->post('/public/json-prono', [new JsonControllerProno(), 'verificationProno']);
                     break;
+                    case '/public/json-prono-victoire':
+                        $route->post('/public/json-prono-victoire', [new JsonControllerWinProno(), 'victoire']);
+                        break;
 
     case '/public/connexion':
     $route->get('/public/connexion', [new ConnexionController(), 'index']);

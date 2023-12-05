@@ -20,7 +20,7 @@ class JsonControllerItem{
                     }
                 }
             }
-            // (new UtilisateurDAO())->deleteUtilisateurByID($prono['id']);
+           
         }
     }
 }
