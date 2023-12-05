@@ -29,6 +29,7 @@ class PronostiqueDAO extends DAO{
             ));
         }
         
+        
         public function selectIDPronostiqueur($pronoID){
             $bool = FALSE;
             $sql ="SELECT PRONOSTIQUEUR_ID,MATCH_PRONO FROM `PRONOSTIC` WHERE :id_prono = PRONOSTIQUEUR_ID and :match_prono = MATCH_PRONO ";
@@ -52,13 +53,7 @@ class PronostiqueDAO extends DAO{
             
         }
         
-        // public function deleteProno($match_id){
-        //     $sql = "DELETE FROM `PRONOSTIC` WHERE `MATCH_PRONO` = :match_id";
-        //     $this->delete($sql, array("match_id" => $match_id)); 
         
-        //      $sql = "DELETE FROM `EVENEMENT` WHERE `EVENEMENT_ID` = :match_id";
-        //     $this->delete($sql, array("match_id" => $match_id)); 
-        // }
         
         public function makeWin($match_id, $cote) {
             echo "match :".$match_id." cote" .$cote;
@@ -93,15 +88,22 @@ class PronostiqueDAO extends DAO{
             ));
             $sql = "DELETE FROM `PRONOSTIC` WHERE `MATCH_PRONO` = :match_id";
             $this->delete($sql, array("match_id" => $match_id)); 
-           // deleteProno($match_id);
-           $sql = "DELETE FROM `EVENEMENT` WHERE `EVENEMENT_ID` = :match_id";
-           $this->delete($sql, array("match_id" => $match_id)); 
-         
-            }
-            
-            
-            
+            // deleteProno($match_id);
+            $sql = "DELETE FROM `EVENEMENT` WHERE `EVENEMENT_ID` = :match_id";
+            $this->delete($sql, array("match_id" => $match_id)); 
             
         }
         
-        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

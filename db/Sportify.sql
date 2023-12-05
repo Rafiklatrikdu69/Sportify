@@ -28,14 +28,10 @@ CREATE TABLE `PRONOSTIC` (
 CREATE TABLE `POST` (
   `POST_ID` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `AUTEUR_ID` int NOT NULL,
+  `AUTEUR_NOM` varchar(50) NOT NULL,
   `NOM_TOPIC` varchar(25) NOT NULL,
-  `DESCRIPTION_POST` varchar(25) DEFAULT ' ',
+  `DESCRIPTION_POST` varchar(255) DEFAULT ' ',
   `NB_LIKE` int DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-CREATE TABLE `USER_ADMIN` (
-  `ADMIN_ID` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `USER_ID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
@@ -44,7 +40,7 @@ CREATE TABLE `UTILISATEUR` (
   `PSEUDO` varchar(50) NOT NULL,
   `EMAIL` varchar(100) NOT NULL,
   `MOT_DE_PASSE` varchar(150) NOT NULL,
-  `POINT_ACTUEL` int DEFAULT '0',
+  `POINT_ACTUEL` decimal(10,2) DEFAULT '0',
   `POINT_CLASSEMENT` int DEFAULT '0',
   `STATUS` int DEFAULT 0,
   `SCORE_JEU` int DEFAULT '0'
@@ -72,7 +68,6 @@ CREATE TABLE `INVENTAIRE` (
 ALTER TABLE PRONOSTIC ADD CONSTRAINT FK_PRONOSTIQUEUR_ID FOREIGN KEY (PRONOSTIQUEUR_ID) REFERENCES UTILISATEUR (UTILISATEUR_ID);
 ALTER TABLE PRONOSTIC ADD CONSTRAINT FK_MATCH_PRONO FOREIGN KEY (MATCH_PRONO) REFERENCES EVENEMENT (EVENEMENT_ID);
 ALTER TABLE POST ADD CONSTRAINT FK_AUTEUR_ID FOREIGN KEY (AUTEUR_ID) REFERENCES UTILISATEUR (UTILISATEUR_ID);
-ALTER TABLE USER_ADMIN ADD CONSTRAINT FK_USER_ID FOREIGN KEY (USER_ID) REFERENCES UTILISATEUR (UTILISATEUR_ID);
 ALTER TABLE INVENTAIRE ADD CONSTRAINT FK_UTILISATEUR_ID FOREIGN KEY (UTILISATEUR_ID) REFERENCES UTILISATEUR (UTILISATEUR_ID);
 ALTER TABLE INVENTAIRE ADD CONSTRAINT FK_ITEM_ID FOREIGN KEY (ITEM_ID) REFERENCES ITEMS (ITEM_ID);
 ALTER TABLE INVENTAIRE ADD CONSTRAINT FK_USER_ID_INVENTAIRE FOREIGN KEY (UTILISATEUR_ID) REFERENCES UTILISATEUR (UTILISATEUR_ID);
@@ -96,7 +91,7 @@ INSERT INTO ITEMS (NOM_ITEM, TYPE, DESCRIPTION, PRIX, COULEUR) VALUES ('Sac', 'C
 
 INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`, `POINT_ACTUEL`, `POINT_CLASSEMENT`, `STATUS`, `SCORE_JEU`) VALUES (1, 'admin', 'admin@admin.fr', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 10000,10000, 0, 0);
 
--- Utilisateur 1
+
 INSERT INTO `UTILISATEUR` (`PSEUDO`, `EMAIL`, `MOT_DE_PASSE`, `POINT_ACTUEL`, `POINT_CLASSEMENT`, `STATUS`, `SCORE_JEU`)
 VALUES ('RamazanLaChienneDu69', 'RamazanLaChienneDu69@example.com', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 100, 0, 1, 0);
 
@@ -107,3 +102,8 @@ VALUES ('Keap', 'Keap@example.com', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnv
 -- Utilisateur 3
 INSERT INTO `UTILISATEUR` (`PSEUDO`, `EMAIL`, `MOT_DE_PASSE`, `POINT_ACTUEL`, `POINT_CLASSEMENT`, `STATUS`, `SCORE_JEU`)
 VALUES ('RafikLaTrikDu69', 'RafikLaTrikDu69@example.com', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 100, 0, 1, 0);
+
+INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (1, 1, 'admin','Topic 1', 'Le jeune joueur du FC Barcelone Ansu Fati actuellement preter a Brighton est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);
+INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (2, 1, 'admin', 'Topic 2', 'Le jeune joueur du Real Madrid Arda Guler actuellement preter a Besiktas est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);
+INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (3, 1, 'admin', 'Topic 3', 'Le jeune joueur de L''atletico Madrid Joao Felix actuellement preter a Barcelone est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);
+INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (4, 1, 'admin', 'Topic 4', 'Le jeune joueur du PSG Xavi Simons actuellement preter au PSV est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);

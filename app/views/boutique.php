@@ -51,7 +51,8 @@ use \App\Config;
         <?php
             foreach($tabItems as $item){?>
             <div class="card">
-                <img src="images/logo.png">
+                <!-- src image = img[item_id].jpg -->
+                <img src="images/img<?php echo $item->getId()?>.jpg">
                 <h1 class="nom" id="<?php echo $item->getId()?>"><?php echo $item->getName()?></h1>
                 <p class="price" id="<?php echo $item->getPrice()?>"><?php echo $item->getPrice()?> points</p>
                 <p><?php echo $item->getDescription()?></p>
