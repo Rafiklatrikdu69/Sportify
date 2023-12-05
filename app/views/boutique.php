@@ -72,7 +72,7 @@ use \App\Config;
         
         <aside id="profil">
             <div>
-            <p id="coin"><?php echo $pointsUser; ?> Sporticoins</p>
+            <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins</p>
             </div>
             <div>
                 <img src="images/logo.png">

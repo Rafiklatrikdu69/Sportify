@@ -16,12 +16,15 @@ class FormInscriptionController extends DefaultFormController{
            
             $select =  (new UtilisateurDAO())->selectInscription($nom,$pass_protect,$emailProtect);
             if(!$select){
-                $utilisateur = new Utilisateur(0,$nom,$emailProtect,$pass_protect,100,0,0,0);
+                $utilisateur = new Utilisateur(0,$nom,$emailProtect,$pass_protect,100,0,1,0);
                 (new UtilisateurDAO())->insertUtilisateur($utilisateur);
                 echo "insert reussi !";
                 
+            }else{
+                Redirect::redirect('/public/inscription');
             }
             Redirect::redirect('/public/connexion');
+           
         }
           
         }else{

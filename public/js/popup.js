@@ -67,16 +67,21 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(function (data) {
                 console.log(data);
+                resultatElement.textContent="";
+                    document.getElementsByClassName('match-deja-jouer')[0].style.visibility = "hidden";
+                
                 if(data==true){
                     resultatElement.textContent = "Vous avez deja pronostiquer !";
                     document.getElementsByClassName('match-deja-jouer')[0].style.visibility = "visible";
                     
                 }
+               
                 if(data==="point"){
                     resultatElement.textContent = "Vous n'avez pas assez de points !";
                     document.getElementsByClassName('match-deja-jouer')[0].style.visibility = "visible";
                     
                 }
+              
 
               
                
