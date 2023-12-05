@@ -53,9 +53,12 @@ switch ($request) {
     case '/public/administration':
         $route->get('/public/administration', [new AdministrationController(), 'index']);
         break;
-        case '/public/administration/suppr':
+    case '/public/administration/suppr':
             $route->get('/public/suppr', [new SuppressionController(), 'suppr']);
-            break;
+        break;
+        case '/public/actu':
+            $route->get('/public/actu', [new ActuController(), 'index']);
+        break;
     default:
         // Gestion des erreurs ou redirection par défaut
         break;
