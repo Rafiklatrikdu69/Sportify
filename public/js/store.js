@@ -2,7 +2,9 @@
 const boutique = document.getElementById("boutique");
 const actu = document.getElementById('actu');
 const prono = document.getElementById('prono');
+const jeu = document.getElementById('jeu');
 const deconnexion = document.getElementById('deconnexion');
+
 let achat = document.querySelectorAll('#achat');
 
 // Ajout des event listener pour enlever le "surlignage" de boutique dans le header lorsque une autre categorie est selectionné
@@ -10,6 +12,8 @@ actu.addEventListener('mouseover', chbgon);
 actu.addEventListener('mouseout', chbgout);
 prono.addEventListener('mouseover', chbgon);
 prono.addEventListener('mouseout', chbgout);
+jeu.addEventListener('mouseover', chbgon);
+jeu.addEventListener('mouseout', chbgout);
 deconnexion.addEventListener('mouseover', chbgon);
 deconnexion.addEventListener('mouseout', chbgout);
 

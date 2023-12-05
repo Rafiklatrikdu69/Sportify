@@ -24,7 +24,7 @@ body{
 header{
     background-color: black ;
     display: grid;
-    grid-template: 1fr / 10% 1fr 1fr 1fr 1fr;
+    grid-template: 1fr / 10% 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
     height: auto;
 }
