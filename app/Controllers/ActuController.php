@@ -1,7 +1,11 @@
 <?php
 class ActuController extends Controllers{
     public  function index(){
-        View::View("actu",[]);
+        (new VerifSession());
+        View::View('actu',["tabUsers"=>(new UtilisateurDAO())->getAllUsers(),
+                    'tabPosts'=>(new ActuDAO())->getAll(),]);
+
+
     }
     
   

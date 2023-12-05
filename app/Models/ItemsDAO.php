@@ -4,6 +4,7 @@ require 'DAO.php';
 
 
 class ItemsDAO extends DAO{
+    
     public function get($id){
         $sql = "SELECT * FROM Items WHERE id = :id";
         $params = array(":id" => $id);
