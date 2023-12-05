@@ -6,6 +6,7 @@
 
 *{
     font-family: futura;
+    transition: 0.3s;
 }
 
 html{
@@ -15,7 +16,7 @@ html{
 /* Mise a 0 du style css */
 body{
     margin: 0;
-    background-color: #226B80;
+    background-color: #00838d;
     height: 100%;
 }
 
@@ -43,8 +44,10 @@ a{
     font-size: 25px;
 }
 
+
+
 header>a:hover, div>a:hover{
-    background-color: #226B80;
+    background-color: #40A798;
     color: black;
     margin-left: 10%;
     margin-right: 10%;
@@ -64,18 +67,10 @@ main{
 
 #actu{
     /* changer la couleur pour montrer qu'on est sure cette page */
-    background-color: #00838d;
+    background-color: #40A798;
     color: black;
     margin-left: 10%;
     margin-right: 10%;
-}
-
-header>a:hover, div>a:hover{
-    background-color: #00838d;
-    color: black;
-    margin-left: 10%;
-    margin-right: 10%;
-
 }
 
 
