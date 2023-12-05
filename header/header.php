@@ -8,6 +8,7 @@ class header{
                 <a id="actu" href="/public/actu">Actu</a>
                 <a id="prono" href="/public/pronostique">Prono</a>
                 <a id="boutique" href="/public/boutique">Boutique</a>
+                <a id="jeu" href="/public/boutique">Mini-Jeu</a>
                 <a id="deconnexion" href="/public/deconnexion">Déconnexion</a>
         </header>';
         }
