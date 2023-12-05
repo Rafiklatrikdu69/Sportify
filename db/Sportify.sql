@@ -28,6 +28,7 @@ CREATE TABLE `PRONOSTIC` (
 CREATE TABLE `POST` (
   `POST_ID` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `AUTEUR_ID` int NOT NULL,
+  `AUTEUR_NOM` varchar(50) NOT NULL,
   `NOM_TOPIC` varchar(25) NOT NULL,
   `DESCRIPTION_POST` varchar(255) DEFAULT ' ',
   `NB_LIKE` int DEFAULT '0'
@@ -90,7 +91,7 @@ INSERT INTO ITEMS (NOM_ITEM, TYPE, DESCRIPTION, PRIX, COULEUR) VALUES ('Sac', 'C
 
 INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`, `POINT_ACTUEL`, `POINT_CLASSEMENT`, `STATUS`, `SCORE_JEU`) VALUES (1, 'admin', 'admin@admin.fr', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 10000,10000, 0, 0);
 
-INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (1, 1, 'Topic 1', 'Le jeune joueur du FC Barcelone Ansu Fati actuellement préter a Brighton est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);
-INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (2, 1, 'Topic 2', 'Le jeune joueur du Réal Madrid Arda Guler actuellement préter a Besiktas est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);
-INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (3, 1, 'Topic 3', 'Le jeune joueur de L''atletico Madrid Joao Felix actuellement préter a Barcelone est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);
-INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (4, 1, 'Topic 4', 'Le jeune joueur du PSG Xavi Simons actuellement préter au PSV est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);
+INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (1, 1, 'admin','Topic 1', 'Le jeune joueur du FC Barcelone Ansu Fati actuellement préter a Brighton est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);
+INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (2, 1, 'admin', 'Topic 2', 'Le jeune joueur du Réal Madrid Arda Guler actuellement préter a Besiktas est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);
+INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (3, 1, 'admin', 'Topic 3', 'Le jeune joueur de L''atletico Madrid Joao Felix actuellement préter a Barcelone est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);
+INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`) VALUES (4, 1, 'admin', 'Topic 4', 'Le jeune joueur du PSG Xavi Simons actuellement préter au PSV est sur le point d''etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0);

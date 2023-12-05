@@ -1,32 +1,33 @@
 <?php
 
-
+//require 'DAO.php';
 
 
 class ActuDAO extends DAO{
 
-    public function get($id){
-        $sql = "SELECT * FROM Actu WHERE id = :id";
-        $params = array(":id" => $id);
-        $sth = $this->queryRow($sql, $params);
-        $row = $sth->fetch(PDO::FETCH_ASSOC);
-        if ($row == false) {
-            return null;
-        }
-        return $row;
-    }
+    // public function get($id){
+    //     $sql = "SELECT * FROM Actu WHERE id = :id";
+    //     $params = array(":id" => $id);
+    //     $sth = $this->queryRow($sql, $params);y
+    //     $row = $sth->fetch(PDO::FETCH_ASSOC);
+    //     if ($row == false) {
+    //         return null;
+    //     }
+    //     return $row;
+    // }
+
+
 
     public function getAll(){
         $sql = "SELECT * FROM `POST`";
-
-            $sth = $this->queryAll($sql);
-            $tab = [];
-            foreach($sth as $post){
-                $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4]);
-              
-                $tab[] = $post;
-            }
-            return $tab;
+        $sth = $this->queryAll($sql);
+        $tab = [];
+        foreach($sth as $post){
+            $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4],$post[5]);
+            
+            $tab[] = $post;
+        }
+        return $tab;
     }
 
     public function insertActu($data){

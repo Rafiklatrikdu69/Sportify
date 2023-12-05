@@ -1,16 +1,18 @@
 <?php
 
-class Actualites{
+class Actu{
 
     private $post_id;
     private $auteur_id;
+    private $auteur_nom;
     private $post_titre;
     private $post_contenu;
     private $nb_like;
 
-    function __construct($post_id,$auteur_id,$post_titre,$post_contenu,$nb_like) {
+    function __construct($post_id,$auteur_id,$auteur_nom,$post_titre,$post_contenu,$nb_like) {
         $this->post_id = $post_id;
         $this->auteur_id = $auteur_id;
+        $this->auteur_nom = $auteur_nom;
         $this->post_titre = $post_titre;
         $this->post_contenu = $post_contenu;
         $this->nb_like = $nb_like;
@@ -25,6 +27,10 @@ class Actualites{
         return $this->auteur_id;
     }
 
+    function getAuteurName(){
+        return $this->auteur_nom;
+    }
+
     function getTitre() {
         return $this->post_titre;
     }
@@ -37,5 +43,4 @@ class Actualites{
         return $this->nb_like;
     }
 
-    
 }

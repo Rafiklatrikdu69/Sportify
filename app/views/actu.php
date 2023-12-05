@@ -46,11 +46,12 @@
         <!-- version dinamique -->
         <?php
             foreach($tabPosts as $post){?>
-            <section id="post<?php $post->getId()?>" class="Actu">
+            <!-- <section id="post<?php //$post->getId()?>" class="Actu"> -->
+            <section id="actualite" class="Actu">
                 <div class="photo"><img src="../../public/images/logo.png" id="pp"></div>
-                <div class="auteur"><p><?php $post->getAuteurId()?> </p></div>
-                <div class="titre"><h1><?php $post->getTitre()?></h1></div>
-                <div class="contenue"><p><?php $post->getContenu()?></p></div>
+                <div class="auteur"><p><?php echo $post->getAuteurName()?> </p></div>
+                <div class="titre"><h1><?php echo $post->getTitre()?></h1></div>
+                <div class="contenue"><p><?php echo $post->getContenu()?></p></div>
                 <div class="like"><img src="../../public/images/like.png" id="like"></div>
                 <div class="comment"><img src="../../public/images/comment.png" id="comment"></div>
             </section>
