@@ -31,72 +31,69 @@ function chbgout() {
 
 
 
+//const closeModalBtn = document.getElementById('closeModal');
+// closeModalBtn.addEventListener('click', function () {
+//     const modal = document.getElementById('modal');
+//     modal.classList.remove('open');
+// });
+
+
+const confirmPurchaseBtn = document.getElementById('confirmPurchase');
 const closeModalBtn = document.getElementById('closeModal');
-closeModalBtn.addEventListener('click', function () {
-    const modal = document.getElementById('modal');
-    modal.classList.remove('open');
-});
+const modal = document.getElementById('modal');
 
-
-
-
-function showConfirmation(itemId, itemName) {
-    const modal = document.getElementById('modal');
-    document.getElementById('itemToBuy').textContent = itemName;
+function showConfirmation(itemId, itemPrice, itemName) {
+    document.getElementById('itemToBuy').textContent = itemName + ' à ' + itemPrice + ' points';
     modal.classList.add('open');
 
-    const confirmPurchaseBtn = document.getElementById('confirmPurchase');
-
-
-    confirmPurchaseBtn.removeEventListener('click', handleConfirmPurchase);
-
-   
-    confirmPurchaseBtn.addEventListener('click', handleConfirmPurchase);
-
-
- 
+    confirmPurchaseBtn.addEventListener('click', function confirmHandler() {
+        handleConfirmPurchase(itemId, itemPrice);
+        modal.classList.remove('open');
+        confirmPurchaseBtn.removeEventListener('click', confirmHandler);
+    });
 }
 
-function handleConfirmPurchase() {
-       
-       
+closeModalBtn.addEventListener('click', function() {
     modal.classList.remove('open');
+    //confirmPurchaseBtn.removeEventListener('click', confirmHandler);
+});
 
+function handleConfirmPurchase(itemId, itemPrice) {
+    let items = new item(itemId, itemPrice);
 
-    confirmPurchaseBtn.removeEventListener('click', handleConfirmPurchase);
+    fetch('/public/json-item', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+        body: JSON.stringify(items)
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
 
-
-function item (item_id,points) {
+function item(item_id, points) {
     this.item_id = item_id;
     this.points = points;
-    
 }
 
+//let achat = document.querySelectorAll('#achat');
 
+achat.forEach(function (achatBtn) {
+    achatBtn.addEventListener("click", function (event) {
+        let parentCard = event.target.closest('.card');
+        let itemId = parentCard.querySelector('.nom').id;
+        let itemPrice = parentCard.querySelector('.price').id;
+        let itemName = parentCard.querySelector('.nom').textContent;
 
-achat.forEach(function (achat, i) {
-    achat.addEventListener("click", function () {
-        let items = new item(
-            document.getElementsByClassName('nom')[i].id,
-            document.getElementsByClassName('price')[i].id
-        );
-
-        fetch('/public/json-item', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            body: JSON.stringify(items)
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        showConfirmation(itemId, itemPrice, itemName);
     });
 });
 
-    
+
+
