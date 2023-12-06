@@ -24,7 +24,6 @@ class JsonControllerItem{
                     echo "item existe dans inventaire";
                 }
             }
-            // (new UtilisateurDAO())->deleteUtilisateurByID($item['id']);
         }
     }
 }

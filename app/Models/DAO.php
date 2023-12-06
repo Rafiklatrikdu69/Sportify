@@ -100,11 +100,15 @@ abstract class DAO
     {
       if($this->_debug)
             die($e->getMessage());
+
           $this->_erreur = 'delete';
+
       $res = false;
     }
     
   }
+
+
 
 
 }

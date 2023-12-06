@@ -7,7 +7,7 @@
 class UtilisateurDAO extends DAO{
     
     public function getAllUsers(){
-        $sql = "SELECT * FROM `UTILISATEUR`";
+        $sql = "SELECT * FROM `UTILISATEUR` WHERE STATUS = 1";
         $res = $this->queryAll($sql);
         $tab = [];
     
@@ -127,7 +127,16 @@ class UtilisateurDAO extends DAO{
     }
 
     public function deleteUtilisateurByID($id){
-        $sql = "DELETE  FROM UTILISATEUR WHERE UTILISATEUR_ID = :id";
+
+        $sql = "DELETE FROM `UTILISATEUR` WHERE UTILISATEUR_ID = :id";
+        $this->delete($sql, array('id' => $id));
+
+        $sql = "DELETE FROM `INVENTAIRE` WHERE UTILISATEUR_ID = :id";
+        $this->delete($sql, array('id' => $id));
+
+
+        $sql = "DELETE FROM `PRONOSTIC` WHERE PRONOSTIQUEUR_ID = :id";
+
         $this->delete($sql, array('id' => $id));
     }
     
