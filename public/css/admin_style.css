@@ -115,25 +115,76 @@ img{
     border-radius: 10px;
 }
 
-input[type=text] {
+/* input[type=text] {
     width: 30%;
     -webkit-transition: width 0.15s ease-in-out;
     transition: width 0.15s ease-in-out;
     border-style: none;
-}
+} */
 
 
-input[type=text]:focus {
+/* input[type=text]:focus {
     width: 70%;
+} */
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
-
+label ,input{
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+}
 .user{
     width: 100%;
     height: 60px;
     background-color: #1C84FF;
     border-radius: 15px;
 }
+.pronostique{
+    background-color: #1C84FF;
+    border-radius: 15px;
+    text-align: center;
+    display: grid;
+    grid-template-areas:
+    "id    equipe_d   equipe_e   nom_even  cat_sport   date    cote_d  cote_e dropdown";
+    
+    grid-template-columns: 0.5fr 0.5fr  0.5fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr; 
 
+    align-items: center;
+   
+
+}
+
+.id{
+    grid-area: id;
+}
+.equipe_d{
+    grid-area: equipe_d;
+}
+
+.equipe_e{
+    grid-area: equipe_e;
+}
+.nom_even{
+    grid-area: nom_even;
+}
+.cat_sport{
+    grid-area: cat_sport;
+}
+.date{
+    grid-area: date;
+}
+.cote_d{
+    grid-area: cote_d;
+}
+.cote_e{
+    grid-area: cote_e;
+}
+.dropdown{
+    grid-area: dropdown;
+}
 .dropbtn {
     background-color: #0276FF;
     color: white;
@@ -181,7 +232,7 @@ input[type=text]:focus {
     grid-template-areas:
     "id    pseudo      adresse-mail           point    point-class    score      dropdown";
     
-    grid-template-columns: 0.5fr 0.5fr  0.5fr 0.5fr 0.5fr 0.5fr 0.5fr; 
+    grid-template-columns: 0.5fr 0.5fr  1fr 0.3fr 0.3fr 0.3fr 0.3fr; 
 
     align-items: center;
 }
@@ -215,7 +266,46 @@ input[type=text]:focus {
 
 .part-middle  {
     overflow-y: auto;
+    overflow-x: scroll;
     height: auto;
 display: flex;
 flex-direction: column;
 }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
