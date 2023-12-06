@@ -4,7 +4,8 @@ class PronoController extends Controllers{
      
        (new VerifSession());
         View::View('pronostique',["tableau"=>(new EvenementDAO())->getAll(),
-    "pointsUser"=>( new utilisateurDAO())->getPointUser($_SESSION['nom'])]);
+    "pointsUser"=>( new utilisateurDAO())->getPointUser($_SESSION['nom']),
+    "tableauProno"=>(new PronostiqueDAO())->selectPronoByUser($_SESSION['nom'])]);
        
         $testData=(new EvenementDAO())->getAll();
         $encodedDataArray = [];

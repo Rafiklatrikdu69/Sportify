@@ -16,31 +16,23 @@ use \App\Config;
 <body>
     <?php header::header()?>
     <div id="base">
-        <aside id="categorie">
-            <form>
-                <fieldset>
-                    <legend>Filtres</legend>
-                    <legend>Types d'item</legend>
-                    <input type="radio" name="categorie" value="icone">Icône<br>
-                    <input type="radio" name="categorie" value="fond">Fond<br>
-                    <input type="radio" name="categorie" value="badges">Badges<br>
-                    <input type="radio" name="categorie" value="badges">Style nom<br>
-                    <legend>Couleur</legend>
-                    <select id="couleur">
-                        <option value="">Aucune</option>
-                        <option value="dog">Rouge</option>
-                        <option value="cat">Vert</option>
-                        <option value="hamster">Bleu</option>
-                        <option value="parrot">Noir</option>
-                        <option value="spider">Blanc</option>
-                    </select>
-                    <br>
-                    <legend>Disponibilité</legend>
-                    <input type="radio" name="dispo" value="possédé">Possédé<br>
-                    <input type="radio" name="dispo" value="possédé">Non possédé<br>
-                       
-                </fieldset>
-            </form>
+        <aside id="liste_prono">
+            <div>
+            <?php
+                echo '<ol>';
+                foreach($tableauProno as $prono){
+                    echo '<li>';
+                    echo '<p>'.$prono->getNom().'</p>';
+                    echo '<p>'.$prono->getEquipeConcernee().'</p>';
+                    echo '<p>'.$prono->getEquipePerdante().'</p>';
+                    echo '<p>'.$prono->getDate().'</p>';
+                    echo '<p>'.$prono->getCote().'</p>';
+                    echo '<p>'.$prono->getMise().'</p>';
+                    echo '</li>';
+                }
+                echo '</ol>';
+            ?>
+            </div>
         </aside>
         <main>
             <!-- la section avec les pronostics est ici -->
