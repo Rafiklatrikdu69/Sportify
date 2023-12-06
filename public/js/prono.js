@@ -13,10 +13,6 @@ function chbgon() {
 }
 
 function chbgout() {    
-<<<<<<< HEAD
-    document.getElementById('prono').style.backgroundColor = '#00838d';
-=======
     document.getElementById('prono').style.backgroundColor = '#40A798';
->>>>>>> 052995cc2fb28a6e2fd2ff638ac55f4bdf15a08e
     document.getElementById('prono').style.color = 'black';
 }
