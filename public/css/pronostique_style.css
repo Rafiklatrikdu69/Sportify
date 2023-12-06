@@ -18,7 +18,7 @@ html{
 body{
     margin: 0;
     background-color: #00838d;
-    height: 100%;
+    -webkit-font-smoothing: antialiased;
 }
 
 
@@ -29,7 +29,7 @@ header{
     grid-template: 1fr / 10% 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
     height: auto;
-    
+    position: fixed;
     width: 100%;
     z-index: 1000;
 }
@@ -62,7 +62,7 @@ header>a:first-child{
 
 main{
     grid-area: 1 / 2 / 2 / 3;
-    margin-top: 5%;
+    margin-top: 15%;
     display: grid;
     /* Add space between the cards */
     grid-gap: 2%;
@@ -74,6 +74,7 @@ main{
     color: black;
     margin-left: 10%;
     margin-right: 10%;
+    grid-gap: 2%;
 }
 
 
@@ -82,7 +83,7 @@ main{
     color: black;
     margin-left: 10%;
     margin-right: 10%;
-
+    grid-gap: 2%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 70%;
