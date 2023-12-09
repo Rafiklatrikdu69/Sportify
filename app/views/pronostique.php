@@ -32,8 +32,12 @@ use \App\Config;
         echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
-        $lastProno = null;
 
+        if (empty($tableauProno)) {
+            echo '<tr>';
+            echo '<td colspan="5">Vous n\'avez pas encore parié</td>';
+            echo '</tr>';
+        }
         foreach ($tableauProno as $prono) {
             $lastProno = $prono;
             echo '<tr>';
