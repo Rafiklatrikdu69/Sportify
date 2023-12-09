@@ -17,22 +17,39 @@ use \App\Config;
     <?php header::header()?>
     <div id="base">
         <aside id="liste_prono">
-            <div>
-            <?php
-                echo '<ol>';
-                foreach($tableauProno as $prono){
-                    echo '<li>';
-                    echo '<p>'.$prono->getNom().'</p>';
-                    echo '<p>'.$prono->getEquipeConcernee().'</p>';
-                    echo '<p>'.$prono->getEquipePerdante().'</p>';
-                    echo '<p>'.$prono->getDate().'</p>';
-                    echo '<p>'.$prono->getCote().'</p>';
-                    echo '<p>'.$prono->getMise().'</p>';
-                    echo '</li>';
-                }
-                echo '</ol>';
-            ?>
-            </div>
+        <div id="Tablo">
+    <h2>Historique des pronostics</h2>
+    <div class="scrollable-container">
+        <?php
+        echo '<table>';
+        echo '<thead>';
+        echo '<tr>';
+        echo '<th>Equipe gagnante</th>';
+        echo '<th>Equipe perdante</th>';
+        echo '<th>Date</th>';
+        echo '<th>Cote</th>';
+        echo '<th>Mise</th>';
+        echo '</tr>';
+        echo '</thead>';
+        echo '<tbody>';
+        $lastProno = null;
+
+        foreach ($tableauProno as $prono) {
+            $lastProno = $prono;
+            echo '<tr>';
+            echo '<td>' . $prono->getEquipeConcernee() . '</td>';
+            echo '<td>' . $prono->getEquipePerdante() . '</td>';
+            echo '<td>' . $prono->getDate() . '</td>';
+            echo '<td>' . $prono->getCote() . '</td>';
+            echo '<td>' . $prono->getMise() . '</td>';
+            echo '</tr>';
+        }
+
+        echo '</tbody>';
+        echo '</table>';
+        ?>
+    </div>
+</div>
         </aside>
         <main>
             <!-- la section avec les pronostics est ici -->
