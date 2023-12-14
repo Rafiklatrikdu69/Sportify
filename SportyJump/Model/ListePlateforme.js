@@ -4,12 +4,13 @@ function setListePlateforme() {
     var plateforme = document.getElementById("plateforme");
     var nouvelleLargeur = 160 / getFacteur();
     var nouvelleHauteur = 40 / getFacteur();
+    plateforme.style.position = "absolute";
     plateforme.style.width = nouvelleLargeur + "px";
     plateforme.style.height = nouvelleHauteur + "px";
+    setImagePlateforme(getType(), 1, plateforme);
     for (let i = 0; i < nbPlateforme; i++) {
         var p = plateforme.cloneNode(true);
         p.classList.add("plateforme");
-        p.style.position = "absolute";
         p.id = "plateforme" + i;
         document.getElementById("plateforms").appendChild(p);
     }
@@ -61,13 +62,18 @@ function setCooListePlateforme() {
     var p = document.getElementById("plateforme11");
     p.style.left = getXTerrain() + 555 / getFacteur() + "px";
     p.style.top = getYTerrain() + 500 / getFacteur() + "px";
+
+    if (getNbPlateforme > 12) {
+        for (let i = 0; i < getNbPlateforme(); i++) {
+            let p = document.getElementById("plateforme" + i);
+        }
+    }
 }
 
 function TransfererCooPlateforme() {
     var x_plateforme = [];
     var y_plateforme = [];
     document.querySelectorAll(".plateforme").forEach(function (p) {
-        let j = i + 1;
         x_plateforme.push(p.offsetLeft);
         y_plateforme.push(p.offsetTop);
     });
@@ -78,8 +84,10 @@ function TransfererCooPlateforme() {
 function setCooPlateformeForGameOver() {
     var x_plateforme = JSON.parse(localStorage.getItem("x_plateforme"));
     var y_plateforme = JSON.parse(localStorage.getItem("y_plateforme"));
+    var i = 0;
     document.querySelectorAll(".plateforme").forEach(function (p) {
         p.style.left = x_plateforme[i] + "px";
         p.style.top = y_plateforme[i] + "px";
+        i++;
     });
 }
