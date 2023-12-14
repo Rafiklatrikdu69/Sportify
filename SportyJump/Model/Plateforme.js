@@ -95,11 +95,9 @@ function ReculerPlateforme(plateforme) {
 }
 function ReculementPlateforms() {
     if (activerPlateforme) {
-        for (let i = 0; i < getNbPlateforme(); i++) {
-            let j = i + 1;
-            var plateforme = document.querySelector(".plateforme:nth-child(" + j + ")");
+        document.querySelectorAll(".plateforme").forEach(function (plateforme) {
             ReculerPlateforme(plateforme);
-        }
+        });
         reculement = reculement - 1;
         if (reculement <= 0) {
             activerPlateforme = false;
@@ -134,16 +132,14 @@ function NouvelAffichagePlateformeDescente(plateforme) {
 }
 function isSupperposed(p) {
     let op = false;
-    for (let i = 0; i < getNbPlateforme(); i++) {
-        let j = i + 1;
-        var plateforme = document.querySelector(".plateforme:nth-child(" + j + ")");
-        if (p != plateforme &&
+    document.querySelectorAll(".plateforme").forEach(function (plateforme) {
+        if (p.id != plateforme.id &&
             getXPlateforme(p) + getLongueurPlateforme(p) >= getXPlateforme(plateforme) && getXPlateforme(p) <= getXPlateforme(plateforme) + getLongueurPlateforme(plateforme) &&
-            getYPlateforme(p) + getLargeurPlateforme(p) >= getYPlateforme(plateforme) && getYPlateforme(p) <= getYPlateforme(plateforme) + getLargeurPlateforme(plateforme)) {
-            setYPlateforme(-100, p);
+            getYPlateforme(p) + getLargeurPlateforme(p) + 20 / getFacteur() >= getYPlateforme(plateforme) && getYPlateforme(p) <= getYPlateforme(plateforme) + getLargeurPlateforme(plateforme) + 20 / getFacteur()) {
+            setXPlateforme(-100, p);
             op = true;
         }
-    }
+    });
     return op;
 }
 
@@ -155,13 +151,11 @@ function reculerPlateformeGameOver(plateforme) {
     plateforme.style.top = getYPlateforme(plateforme) - vitesse + "px";
 }
 function reculerAllPlateformsGameOver() {
-    for (let i = 0; i < getNbPlateforme(); i++) {
-        let j = i + 1;
-        var plateforme = document.querySelector(".plateforme:nth-child(" + j + ")");
+    document.querySelectorAll(".plateforme").forEach(function (plateforme) {
         reculerPlateformeGameOver(plateforme);
         NouvelAffichagePlateformeMonte(plateforme);
         isSupperposed(plateforme);
-    }
+    });
     if (reculement < 60 / getFacteur()) {
         reculement = reculement + 1;
     }

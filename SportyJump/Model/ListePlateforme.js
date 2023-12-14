@@ -14,10 +14,6 @@ function setListePlateforme() {
         p.id = "plateforme" + i;
         document.getElementById("plateforms").appendChild(p);
     }
-    document.querySelectorAll(".plateforme").forEach(function (p) {
-        console.log("p : ");
-        console.log(p.id);
-    });
     plateforme.classList.add("invisible");
 }
 function getNbPlateforme() {
@@ -66,8 +62,11 @@ function setCooListePlateforme() {
     if (getNbPlateforme > 12) {
         for (let i = 0; i < getNbPlateforme(); i++) {
             let p = document.getElementById("plateforme" + i);
+            p.style.left = -100 + "px";
+            p.style.top = 0 + "px";
         }
     }
+
 }
 
 function TransfererCooPlateforme() {
