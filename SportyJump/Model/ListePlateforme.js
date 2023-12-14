@@ -1,57 +1,64 @@
 const nbPlateforme = 12;
 
 function setListePlateforme() {
+    var plateforme = document.getElementById("plateforme");
+    var nouvelleLargeur = 160 / getFacteur();
+    var nouvelleHauteur = 40 / getFacteur();
+    plateforme.style.width = nouvelleLargeur + "px";
+    plateforme.style.height = nouvelleHauteur + "px";
     for (let i = 0; i < nbPlateforme; i++) {
-        var container = document.createElement("img");
-        setImagePlateforme(getType(), 1, container);
-        container.classList.add("plateforme");
-        var nouvelleLargeur = 160 / getFacteur();
-        var nouvelleHauteur = 40 / getFacteur();
-        container.style.width = nouvelleLargeur + "px";
-        container.style.height = nouvelleHauteur + "px";
-        document.getElementById("plateforme").appendChild(container);
+        var p = plateforme.cloneNode(true);
+        p.classList.add("plateforme");
+        p.style.position = "absolute";
+        p.id = "plateforme" + i;
+        document.getElementById("plateforms").appendChild(p);
     }
+    document.querySelectorAll(".plateforme").forEach(function (p) {
+        console.log("p : ");
+        console.log(p.id);
+    });
+    plateforme.classList.add("invisible");
 }
 function getNbPlateforme() {
     return nbPlateforme;
 }
 function setCooListePlateforme() {
-    var p = document.querySelector(".plateforme:nth-child(1)");
+    var p = document.getElementById("plateforme0");
     p.style.left = getXTerrain() + 80 / getFacteur() + "px";
     p.style.top = getYTerrain() + 1520 / getFacteur() + "px";
-    var p = document.querySelector(".plateforme:nth-child(2)");
+    var p = document.getElementById("plateforme1");
     p.style.left = getXTerrain() + 1030 / getFacteur() + "px";
     p.style.top = getYTerrain() + 1520 / getFacteur() + "px";
-    var p = document.querySelector(".plateforme:nth-child(3)");
+    var p = document.getElementById("plateforme2");
     p.style.left = getXTerrain() + 263 / getFacteur() + "px";
     p.style.top = getYTerrain() + 1620 / getFacteur() + "px";
-    var p = document.querySelector(".plateforme:nth-child(4)");
+    var p = document.getElementById("plateforme3");
     p.style.left = getXTerrain() + 874 / getFacteur() + "px";
     p.style.top = getYTerrain() + 1620 / getFacteur() + "px";
-    var p = document.querySelector(".plateforme:nth-child(5)");
+    var p = document.getElementById("plateforme4");
     p.style.left = getXTerrain() + 457 / getFacteur() + "px";
     p.style.top = getYTerrain() + 1700 / getFacteur() + "px";
-    var p = document.querySelector(".plateforme:nth-child(6)");
+    var p = document.getElementById("plateforme5");
     p.style.left = getXTerrain() + 653 / getFacteur() + "px";
     p.style.top = getYTerrain() + 1700 / getFacteur() + "px";
 
-    var p = document.querySelector(".plateforme:nth-child(7)");
+    var p = document.getElementById("plateforme6");
     p.style.left = getXTerrain() + 160 / getFacteur() + "px";
     p.style.top = getYTerrain() + 900 / getFacteur() + "px";
-    var p = document.querySelector(".plateforme:nth-child(8)");
+    var p = document.getElementById("plateforme7");
     p.style.left = getXTerrain() + 950 / getFacteur() + "px";
     p.style.top = getYTerrain() + 900 / getFacteur() + "px";
-    var p = document.querySelector(".plateforme:nth-child(9)");
+    var p = document.getElementById("plateforme8");
     p.style.left = getXTerrain() + 555 / getFacteur() + "px";
     p.style.top = getYTerrain() + 1080 / getFacteur() + "px";
 
-    var p = document.querySelector(".plateforme:nth-child(10)");
+    var p = document.getElementById("plateforme9");
     p.style.left = getXTerrain() + 160 / getFacteur() + "px";
     p.style.top = getYTerrain() + 330 / getFacteur() + "px";
-    var p = document.querySelector(".plateforme:nth-child(11)");
+    var p = document.getElementById("plateforme10");
     p.style.left = getXTerrain() + 950 / getFacteur() + "px";
     p.style.top = getYTerrain() + 330 / getFacteur() + "px";
-    var p = document.querySelector(".plateforme:nth-child(12)");
+    var p = document.getElementById("plateforme11");
     p.style.left = getXTerrain() + 555 / getFacteur() + "px";
     p.style.top = getYTerrain() + 500 / getFacteur() + "px";
 }
@@ -59,12 +66,11 @@ function setCooListePlateforme() {
 function TransfererCooPlateforme() {
     var x_plateforme = [];
     var y_plateforme = [];
-    for (let i = 0; i < getNbPlateforme(); i++) {
+    document.querySelectorAll(".plateforme").forEach(function (p) {
         let j = i + 1;
-        let p = document.querySelector(".plateforme:nth-child(" + j + ")");
         x_plateforme.push(p.offsetLeft);
         y_plateforme.push(p.offsetTop);
-    }
+    });
     localStorage.setItem("x_plateforme", JSON.stringify(x_plateforme));
     localStorage.setItem("y_plateforme", JSON.stringify(y_plateforme));
 }
@@ -72,10 +78,8 @@ function TransfererCooPlateforme() {
 function setCooPlateformeForGameOver() {
     var x_plateforme = JSON.parse(localStorage.getItem("x_plateforme"));
     var y_plateforme = JSON.parse(localStorage.getItem("y_plateforme"));
-    for (let i = 0; i < getNbPlateforme(); i++) {
-        let j = i + 1;
-        let p = document.querySelector(".plateforme:nth-child(" + j + ")");
+    document.querySelectorAll(".plateforme").forEach(function (p) {
         p.style.left = x_plateforme[i] + "px";
         p.style.top = y_plateforme[i] + "px";
-    }
+    });
 }
