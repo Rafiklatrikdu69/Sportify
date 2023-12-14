@@ -1,4 +1,4 @@
-const nbPlateforme = 12;
+const nbPlateforme = 15;
 
 function setListePlateforme() {
     var plateforme = document.getElementById("plateforme");
@@ -59,8 +59,8 @@ function setCooListePlateforme() {
     p.style.left = getXTerrain() + 555 / getFacteur() + "px";
     p.style.top = getYTerrain() + 500 / getFacteur() + "px";
 
-    if (getNbPlateforme > 12) {
-        for (let i = 0; i < getNbPlateforme(); i++) {
+    if (getNbPlateforme() > 12) {
+        for (let i = 12; i < getNbPlateforme(); i++) {
             let p = document.getElementById("plateforme" + i);
             p.style.left = -100 + "px";
             p.style.top = 0 + "px";
