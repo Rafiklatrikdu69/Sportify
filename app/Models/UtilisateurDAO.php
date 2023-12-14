@@ -153,5 +153,37 @@ class UtilisateurDAO extends DAO{
             return null;
         }
     }
-}
 
+    public function setLastConnection($name){
+        $sql = "UPDATE `UTILISATEUR` SET LAST_CONNECTION = CAST(NOW() AS DATE) WHERE PSEUDO = :pseudo";
+        $this->update($sql, array(
+            "pseudo" => $name
+        ));
+    }
+
+
+    public function addPoint($name){
+        $sql = "UPDATE `UTILISATEUR` SET POINT_ACTUEL = POINT_ACTUEL + 10 WHERE UTILISATEUR_ID = :id";
+        $this->update($sql, array(
+            "id" => $this->getUserId($name)
+        ));
+    }
+    public function getLastConnection($name){
+        $sql = "SELECT LAST_CONNECTION FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $result = $this->queryRow($sql, array('pseudo' => $name));
+        if ($result) {
+            if($result['LAST_CONNECTION'] != date("Y-m-d")){
+                (new UtilisateurDAO())->addPoint($name);
+                (new UtilisateurDAO())->setLastConnection($name);
+                return "Vous avez gagné 10 points pour votre connexion quotidienne !";
+            }
+            else{
+                return date("Y-m-d");
+            }
+        }
+        else {
+            echo "Erreur : Impossible de récupérer la dernière connexion de l'utilisateur depuis la base de données.";
+            return "";
+        }
+    }
+}

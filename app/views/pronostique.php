@@ -18,7 +18,7 @@ use \App\Config;
     <div id="base">
         <aside id="liste_prono">
         <div id="Tablo">
-    <h2>Historique des pronostics</h2>
+    <h2 id="h2">Historique des pronostics</h2>
     <div class="scrollable-container">
         <?php
         echo '<table>';
@@ -88,9 +88,14 @@ use \App\Config;
                 <button id="closeModal">Annuler</button>
         </div>
     </div>
-                
+    <div class="modal" id="modalR">
+        <div class="modal-innerR">
+                <h2 id="DailyReward"><?php echo $lastConnection; ?></h2>
+                <button id="closeModalR">Fermer</button>
+        </div>
     </div>
 </body>
 </html>
 <script src="../../public/js/prono.js"></script>
 <script src="../../public/js/popup.js"></script>
+<script src="../../public/js/daily_reward.js"></script>
