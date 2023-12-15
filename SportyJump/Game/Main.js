@@ -12,9 +12,13 @@ window.onload = function () {
 
     setImageBallon(getType());
 
+    PlacementRessort();
+    DefinirTailleRessort();
+
     setTableauDeplacementPlateforme();
     setListePlateforme();
     setCooListePlateforme();
+
 
     PlacementScore();
     PlacementScorePieceImage();
@@ -27,6 +31,7 @@ window.onload = function () {
     PlacementMonstreImage();
     PlacementMonstreHitBoxVulnerable();
 
+    AjoutDuRessort();
     startTimerBallonDeplacement();
     startTimerConfigurationModels();
 }

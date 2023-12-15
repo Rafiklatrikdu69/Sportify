@@ -61,3 +61,9 @@ function PlacementMonstreHitBoxVulnerable() {
     monstreHitBoxVulnerable.style.position = "absolute";
     egaliserCooMonstre();
 }
+function PlacementRessort() {
+    var ressort = document.getElementById("ressort");
+    ressort.style.position = "absolute";
+
+
+}

@@ -8,18 +8,20 @@ function startTimerBallonDeplacement() {
         GameOver();
         document.querySelectorAll(".plateforme").forEach(function (p) {
             if (IsPlateformeTouch(p)) {
-                ActivationScore();
-                ActivationPlateforme();
-                if (!PieceIsNull()) {
-                    ActivationPiece();
-                } else {
-                    AffichagePiece();
-                }
-                if (!MonstreIsNull()) {
-                    ActivationMonstre();
-                } else {
-                    AffichageMonstre();
-                }
+                /*
+                 ActivationScore();
+                 ActivationPlateforme();
+                 if (!PieceIsNull()) {
+                     ActivationPiece();
+                 } else {
+                     AffichagePiece();
+                 }
+                 if (!MonstreIsNull()) {
+                     ActivationMonstre();
+                 } else {
+                     AffichageMonstre();
+                 }
+                  */
             }
 
             NouvelAffichagePlateformeDescente(p);

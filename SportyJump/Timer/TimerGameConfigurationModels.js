@@ -26,6 +26,7 @@ function startTimerConfigurationModels() {
         if (!MonstreIsNull()) {
             supprimerMonstre();
         }
+        RessortIsTouch();
     }, getRafraichissement());
 }
 

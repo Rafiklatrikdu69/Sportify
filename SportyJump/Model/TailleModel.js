@@ -99,3 +99,11 @@ function DefinirTailleMonstre() {
     monstreHitBoxVulnerable.style.width = l;
     monstreHitBoxVulnerable.style.height = h;
 }
+
+function DefinirTailleRessort() {
+    var ressort = document.getElementById("ressort");
+    var nouvelleLargeur = ressort.width / 3;
+    var nouvelleHauteur = ressort.height / 3;
+    ressort.style.width = nouvelleLargeur + "px";
+    ressort.style.height = nouvelleHauteur + "px";
+}
