@@ -2,7 +2,9 @@ window.onload = function () {
     setImageTerrain();
     setTerrain();
 
+
     setListePlateforme();
+    setTableauDeplacementPlateforme();
     setCooPlateformeForGameOver();
 
     DefinirTailleBallonHitBoxSaut();
