@@ -21,8 +21,9 @@ function startTimerBallonDeplacement() {
                     AffichageMonstre();
                 }
             }
+
             NouvelAffichagePlateformeDescente(p);
-            isSupperposed(p);
+            mouvementPlateforme(p);
         });
     }, getRafraichissement());
 }

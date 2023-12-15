@@ -1,7 +1,7 @@
 var vitesse = 50 / getFacteur();
 var reculement = 0;
 var activerPlateforme = false;
-
+var infoDeplacement = [];
 //================================================================== Configuration ==================================================================//
 //================================================================== Configuration ==================================================================//
 //================================================================== Configuration ==================================================================//
@@ -80,6 +80,24 @@ function setImagePlateforme(type, nb, plateforme) {
             }
             break;
     }
+    let id = parseInt(plateforme.id.match(/\d+/), 10);
+    if (infoDeplacement[id] != null) {
+        if (nb == 2) {
+            infoDeplacement[id].isMoving = true;
+        } else {
+            infoDeplacement[id].isMoving = false;
+        }
+    }
+}
+
+function setTableauDeplacementPlateforme() {
+    for (let i = 0; i < 15; i++) {
+        let info = {
+            isMoving: false,
+            direction: false, //Si false = gauche, Si true = droite; 
+        }
+        infoDeplacement.push(info);
+    }
 }
 
 //================================================================== Partie Game ==================================================================//
@@ -104,6 +122,24 @@ function ReculementPlateforms() {
         }
     }
 }
+
+function mouvementPlateforme(p) {
+    let id = parseInt(p.id.match(/\d+/), 10);
+    if (infoDeplacement[id].isMoving) {
+        if (infoDeplacement[id].direction) {
+            p.style.left = getXPlateforme(p) + 5 + "px";
+            if (getXPlateforme(p) + getLongueurPlateforme(p) >= getXTerrain() + getLongueurTerrain()) {
+                infoDeplacement[id].direction = false;
+            }
+        } else {
+            p.style.left = getXPlateforme(p) - 5 + "px";
+            if (getXPlateforme(p) <= getXTerrain()) {
+                infoDeplacement[id].direction = true;
+            }
+        }
+    }
+}
+
 function NouvelAffichagePlateformeDescente(plateforme) {
     if (getYPlateforme(plateforme) >= getYTerrain() + getLargeurTerrain()) {
         plateforme.classList.add("invisible");
@@ -128,6 +164,20 @@ function NouvelAffichagePlateformeDescente(plateforme) {
         } else {
             setImagePlateforme(getType(), 1, plateforme);
         }
+        isSupperposed(plateforme);
+        setDirectionPlateformeIsMoving(plateforme);
+    }
+}
+function setDirectionPlateformeIsMoving(p) {
+    let id = parseInt(p.id.match(/\d+/), 10);
+    if (infoDeplacement[id].isMoving) {
+        let x = getXPlateforme(p) + getLongueurPlateforme(p) / 2;
+        let milieu = getXTerrain() + getLongueurTerrain() / 2;
+        if (x > milieu) {
+            infoDeplacement[id].direction = true;
+        } else {
+            infoDeplacement[id].direction = false;
+        }
     }
 }
 function isSupperposed(p) {
@@ -138,6 +188,7 @@ function isSupperposed(p) {
             getYPlateforme(p) + getLargeurPlateforme(p) + 20 / getFacteur() >= getYPlateforme(plateforme) && getYPlateforme(p) <= getYPlateforme(plateforme) + getLargeurPlateforme(plateforme) + 20 / getFacteur()) {
             setXPlateforme(-100, p);
             op = true;
+            infoDeplacement[parseInt(p.id.match(/\d+/), 10)].isMoving = false;
         }
     });
     return op;

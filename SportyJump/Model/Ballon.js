@@ -173,9 +173,9 @@ function EquilibrageJumpEtVitesse() {
 }
 function IsPlateformeTouch(plateforme) {
     let op = false;
-    if (!monstreTouch && gravity > 5 &&
+    if (!monstreTouch && gravity > 8 &&
         getXBallonHitBoxSaut() + getLongueurHitBoxSaut() >= getXPlateforme(plateforme) && getXBallonHitBoxSaut() <= getXPlateforme(plateforme) + getLongueurPlateforme(plateforme) &&
-        getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYPlateforme(plateforme) && getYBallonHitBoxSaut() <= getYPlateforme(plateforme) + getLargeurPlateforme(plateforme)) {
+        getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYPlateforme(plateforme) && getYBallonHitBoxSaut() <= getYPlateforme(plateforme) + getLargeurPlateforme(plateforme) + 10) {
         op = true;
         stopTimerRebond();
         EquilibrageJumpEtVitesse();

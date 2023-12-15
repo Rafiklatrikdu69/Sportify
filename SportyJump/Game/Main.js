@@ -12,6 +12,7 @@ window.onload = function () {
 
     setImageBallon(getType());
 
+    setTableauDeplacementPlateforme();
     setListePlateforme();
     setCooListePlateforme();
 
