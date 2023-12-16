@@ -296,3 +296,20 @@ function deplacementHautBasBallon() {
     egaliserCoo();
 }
 
+
+//=============================================================== Partie Menu ===============================================================//
+//=============================================================== Partie Menu ===============================================================//
+//=============================================================== Partie Menu ===============================================================//
+
+function IsPlateformeTouchForMenu(plateforme) {
+    let op = false;
+    if (!monstreTouch && gravity > 8 &&
+        getXBallonHitBoxSaut() + getLongueurHitBoxSaut() >= getXPlateforme(plateforme) && getXBallonHitBoxSaut() <= getXPlateforme(plateforme) + getLongueurPlateforme(plateforme) &&
+        getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYPlateforme(plateforme) && getYBallonHitBoxSaut() <= getYPlateforme(plateforme) + getLargeurPlateforme(plateforme) + 10) {
+        op = true;
+        stopTimerRebond();
+        makeJump();
+        setRebond(typeBallon);
+    }
+    return op;
+}

@@ -19,24 +19,11 @@ function BoutonReleased() {
 }
 function BoutonClick() {
     btJouer.addEventListener("click", function () {
-        removeKeyStorage();
+        localStorage.clear();
         window.location.href = "Game.html?entier=" + encodeURIComponent(getType());
     });
     btMenu.addEventListener("click", function () {
-        removeKeyStorage();
+        localStorage.clear();
         window.location.href = "Menu.html";
     });
-}
-
-function removeKeyStorage() {
-    localStorage.removeItem("cooBallon");
-    localStorage.removeItem("scoreTexte");
-    localStorage.removeItem("typeMonstre");
-    localStorage.removeItem("nbPieceTexte");
-    localStorage.removeItem("monstreIsNull");
-    localStorage.removeItem("cooPiece");
-    localStorage.removeItem("x_plateforme");
-    localStorage.removeItem("y_plateforme");
-    localStorage.removeItem("cooMonstre");
-    localStorage.removeItem("pieceIsNull");
 }

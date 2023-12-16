@@ -89,9 +89,19 @@ function DesactiverScoreMonstre() {
     scoreMonstre.classList.add("invisible");
 }
 function AjoutPointMonstre() {
-    score = score + 200;
+    var nb;
+    if (nbScoreMonstre > 4000 && nbScoreMonstre <= 5000) {
+        nb = 400;
+    } else if (nbScoreMonstre > 1000 && nbScoreMonstre <= 4000) {
+        nb = 200;
+    } else if (nbScoreMonstre > 100 && nbScoreMonstre <= 1000) {
+        nb = 100;
+    } else if (nbScoreMonstre <= 100) {
+        nb = 10;
+    }
+    score = score + nb;
     scoreTexte.innerHTML = score;
-    nbScoreMonstre = nbScoreMonstre - 200;
+    nbScoreMonstre = nbScoreMonstre - nb;
     scoreMonstre.innerHTML = "+" + nbScoreMonstre;
     if (nbScoreMonstre <= 0) {
         DesactiverScoreMonstre();
@@ -102,7 +112,7 @@ function startTimerScoreMonstre() {
     timerScoreMonstre = setInterval(function () {
         ActiverScoreMonstre();
         stopTimerScoreMonstre();
-    }, 500);
+    }, 470);
 }
 function stopTimerScoreMonstre() {
     clearInterval(timerScoreMonstre);

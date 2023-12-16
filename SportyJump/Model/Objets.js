@@ -68,12 +68,10 @@ function RessortIsTouch() {
 function DescenteElement() {
     if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
         setJump(50 / getFacteur());
-        setVitessePlateforme(110 / getFacteur());
     } else {
         setJump(25 / getFacteur());
-        setVitessePlateforme(100 / getFacteur());
     }
-
+    setVitessePlateforme(110 / getFacteur());
     ActivationPlateforme();
     if (!PieceIsNull()) {
         ActivationPiece();

@@ -41,8 +41,7 @@ function PlacementScoreMonstre() {
     var scoreMonstre = document.getElementById("scoreMonstre");
     scoreMonstre.style.position = "absolute";
     scoreMonstre.style.fontSize = "25px";
-    scoreMonstre.style.left = getXTerrain() + 400 / getFacteur() + "px";
-    scoreMonstre.style.top = getYTerrain() + 25 / getFacteur() + "px";
+    scoreMonstre.style.top = getYTerrain() + 30 / getFacteur() + "px";
     scoreMonstre.classList.add("invisible");
 }
 function PlacementPiece() {
