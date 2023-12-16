@@ -2,10 +2,15 @@
 //================================================================== Objet ==================================================================//
 //================================================================== Objet ==================================================================//
 const ressort = document.getElementById("ressort");
+var plateforme;
 var rebondissement;
-var ressortIsNull = true;
+var ressortIsNull = false;
 var ressortIsTouch = false;
 
+function setPlateformeDuRessort() {
+    plateforme = document.getElementById("plateforme0");
+    console.log(plateforme);
+}
 function getXRessort() {
     return ressort.offsetLeft;
 }
@@ -33,14 +38,22 @@ function startTimerRebondissementRessort() {
 function stopTimerRebondissementRessort() {
     clearInterval(rebondissement);
 }
-function AjoutDuRessort() {
-    const plateforme = document.getElementById("plateforme0");
-    ressort.style.left = getXPlateforme(plateforme) + 10 + "px";
-    ressort.style.top = getYPlateforme(plateforme) - getLargeurRessort() + 3 + "px";
+function egaliserCooRessort() {
+    if (!ressortIsNull) {
+        ressort.style.left = getXPlateforme(plateforme) + 10 + "px";
+        ressort.style.top = getYPlateforme(plateforme) - getLargeurRessort() + 3 + "px";
+    }
 }
-
+function AjoutDuRessort() {
+    ressortIsNull = false;
+    ressort.classList.remove("invisible");
+}
+function SuppressionDuRessort() {
+    ressortIsNull = true;
+    ressort.classList.add("invisible");
+}
 function RessortIsTouch() {
-    if (!ressortIsTouch && gravity > 8 &&
+    if (!ressortIsTouch && !ressortIsNull && gravity > 8 && !IsMonstreTouch() &&
         getXBallonHitBoxSaut() + getLongueurHitBoxSaut() >= getXRessort() && getXBallonHitBoxSaut() <= getXRessort() + getLongueurRessort() &&
         getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYRessort() && getYBallonHitBoxSaut() <= getYRessort() + getLargeurRessort() + 10) {
         makeJump();
@@ -48,7 +61,6 @@ function RessortIsTouch() {
         setRebondissement();
         startTimerRebondissementRessort();
         ressortIsTouch = true;
-
     }
 }
 

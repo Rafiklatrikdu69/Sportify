@@ -18,7 +18,7 @@ window.onload = function () {
     setTableauDeplacementPlateforme();
     setListePlateforme();
     setCooListePlateforme();
-
+    setPlateformeDuRessort();
 
     PlacementScore();
     PlacementScorePieceImage();
