@@ -1,39 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Police d'écriture */
 @font-face {
     font-family: futura;
@@ -52,7 +16,7 @@ html{
 /* Mise a 0 du style css */
 body{
     margin: 0;
-    background-color: #00838d;
+    background-color: #226B80;
     height: 100%;
 }
 
