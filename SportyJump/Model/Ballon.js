@@ -9,11 +9,19 @@ var monstreTouch = false;
 let reinitialiseBallon;
 var keyDroite = false;
 var keyGauche = false;
-
+var nbPlateformeTouch = 0;
+var nbMonstreTouch = 0;
+var invulnerable = false;
 //================================================================== Configuration ==================================================================//
 //================================================================== Configuration ==================================================================//
 //================================================================== Configuration ==================================================================//
 
+function setInvulnerabiliteBallon(op) {
+    invulnerable = op;
+}
+function BallonIsInvulnerable() {
+    return invulnerable;
+}
 function setGravity() {
     gravity = jump;
 }
@@ -184,6 +192,8 @@ function IsPlateformeTouch(plateforme) {
         EquilibrageJumpEtVitesse();
         makeJump();
         setRebond(typeBallon);
+        nbPlateformeTouch++;
+        invulnerable = false;
     }
     return op;
 }
@@ -196,10 +206,15 @@ function BallonElimineMonstre() {
     if (gravity > 5 &&
         getXBallonHitBoxSaut() + getLongueurHitBoxSaut() >= getXMonstreHitBoxVulnerable() && getXBallonHitBoxSaut() <= getXMonstreHitBoxVulnerable() + getLongueurHitBoxVulnerable() &&
         getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYMonstreHitBoxVulnerable() && getYBallonHitBoxSaut() <= getYMonstreHitBoxVulnerable() + getLargeurHitBoxVulnerable()) {
+
+        CadrageScoreMonstre();
+        AfficherScoreMonstre();
+        startTimerScoreMonstre();
         jump = 40 / getFacteur();
         makeJump();
         setRebond(getType());
         EliminerMonstre();
+        nbMonstreTouch++;
     }
 }
 //Méthodes utilsées dans le fichier monstre.js; 
@@ -224,6 +239,8 @@ function GameOver() {
         TransfererCooMonstre();
         TransfererCooPiece();
         window.location.href = "GameOver.html?entier=" + encodeURIComponent(getType());
+        //console.log("nombre de plateforme touchée : " + nbPlateformeTouch);
+        //console.log("nombre de monstre éliminé : " + nbMonstreTouch);
     }
 }
 

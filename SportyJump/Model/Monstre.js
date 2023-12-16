@@ -114,8 +114,8 @@ function DescenteMonstre() {
     }
 }
 function AffichageMonstre() {
-    let nb = Math.floor(Math.random() * 10);
-    if (nb == 1) {
+    let nb = Math.floor(Math.random() * 8);
+    if (nb == 0) {
         setImageMonstre();
         setXHitBoxAttack(Math.floor(Math.random() * 1000 / getFacteur()) + 60 / getFacteur());
         setYHitBoxAttack(-500 / getFacteur());
@@ -156,7 +156,7 @@ function deplacementDroiteGauche() {
 }
 
 function MonstreElimineBallon() {
-    if (!ballonTouch &&
+    if (!ballonTouch && !BallonIsInvulnerable() &&
         getXBallonHitBoxGet() + getLongueurHitBoxGet() >= getXMonstreHitBoxAttack() && getXBallonHitBoxGet() <= getXMonstreHitBoxAttack() + getLongueurHitBoxAttack() &&
         getYBallonHitBoxGet() + getLargeurHitBoxGet() >= getYMonstreHitBoxAttack() && getYBallonHitBoxGet() <= getYMonstreHitBoxAttack() + getLargeurHitBoxAttack()) {
         ballonTouch = true;

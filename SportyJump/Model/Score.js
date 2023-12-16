@@ -46,3 +46,64 @@ function TransfererScore() {
     localStorage.setItem("scoreTexte", JSON.stringify(score));
     localStorage.setItem("nbPieceTexte", JSON.stringify(nbPiece));
 }
+
+
+//================================================================== Score Monstre ==================================================================//
+//================================================================== Score Monstre ==================================================================//
+//================================================================== Score Monstre ==================================================================//
+
+const scoreMonstre = document.getElementById("scoreMonstre");
+var nbScoreMonstre = 5000;
+var activerScoreMonstre = false;
+var timerScoreMonstre;
+
+function ScoreMonstreIsActif() {
+    return activerScoreMonstre;
+}
+function getLongueurTexte() {
+    var textToMeasure = scoreTexte.textContent;
+    var computedStyle = window.getComputedStyle(scoreTexte);
+    var fontFamily = computedStyle.getPropertyValue('font-family');
+    var fontSize = computedStyle.getPropertyValue('font-size');
+    var font = fontSize + ' ' + fontFamily;
+
+    var canvas = document.getElementById('mesureCanvas');
+    var context = canvas.getContext('2d');
+    context.font = font;
+    var metrics = context.measureText(textToMeasure);
+    return metrics.width;
+}
+function CadrageScoreMonstre() {
+    scoreMonstre.style.left = scoreTexte.offsetLeft + getLongueurTexte() + 10 + "px";
+}
+function AfficherScoreMonstre() {
+    nbScoreMonstre = 5000;
+    scoreMonstre.innerHTML = "+" + nbScoreMonstre;
+    scoreMonstre.classList.remove("invisible");
+}
+function ActiverScoreMonstre() {
+    activerScoreMonstre = true;
+}
+function DesactiverScoreMonstre() {
+    activerScoreMonstre = false;
+    scoreMonstre.classList.add("invisible");
+}
+function AjoutPointMonstre() {
+    score = score + 200;
+    scoreTexte.innerHTML = score;
+    nbScoreMonstre = nbScoreMonstre - 200;
+    scoreMonstre.innerHTML = "+" + nbScoreMonstre;
+    if (nbScoreMonstre <= 0) {
+        DesactiverScoreMonstre();
+    }
+}
+
+function startTimerScoreMonstre() {
+    timerScoreMonstre = setInterval(function () {
+        ActiverScoreMonstre();
+        stopTimerScoreMonstre();
+    }, 500);
+}
+function stopTimerScoreMonstre() {
+    clearInterval(timerScoreMonstre);
+}

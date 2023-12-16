@@ -177,7 +177,7 @@ function NouvelAffichagePlateformeDescente(plateforme) {
 }
 function afficherRessort(plateforme) {
     if (parseInt(plateforme.id.match(/\d+/), 10) == 0) {
-        let nb = Math.floor(Math.random() * 1);
+        let nb = Math.floor(Math.random() * 2);
         if (nb == 0) {
             AjoutDuRessort();
         } else {

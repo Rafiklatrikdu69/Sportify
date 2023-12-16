@@ -23,6 +23,7 @@ window.onload = function () {
     PlacementScore();
     PlacementScorePieceImage();
     PlacementScoreNombrePiece();
+    PlacementScoreMonstre();
 
     PlacementPiece();
 

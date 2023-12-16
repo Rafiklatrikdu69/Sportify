@@ -37,7 +37,14 @@ function PlacementScoreNombrePiece() {
     scorePiece.style.left = getXTerrain() + 110 / getFacteur() + "px";
     scorePiece.style.top = getYTerrain() + 160 / getFacteur() + "px";
 }
-
+function PlacementScoreMonstre() {
+    var scoreMonstre = document.getElementById("scoreMonstre");
+    scoreMonstre.style.position = "absolute";
+    scoreMonstre.style.fontSize = "25px";
+    scoreMonstre.style.left = getXTerrain() + 400 / getFacteur() + "px";
+    scoreMonstre.style.top = getYTerrain() + 25 / getFacteur() + "px";
+    scoreMonstre.classList.add("invisible");
+}
 function PlacementPiece() {
     var piece = document.getElementById("piece");
     piece.style.position = "absolute";

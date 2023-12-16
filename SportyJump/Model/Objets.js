@@ -61,6 +61,7 @@ function RessortIsTouch() {
         setRebondissement();
         startTimerRebondissementRessort();
         ressortIsTouch = true;
+        setInvulnerabiliteBallon(true);
     }
 }
 
