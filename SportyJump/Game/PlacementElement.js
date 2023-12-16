@@ -64,6 +64,5 @@ function PlacementMonstreHitBoxVulnerable() {
 function PlacementRessort() {
     var ressort = document.getElementById("ressort");
     ressort.style.position = "absolute";
-
-
+    ressort.classList.add("invisible");
 }

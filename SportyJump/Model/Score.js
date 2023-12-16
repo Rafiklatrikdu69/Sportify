@@ -1,13 +1,14 @@
 var nbScore = 0;
 var nbPiece = 0;
 var point = 0;
-var pointGagne = 40 / getFacteur();
+var pointGagne = 20;
 var activerScore = false;
 var score = 0
 const scoreTexte = document.getElementById("score");
 const nbPieceTexte = document.getElementById("nbPiece");
+
 function setPointGagner(new_valeur) {
-    point = new_valeur;
+    pointGagne = new_valeur;
 }
 function setPoint() {
     if (point > 0) {

@@ -17,6 +17,9 @@ var keyGauche = false;
 function setGravity() {
     gravity = jump;
 }
+function setJump(nb) {
+    jump = nb;
+}
 function egaliserCoo() {
     ballonImage.style.left = getXBallonHitBoxSaut() - 48 / getFacteur() + "px";
     ballonImage.style.top = getYBallonHitBoxSaut() - 141 / getFacteur() + "px";
@@ -116,7 +119,7 @@ function ActionBoutonBallon() {
     }
     if (keyGauche) {
         setDirectionGauche();
-        if (getXBallonHitBoxSaut() <= getXTerrain() - 20) {
+        if (getXBallonHitBoxSaut() <= getXTerrain() - 25) {
             teleportationDroite();
         }
     }
@@ -166,10 +169,10 @@ function EquilibrageJumpEtVitesse() {
         setVitessePlateforme(50 / getFacteur());
     } else {
         jump = 20 / getFacteur();
-        setVitessePlateforme(90 / getFacteur());
+        setVitessePlateforme(85 / getFacteur());
     }
+    setPointGagner(20);
     setReculement();
-
 }
 function IsPlateformeTouch(plateforme) {
     let op = false;

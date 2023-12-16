@@ -31,7 +31,6 @@ window.onload = function () {
     PlacementMonstreImage();
     PlacementMonstreHitBoxVulnerable();
 
-    AjoutDuRessort();
     startTimerBallonDeplacement();
     startTimerConfigurationModels();
 }

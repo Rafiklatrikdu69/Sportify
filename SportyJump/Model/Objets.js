@@ -9,7 +9,6 @@ var ressortIsTouch = false;
 
 function setPlateformeDuRessort() {
     plateforme = document.getElementById("plateforme0");
-    console.log(plateforme);
 }
 function getXRessort() {
     return ressort.offsetLeft;
@@ -56,7 +55,8 @@ function RessortIsTouch() {
     if (!ressortIsTouch && !ressortIsNull && gravity > 8 && !IsMonstreTouch() &&
         getXBallonHitBoxSaut() + getLongueurHitBoxSaut() >= getXRessort() && getXBallonHitBoxSaut() <= getXRessort() + getLongueurRessort() &&
         getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYRessort() && getYBallonHitBoxSaut() <= getYRessort() + getLargeurRessort() + 10) {
-        makeJump();
+
+        DescenteElement();
         setRebond(getType());
         setRebondissement();
         startTimerRebondissementRessort();
@@ -64,3 +64,23 @@ function RessortIsTouch() {
     }
 }
 
+function DescenteElement() {
+    if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
+        setJump(50 / getFacteur());
+        setVitessePlateforme(110 / getFacteur());
+    } else {
+        setJump(25 / getFacteur());
+        setVitessePlateforme(100 / getFacteur());
+    }
+
+    ActivationPlateforme();
+    if (!PieceIsNull()) {
+        ActivationPiece();
+    }
+    if (!MonstreIsNull()) {
+        ActivationMonstre();
+    }
+    setPointGagner(40);
+    ActivationScore();
+    makeJump();
+}
