@@ -186,4 +186,17 @@ class UtilisateurDAO extends DAO{
             return "";
         }
     }
+
+    public function getTop10(){
+        $sql = "SELECT * FROM `UTILISATEUR` WHERE STATUS = 1 ORDER BY POINT_CLASSEMENT DESC LIMIT 10";
+        $res = $this->queryAll($sql);
+        $tab = [];
+    
+        foreach($res as $user){
+           $us = new Utilisateur($user[0],$user[1],$user[2],$user[3],$user[4],$user[5],$user[6],$user[7]);
+           $tab[]  = $us;
+        }
+  
+        return $tab;
+    }
 }

@@ -1,3 +1,39 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Police d'écriture */
 @font-face {
     font-family: futura;
@@ -16,7 +52,7 @@ html{
 /* Mise a 0 du style css */
 body{
     margin: 0;
-    background-color: #226B80;
+    background-color: #00838d;
     height: 100%;
 }
 
@@ -64,9 +100,12 @@ header>a:first-child{
 main{
     margin-top: 20%;
     display: grid;
+    grid-area: 1/2/2/3;
     /* Add space between the cards */
     grid-gap: 2%;
 }
+
+
 
 #actu{
     /* changer la couleur pour montrer qu'on est sure cette page */
@@ -77,6 +116,20 @@ main{
     grid-gap: 2%;
 }
 
+/* aside gauche (classement + bouton) */
+#gauche{
+    grid-area: 1/1/2/2;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 2%;
+    margin-top: 38%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 2%;
+    position: fixed;
+    right: 68%;
+    bottom: 20%;
+}
 
 #actualite{
     color: black;
@@ -167,7 +220,7 @@ p{
     top: 9.5%; 
     right: 1%; 
     display: grid;
-    grid-area:  1/4/5/5;
+    grid-area:  1/3/2/4;
     grid-template: 1fr 10fr / 1fr;
     color: black;
     padding: 2%;
@@ -244,7 +297,104 @@ p{
   margin-bottom: 5%;
 }
 
-  .modal {
+#openModalActu{
+    
+    background-color: #FFEBD3;
+    color: black;
+    margin-right: 10%;
+    grid-gap: 2%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 2%;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    width: 120%;
+}
+
+#openModalActu:hover{
+    background-color: black;
+    color: white;
+    margin-right: 10%;
+    grid-gap: 2%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 2%;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+#openModalActu:active{
+    background-color: grey;
+    color: black;
+    margin-right: 10%;
+    grid-gap: 2%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 2%;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+#ajt_actu{
+}
+
+#classement{
+    background-color: #FFEBD3;
+    color: black;
+    margin-right: 10%;
+    margin-top: 10%;
+    border-radius: 4px;
+    text-align: center;
+    transition: 0.3s;
+    width: 120%;
+    outline-offset: 5px;
+    outline: 5px solid #FFEBD3;
+}
+
+#classement table{
+    width: 100%;
+    height: 150%;
+}
+
+#classement table tr{
+    width: 100%;
+    height: 100%;
+}
+
+#classement table tr td{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+#classement table th{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* une ligne sur deux d'une autre couleur sauf titre */
+#classement table tr:nth-child(2n+1){
+    background-color: #FFDAB9;
+    color: black;
+}
+
+
+
+
+
+
+
+.modal {
     background-color: rgba(0, 0, 0, 0.3);
     opacity: 0;
     position: fixed;
@@ -262,6 +412,7 @@ p{
 .modal.open{
     opacity: 1;
     z-index: 999;
+
 }
 
 .modal-inner{
@@ -291,4 +442,3 @@ p{
     visibility: hidden;
     color: red;
 }
-

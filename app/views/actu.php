@@ -9,22 +9,26 @@
 </head>
 <body>
 <?php header::header()?>
-    <div id="base">
-    <aside>
-        <button id="openModal"> Actualité</button>
-        <aside id="categorie">
-            <form>
-                <fieldset>
-                    <legend>Catégories</legend>
-                    <input type="checkbox" name="categorie" value="foot">Football<br>
-                    <input type="checkbox" name="categorie" value="basketball">Basketball<br>
-                    <input type="checkbox" name="categorie" value="rugby">Rugby<br>
-                    <input type="checkbox" name="categorie" value="boxe">Boxe<br>
-                    <input type="checkbox" name="categorie" value="tennis">Tennis<br>
-                    <input type="submit" value="Filtrer">
-                </fieldset>
-            </form>
-        </aside>
+<section id="base">
+    <aside id="gauche">
+        <div id="ajt_actu">
+            <button id="openModalActu">Ajouter une actualité</button>
+        </div>
+        <div id="classement">
+            <div>
+                <?php
+                $i = 1;
+                echo '<table>';
+                echo '<tr><th>Classement</th></tr>';
+                foreach($tabClassement as $user){
+                    echo '<tr><td>'.$i.'</td>';
+                    echo '<td>'.$user->getPseudo(). '-' .$user->getPointClassement().'</td></tr>';
+                    $i++;
+                }
+                echo '</table>';
+                ?>
+            </div>
+        </div>
     </aside>
     <main>
         <!-- Pattern a répeter -->
@@ -65,23 +69,21 @@
             <p>Equipe préférée</p>
         </div>
     </aside>
-    <div class="modal" id="modal">
+    
+</section>
+<div class="modal" id="modal">
         <div class="modal-inner">
-                <form>
-                    <fieldset>
-                        <legend>Ajouter une actualité</legend>
-                        <label for="titre">Titre</label>
-                        <input type="text" name="titre" id="titre"  required>
-                        <br>
-                        <label for="contenue">Contenue</label>
-                        <textarea name="contenue" id="contenue" cols="30" rows="10"  required></textarea>
-                        <input type="submit" value="Ajouter">
-                    </fieldset>
-                </form>
+            <h2>Ajouter une actualité</h2>
+            <form id="formActu">
+                <label for="titre">Titre</label>
+                <input type="text" id="titre" name="titre" placeholder="Titre de l'actualité">
+                <label for="contenu">Contenu</label>
+                <textarea id="contenu" name="contenu" placeholder="Contenu de l'actualité"></textarea>
+                <button id="ajoutActu">Ajouter</button>
+            </form>
                 <button id="closeModal">Annuler</button>
         </div>
     </div>
-</div>
 </body>
 </html>
 <script src="../../public/js/actu.js"></script>
