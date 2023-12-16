@@ -16,7 +16,7 @@ switch ($request) {
             case '/public/json-item':
                 $route->post('/public/json-item', [new JsonControllerItem(), 'ajout']);
                 break;
-                case 'public/json-actu':
+                case '/public/json-actu':
                     $route->post('/public/json-actu', [new JsonControllerActu(), 'ajoutActu']);
                     break;
                     case '/public/json-prono':
