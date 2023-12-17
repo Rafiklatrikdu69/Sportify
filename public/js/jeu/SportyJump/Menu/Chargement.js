@@ -4,7 +4,7 @@ var creation = false;
 
 function startTimerChargement() {
     timerChargement = setInterval(function () {
-        window.location.href = "Game.php?entier=" + encodeURIComponent(getType());
+        window.location.href = "Game.html?entier=" + encodeURIComponent(getType());
         stopTimerChargement();
     }, 3000);
 }

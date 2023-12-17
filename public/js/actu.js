@@ -1,16 +1,31 @@
-document.getElementById("prono").addEventListener('mouseover', chbgon);
-document.getElementById("prono").addEventListener('mouseout', chbgout);
-document.getElementById("boutique").addEventListener('mouseover', chbgon);
-document.getElementById("boutique").addEventListener('mouseout', chbgout);
-document.getElementById("deconnexion").addEventListener('mouseover', chbgon);
-document.getElementById("deconnexion").addEventListener('mouseout', chbgout);
+const actu = document.getElementById("actu")
+const prono = document.getElementById("prono")
+const boutique = document.getElementById("boutique")
+const jeu = document.getElementById("jeu")
+const deconnexion = document.getElementById("deconnexion")
 
-function chbgon() {    
-    document.getElementById('actu').style.backgroundColor = 'black';
-    document.getElementById('actu').style.color = 'white';
+// listener
+prono.addEventListener('mouseover', chbgon);
+prono.addEventListener('mouseout', chbgout);
+boutique.addEventListener('mouseover', chbgon);
+boutique.addEventListener('mouseout', chbgout);
+jeu.addEventListener('mouseover', chbgon);
+jeu.addEventListener('mouseout', chbgout);
+deconnexion.addEventListener('mouseover', chbgon);
+deconnexion.addEventListener('mouseout', chbgout);
+
+function chbgon() { 
+    //Fonction qui restylise actu dans header lorsque la souris passe sur une autre categorie   
+    actu.style.backgroundColor = 'black';
+    actu.style.color = 'white';
+    actu.style.transitionDelay = "0s";
 }
 
 function chbgout() {    
-    document.getElementById('actu').style.backgroundColor = '#00838d';
-    document.getElementById('actu').style.color = 'black';
+    //Fonction qui restylise actu dans header lorsque la souris quitte une autre categorie
+    actu.style.transitionDuration = ".5s";
+    actu.style.backgroundColor = '#40A798';
+    actu.style.color = 'black';
+    actu.style.marginLeft = "10%"
+    actu.style.marginRight = "10%"
 }

@@ -30,9 +30,10 @@ class ActuDAO extends DAO{
         return $tab;
     }
 
-    public function insertActu($data){
-        $sql = "INSERT INTO `POST` (POST_ID, AUTEUR_ID, NOM_TOPIC, DESCRIPTION_POST, NB_LIKE) VALUES (:id, :idUtilisateur, :titre, :contenu, :nbLike)";
-        $sth = $this->insert($sql);
+    public function insertActu($idUtilisateur,$nomUtilisateur,$titre,$contenu,$nbLike){
+        $sql = "INSERT INTO `POST` (AUTEUR_ID,AUTEUR_NOM,NOM_TOPIC,DESCRIPTION_POST,NB_LIKE) VALUES (:idUtilisateur,:nomUtilisateur,:titre,:contenu,:nbLike)";
+        $params = array(":idUtilisateur" => $idUtilisateur,":nomUtilisateur" => $nomUtilisateur, ":titre" => $titre,":contenu" => $contenu,":nbLike" => $nbLike);
+        $sth = $this->insert($sql, $params);
         return $sth;
     }
 

@@ -7,12 +7,6 @@ class PronostiqueDAO extends DAO{
     public function getAll(){
         $sql = "SELECT * FROM `PRONOSTIC`";
         $stmt = $this->queryAll($sql);
-        
-        // foreach($stmt as $p){
-            
-            // }
-            //echo "le tableau";
-            //var_dump($stmt);
             return $stmt;
         }
         
@@ -39,7 +33,34 @@ class PronostiqueDAO extends DAO{
                 $bool = TRUE;
             }
             return $bool;
-            
+        }
+        public function selectPronoByUser($nom){
+            $sql = "SELECT PRONOSTIC.COTE_PRONO,PRONOSTIC.MISE,EVENEMENT.NOM_EVENEMENT,
+            CASE 
+                WHEN PRONOSTIC.COTE_PRONO = EVENEMENT.COTE_DOMICILE THEN EVENEMENT.EQUIPE_DOMICILE
+                ELSE EVENEMENT.EQUIPE_EXTERIEUR
+            END AS EQUIPE_CONCERNEE,
+            CASE 
+                WHEN PRONOSTIC.COTE_PRONO = EVENEMENT.COTE_DOMICILE THEN EVENEMENT.EQUIPE_EXTERIEUR
+                ELSE EVENEMENT.EQUIPE_DOMICILE
+            END AS EQUIPE_PERDANTE,
+            EVENEMENT.DATE_EVENEMENT 
+        FROM 
+            PRONOSTIC 
+        JOIN 
+            UTILISATEUR ON UTILISATEUR.UTILISATEUR_ID = PRONOSTIC.PRONOSTIQUEUR_ID 
+        JOIN 
+            EVENEMENT ON PRONOSTIC.MATCH_PRONO = EVENEMENT.EVENEMENT_ID 
+        WHERE 
+            UTILISATEUR.PSEUDO = :nom AND PRONOSTIC.STATUS = 0";
+            $stmt = $this->queryAll($sql, array("nom" => $nom));
+            //Stockage des données dans un tableau
+            $tab = [];
+            foreach($stmt as $prono){
+                $pronostique = new PronostiqueSpe($prono[0],$prono[1],$prono[2],$prono[3],$prono[4],$prono[5]);
+                $tab[] = $pronostique;
+            }
+            return $tab;
         }
         
         public function selectMisePronoById($prono){
@@ -91,7 +112,6 @@ class PronostiqueDAO extends DAO{
             // deleteProno($match_id);
             $sql = "DELETE FROM `EVENEMENT` WHERE `EVENEMENT_ID` = :match_id";
             $this->delete($sql, array("match_id" => $match_id)); 
-            
         }
         
     }

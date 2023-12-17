@@ -14,9 +14,13 @@ class FormConnexionController extends DefaultFormController{
             
             if($select){
                 $_SESSION['nom'] = $nom;
-                Redirect::redirect('/public/pronostique');}
-             else{Redirect::redirect('/public/connexion');}
-        }else{
+                Redirect::redirect('/public/pronostique');
+            }
+            else{
+                Redirect::redirect('/public/connexion');
+            }
+        }
+        else{
             Redirect::redirect('/public/connexion');
         }
         ob_end_clean();

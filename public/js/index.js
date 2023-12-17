@@ -91,7 +91,7 @@ function checkform(){
   }
 
   function checkPassword(){
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     let b = passwordRegex.test(document.getElementById("password").value);
     return b;
   }
