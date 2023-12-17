@@ -81,7 +81,7 @@ use \App\Config;
                 <p>Vous avez choisi la cote <span id="cote_joue"></span></p>
                 <p class="match-deja-jouer" id="resultat">Vous avez deja parier sur ce match</p>
                 <form id="pariForm">
-                    <input type="number" name="mise" id="mise" placeholder="0">
+                    <input type="number" name="mise" id="mise" placeholder="0" min="1">
                     <input type="submit" value="Valider">
                 </form>
                 <p id="gain">Votre gain potentiel est de : </p>
