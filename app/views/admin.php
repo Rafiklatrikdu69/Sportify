@@ -105,14 +105,15 @@
 	<div class="part-middle" id="part-2">
 	<li id="liste">Liste des posts</li>
 		<div class="user">
-			<div class="id">ID</div>
-			<div class="pseudo">Pseudo</div>
-			<div class="adresse-mail">Email</div>
-			<div class="point">Point actuel</div>
-			<div class="point-class">Point Classement</div>
-			<div class="score">Score</div>
+			<div class="id_post">ID Auteur</div>
+			<div class="id">ID Auteur</div>
+			<div class="NomAuteur">Nom Auteur</div>
+			<div class="nomTopic">Nom Topic </div>
+			<div class="description">Description</div>
+			<div class="likes">nombre de likes </div>
+	
 			<div class="dropdown">
-					<button class="dropbtn">Ajouter</button>
+	
 					<div class="dropdown-content">
 						<ul>
 							<li>Modifier</li>
@@ -123,14 +124,14 @@
 		</div>
 	
 	
-		<?php foreach($users as $user){?>
+		<?php foreach($posts as $post){?>
 			<div class="user">
-				<div class="id" id="<?php echo $user->getUtilisateurId();?>"><?php echo $user->getUtilisateurId();?></div>
-				<div class="pseudo"><?php echo $user->getPseudo();?></div>
-				<div class="adresse-mail"><?php echo $user->getEmail();?></div>
-				<div class="point"><?php echo (int)$user->getPointActuel();?></div>
-				<div class="point-class"><?php echo $user->getPointClassement();?></div>
-				<div class="score"><?php  echo $user->getScoreJeu()?></div>
+				<div class="id_post" id="<?php echo $post->getId();?>"><?php echo $user->getUtilisateurId();?></div>
+				<div class="id"><?php echo $post->getAuteurId();?></div>
+				<div class="NomAuteur"><?php echo $post->getAuteurName();?></div>
+				<div class="nomTopic"><?php echo (int)$post->getTitre();?></div>
+				<div class="point-class"><?php echo $post->getContenu();?></div>
+				<div class="score"><?php  echo $post->getNbLike()?></div>
 				<div class="dropdown">
 					<button class="dropbtn">Actions</button>
 					<div class="dropdown-content">
