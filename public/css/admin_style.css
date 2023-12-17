@@ -293,8 +293,12 @@ flex-direction: column;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
   }
-  
+ 
   /* The Close Button */
   .close {
     color: #aaaaaa;
@@ -302,7 +306,17 @@ flex-direction: column;
     font-size: 28px;
     font-weight: bold;
   }
-  
+  #btn-terminer{
+    text-align: center;
+    border: 5px;
+    background-color: #1C84FF;
+    box-shadow: #0276FF;
+  }
+  #btn-terminer:hover {
+    background-color: #008CBA; /* change to your desired color */
+    color: white; /* change to your desired color */
+    cursor: pointer;
+  }
   .close:hover,
   .close:focus {
     color: #000;

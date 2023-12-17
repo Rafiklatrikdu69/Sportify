@@ -94,30 +94,17 @@ events.addEventListener("click",function(){
 items.addEventListener("click", function () {
     console.log("items");
 });
-// const closeBtn = document.getElementById("closeModal");
-// const modal = document.getElementById("modal");
-// const openBtn = document.getElementById("openModal");
 
-// closeBtn.addEventListener("click", () => {
-//     modal.classList.remove("open");
-// });
-
-// openBtn.addEventListener("click", () => {
-//     console.log("Button clicked");
-//     modal.classList.add("open");
-// });
-
-// Get the modal
 var modal = document.querySelectorAll("#myModal");
 let contentModal = document.querySelectorAll('.modal-content');
-var buttons = document.getElementsByTagName("button");
+var buttons = document.getElementsByTagName("input");
 
 
 // Get the button that opens the modal
 var btn = document.querySelectorAll(".myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.querySelectorAll(".close");
+var span = document.querySelectorAll("#close");
 
 // When the user clicks the button, open the modal 
 function victoire(match_id,cote){
@@ -155,7 +142,7 @@ for(let i = 0;i<buttons.length;i++){
         }
         );
 console.log(buttons[i].className);
-
+location.reload();
  }
 }
 

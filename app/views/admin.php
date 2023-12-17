@@ -57,6 +57,7 @@
 	<div class="part-middle" id="part-1">
 		<li id="liste">Liste des utilisateurs</li>
 		<div class="user">
+			
 			<div class="id">ID</div>
 			<div class="pseudo">Pseudo</div>
 			<div class="adresse-mail">Email</div>
@@ -111,9 +112,14 @@
 			<div class="nomTopic">Nom Topic </div>
 			<div class="description">Description</div>
 			<div class="likes">nombre de likes </div>
-	
+		</div>
+	<?php foreach($posts as $posts){?>
 			<div class="dropdown">
-	
+	<div class="id_post"> <?php echo $posts->getAuteurId()?></div>
+	<div class="id"><?php echo $posts->getAuteurName()?></div>
+	<div class="NomAuteur"><?php echo $posts->getTitre()?></div>
+	<div class="nomTopic"><?php echo $posts->getContenu()?></div>
+	<!-- <div class="description"><?php echo $posts->getNbLike()?></div> -->
 					<div class="dropdown-content">
 						<ul>
 							<li>Modifier</li>
@@ -122,27 +128,9 @@
 					</div>
 				</div>
 		</div>
+	<?php }?>
 	
 	
-		<?php foreach($posts as $post){?>
-			<div class="user">
-				<div class="id_post" id="<?php echo $post->getId();?>"><?php echo $user->getUtilisateurId();?></div>
-				<div class="id"><?php echo $post->getAuteurId();?></div>
-				<div class="NomAuteur"><?php echo $post->getAuteurName();?></div>
-				<div class="nomTopic"><?php echo (int)$post->getTitre();?></div>
-				<div class="point-class"><?php echo $post->getContenu();?></div>
-				<div class="score"><?php  echo $post->getNbLike()?></div>
-				<div class="dropdown">
-					<button class="dropbtn">Actions</button>
-					<div class="dropdown-content">
-						<ul>
-							<li>Modifier</li>
-							<li id="supp">Supprimer</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		<?php } ?>
 </div>
 		<main>
             <!-- la section avec les pronostics est ici -->
@@ -191,14 +179,17 @@
 
   <!-- Modal content -->
   <div class="modal-content" id="<?php echo $evenements->getId();?>">
-    <span class="close">&times;</span>
-   <button class="<?php  echo $evenements->getCote_domicile()?>" ><?php  echo $evenements->getCote_domicile()?></button>
-   <button class="<?php  echo $evenements->getCote_exterieur()?>" ><?php  echo $evenements->getCote_exterieur()?></button>
+    <!-- <span class="close">&times;</span> -->
+   <input class="<?php  echo $evenements->getCote_domicile()?>" type="submit" value="<?php  echo $evenements->getCote_domicile()?>" id="btn-terminer">
+   <input class="<?php  echo $evenements->getCote_exterieur()?>" type="submit" value="<?php  echo $evenements->getCote_exterieur()?>" id="btn-terminer">
   </div>
 
 </div>
 		<?php } ?>
 		</div>
-	<script src="../../public/js/admin.js"></script>
+	<script src="../../public/js/admin.js">
+
+		
+	</script>
 </body>
 </html>
