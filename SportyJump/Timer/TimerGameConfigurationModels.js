@@ -31,6 +31,7 @@ function startTimerConfigurationModels() {
             AjoutPointMonstre();
         }
         RessortIsTouch();
+        JetPackIsTouch();
     }, getRafraichissement());
 }
 

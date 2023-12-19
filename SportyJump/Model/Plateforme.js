@@ -9,6 +9,12 @@ var infoDeplacement = [];
 function getVitesse() {
     return vitesse;
 }
+function setReculement() {
+    reculement = 0;
+}
+function getReculement() {
+    return reculement;
+}
 function getXPlateforme(plateforme) {
     return plateforme.offsetLeft;
 }
@@ -112,8 +118,8 @@ function ReculerPlateforme(plateforme) {
     plateforme.style.top = getYPlateforme(plateforme) + reculement + "px";
     if (parseInt(plateforme.id.match(/\d+/), 10) == 0 && !RessortIsNull()) {
         egaliserCooRessort();
-    }else if(parseInt(plateforme.id.match(/\d+/), 10) == 2 && !jetpackIsNull()){
-        egaliserCooJetPack(); 
+    } else if (parseInt(plateforme.id.match(/\d+/), 10) == 2 && !jetpackIsNull()) {
+        egaliserCooJetPack();
     }
 }
 function ReculementPlateforms() {
@@ -145,10 +151,21 @@ function mouvementPlateforme(p) {
     }
     if (id == 0) {
         egaliserCooRessort();
-    }else if(id == 2){
-        egaliserCooJetPack(); 
+    } else if (id == 2 && !jetIsTouch) {
+        egaliserCooJetPack();
     }
 }
+
+function reculementPlateformeByJetPack(plateforme) {
+    document.querySelectorAll(".plateforme").forEach(function (plateforme) {
+        plateforme.style.top = getYPlateforme(plateforme) + reculement + "px";
+        mouvementPlateforme(plateforme);
+    });
+    if (reculement < 60) {
+        reculement = reculement + 0.3;
+    }
+}
+
 
 function NouvelAffichagePlateformeDescente(plateforme) {
     if (getYPlateforme(plateforme) >= getYTerrain() + getLargeurTerrain()) {
@@ -177,7 +194,7 @@ function NouvelAffichagePlateformeDescente(plateforme) {
         isSupperposed(plateforme);
         setDirectionPlateformeIsMoving(plateforme);
         afficherRessort(plateforme);
-        afficherJetPack(plateforme); 
+        afficherJetPack(plateforme);
     }
 }
 

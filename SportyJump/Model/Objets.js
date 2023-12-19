@@ -9,8 +9,8 @@ var ressortIsNull = false;
 var ressortIsTouch = false;
 
 
-function RessortIsNull(){
-    return ressortIsNull; 
+function RessortIsNull() {
+    return ressortIsNull;
 }
 function setPlateformeDuRessort() {
     plateforme = document.getElementById("plateforme0");
@@ -105,52 +105,60 @@ function DescenteElement() {
 //================================================================== JetPack ==================================================================//
 //================================================================== JetPack ==================================================================//
 
-const jetpackFixe = document.getElementById("jetpackFixe"); 
-const jetpackDecollage = document.getElementById(""); 
-const jetpackVole = document.getElementById(""); 
-var plateforme2; 
-var jetIsNull = true; 
-var jetIsTouch = false; 
+const jetpack = document.getElementById("jetpackFixe");
+
+var plateforme2;
+var jetIsNull = true;
+var jetIsTouch = false;
+var decollage;
+var vole;
+var fin;
+var directionJet = false;
 
 
-function getXJet(){
-    return jetpackFixe.offsetLeft; 
+function getXJet() {
+    return jetpack.offsetLeft;
 }
-function getYJet(){
-    return jetpackFixe.offsetTop; 
+function getYJet() {
+    return jetpack.offsetTop;
 }
-function getLongueurJet(){
-    return jetpackFixe.width; 
+function getLongueurJet() {
+    return jetpack.width;
 }
-function getLargeurJet(){
-    return jetpackFixe.height; 
-}
-
-
-function jetpackIsNull(){
-    return jetIsNull; 
-}
-function setPlateformeDuJetPack(){
-    plateforme2 = document.getElementById("plateforme2"); 
+function getLargeurJet() {
+    return jetpack.height;
 }
 
-function egaliserCooJetPack() {
-    if (!jetIsNull) {
-        jetpackFixe.style.left = getXPlateforme(plateforme2) + 20 + "px";
-        jetpackFixe.style.top = getYPlateforme(plateforme2) - getLargeurRessort() + "px";
+function setDirectionJet() {
+    if (getYBallonHitBoxSaut() > (getLargeurTerrain() - getYTerrain()) / 2 - (70 / getFacteur())) {
+        directionJet = true;
+    } else {
+        directionJet = false;
     }
 }
 
-function AjoutDuJetPack(){
-    jetIsNull = false; 
-    jetpackFixe.classList.remove("invisible"); 
+function jetpackIsNull() {
+    return jetIsNull;
 }
-function SuppressionDuJetack(){
-    jetIsNull = true; 
-    jetpackFixe.classList.add("invisible"); 
+function setPlateformeDuJetPack() {
+    plateforme2 = document.getElementById("plateforme2");
+}
+function egaliserCooJetPack() {
+    if (!jetIsNull) {
+        jetpack.style.left = getXPlateforme(plateforme2) + 20 + "px";
+        jetpack.style.top = getYPlateforme(plateforme2) - getLargeurRessort() + "px";
+    }
+}
+function AjoutDuJetPack() {
+    jetIsNull = false;
+    jetpack.classList.remove("invisible");
+}
+function SuppressionDuJetack() {
+    jetIsNull = true;
+    jetpack.classList.add("invisible");
 }
 function afficherJetPack(plateforme) {
-    if (parseInt(plateforme.id.match(/\d+/), 10) == 2) {
+    if (parseInt(plateforme.id.match(/\d+/), 10) == 2 && !jetIsTouch) {
         let nb = Math.floor(Math.random() * 2);
         if (nb == 0) {
             AjoutDuJetPack();
@@ -158,4 +166,136 @@ function afficherJetPack(plateforme) {
             SuppressionDuJetack();
         }
     }
+}
+function JetPackIsTouch() {
+    if (!jetIsTouch && !jetIsNull && !IsMonstreTouch() &&
+        getXBallonHitBoxSaut() + getLongueurHitBoxSaut() >= getXJet() && getXBallonHitBoxSaut() <= getXJet() + getLongueurJet() &&
+        getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYJet() && getYBallonHitBoxSaut() <= getYJet() + getLargeurJet()) {
+
+        jetIsTouch = true;
+        stopTimerBallonDeplacement();
+        stopTimerConfigurationModels();
+        setDirectionJet();
+        gravity = 0;
+        setImageDecollage();
+        egaliserCooJetWithBall();
+        startTimerDecollage();
+    }
+}
+
+function setImageDecollage() {
+    jetpack.src = "Dessin/Plateforme/jetpackDecollage.gif";
+    jetpack.style.width = 299 / getFacteur() + "px";
+    jetpack.style.height = 391 / getFacteur() + "px";
+}
+
+function egaliserCooJetWithBall() {
+    jetpack.style.left = getXBallonImage() - 82 / getFacteur() + "px";
+    jetpack.style.top = getYBallonImage() - 20 / getFacteur() + "px";
+}
+
+
+function setImageVole() {
+    jetpack.src = "Dessin/Plateforme/jetpackVole.gif";
+}
+
+//Timer qui simule un décollage; 
+function startTimerDecollage() {
+    decollage = setInterval(function () {
+        setImageVole();
+        setReculement();
+        startTimerVole();
+        startTimerFinVole();
+        stopTimerDecollage();
+    }, 900);
+}
+function stopTimerDecollage() {
+    clearInterval(decollage);
+}
+
+function redressementJetPack() {
+    if (directionJet) {
+        if (getYBallonHitBoxSaut() > (getLargeurTerrain() - getYTerrain()) / 2 - (70 / getFacteur())) {
+            ballonHitBoxSaut.style.top = getYBallonHitBoxSaut() - gravity + "px";
+            if (gravity < 30 / getFacteur()) {
+                gravity = gravity + 0.4;
+            }
+            egaliserCoo();
+        } else {
+            deplacementHaut = false;
+            deplacementBas = true;
+            activerChuteLibre = true;
+        }
+    } else {
+        if (getYBallonHitBoxSaut() < (getLargeurTerrain() - getYTerrain()) / 2 - (70 / getFacteur())) {
+            ballonHitBoxSaut.style.top = getYBallonHitBoxSaut() + gravity + "px";
+            if (gravity < 30 / getFacteur()) {
+                gravity = gravity + 0.4;
+            }
+            egaliserCoo();
+        } else {
+            deplacementHaut = true;
+            deplacementBas = false;
+            activerChuteLibre = true;
+        }
+    }
+}
+
+//Timer qui simule une volée; 
+function startTimerVole() {
+    vole = setInterval(function () {
+        if (ScoreMonstreIsActif()) {
+            CadrageScoreMonstre();
+            AjoutPointMonstre();
+        }
+
+        ActionBoutonBallon();
+        if (activerChuteLibre) {
+            deplacementHautBasBallon();
+        } else {
+            redressementJetPack();
+        }
+        egaliserCooJetWithBall();
+        document.querySelectorAll(".plateforme").forEach(function (p) {
+            NouvelAffichagePlateformeDescente(p);
+            mouvementPlateforme(p);
+        });
+        reculementPlateformeByJetPack();
+        if (PieceIsNull()) {
+            AffichagePiece();
+        } else {
+            reculementPieceByPiece();
+            supprimerPiece();
+            PieceTouchee();
+        }
+        if (MonstreIsNull()) {
+            AffichageMonstre();
+        } else {
+            reculementMonstreByJetPack();
+            supprimerMonstre();
+        }
+    }, getRafraichissement());
+}
+function stopTimerVole() {
+    clearInterval(vole);
+}
+
+function startTimerFinVole() {
+    fin = setInterval(function () {
+        stopTimerVole();
+        setReculement();
+        PlacementJetPack();
+        DefinirTailleJetPack();
+        jetpack.src = "Dessin/Plateforme/jetpack.png";
+        jetpack.style.left = getXTerrain() - 300 + "px";
+        jetIsTouch = false;
+        jetIsNull = true;
+        activerChuteLibre = false;
+        startTimerBallonDeplacement();
+        startTimerConfigurationModels();
+        stopTimerFinVole();
+    }, 7000);
+}
+function stopTimerFinVole() {
+    clearInterval(fin);
 }

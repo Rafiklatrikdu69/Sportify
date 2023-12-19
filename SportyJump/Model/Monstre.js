@@ -179,6 +179,10 @@ function IsMonstreElimine() {
     return isElimine;
 }
 
+function reculementMonstreByJetPack() {
+    monstreHitBoxAttack.style.top = getYMonstreHitBoxAttack() + getReculement() + "px";
+    egaliserCooMonstre();
+}
 //=============================================================== Partie Game Over ===============================================================//
 //=============================================================== Partie Game Over ===============================================================//
 //=============================================================== Partie Game Over ===============================================================//

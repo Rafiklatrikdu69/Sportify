@@ -108,10 +108,10 @@ function DefinirTailleRessort() {
     ressort.style.height = nouvelleHauteur + "px";
 }
 
-function DefinirTailleJetPack(){
-    var jet = document.getElementById("jetpackFixe"); 
-    var nouvelleLargeur = jet.width / 4;
-    var nouvelleHauteur = jet.height / 4;
+function DefinirTailleJetPack() {
+    var jet = document.getElementById("jetpackFixe");
+    var nouvelleLargeur = 164 / 4;
+    var nouvelleHauteur = 254 / 4;
     jet.style.width = nouvelleLargeur + "px";
     jet.style.height = nouvelleHauteur + "px";
 }

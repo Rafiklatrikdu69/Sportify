@@ -1,7 +1,7 @@
 const ballonImage = document.getElementById("ballonImage");
 const ballonHitBoxSaut = document.getElementById("ballonHitBoxSaut");
 const ballonHitBoxGet = document.getElementById("ballonHitBoxGet");
-const vitesseAbscisse = 16 / getFacteur();
+const vitesseAbscisse = 16 / getFacteur() * 1.25;
 const typeBallon = getType();
 var jump = 40 / getFacteur();
 var gravity = 0;
