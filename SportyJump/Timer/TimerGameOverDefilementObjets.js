@@ -25,7 +25,6 @@ function startTimerDefilementObjets() {
             setYBtMenu();
         } else {
             supprimerMonstreGameOver();
-            supprimerMonstreGameOver();
             stopTimerDefilementObjets();
         }
     }, getRafraichissement());

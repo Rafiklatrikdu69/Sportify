@@ -72,3 +72,11 @@ function PlacementRessort() {
     ressort.style.position = "absolute";
     ressort.classList.add("invisible");
 }
+
+function PlacementJetPack(){
+    var jetpack = document.getElementById("jetpackFixe"); 
+    jetpack.style.position = "absolute"; 
+    jetpack.style.left = "50px"; 
+    jetpack.style.top = "80px"; 
+    jetpack.classList.add("invisible"); 
+}

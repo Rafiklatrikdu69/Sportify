@@ -110,8 +110,10 @@ function ActivationPlateforme() {
 }
 function ReculerPlateforme(plateforme) {
     plateforme.style.top = getYPlateforme(plateforme) + reculement + "px";
-    if (parseInt(plateforme.id.match(/\d+/), 10) == 0) {
+    if (parseInt(plateforme.id.match(/\d+/), 10) == 0 && !RessortIsNull()) {
         egaliserCooRessort();
+    }else if(parseInt(plateforme.id.match(/\d+/), 10) == 2 && !jetpackIsNull()){
+        egaliserCooJetPack(); 
     }
 }
 function ReculementPlateforms() {
@@ -143,6 +145,8 @@ function mouvementPlateforme(p) {
     }
     if (id == 0) {
         egaliserCooRessort();
+    }else if(id == 2){
+        egaliserCooJetPack(); 
     }
 }
 
@@ -173,16 +177,7 @@ function NouvelAffichagePlateformeDescente(plateforme) {
         isSupperposed(plateforme);
         setDirectionPlateformeIsMoving(plateforme);
         afficherRessort(plateforme);
-    }
-}
-function afficherRessort(plateforme) {
-    if (parseInt(plateforme.id.match(/\d+/), 10) == 0) {
-        let nb = Math.floor(Math.random() * 2);
-        if (nb == 0) {
-            AjoutDuRessort();
-        } else {
-            SuppressionDuRessort();
-        }
+        afficherJetPack(plateforme); 
     }
 }
 
@@ -198,6 +193,7 @@ function setDirectionPlateformeIsMoving(p) {
         }
     }
 }
+
 function isSupperposed(p) {
     let op = false;
     document.querySelectorAll(".plateforme").forEach(function (plateforme) {

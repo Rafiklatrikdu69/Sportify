@@ -12,13 +12,16 @@ window.onload = function () {
 
     setImageBallon(getType());
 
+    PlacementJetPack(); 
+    DefinirTailleJetPack(); 
     PlacementRessort();
     DefinirTailleRessort();
-
+    
     setTableauDeplacementPlateforme();
     setListePlateforme();
     setCooListePlateforme();
     setPlateformeDuRessort();
+    setPlateformeDuJetPack(); 
 
     PlacementScore();
     PlacementScorePieceImage();
