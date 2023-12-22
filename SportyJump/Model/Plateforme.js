@@ -12,8 +12,8 @@ function getVitesse() {
 function setReculement() {
     reculement = 0;
 }
-function setReculementWithValue(nb){
-    reculement = nb; 
+function setReculementWithValue(nb) {
+    reculement = nb;
 }
 function getReculement() {
     return reculement;
@@ -91,7 +91,7 @@ function setImagePlateforme(type, nb, plateforme) {
     }
     let id = parseInt(plateforme.id.match(/\d+/), 10);
     if (infoDeplacement[id] != null) {
-        if (nb == 2) {
+        if (nb == 2 || getType() == 6) {
             infoDeplacement[id].isMoving = true;
         } else {
             infoDeplacement[id].isMoving = false;
@@ -164,7 +164,7 @@ function NouvelAffichagePlateformeDescente(plateforme) {
         plateforme.classList.add("invisible");
         let nb = Math.floor(Math.random() * 3);
         let x = 0;
-        let y = Math.floor(-Math.random() * 70) + getYTerrain();
+        let y = Math.floor(-Math.random() * 100) + getYTerrain();
         if (nb == 0) {
             x = Math.floor(Math.random() * 141) + 10;
             plateforme.classList.remove("invisible");
@@ -208,7 +208,7 @@ function isSupperposed(p) {
     document.querySelectorAll(".plateforme").forEach(function (plateforme) {
         if (p.id != plateforme.id &&
             getXPlateforme(p) + getLongueurPlateforme(p) >= getXPlateforme(plateforme) && getXPlateforme(p) <= getXPlateforme(plateforme) + getLongueurPlateforme(plateforme) &&
-            getYPlateforme(p) + getLargeurPlateforme(p) + 20 / getFacteur() >= getYPlateforme(plateforme) && getYPlateforme(p) <= getYPlateforme(plateforme) + getLargeurPlateforme(plateforme) + 20 / getFacteur()) {
+            getYPlateforme(p) + getLargeurPlateforme(p) + 10 >= getYPlateforme(plateforme) && getYPlateforme(p) <= getYPlateforme(plateforme) + getLargeurPlateforme(plateforme) + 10) {
             setXPlateforme(-100, p);
             op = true;
             infoDeplacement[parseInt(p.id.match(/\d+/), 10)].isMoving = false;
@@ -276,13 +276,13 @@ function reculementPlateformeByJetPack() {
     }
 }
 
-function reculementPlateformeAtterissage(){
-    if(reculement >= 0){
-        document.querySelectorAll(".plateforme").forEach(function(plateforme){
+function reculementPlateformeAtterissage() {
+    if (reculement >= 0) {
+        document.querySelectorAll(".plateforme").forEach(function (plateforme) {
             plateforme.style.top = getYPlateforme(plateforme) + reculement + "px";
             mouvementPlateforme(plateforme);
-            NouvelAffichagePlateformeDescente(plateforme); 
-        }); 
-        reculement --; 
+            NouvelAffichagePlateformeDescente(plateforme);
+        });
+        reculement--;
     }
 }

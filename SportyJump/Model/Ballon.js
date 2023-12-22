@@ -172,12 +172,22 @@ function makeJump() {
     gravity = -jump;
 }
 function EquilibrageJumpEtVitesse() {
-    if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
-        jump = 37 / getFacteur();
-        setVitessePlateforme(45 / getFacteur());
+    if (getType() == 3) {
+        if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
+            jump = 43 / getFacteur();
+            setVitessePlateforme(60 / getFacteur());
+        } else {
+            jump = 22 / getFacteur();
+            setVitessePlateforme(100 / getFacteur());
+        }
     } else {
-        jump = 20 / getFacteur();
-        setVitessePlateforme(70 / getFacteur());
+        if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
+            jump = 37 / getFacteur();
+            setVitessePlateforme(45 / getFacteur());
+        } else {
+            jump = 20 / getFacteur();
+            setVitessePlateforme(70 / getFacteur());
+        }
     }
     setPointGagner(20);
     setReculement();
@@ -319,14 +329,14 @@ function IsPlateformeTouchForMenu(plateforme) {
 //=============================================================== Partie Menu ===============================================================//
 //=============================================================== Partie Menu ===============================================================//
 
-function makeJumpAfterJetPack(){
-    if(gravity > 0){
+function makeJumpAfterJetPack() {
+    if (gravity > 0) {
         ballonHitBoxSaut.style.top = getYBallonHitBoxSaut() - gravity + "px";
         gravity = gravity - 1;
         egaliserCoo();
-    }else{
+    } else {
         startTimerBallonDeplacement();
         startTimerConfigurationModels();
-        stopTimerAtterissage(); 
+        stopTimerAtterissage();
     }
 }

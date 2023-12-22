@@ -60,7 +60,7 @@ function SuppressionDuRessort() {
 function afficherRessort(plateforme) {
     if (parseInt(plateforme.id.match(/\d+/), 10) == 0) {
         let nb = Math.floor(Math.random() * 2);
-        if (nb == 0) {
+        if (nb == 0 || getType() == 3) {
             AjoutDuRessort();
         } else {
             SuppressionDuRessort();
@@ -83,12 +83,21 @@ function RessortIsTouch() {
 }
 
 function DescenteElement() {
-    if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
-        setJump(50 / getFacteur());
+    if (getType() == 3) {
+        if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
+            setJump(60 / getFacteur());
+        } else {
+            setJump(35 / getFacteur());
+        }
+        setVitessePlateforme(120 / getFacteur());
     } else {
-        setJump(25 / getFacteur());
+        if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
+            setJump(50 / getFacteur());
+        } else {
+            setJump(25 / getFacteur());
+        }
+        setVitessePlateforme(110 / getFacteur());
     }
-    setVitessePlateforme(110 / getFacteur());
     ActivationPlateforme();
     if (!PieceIsNull()) {
         ActivationPiece();
@@ -114,7 +123,9 @@ var decollage;
 var vole;
 var fin;
 var directionJet = false;
-var atterissage; 
+var atterissage;
+var vitesseChuteJet = 1;
+var chuteJet;
 
 function getXJet() {
     return jetpack.offsetLeft;
@@ -151,15 +162,23 @@ function egaliserCooJetPack() {
 }
 function AjoutDuJetPack() {
     jetIsNull = false;
+    vitesseChuteJet = 1;
     jetpack.classList.remove("invisible");
 }
 function SuppressionDuJetack() {
     jetIsNull = true;
-    jetpack.classList.add("invisible");
+    jetIsTouch = false;
+    PlacementJetPack();
+    DefinirTailleJetPack();
 }
 function afficherJetPack(plateforme) {
     if (parseInt(plateforme.id.match(/\d+/), 10) == 2 && !jetIsTouch) {
-        let nb = Math.floor(Math.random() * 2);
+        let nb;
+        if (getType() == 6) {
+            nb = Math.floor(Math.random() * 3);
+        } else {
+            nb = Math.floor(Math.random() * 8);
+        }
         if (nb == 0) {
             AjoutDuJetPack();
         } else {
@@ -173,11 +192,12 @@ function JetPackIsTouch() {
         getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYJet() && getYBallonHitBoxSaut() <= getYJet() + getLargeurJet()) {
 
         jetIsTouch = true;
+        jetIsNull = true;
         stopTimerBallonDeplacement();
         stopTimerConfigurationModels();
         setDirectionJet();
         gravity = 0;
-        setReculement(); 
+        setReculement();
         setImageDecollage();
         egaliserCooJetWithBall();
         startTimerDecollage();
@@ -244,13 +264,13 @@ function redressementJetPack() {
 //Timer qui simule une volée; 
 function startTimerVole() {
     vole = setInterval(function () {
-        augmenterScoreJet(); 
+        ActionBoutonBallon();
+        augmenterScoreJet();
+        makeScore();
         if (ScoreMonstreIsActif()) {
             CadrageScoreMonstre();
             AjoutPointMonstre();
         }
-
-        ActionBoutonBallon();
         if (activerChuteLibre) {
             deplacementHautBasBallon();
         } else {
@@ -265,7 +285,7 @@ function startTimerVole() {
         if (PieceIsNull()) {
             AffichagePiece();
         } else {
-            reculementPieceByPiece(); 
+            reculementPieceByPiece();
             supprimerPiece();
             PieceTouchee();
         }
@@ -282,15 +302,13 @@ function stopTimerVole() {
 function startTimerFinVole() {
     fin = setInterval(function () {
         stopTimerVole();
-        PlacementJetPack();
-        DefinirTailleJetPack();
-        jetIsTouch = false;
-        jetIsNull = true;
         activerChuteLibre = false;
-        setReculementWithValue(25); 
+        setReculementWithValue(25);
         setJump(17);
-        setGravity();  
-        startTimerAtterissage(); 
+        setGravity();
+        startTimerAtterissage();
+        jetpack.src = "Dessin/Plateforme/jetpackArret.gif";
+        startTimerChuteJet();
         stopTimerFinVole();
     }, 6000);
 }
@@ -298,21 +316,34 @@ function stopTimerFinVole() {
     clearInterval(fin);
 }
 
-function startTimerAtterissage(){
-    atterissage = setInterval(function(){
-        makeJumpAfterJetPack(); 
-        reculementPlateformeAtterissage(); 
+function startTimerAtterissage() {
+    atterissage = setInterval(function () {
+        ActionBoutonBallon();
+        makeJumpAfterJetPack();
+        reculementPlateformeAtterissage();
         if (PieceIsNull()) {
             AffichagePiece();
         } else {
-            reculementPieceByPiece(); 
+            reculementPieceByPiece();
             supprimerPiece();
             PieceTouchee();
         }
-        egaliserCooRessort(); 
-        setReulementPieceWithValue(0);  
-    }, getRafraichissement()); 
+        egaliserCooRessort();
+        setReulementPieceWithValue(0);
+    }, getRafraichissement());
 }
-function stopTimerAtterissage(){
-    clearInterval(atterissage); 
+function stopTimerAtterissage() {
+    clearInterval(atterissage);
+}
+
+function startTimerChuteJet() {
+    chuteJet = setInterval(function () {
+        jetpack.style.top = getYJet() + vitesseChuteJet + "px";
+        jetpack.style.left = getXJet() - 3 + "px";
+        vitesseChuteJet = vitesseChuteJet + 0.5;
+        if (getYJet() > getYTerrain() + getLargeurTerrain() + 20) {
+            SuppressionDuJetack();
+            clearInterval(chuteJet);
+        }
+    }, getRafraichissement());
 }

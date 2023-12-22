@@ -1,4 +1,9 @@
-const nbPlateforme = 20;
+var nbPlateforme;
+if (getType() == 5) {
+    nbPlateforme = 12;
+} else {
+    nbPlateforme = 20;
+}
 
 function setListePlateforme() {
     var plateforme = document.getElementById("plateforme");

@@ -115,7 +115,7 @@ function DescenteMonstre() {
 }
 function AffichageMonstre() {
     let nb = Math.floor(Math.random() * 8);
-    if (nb == 0) {
+    if (nb == 0 || getType() == 2) {
         setImageMonstre();
         setXHitBoxAttack(Math.floor(Math.random() * 1000 / getFacteur()) + 60 / getFacteur());
         setYHitBoxAttack(-500 / getFacteur());
