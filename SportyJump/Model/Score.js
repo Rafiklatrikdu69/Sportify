@@ -117,3 +117,16 @@ function startTimerScoreMonstre() {
 function stopTimerScoreMonstre() {
     clearInterval(timerScoreMonstre);
 }
+
+//================================================================== Score JetPack ==================================================================//
+//================================================================== Score JetPack ==================================================================//
+//================================================================== Score JetPack ==================================================================//
+
+var pointJet = 0; 
+function augmenterScoreJet() {
+    if(pointJet < 20){
+        pointJet ++; 
+    }
+    score = score + pointJet;
+    scoreTexte.innerHTML = score;
+}

@@ -78,5 +78,5 @@ function PlacementJetPack(){
     jetpack.style.position = "absolute"; 
     jetpack.style.left = "50px"; 
     jetpack.style.top = "80px"; 
-    jetpack.classList.add("invisible"); 
+    jetpack.classList.add("invisible");
 }

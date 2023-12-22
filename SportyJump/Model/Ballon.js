@@ -173,11 +173,11 @@ function makeJump() {
 }
 function EquilibrageJumpEtVitesse() {
     if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
-        jump = 40 / getFacteur();
-        setVitessePlateforme(50 / getFacteur());
+        jump = 37 / getFacteur();
+        setVitessePlateforme(45 / getFacteur());
     } else {
         jump = 20 / getFacteur();
-        setVitessePlateforme(85 / getFacteur());
+        setVitessePlateforme(70 / getFacteur());
     }
     setPointGagner(20);
     setReculement();
@@ -312,4 +312,21 @@ function IsPlateformeTouchForMenu(plateforme) {
         setRebond(typeBallon);
     }
     return op;
+}
+
+
+//=============================================================== Partie Menu ===============================================================//
+//=============================================================== Partie Menu ===============================================================//
+//=============================================================== Partie Menu ===============================================================//
+
+function makeJumpAfterJetPack(){
+    if(gravity > 0){
+        ballonHitBoxSaut.style.top = getYBallonHitBoxSaut() - gravity + "px";
+        gravity = gravity - 1;
+        egaliserCoo();
+    }else{
+        startTimerBallonDeplacement();
+        startTimerConfigurationModels();
+        stopTimerAtterissage(); 
+    }
 }

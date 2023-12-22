@@ -114,7 +114,7 @@ var decollage;
 var vole;
 var fin;
 var directionJet = false;
-
+var atterissage; 
 
 function getXJet() {
     return jetpack.offsetLeft;
@@ -177,6 +177,7 @@ function JetPackIsTouch() {
         stopTimerConfigurationModels();
         setDirectionJet();
         gravity = 0;
+        setReculement(); 
         setImageDecollage();
         egaliserCooJetWithBall();
         startTimerDecollage();
@@ -193,7 +194,6 @@ function egaliserCooJetWithBall() {
     jetpack.style.left = getXBallonImage() - 82 / getFacteur() + "px";
     jetpack.style.top = getYBallonImage() - 20 / getFacteur() + "px";
 }
-
 
 function setImageVole() {
     jetpack.src = "Dessin/Plateforme/jetpackVole.gif";
@@ -244,6 +244,7 @@ function redressementJetPack() {
 //Timer qui simule une volée; 
 function startTimerVole() {
     vole = setInterval(function () {
+        augmenterScoreJet(); 
         if (ScoreMonstreIsActif()) {
             CadrageScoreMonstre();
             AjoutPointMonstre();
@@ -264,13 +265,11 @@ function startTimerVole() {
         if (PieceIsNull()) {
             AffichagePiece();
         } else {
-            reculementPieceByPiece();
+            reculementPieceByPiece(); 
             supprimerPiece();
             PieceTouchee();
         }
-        if (MonstreIsNull()) {
-            AffichageMonstre();
-        } else {
+        if (!MonstreIsNull()) {
             reculementMonstreByJetPack();
             supprimerMonstre();
         }
@@ -283,19 +282,37 @@ function stopTimerVole() {
 function startTimerFinVole() {
     fin = setInterval(function () {
         stopTimerVole();
-        setReculement();
         PlacementJetPack();
         DefinirTailleJetPack();
-        jetpack.src = "Dessin/Plateforme/jetpack.png";
-        jetpack.style.left = getXTerrain() - 300 + "px";
         jetIsTouch = false;
         jetIsNull = true;
         activerChuteLibre = false;
-        startTimerBallonDeplacement();
-        startTimerConfigurationModels();
+        setReculementWithValue(25); 
+        setJump(17);
+        setGravity();  
+        startTimerAtterissage(); 
         stopTimerFinVole();
-    }, 7000);
+    }, 6000);
 }
 function stopTimerFinVole() {
     clearInterval(fin);
+}
+
+function startTimerAtterissage(){
+    atterissage = setInterval(function(){
+        makeJumpAfterJetPack(); 
+        reculementPlateformeAtterissage(); 
+        if (PieceIsNull()) {
+            AffichagePiece();
+        } else {
+            reculementPieceByPiece(); 
+            supprimerPiece();
+            PieceTouchee();
+        }
+        egaliserCooRessort(); 
+        setReulementPieceWithValue(0);  
+    }, getRafraichissement()); 
+}
+function stopTimerAtterissage(){
+    clearInterval(atterissage); 
 }

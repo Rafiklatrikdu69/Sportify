@@ -110,6 +110,7 @@ function DefinirTailleRessort() {
 
 function DefinirTailleJetPack() {
     var jet = document.getElementById("jetpackFixe");
+    jet.src = "Dessin/Plateforme/jetpack.png";
     var nouvelleLargeur = 164 / 4;
     var nouvelleHauteur = 254 / 4;
     jet.style.width = nouvelleLargeur + "px";

@@ -20,6 +20,7 @@ function startPieceObtenu() {
     timerAnimationPiece = setInterval(function () {
         piece.classList.add("invisible");
         stopPieceObtenu();
+        activerPiece = false;
     }, 480);
 }
 function stopPieceObtenu() {
@@ -58,6 +59,9 @@ function setYPiece(new_y) {
 function setReculementPiece() {
     reculementPiece = getVitesse();
 }
+function setReulementPieceWithValue(nb){
+    reculementPiece = nb; 
+}
 //Méthode défilement de la piece dans la page Game.html; 
 function ReculerPiece() {
     piece.style.top = getYPiece() + reculementPiece + "px";
@@ -91,6 +95,7 @@ function supprimerPiece() {
     if (getYPiece() >= getYTerrain() + getLargeurTerrain()) {
         pieceIsNull = true;
         piece.classList.add("invisible");
+        stopPieceObtenu(); 
     }
 }
 //Collision entre la piece et le ballon; 

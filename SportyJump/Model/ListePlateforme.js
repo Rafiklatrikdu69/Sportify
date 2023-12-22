@@ -1,4 +1,4 @@
-const nbPlateforme = 15;
+const nbPlateforme = 20;
 
 function setListePlateforme() {
     var plateforme = document.getElementById("plateforme");

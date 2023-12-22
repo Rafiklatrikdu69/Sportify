@@ -12,6 +12,9 @@ function getVitesse() {
 function setReculement() {
     reculement = 0;
 }
+function setReculementWithValue(nb){
+    reculement = nb; 
+}
 function getReculement() {
     return reculement;
 }
@@ -97,7 +100,7 @@ function setImagePlateforme(type, nb, plateforme) {
 }
 
 function setTableauDeplacementPlateforme() {
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < getNbPlateforme(); i++) {
         let info = {
             isMoving: false,
             direction: false, //Si false = gauche, Si true = droite; 
@@ -156,23 +159,12 @@ function mouvementPlateforme(p) {
     }
 }
 
-function reculementPlateformeByJetPack(plateforme) {
-    document.querySelectorAll(".plateforme").forEach(function (plateforme) {
-        plateforme.style.top = getYPlateforme(plateforme) + reculement + "px";
-        mouvementPlateforme(plateforme);
-    });
-    if (reculement < 60) {
-        reculement = reculement + 0.3;
-    }
-}
-
-
 function NouvelAffichagePlateformeDescente(plateforme) {
     if (getYPlateforme(plateforme) >= getYTerrain() + getLargeurTerrain()) {
         plateforme.classList.add("invisible");
         let nb = Math.floor(Math.random() * 3);
         let x = 0;
-        let y = Math.floor(-Math.random() * 100) + getYTerrain();
+        let y = Math.floor(-Math.random() * 70) + getYTerrain();
         if (nb == 0) {
             x = Math.floor(Math.random() * 141) + 10;
             plateforme.classList.remove("invisible");
@@ -186,7 +178,7 @@ function NouvelAffichagePlateformeDescente(plateforme) {
         setXPlateforme(x, plateforme);
         setYPlateforme(y, plateforme);
         nb = x = Math.floor(Math.random() * 4);
-        if (nb == 1) {
+        if (nb == 0) {
             setImagePlateforme(getType(), 2, plateforme);
         } else {
             setImagePlateforme(getType(), 1, plateforme);
@@ -267,5 +259,30 @@ function NouvelAffichagePlateformeMonte(plateforme) {
         } else {
             setImagePlateforme(getType(), 1, plateforme);
         }
+    }
+}
+
+//=============================================================== Partie Game JetPack ===============================================================//
+//=============================================================== Partie Game JetPack ===============================================================//
+//=============================================================== Partie Game JetPack ===============================================================//
+
+function reculementPlateformeByJetPack() {
+    document.querySelectorAll(".plateforme").forEach(function (plateforme) {
+        plateforme.style.top = getYPlateforme(plateforme) + reculement + "px";
+        mouvementPlateforme(plateforme);
+    });
+    if (reculement < 60) {
+        reculement = reculement + 0.3;
+    }
+}
+
+function reculementPlateformeAtterissage(){
+    if(reculement >= 0){
+        document.querySelectorAll(".plateforme").forEach(function(plateforme){
+            plateforme.style.top = getYPlateforme(plateforme) + reculement + "px";
+            mouvementPlateforme(plateforme);
+            NouvelAffichagePlateformeDescente(plateforme); 
+        }); 
+        reculement --; 
     }
 }
