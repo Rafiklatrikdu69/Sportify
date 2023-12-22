@@ -340,7 +340,7 @@ function startTimerChuteJet() {
     chuteJet = setInterval(function () {
         jetpack.style.top = getYJet() + vitesseChuteJet + "px";
         jetpack.style.left = getXJet() - 3 + "px";
-        vitesseChuteJet = vitesseChuteJet + 0.5;
+        vitesseChuteJet = vitesseChuteJet + 0.8;
         if (getYJet() > getYTerrain() + getLargeurTerrain() + 20) {
             SuppressionDuJetack();
             clearInterval(chuteJet);
