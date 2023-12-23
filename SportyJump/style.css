@@ -93,3 +93,68 @@ header>a:first-child {
     overflow: hidden;
     visibility: hidden;
 }
+
+.tuto {
+    cursor: pointer;
+    position: absolute;
+    top: calc(8rem + 16px);
+    left: 5%;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    background-color: #000;
+    border-radius: 50%;
+    position: relative;
+    border: 10px solid #000;
+    box-shadow: 0 0 50px #000000;
+    transition: background-color 0.5s, color 0.5s, margin-left 0.5s, margin-right 0.5s;
+}
+
+.question-mark {
+    font-size: 2em;
+    color: #fff;
+    font-family: 'Pixelify Sans', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-style: bold;
+}
+
+.rectangle {
+    width: 400px;
+    height: 300px;
+    position: fixed;
+    background-color: #40A798;
+    border: 10px solid #000;
+    border-radius: 20px;
+    left: -490px;
+    top: 250px;
+    transition: width 0.5s ease;
+    overflow: hidden;
+    padding: 10px;
+    cursor: default;
+}
+
+.expanded {
+    width: 500px;
+}
+
+.titre {
+    text-align: center;
+    color: #000;
+    font-family: futura;
+    font-size: 22px;
+    margin-top: 0;
+}
+
+.text {
+    text-align: left;
+    color: #000;
+    font-family: futura;
+    font-size: 16px;
+
+}
