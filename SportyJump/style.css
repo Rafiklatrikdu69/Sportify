@@ -125,13 +125,13 @@ header>a:first-child {
 }
 
 .rectangle {
-    width: 400px;
-    height: 300px;
+    width: 550px;
+    height: 415px;
     position: fixed;
     background-color: #40A798;
     border: 10px solid #000;
     border-radius: 20px;
-    left: -490px;
+    left: -690px;
     top: 250px;
     transition: width 0.5s ease;
     overflow: hidden;
@@ -140,14 +140,14 @@ header>a:first-child {
 }
 
 .expanded {
-    width: 500px;
+    width: 700px;
 }
 
 .titre {
     text-align: center;
     color: #000;
     font-family: futura;
-    font-size: 22px;
+    font-size: 25px;
     margin-top: 0;
 }
 
@@ -155,6 +155,6 @@ header>a:first-child {
     text-align: left;
     color: #000;
     font-family: futura;
-    font-size: 16px;
+    font-size: 20px;
 
 }
