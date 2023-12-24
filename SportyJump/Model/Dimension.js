@@ -300,19 +300,19 @@ function startTimerDefilementTutoGauche() {
             case 2:
                 if (tutoType.offsetLeft > -700 - 100) {
                     stopTimerDefilementTutoGauche();
-                    tutoType.style.left = -700 - 100 + "px";
+                    tutoType.style.left = -700 - 100 + 10 + "px";
                 }
                 break;
             case 3:
                 if (tutoType.offsetLeft > (-700 - 100) * 2) {
                     stopTimerDefilementTutoGauche();
-                    tutoType.style.left = (-700 - 100) * 2 + "px";
+                    tutoType.style.left = (-700 - 100) * 2 + 10 + "px";
                 }
                 break;
             case 4:
                 if (tutoType.offsetLeft > (-700 - 100) * 3) {
                     stopTimerDefilementTutoGauche();
-                    tutoType.style.left = (-700 - 100) * 3 + "px";
+                    tutoType.style.left = (-700 - 100) * 3 + 10 + "px";
                 }
                 break;
         }
@@ -333,7 +333,7 @@ function TutoMenu() {
     text2.textContent = "Vous pouvez aussi changer le thème du jeu en choisissant différents sports:";
     text2.classList.add("text");
     var gif = document.createElement("img");
-    gif.src = "Dessin/Tuto/tutoMenu.gif";
+    gif.src = "Dessin/Tuto/tutoMenu.gif"
     gif.style.padding = "10px 120px";
     var text3 = document.createElement("a");
     text3.textContent = "Chaques thèmes apportent des modifications mineures dans le jeu :"
@@ -397,8 +397,71 @@ function TutoPiece() {
     var titre = document.createElement("p");
     titre.textContent = "Obtention des pieces";
     titre.classList.add("titre");
+    var p = document.createElement("p");
+    p.style.float = "left";
+    p.style.marginTop = "0";
+    p.style.marginRight = "10px";
+    p.style.marginBottom = "0";
+    var piece = document.createElement("img");
+    piece.src = "Dessin/Piece/piece.gif";
+    p.appendChild(piece);
+    var text = document.createElement("a");
+    text.textContent = "Au cours de votre partie, vous pouvez obtenir des pièces en les touchant avec le ballon.";
+    text.classList.add("text");
+    var text2 = document.createElement("a");
+    text2.textContent = "Obtenir des pieces vous permet les utilisez dans notre boutique.";
+    text2.classList.add("text");
+    var text3 = document.createElement("p");
+    text3.textContent = "La HitBox d'obtention des pieces par la balle est representée par la zone verte, (la zone rouge étant la HitBox du saut) : ";
+    text3.classList.add("text");
+    var p2 = document.createElement("p");
+    p2.style.float = "right";
+    p2.style.marginTop = "10px";
+    p2.style.marginLeft = "0";
+    p2.style.marginBottom = "0";
+    var ballon = document.createElement("img");
+    ballon.src = "Dessin/Tuto/ballonHitBox.png";
+    ballon.style.width = 150 / 2 + "px";
+    ballon.style.height = 142 / 2 + "px";
+    p2.appendChild(ballon);
+    var text4 = document.createElement("a");
+    text4.textContent = "Lorsque la HitBox verte rentre en collision avec la piece, une animation se déclenche indiquant que vous avez obtenu +1 de piece.";
+    text4.classList.add("text");
+
+    var div = document.createElement("p");
+    div.classList.add("divPiece");
+    div.style.padding = "0px 230px";
+    var piece2 = document.createElement("img");
+    piece2.src = "Dessin/Piece/piece.gif";
+    piece2.style.marginTop = "0";
+    var fleche = document.createElement("a");
+    fleche.textContent = "=>";
+    fleche.classList.add("titre");
+    fleche.style.padding = "0px 5px";
+    fleche.style.fontSize = "45px";
+    var piece3 = document.createElement("img");
+    piece3.src = "Dessin/Piece/piece_obtenu2.gif";
+    piece3.style.height = "160%";
+    div.appendChild(piece2);
+    div.appendChild(fleche);
+    div.appendChild(piece3);
+
+    var text5 = document.createElement("a");
+    text5.textContent = "Si vous ratez la piece, pas de panique. Elle continuera à défiler vers le bas jusqu'à disparaite. Lorsque la piece n'est plus disponible, à chaques sauts effectués, vous avez une chance sur trois pour qu'elle ré-apparaisse.";
+    text5.classList.add("text");
 
     tuto.appendChild(titre);
+    tuto.appendChild(p);
+    tuto.appendChild(text);
+    tuto.appendChild(document.createElement("br"));
+    tuto.appendChild(text2);
+    tuto.appendChild(document.createElement("br"));
+    tuto.appendChild(p2);
+    tuto.appendChild(text3);
+    tuto.appendChild(text4);
+    tuto.appendChild(div);
+    tuto.appendChild(text5);
+
 }
 function TutoMonstre() {
     var tuto = document.querySelector(".tutoMonstre");
@@ -406,7 +469,103 @@ function TutoMonstre() {
     titre.textContent = "Monstre";
     titre.classList.add("titre");
 
+    var p1 = document.createElement("p");
+    p1.style.float = "left";
+    p1.style.marginTop = "0";
+    p1.style.marginRight = "15px";
+    p1.style.marginBottom = "0";
+    var monstre1 = document.createElement("img");
+    monstre1.src = "Dessin/Monstre/France.png";
+    monstre1.style.width = 238 / 3 + "px";
+    monstre1.style.height = 174 / 3 + "px";
+    p1.appendChild(monstre1);
+    var p2 = document.createElement("p");
+    p2.style.float = "right";
+    p2.style.marginTop = "0";
+    p2.style.marginLeft = "10px";
+    p2.style.marginBottom = "0";
+    var monstre2 = document.createElement("img");
+    monstre2.src = "Dessin/Monstre/Algerie.png";
+    monstre2.style.width = 238 / 3 + "px";
+    monstre2.style.height = 174 / 3 + "px";
+    p2.appendChild(monstre2);
+    var text = document.createElement("a");
+    text.textContent = "Il ne faut pas seulement craindre la peur du vide. Des monstres ideux arpentent le terrain et peuvent mettre fin à votre partie."
+    text.classList.add("text");
+
+    var p3 = document.createElement("p");
+    p3.style.float = "left";
+    p3.style.marginTop = "10px";
+    p3.style.marginRight = "10px";
+    p3.style.marginBottom = "0";
+    var monstre3 = document.createElement("img");
+    monstre3.src = "Dessin/Tuto/monstreHitBox.png";
+    monstre3.style.width = 238 / 2 + "px";
+    monstre3.style.height = 174 / 2 + "px";
+    p3.appendChild(monstre3);
+    var text2 = document.createElement("a");
+    text2.textContent = "Un monstre possède deux HitBox diférentes. La zone bleu représente sa HitBox d'attaque, alors que la zone verte represente sa HitBox de vulnérabilité."
+    text2.classList.add("text");
+
+    var div = document.createElement("p");
+    div.classList.add("divMonstre");
+    div.style.float = "right";
+    div.style.marginTop = "15px";
+    div.style.marginLeft = "5px";
+    div.style.marginBottom = "0";
+    var ex1 = document.createElement("img");
+    ex1.src = "Dessin/Tuto/MonstreElimine.gif";
+    ex1.style.width = 151 / 1.3 + "px";
+    ex1.style.height = 229 / 1.3 + "px";
+    ex1.style.border = "3px solid #000";
+    var ex2 = document.createElement("img");
+    ex2.src = "Dessin/Tuto/ballonElimine.gif";
+    ex2.style.width = 151 / 1.3 + "px";
+    ex2.style.height = 229 / 1.3 + "px";
+    ex2.style.border = "3px solid #000";
+    var a1 = document.createElement("a");
+    a1.textContent = "Elimination du monstre";
+    a1.classList.add("text");
+    a1.style.fontSize = "15px";
+    a1.style.textAlign = "center";
+    var a2 = document.createElement("a");
+    a2.textContent = "Elimination du ballon";
+    a2.classList.add("text");
+    a2.style.fontSize = "15px";
+    a2.style.textAlign = "center";
+    div.appendChild(a1);
+    div.appendChild(a2);
+    div.appendChild(ex1);
+    div.appendChild(ex2);
+
+    var text3 = document.createElement("a");
+    text3.textContent = "Lorsque le ballon rentre en collision avec l'HitBox bleu du monstre, les plateformes ne sont plus détectées et le ballon ne peut plus rebondir. La partie est donc terminée.";
+    text3.classList.add("text");
+    var text4 = document.createElement("a");
+    text4.textContent = "Lorsque le ballon rentre en collision avec l'HitBox verte, il saute sur le monstre qui effectue une chute libre. Vous gagnez alors 5000 points supplémentaires.";
+    text4.classList.add("text");
+
+    var text5 = document.createElement("a");
+    text5.textContent = "(A chaques sauts du ballon, vous avez une chance sur huit pour qu'un monstre apparaisse)";
+    text5.classList.add("text");
+    text5.style.fontSize = "10px";
+
     tuto.appendChild(titre);
+    tuto.appendChild(p1);
+    tuto.appendChild(p2);
+    tuto.appendChild(text);
+    tuto.appendChild(document.createElement("br"));
+    tuto.appendChild(p3);
+    tuto.appendChild(document.createElement("br"));
+    tuto.appendChild(text2);
+    tuto.appendChild(div);
+    tuto.appendChild(document.createElement("br"));
+    tuto.appendChild(document.createElement("br"));
+    tuto.appendChild(text3);
+    tuto.appendChild(document.createElement("br"));
+    tuto.appendChild(text4);
+    tuto.appendChild(text5);
+
 }
 function TutoObject() {
     var tuto = document.querySelector(".tutoObject");

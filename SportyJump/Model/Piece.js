@@ -86,8 +86,8 @@ function DescentePiece() {
     }
 }
 function AffichagePiece() {
-    let nb = Math.floor(Math.random() * 2);
-    if (nb == 1 || getType() == 4) {
+    let nb = Math.floor(Math.random() * 3);
+    if (nb == 0 || getType() == 4) {
         pieceIsNull = false;
         setImagePieceGif();
         setXPiece(Math.floor(Math.random() * 1100 / getFacteur()) + 60 / getFacteur());

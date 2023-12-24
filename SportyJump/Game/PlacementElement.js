@@ -52,10 +52,6 @@ function PlacementPiece() {
 function PlacementMonstreHitBoxAttack() {
     var monstreHitBoxAttack = document.getElementById("monstreHitBoxAttack");
     monstreHitBoxAttack.style.position = "absolute";
-    let l = monstreHitBoxAttack.width / getFacteur() + "px";
-    let h = monstreHitBoxAttack.height / getFacteur() + "px";
-    monstreHitBoxAttack.style.width = l;
-    monstreHitBoxAttack.style.height = h;
 }
 function PlacementMonstreImage() {
     var monstreImage = document.getElementById("monstreImage");
@@ -73,10 +69,10 @@ function PlacementRessort() {
     ressort.classList.add("invisible");
 }
 
-function PlacementJetPack(){
-    var jetpack = document.getElementById("jetpackFixe"); 
-    jetpack.style.position = "absolute"; 
-    jetpack.style.left = "50px"; 
-    jetpack.style.top = "80px"; 
+function PlacementJetPack() {
+    var jetpack = document.getElementById("jetpackFixe");
+    jetpack.style.position = "absolute";
+    jetpack.style.left = "50px";
+    jetpack.style.top = "80px";
     jetpack.classList.add("invisible");
 }

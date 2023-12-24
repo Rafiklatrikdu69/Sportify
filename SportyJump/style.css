@@ -151,7 +151,6 @@ header>a:first-child {
 }
 
 .text {
-    text-align: left;
     color: #000;
     font-family: futura;
     font-size: 20px;
@@ -197,4 +196,22 @@ header>a:first-child {
     position: "absolute";
     left: 43%;
     top: 93%;
+}
+
+.divPiece {
+    display: grid;
+    grid-template: 70px / 70px 20px 119px;
+    grid-gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.divMonstre {
+    display: grid;
+    grid-template: 20px 177px / 130px 117px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    align-items: center;
+    margin-bottom: 0;
 }
