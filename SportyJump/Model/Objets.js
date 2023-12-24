@@ -177,7 +177,7 @@ function afficherJetPack(plateforme) {
         if (getType() == 6) {
             nb = Math.floor(Math.random() * 3);
         } else {
-            nb = Math.floor(Math.random() * 8);
+            nb = Math.floor(Math.random() * 10);
         }
         if (nb == 0) {
             AjoutDuJetPack();

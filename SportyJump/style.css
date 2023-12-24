@@ -10,7 +10,7 @@
 body {
     width: 100%;
     height: 100%;
-    zoom: 100%;
+    zoom: 70%;
     margin: 0 auto;
     background-color: #226B80;
     -webkit-font-smoothing: antialiased;
@@ -108,7 +108,7 @@ header>a:first-child {
     position: relative;
     border: 10px solid #000;
     box-shadow: 0 0 50px #000000;
-    transition: background-color 0.5s, color 0.5s, margin-left 0.5s, margin-right 0.5s;
+    transition: background-color 0.3s, color 0.3s, margin-left 0.5s, margin-right 0.5s;
 }
 
 .question-mark {
