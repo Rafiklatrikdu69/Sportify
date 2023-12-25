@@ -422,6 +422,25 @@ function TutoMonstre() {
     monstre1.src = "Dessin/Monstre/France.png";
     monstre1.style.width = 238 / 3 + "px";
     monstre1.style.height = 174 / 3 + "px";
+    monstre1.style.transition = "height 0.8s, width 0.8s";
+    monstre1.style.cursor = "pointer";
+    var transition1;
+    var op1 = false;
+    monstre1.addEventListener("click", function () {
+        if (!op1) {
+            op1 = true;
+            monstre1.src = "Dessin/Tuto/Don't click/Ne clique pas/Forceur/f.png";
+            monstre1.style.width = 526 / 5 + "px";
+            monstre1.style.height = 696 / 5 + "px";
+            transition1 = setInterval(function () {
+                monstre1.src = "Dessin/Monstre/France.png";
+                monstre1.style.width = 238 / 3 + "px";
+                monstre1.style.height = 174 / 3 + "px";
+                op1 = false;
+                clearInterval(transition1);
+            }, 1300);
+        }
+    });
     p1.appendChild(monstre1);
     var p2 = document.createElement("p");
     p2.style.float = "right";
@@ -432,6 +451,23 @@ function TutoMonstre() {
     monstre2.src = "Dessin/Monstre/Algerie.png";
     monstre2.style.width = 238 / 3 + "px";
     monstre2.style.height = 174 / 3 + "px";
+    monstre2.style.transition = "height 0.8s, width 0.8s";
+    monstre2.style.cursor = "pointer";
+    var transition2;
+    var op2 = false;
+    monstre2.addEventListener("click", function () {
+        op2 = true;
+        monstre2.src = "Dessin/Tuto/Don't click/Ne clique pas/Forceur/Al.png";
+        monstre2.style.width = 526 / 5 + "px";
+        monstre2.style.height = 696 / 5 + "px";
+        transition2 = setInterval(function () {
+            monstre2.src = "Dessin/Monstre/Algerie.png";
+            monstre2.style.width = 238 / 3 + "px";
+            monstre2.style.height = 174 / 3 + "px";
+            op = false;
+            clearInterval(transition2);
+        }, 1300);
+    });
     p2.appendChild(monstre2);
     var text = document.createElement("a");
     text.textContent = "Il ne faut pas seulement craindre la peur du vide. Des monstres ideux arpentent le terrain et peuvent mettre fin à votre partie."
@@ -446,6 +482,25 @@ function TutoMonstre() {
     monstre3.src = "Dessin/Tuto/monstreHitBox.png";
     monstre3.style.width = 238 / 2 + "px";
     monstre3.style.height = 174 / 2 + "px";
+    monstre3.style.transition = "height 0.9s, width 0.9s";
+    monstre3.style.cursor = "pointer";
+    var transition3;
+    var op3 = false;
+    monstre3.addEventListener("click", function () {
+        if (!op3) {
+            op3 = true;
+            monstre3.src = "Dessin/Tuto/Don't click/Ne clique pas/Forceur/a.png";
+            monstre3.style.width = 2819 / 19 + "px";
+            monstre3.style.height = 3060 / 19 + "px";
+            transition3 = setInterval(function () {
+                monstre3.src = "Dessin/Tuto/monstreHitBox.png";
+                monstre3.style.width = 238 / 2 + "px";
+                monstre3.style.height = 174 / 2 + "px";
+                clearInterval(transition3);
+                op3 = false;
+            }, 1300);
+        }
+    });
     p3.appendChild(monstre3);
     var text2 = document.createElement("a");
     text2.textContent = "Un monstre possède deux HitBox diférentes. La zone bleu représente sa HitBox d'attaque, alors que la zone verte représente sa HitBox de vulnérabilité."
