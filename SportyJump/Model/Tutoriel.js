@@ -67,6 +67,7 @@ function startTimerDefilementTuto() {
             if (rect.offsetLeft >= 0) {
                 stopTimerDefilementTuto();
                 rectangle.classList.add("expanded");
+                rect.style.left = 10 + "px";
             } else {
                 rect.style.left = rect.offsetLeft + 30 + "px";
             }
@@ -397,7 +398,6 @@ function TutoPiece() {
     tuto.appendChild(titre);
     tuto.appendChild(p);
     tuto.appendChild(text);
-    tuto.appendChild(document.createElement("br"));
     tuto.appendChild(text2);
     tuto.appendChild(document.createElement("br"));
     tuto.appendChild(p2);
