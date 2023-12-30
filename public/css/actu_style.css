@@ -47,6 +47,15 @@ a{
     font-size: 25px;
 }
 
+.custom-button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    cursor: pointer;
+    padding: 0;
+}
 
 
 header>a:hover, div>a:hover{

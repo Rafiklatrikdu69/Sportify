@@ -57,7 +57,7 @@
                 <div class="titre"><h1><?php echo $post->getTitre()?></h1></div>
                 <div class="contenue"><p><?php echo $post->getContenu()?></p></div>
                 <div class="like"><img src="../../public/images/like.png" id="like"></div>
-                <div class="comment"><button onclick="changeCurrentPost(<?php echo $post->getId()?>)"><<img src="../../public/images/comment.png" id="comment"></button></div>
+                <div class="comment"><button class="custom-button" onclick="changeCurrentPost(<?php echo $post->getId()?>)"><img src="../../public/images/comment.png" id="comment"></button></div>
             </section>
         <?php }?>
           <!-- Jusqu'ici -->
@@ -92,28 +92,7 @@
     </div>
 </body>
 </html>
-<script>
-    function changeCurrentPost(nouvelleValeur) {
-    console.log('Nouvelle valeur:', nouvelleValeur);
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost/app/views/changeCurrentPost.php?valeur=" + nouvelleValeur, true);
-    xhr.onreadystatechange = function() {
-        console.log(this)
-        if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-                console.log('Réponse du serveur:', xhr.responseText);
-                console.log('Type de la réponse:', typeof xhr.responseText);
-                console.log('Longueur de la réponse:', xhr.responseText.length);
-            } else {
-                console.error('Erreur de la requête:', xhr.status, xhr.statusText);
-            }
-        }
-    };
-    xhr.send();
-    window.location.reload();
-}
-</script>
+<script src="../../public/js/changeCurrentPost.js"></script>
 <script src="../../public/js/actu.js"></script>
 <?php 
     if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
@@ -123,5 +102,4 @@
         // La variable $_SESSION['currpost'] n'est pas initialisée ou est vide
         echo "<script src='../../public/js/ajt_actu.js'></script>;";
     }
-
 ?>
