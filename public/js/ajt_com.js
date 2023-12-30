@@ -3,7 +3,7 @@ const modal = document.getElementById("modal");
 const openBtn = document.getElementById("openModalActu");
 let ajout = document.querySelectorAll('#ajoutActu');
 
-console.log("Ajout : actualité");
+console.log("Ajout : commentaire");
 
 closeBtn.addEventListener("click", () => {
     modal.classList.remove("open");
