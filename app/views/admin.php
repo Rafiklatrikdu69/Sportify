@@ -53,6 +53,29 @@
 			</span>
 		</button>
 	</div>
+	<div class="part-middle" id="part-4">
+		<li id="liste">Inserer un matchs</li>
+		
+			
+			<form action="" method="post">
+				<label for="">Nom du match</label>
+				<input type="text">
+				<label for="">Date evenements</label>
+				<input type="text">
+				<label for="">Equipe domicile</label>
+				<input type="text">
+				<label for="">Cote domicile</label>
+				<input type="text">
+				<label for="">Cote exterieur</label>
+				<input type="text">
+				<label for="">Categorie sport</label>
+				<input type="text">
+				<input type="submit" value="Valider">
+			</form>
+		
+	
+	
+	</div>
 
 	<div class="part-middle" id="part-1">
 		<li id="liste">Liste des utilisateurs</li>
@@ -103,35 +126,8 @@
 	<input type="submit" value="Terminer">
 </form>
 </div>
-	<div class="part-middle" id="part-2">
-	<li id="liste">Liste des posts</li>
-		<div class="user">
-			<div class="id_post">ID Auteur</div>
-			<div class="id">ID Auteur</div>
-			<div class="NomAuteur">Nom Auteur</div>
-			<div class="nomTopic">Nom Topic </div>
-			<div class="description">Description</div>
-			<div class="likes">nombre de likes </div>
-		</div>
-	<?php foreach($posts as $posts){?>
-			<div class="dropdown">
-	<div class="id_post"> <?php echo $posts->getAuteurId()?></div>
-	<div class="id"><?php echo $posts->getAuteurName()?></div>
-	<div class="NomAuteur"><?php echo $posts->getTitre()?></div>
-	<div class="nomTopic"><?php echo $posts->getContenu()?></div>
-	<!-- <div class="description"><?php echo $posts->getNbLike()?></div> -->
-					<div class="dropdown-content">
-						<ul>
-							<li>Modifier</li>
-							<li id="supp">Supprimer</li>
-						</ul>
-					</div>
-				</div>
-		</div>
-	<?php }?>
 	
-	
-</div>
+ </div>  
 		<main>
             <!-- la section avec les pronostics est ici -->
             
@@ -171,6 +167,10 @@
 					</div>
 				</div>
 			</div>
+		
+	
+	
+		
 	<!-- Trigger/Open The Modal -->
 <!-- <button id="myBtn">Open Modal</button> -->
 
@@ -186,7 +186,9 @@
 
 </div>
 		<?php } ?>
+		
 		</div>
+
 	<script src="../../public/js/admin.js">
 
 		

@@ -27,7 +27,7 @@ function reset(){
         elements[i].style.visibility = 'hidden';
         
     }
-  
+    
 }
 reset();
 document.getElementById('part-1').style.visibility = "visible"; 
@@ -35,7 +35,7 @@ document.getElementById('part-1').style.visibility = "visible";
 post.addEventListener("click", function () {
     console.log("post");
     reset();
-document.getElementById('part-2').style.visibility = "visible";    
+    document.getElementById('part-2').style.visibility = "visible";    
 });
 
 boutonSuppr.forEach(function(boutonSuppr, i) {
@@ -62,18 +62,18 @@ boutonSuppr.forEach(function(boutonSuppr, i) {
 
 user.addEventListener("click", function () {
     reset();
-document.getElementById('part-1').style.visibility = "visible"; 
+    document.getElementById('part-1').style.visibility = "visible"; 
 });
 ajoutUtils.addEventListener("click",function(){
     document.getElementById('ajout').style.visibility = "visible";    
-
+    
 })
 
 pronostique.addEventListener("click", function () {
     reset();
     console.log("pronostique");
     document.getElementById('part-3').style.visibility = "visible";
-   
+    
     
 });
 
@@ -81,7 +81,7 @@ pronostique.addEventListener("click", function () {
 //     terminerMatch[i].addEventListener('click',function(){
 
 //         reset();
-   
+
 
 //     })
 // }
@@ -89,7 +89,7 @@ pronostique.addEventListener("click", function () {
 events.addEventListener("click",function(){
     reset();
     console.log("evenement");
-    //document.getElementById('part-4').style.visibility = "visible"; 
+    document.getElementById('part-4').style.visibility = "visible"; 
 })
 items.addEventListener("click", function () {
     console.log("items");
@@ -97,7 +97,7 @@ items.addEventListener("click", function () {
 
 var modal = document.querySelectorAll("#myModal");
 let contentModal = document.querySelectorAll('.modal-content');
-var buttons = document.getElementsByTagName("input");
+var buttons = document.querySelectorAll(".modal-content");
 
 
 // Get the button that opens the modal
@@ -110,30 +110,30 @@ var span = document.querySelectorAll("#close");
 function victoire(match_id,cote){
     this.match_id = match_id;
     this.cote = cote;
-    }
-    var tmp = 0;
-    
-for(let j = 0 ;j<btn.length;j++){
-btn[j].onclick = function() {
-    tmp = terminerMatch[j].id;
-    console.log(terminerMatch[j].id);
-     modal[j].style.display = "block";
-     
-    
 }
+var tmp = 0;
 
+for(let j = 0 ;j<btn.length;j++){
+    btn[j].onclick = function() {
+        tmp = terminerMatch[j].id;
+        console.log(terminerMatch[j].id);
+        modal[j].style.display = "block";
+        
+        
+    }
+    
 }
 
 for(let i = 0;i<buttons.length;i++){
- buttons[i].onclick= function(){
-    vic = new victoire(tmp,buttons[i].className)
-    fetch("/public/json-prono-victoire", {
-        "method": "POST",
-        "headers": {
-            "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": JSON.stringify(vic)
-    })
+    buttons[i].onclick= function(){
+        vic = new victoire(tmp,buttons[i].className)
+        fetch("/public/json-prono-victoire", {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            "body": JSON.stringify(vic)
+        })
         .then(function (response) {
             return response.text();
         })
@@ -141,17 +141,18 @@ for(let i = 0;i<buttons.length;i++){
             console.log(data);
         }
         );
-console.log(buttons[i].className);
-location.reload();
- }
+        console.log(buttons[i].className);
+        
+        location.reload();
+    }
 }
 
 
 // When the user clicks on <span> (x), close the modal
 for(let i = 0 ;i<span.length;i++){
-span[i].onclick = function() {
-  modal[i].style.display = "none";
-}
+    span[i].onclick = function() {
+        modal[i].style.display = "none";
+    }
 }
 
 
