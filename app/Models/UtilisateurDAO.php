@@ -168,6 +168,14 @@ class UtilisateurDAO extends DAO{
             "id" => $this->getUserId($name)
         ));
     }
+    public function updatePointJeu($points,$name){
+        $sql = "UPDATE `UTILISATEUR` SET POINT_ACTUEL = POINT_ACTUEL + :points WHERE UTILISATEUR_ID = :id";
+        $this->update($sql, array(
+            "points"=>$points,
+            "id" => $this->getUserId($name)
+           
+        ));
+    }
     public function getLastConnection($name){
         $sql = "SELECT LAST_CONNECTION FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
         $result = $this->queryRow($sql, array('pseudo' => $name));
