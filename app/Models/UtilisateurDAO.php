@@ -207,4 +207,26 @@ class UtilisateurDAO extends DAO{
   
         return $tab;
     }
+
+    public function getClassement($name) {
+        $sql = "SELECT PSEUDO, POINT_CLASSEMENT FROM `UTILISATEUR` ORDER BY POINT_CLASSEMENT DESC";
+        
+        $results = $this->queryAll($sql);
+        
+        if ($results !== false) {
+            $classement = 1;
+            foreach ($results as $user) {
+                if ($user['PSEUDO'] === $name) {
+                    return $classement;
+                }
+                $classement++;
+            }
+            // Si le nom d'utilisateur n'est pas trouvé dans les résultats
+            echo "Erreur : Nom d'utilisateur non trouvé dans le classement.";
+            return null;
+        } else {
+            echo "Erreur : Impossible de récupérer le classement depuis la base de données.";
+            return null;
+        }
+    }
 }

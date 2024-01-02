@@ -9,7 +9,8 @@ class StoreController extends Controllers {
         View::View('boutique',[
             "tabItems"=>(new ItemsDAO())->getAll(),
             "pointsUser"=>(new utilisateurDAO())->getPointUser($_SESSION['nom']),
-            "userId"=>(new utilisateurDAO())->getUserId($_SESSION['nom'])
+            "userId"=>(new utilisateurDAO())->getUserId($_SESSION['nom']),
+            "userRank"=>(new utilisateurDAO())->getClassement($_SESSION['nom']),
         ]);
         
         // $items = (new ItemsDAO())->getAll();

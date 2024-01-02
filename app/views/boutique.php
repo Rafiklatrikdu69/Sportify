@@ -78,7 +78,7 @@ use \App\Config;
             <div>
                 <img src="images/logo.png">
                 <p><?php echo $_SESSION['nom']?></p>
-                <p>Classement</p>
+                <p><?php echo (int)$userRank; ?></p>
                 <p>Prono réussi</p>
                 <p>Badges</p>
                 <p>Equipe préférée</p>
