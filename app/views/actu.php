@@ -55,7 +55,7 @@
                 <div class="auteur"><p><?php echo $post->getAuteurName()?> </p></div>
                 <div class="titre"><h1><?php echo $post->getTitre()?></h1></div>
                 <div class="contenue"><p><?php echo $post->getContenu()?></p></div>
-                <div class="like"><img src="../../public/images/like.png" id="like"></div>
+                <div class="like"><button class="custom-like" onclick="updateLike(<?php echo $post->getId()?>)"><img src="../../public/images/like.png" id="like"></button></div>
                 <div class="comment"><button class="custom-button" onclick="changeCurrentPost(<?php echo $post->getId()?>)"><img src="../../public/images/comment.png" id="comment"></button></div>
             </section>
         <?php }?>
@@ -93,6 +93,7 @@
 </html>
 <script src="../../public/js/changeCurrentPost.js"></script>
 <script src="../../public/js/actu.js"></script>
+<script src="../../public/js/maj_like.js"></script>
 <?php 
     if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
         // La variable $_SESSION['currpost'] est initialisée et non vide

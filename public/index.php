@@ -16,8 +16,10 @@ switch ($request) {
             case '/public/json-item':
                 $route->post('/public/json-item', [new JsonControllerItem(), 'ajout']);
                 break;
+                case '/public/json-like':
+                    $route->post('/public/json-like', [new JsonControllerLike(), 'like']);
+                    break;
                 case '/public/json-actu':
-
                     if(isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0){
                         $route->post('/public/json-actu', [new JsonControllerCom(), 'ajoutCom'],);
                     }

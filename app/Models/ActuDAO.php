@@ -74,17 +74,17 @@ class ActuDAO extends DAO{
         return $row;
     }
 
-    public function addLike($id){
-        $sql = "UPDATE `POST` SET NB_LIKE = NB_LIKE + 1 WHERE id = :id";
-        $params = array(":id" => $id);
-        $sth = $this->insert($sql);
+    public function updateLike($id,$nbLike){
+        $sql = "UPDATE `POST` SET NB_LIKE = :nbLike WHERE POST_ID = :id";
+        $params = array(":id" => $id,":nbLike" => $nbLike);
+        $sth = $this->insert($sql, $params);
         return $sth;
     }
 
-    public function removeLike($id){
-        $sql = "UPDATE `POST` SET NB_LIKE = NB_LIKE - 1 WHERE id = :id";
+    public function addLike($id){
+        $sql = "UPDATE `POST` SET NB_LIKE = NB_LIKE + 1 WHERE POST_ID = :id";
         $params = array(":id" => $id);
-        $sth = $this->insert($sql);
+        $sth = $this->insert($sql, $params);
         return $sth;
     }
 }
