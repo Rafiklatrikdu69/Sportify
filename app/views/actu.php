@@ -41,7 +41,6 @@
                     $i++;
                 }
                 echo '</table>';
-
                 ?>
             </div>
         </div>
