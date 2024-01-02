@@ -37,4 +37,5 @@ window.onload = function () {
 
     startTimerDefilementObjets();
     startTimerChuteLibre();
+    // console.log("Le score :"+ localStorage.getItem("scoreTexte"))
 }

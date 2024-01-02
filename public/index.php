@@ -74,10 +74,16 @@ switch ($request) {
                                                                     case '/public/jeu':
                                                                         $route->get('/public/jeu', [new JeuController(), 'index']);
                                                                         break;
-                                                                    default:
-                                                                    // Gestion des erreurs ou redirection par défaut
+                                                                    case '/public/json-point-jeu':
+                                                                    $route->get('/public/json-point-jeu',[new JsonControllerJeu(),'index']);
                                                                     break;
-                                                                }
-                                                                
-                                                                $route->resolve($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
-                                                                ?>
+                                                                    case '/public/json-jeu-insere':
+                                                                        $route->post('/public/json-jeu-insere',[new JsonControllerJeu(),'point']);
+                                                                        break;
+                                                                        default:
+                                                                        // Gestion des erreurs ou redirection par défaut
+                                                                        break;
+                                                                    }
+                                                                    
+                                                                    $route->resolve($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
+                                                                    ?>

@@ -26,6 +26,8 @@ function augmenterScore() {
 function augmenterNbPiece() {
     nbPiece = nbPiece + 1;
     nbPieceTexte.innerHTML = "×" + nbPiece;
+    // TransfererScore()
+    
 }
 function ActivationScore() {
     activerScore = true;
@@ -38,6 +40,7 @@ function makeScore() {
         if (point <= 0) {
             activerScore = false;
         }
+       
     }
 }
 

@@ -29,5 +29,6 @@ window.onload = function () {
 
     startTimerBallonDeplacement();
     startTimerConfigurationModels();
+    
 }
 //hfbefbeufveufvej; 
