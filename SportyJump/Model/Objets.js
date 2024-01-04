@@ -128,6 +128,8 @@ var vitesseChuteJet = 1;
 var chuteJet;
 var compteurJetDebut = 0;
 var compteurJetFin = 0;
+var phaseJet = 0;
+var activerChuteJetPause = false;
 
 function getXJet() {
     return jetpack.offsetLeft;
@@ -156,6 +158,9 @@ function jetpackIsNull() {
 function JetIsTouch() {
     return jetIsTouch;
 }
+function getPhaseJet() {
+    return phaseJet;
+}
 function setPlateformeDuJetPack() {
     plateforme2 = document.getElementById("plateforme2");
 }
@@ -175,6 +180,7 @@ function SuppressionDuJetack() {
     jetIsTouch = false;
     compteurJetDebut = 0;
     compteurJetFin = 0;
+    phaseJet = 0;
     PlacementJetPack();
     DefinirTailleJetPack();
 }
@@ -208,6 +214,7 @@ function JetPackIsTouch() {
         setImageDecollage();
         egaliserCooJetWithBall();
         startTimerDecollage();
+        phaseJet = 1;
     }
 }
 
@@ -229,12 +236,16 @@ function setImageVole() {
 //Timer qui simule un décollage => PHASE 1; 
 function startTimerDecollage() {
     decollage = setInterval(function () {
-        setImageVole();
-        setReculement();
-        startTimerVole();
-        startTimerFinVole();
-        stopTimerDecollage();
-    }, 900);
+        compteurJetDebut++
+        if (compteurJetDebut >= 225) {
+            setImageVole();
+            setReculement();
+            startTimerVole();
+            startTimerFinVole();
+            stopTimerDecollage();
+            phaseJet = 2;
+        }
+    }, 1);
 }
 function stopTimerDecollage() {
     clearInterval(decollage);
@@ -306,23 +317,30 @@ function stopTimerVole() {
     clearInterval(vole);
 }
 
+//Timer qui simule une volée => PHASE 2; 
 function startTimerFinVole() {
     fin = setInterval(function () {
-        stopTimerVole();
-        activerChuteLibre = false;
-        setReculementWithValue(25);
-        setJump(17);
-        setGravity();
-        startTimerAtterissage();
-        jetpack.src = "Dessin/Plateforme/jetpackArret.gif";
-        startTimerChuteJet();
-        stopTimerFinVole();
-    }, 6000);
+        compteurJetFin++;
+        if (compteurJetFin >= 1500) {
+            stopTimerVole();
+            activerChuteLibre = false;
+            setReculementWithValue(25);
+            setJump(17);
+            setGravity();
+            startTimerAtterissage();
+            jetpack.src = "Dessin/Plateforme/jetpackArret.gif";
+            startTimerChuteJet();
+            stopTimerFinVole();
+            phaseJet = 3;
+            activerChuteJetPause = true;
+        }
+    }, 1);
 }
 function stopTimerFinVole() {
     clearInterval(fin);
 }
 
+//Timer qui simule un atterissage => PHASE 3; 
 function startTimerAtterissage() {
     atterissage = setInterval(function () {
         ActionBoutonBallon();
@@ -342,7 +360,7 @@ function startTimerAtterissage() {
 function stopTimerAtterissage() {
     clearInterval(atterissage);
 }
-
+//Timer une chute du jet => PHASE 2; 
 function startTimerChuteJet() {
     chuteJet = setInterval(function () {
         jetpack.style.top = getYJet() + vitesseChuteJet + "px";
@@ -350,7 +368,15 @@ function startTimerChuteJet() {
         vitesseChuteJet = vitesseChuteJet + 0.8;
         if (getYJet() > getYTerrain() + getLargeurTerrain() + 20) {
             SuppressionDuJetack();
+            activerChuteJetPause = false;
             clearInterval(chuteJet);
         }
     }, getRafraichissement());
+}
+function stopTimerChuteJet() {
+    clearInterval(chuteJet);
+}
+
+function activerPauseChuteJet() {
+    return activerChuteJetPause;
 }

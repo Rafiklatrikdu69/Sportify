@@ -22,39 +22,86 @@ function ConfigurationPause() {
 
 function BoutonPausePressed() {
     if (!pauseActif) {
-        pause.src = "Dessin/Terrain/ActiverPause2.png";
+        pause.src = "Dessin/Pause/ActiverPause2.png";
     } else {
-        pause.src = "Dessin/Terrain/DesactiverPause2.png";
+        pause.src = "Dessin/Pause/DesactiverPause2.png";
     }
 }
 function BoutonPauseReleased() {
     if (!pauseActif) {
-        pause.src = "Dessin/Terrain/ActiverPause.png";
+        pause.src = "Dessin/Pause/ActiverPause.png";
     } else {
-        pause.src = "Dessin/Terrain/DesactiverPause.png";
+        pause.src = "Dessin/Pause/DesactiverPause.png";
     }
 }
 
 function BoutonClick() {
-    if (!IsMonstreTouch() && !JetIsTouch()) {
-        if (!pauseActif) {
-            pauseActif = true;
-            if (btEchap) {
-                pause.src = "Dessin/Terrain/DesactiverPause.png";
+    if (!IsMonstreTouch()) {
+        if (!JetIsTouch()) {
+            if (!pauseActif) {
+                pauseActif = true;
+                if (btEchap) {
+                    pause.src = "Dessin/Pause/DesactiverPause.png";
+                } else {
+                    pause.src = "Dessin/Pause/DesactiverPause2.png";
+                }
+                stopTimerBallonDeplacement();
+                stopTimerConfigurationModels();
             } else {
-                pause.src = "Dessin/Terrain/DesactiverPause2.png";
+                pauseActif = false;
+                if (btEchap) {
+                    pause.src = "Dessin/Pause/ActiverPause.png";
+                } else {
+                    pause.src = "Dessin/Pause/ActiverPause2.png";
+                }
+                startTimerConfigurationModels();
+                startTimerBallonDeplacement();
             }
-            stopTimerBallonDeplacement();
-            stopTimerConfigurationModels();
         } else {
-            pauseActif = false;
-            if (btEchap) {
-                pause.src = "Dessin/Terrain/ActiverPause.png";
+            if (!pauseActif) {
+                pauseActif = true;
+                switch (getPhaseJet()) {
+                    case 1: stopTimerDecollage();
+                        jetpack.src = "Dessin/Pause/pauseJet1.png";
+                        break;
+                    case 2: stopTimerVole();
+                        stopTimerFinVole();
+                        jetpack.src = "Dessin/Pause/pauseJet2.png";
+                        break;
+                    case 3: stopTimerAtterissage();
+                        break;
+                }
+                if (btEchap) {
+                    pause.src = "Dessin/Pause/DesactiverPause.png";
+                } else {
+                    pause.src = "Dessin/Pause/DesactiverPause2.png";
+                }
             } else {
-                pause.src = "Dessin/Terrain/ActiverPause2.png";
+                pauseActif = false;
+                switch (getPhaseJet()) {
+                    case 1: jetpack.src = "Dessin/Pause/jetpackDecollage.gif";
+                        startTimerDecollage();
+                        break;
+                    case 2: jetpack.src = "Dessin/Plateforme/jetpackVole.gif";
+                        startTimerVole();
+                        startTimerFinVole();
+                        break;
+                    case 3: startTimerAtterissage();
+                        break;
+                }
+                if (btEchap) {
+                    pause.src = "Dessin/Pause/ActiverPause.png";
+                } else {
+                    pause.src = "Dessin/Pause/ActiverPause2.png";
+                }
             }
-            startTimerConfigurationModels();
-            startTimerBallonDeplacement();
+        }
+        if (activerPauseChuteJet()) {
+            if (pauseActif) {
+                stopTimerChuteJet();
+            } else {
+                startTimerChuteJet();
+            }
         }
     }
 }
