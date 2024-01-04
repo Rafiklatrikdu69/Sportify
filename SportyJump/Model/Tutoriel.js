@@ -272,16 +272,16 @@ function TutoMenu() {
     titre.textContent = "Fonctionnement du Menu";
     titre.classList.add("titre");
     var text = document.createElement("a");
-    text.textContent = 'Cliquez sur le bouton "Jouer" pour commencer une partie ou sur le bouton "Classement" pour connaitre votre rang.';
+    text.textContent = 'Cliquez sur le bouton "Jouer" pour commencer une partie ou sur le bouton "Classement" pour connaître votre rang.';
     text.classList.add("text");
     var text2 = document.createElement("a");
-    text2.textContent = "Vous pouvez aussi changer le thème du jeu en choisissant différents sports:";
+    text2.textContent = "Vous pouvez aussi changer le thème du jeu en choisissant différents sports :";
     text2.classList.add("text");
     var gif = document.createElement("img");
     gif.src = "Dessin/Tuto/tutoMenu.gif"
     gif.style.padding = "10px 130px";
     var text3 = document.createElement("a");
-    text3.textContent = "Chaques thèmes apportent des modifications mineures dans le jeu :"
+    text3.textContent = "Chaque thème apporte des modifications mineures dans le jeu :"
     text3.classList.add("text");
     tuto.appendChild(titre);
     tuto.appendChild(text);
@@ -298,9 +298,9 @@ function TutoMenu() {
         mode[i].classList.add("text");
     }
     mode[0].textContent = "Foot => Mode Normale (Mode le mieux équilibré, fonctionnalité classique)";
-    mode[1].textContent = "Basket => Mode HardCore (Fréquence des monstres très élevés)"
+    mode[1].textContent = "Basket => Mode HardCore (Fréquence des monstres très élevée)"
     mode[2].textContent = "Tennis => Mode Vitesse (Vitesse de la balle augmentée)";
-    mode[3].textContent = "Baseball => Mode Richesse (Fréquence des pièces très élevées)";
+    mode[3].textContent = "Baseball => Mode Richesse (Fréquence des pièces très élevée)";
     mode[4].textContent = "Rugby => Mode Difficile (Moins de plateformes, 12 au lieu de 20)";
     mode[5].textContent = "Bowling => Mode Mouvement (Toutes les plateformes se déplacent)";
     for (let i = 0; i < mode.length; i++) {
@@ -315,7 +315,7 @@ function TutoGameplay() {
     titre.textContent = "GamePlay";
     titre.classList.add("titre");
     var text = document.createElement("a");
-    text.textContent = "Deplacez la balle en appuyant sur les flèches directonnelles du clavier. Vous pouvez changer sa direction selon la direction choisis entre la droite et la gauche.";
+    text.textContent = "Déplacez la balle en appuyant sur les flèches directionnelles du clavier. Vous pouvez changer sa direction selon la direction choisie entre la droite et la gauche.";
     text.classList.add("text");
     var touche = document.createElement("img");
     touche.src = "Dessin/Tuto/toucheClavier.gif";
@@ -327,7 +327,7 @@ function TutoGameplay() {
     jeu.style.top = "105px";
     jeu.style.border = "5px solid #000";
     var text2 = document.createElement("a");
-    text2.textContent = "A chaques plateformes touchées et saut effectué, le score augmente de 210 points. Des pieces, des monstres et plusieurs objets avec des fonctionnalités différentes sont éparpillés sur le terrain.";
+    text2.textContent = "A chaque plateforme touchée et saut effectué, le score augmente de 210 points. Des pièces, des monstres et plusieurs objets avec des fonctionnalités différentes sont éparpillés sur le terrain.";
     text2.classList.add("text");
     tuto.appendChild(titre);
     tuto.appendChild(text);
@@ -354,10 +354,10 @@ function TutoPiece() {
     text.textContent = "Au cours de votre partie, vous pouvez obtenir des pièces en les touchant avec le ballon.";
     text.classList.add("text");
     var text2 = document.createElement("a");
-    text2.textContent = "Obtenir des pieces vous permet de les utiliser dans notre boutique.";
+    text2.textContent = "Obtenir des pièces vous permet de les utiliser dans notre boutique.";
     text2.classList.add("text");
     var text3 = document.createElement("p");
-    text3.textContent = "La HitBox d'obtention des pieces par la balle est representée par la zone verte, (la zone rouge étant la HitBox du saut) : ";
+    text3.textContent = "La HitBox d'obtention des pièces par la balle est représentée par la zone verte, (la zone rouge étant la HitBox du saut) : ";
     text3.classList.add("text");
     var p2 = document.createElement("p");
     p2.style.float = "right";
@@ -370,7 +370,7 @@ function TutoPiece() {
     ballon.style.height = 142 / 2 + "px";
     p2.appendChild(ballon);
     var text4 = document.createElement("a");
-    text4.textContent = "Lorsque la HitBox verte rentre en collision avec la piece, une animation se déclenche indiquant que vous avez obtenu +1 de piece.";
+    text4.textContent = "Lorsque la HitBox verte rentre en collision avec la pièce, une animation se déclenche indiquant que vous avez obtenu +1 de pièces.";
     text4.classList.add("text");
 
     var div = document.createElement("p");
@@ -392,7 +392,7 @@ function TutoPiece() {
     div.appendChild(piece3);
 
     var text5 = document.createElement("a");
-    text5.textContent = "Si vous ratez la piece, pas de panique. Elle continuera à défiler vers le bas jusqu'à disparaite. Lorsque la piece n'est plus disponible, à chaques sauts effectués, vous avez une chance sur trois pour qu'elle ré-apparaisse.";
+    text5.textContent = "Si vous ratez la pièce, pas de panique. Elle continuera à défiler vers le bas jusqu'à disparaître. Lorsque la pièce n'est plus disponible, à chaque saut effectué, vous avez une chance sur trois pour qu'elle ré-apparaisse.";
     text5.classList.add("text");
 
     tuto.appendChild(titre);
@@ -470,7 +470,7 @@ function TutoMonstre() {
     });
     p2.appendChild(monstre2);
     var text = document.createElement("a");
-    text.textContent = "Il ne faut pas seulement craindre la peur du vide. Des monstres ideux arpentent le terrain et peuvent mettre fin à votre partie."
+    text.textContent = "Il ne faut pas seulement craindre la peur du vide. Des monstres hideux arpentent le terrain et peuvent mettre fin à votre parti."
     text.classList.add("text");
 
     var p3 = document.createElement("p");
@@ -503,7 +503,7 @@ function TutoMonstre() {
     });
     p3.appendChild(monstre3);
     var text2 = document.createElement("a");
-    text2.textContent = "Un monstre possède deux HitBox diférentes. La zone bleu représente sa HitBox d'attaque, alors que la zone verte représente sa HitBox de vulnérabilité."
+    text2.textContent = "Un monstre possède deux HitBox différentes. La zone bleue représente sa HitBox d'attaque, alors que la zone verte représente sa HitBox de vulnérabilité."
     text2.classList.add("text");
 
     var div = document.createElement("p");
@@ -545,7 +545,7 @@ function TutoMonstre() {
     text4.classList.add("text");
 
     var text5 = document.createElement("a");
-    text5.textContent = "(A chaques sauts du ballon, vous avez une chance sur huit pour qu'un monstre apparaisse)";
+    text5.textContent = "(A chaque saut du ballon, vous avez une chance sur huit pour qu'un monstre apparaisse)";
     text5.classList.add("text");
     text5.style.fontSize = "10px";
 
@@ -573,7 +573,7 @@ function TutoObject() {
     titre.classList.add("titre");
 
     var text1 = document.createElement("a");
-    text1.textContent = "Vous pouvez utiliser des objets pour augmenter votre vitesse et gagner plus de point.";
+    text1.textContent = "Vous pouvez utiliser des objets pour augmenter votre vitesse et gagner plus de points.";
     text1.classList.add("text");
     var p1 = document.createElement("p");
     p1.style.float = "left";
@@ -600,11 +600,11 @@ function TutoObject() {
         }
     });
     var text2 = document.createElement("a");
-    text2.textContent = "Le ressort : En touchant un ressort lors d'une chute, la vitesse de saut est considérablement augmentée, ainsi que la vitesse de défilement des plateformes. Lors d'un saut sur un ressort, vous êtes momentanément invulnérable aux monstres. A chaques sauts effectués sur une plateforme touchée, vous avez une chance sur deux qu'un ressort apparaise. (Cliquez sur le ressort)";
+    text2.textContent = "Le ressort : En touchant un ressort lors d'une chute, la vitesse de saut est considérablement augmentée, ainsi que la vitesse de défilement des plateformes. Lors d'un saut sur un ressort, vous êtes momentanément invulnérable au monstre. A chaque saut effectué sur une plateforme touchée, vous avez une chance sur deux qu'un ressort apparaisse. (Cliquez sur le ressort)";
     text2.classList.add("text");
 
     var text3 = document.createElement("a");
-    text3.textContent = "Le jetpack : En touchant un jetpack, vous êtes propulsé vers le haut pendant une longue période. Vous pouvez toujours déplacer le ballon et récupérer des pièces, pendant que votre score augmente considérablement. A chaques sauts effectués sur une plateforme touchée, vous avez une chance sur dix qu'un jetpack apparaisse. (Cliquez sur le jetpack)";
+    text3.textContent = "Le jetpack : En touchant un jetpack, vous êtes propulsé vers le haut pendant une longue période. Vous pouvez toujours déplacer le ballon et récupérer des pièces, pendant que votre score augmente considérablement. A chaque saut effectué sur une plateforme touchée, vous avez une chance sur dix qu'un jetpack apparaisse. (Cliquez sur le jetpack)";
     text3.classList.add("text");
 
     var p2 = document.createElement("p");

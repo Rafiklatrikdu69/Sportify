@@ -12,16 +12,16 @@ window.onload = function () {
 
     setImageBallon(getType());
 
-    PlacementJetPack(); 
-    DefinirTailleJetPack(); 
+    PlacementJetPack();
+    DefinirTailleJetPack();
     PlacementRessort();
     DefinirTailleRessort();
-    
+
     setTableauDeplacementPlateforme();
     setListePlateforme();
     setCooListePlateforme();
     setPlateformeDuRessort();
-    setPlateformeDuJetPack(); 
+    setPlateformeDuJetPack();
 
     PlacementScore();
     PlacementScorePieceImage();
@@ -34,6 +34,8 @@ window.onload = function () {
     PlacementMonstreHitBoxAttack();
     PlacementMonstreImage();
     PlacementMonstreHitBoxVulnerable();
+
+    ConfigurationPause();
 
     startTimerBallonDeplacement();
     startTimerConfigurationModels();

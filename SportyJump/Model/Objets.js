@@ -151,6 +151,9 @@ function setDirectionJet() {
 function jetpackIsNull() {
     return jetIsNull;
 }
+function JetIsTouch() {
+    return jetIsTouch;
+}
 function setPlateformeDuJetPack() {
     plateforme2 = document.getElementById("plateforme2");
 }
