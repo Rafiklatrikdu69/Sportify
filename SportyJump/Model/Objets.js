@@ -126,6 +126,8 @@ var directionJet = false;
 var atterissage;
 var vitesseChuteJet = 1;
 var chuteJet;
+var compteurJetDebut = 0;
+var compteurJetFin = 0;
 
 function getXJet() {
     return jetpack.offsetLeft;
@@ -171,6 +173,8 @@ function AjoutDuJetPack() {
 function SuppressionDuJetack() {
     jetIsNull = true;
     jetIsTouch = false;
+    compteurJetDebut = 0;
+    compteurJetFin = 0;
     PlacementJetPack();
     DefinirTailleJetPack();
 }
@@ -222,7 +226,7 @@ function setImageVole() {
     jetpack.src = "Dessin/Plateforme/jetpackVole.gif";
 }
 
-//Timer qui simule un décollage; 
+//Timer qui simule un décollage => PHASE 1; 
 function startTimerDecollage() {
     decollage = setInterval(function () {
         setImageVole();
@@ -264,7 +268,7 @@ function redressementJetPack() {
     }
 }
 
-//Timer qui simule une volée; 
+//Timer qui simule une volée => PHASE 2; 
 function startTimerVole() {
     vole = setInterval(function () {
         ActionBoutonBallon();
