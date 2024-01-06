@@ -12,36 +12,29 @@
 <section id="base">
     <aside id="gauche">
         <div id="ajt_actu">
-            <button id="openModalActu"><?php 
-            if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
-                // La variable $_SESSION['currpost'] est initialisée et non vide
-                echo "Ajouter un commentaire";
-            } else {
-                // La variable $_SESSION['currpost'] n'est pas initialisée ou est vide
-                echo "Ajouter une actualité";
-            } ?>
-</button>
+            <button id="openModalActu"></button>
+            <button id='backToActu' onclick='changeCurrentPost(0)'>Retour aux actualités</button>
 
-<?php 
-            if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
-                // La variable $_SESSION['currpost'] est initialisée et non vide
-                echo "<button id='backToActu' onclick='changeCurrentPost(0)'>Retour aux actualités</button>";
-            }?>
 
         </div>
         <div id="classement">
             <div>
+                <table>
+                <tr><th>Classement</th></tr>
+              
                 <?php
-                $i = 1;
-                echo '<table>';
-                echo '<tr><th>Classement</th></tr>';
+                 $i = 1;
                 foreach($tabClassement as $user){
-                    echo '<tr><td>'.$i.'</td>';
-                    echo '<td>'.$user->getPseudo(). '-' .$user->getPointClassement().'</td></tr>';
-                    $i++;
-                }
-                echo '</table>';
                 ?>
+                    <tr><td><?php  echo $i ?></td>
+                    <td><?php echo  $user->getPseudo(). '-' .$user->getPointClassement()?></td></tr>
+
+                <?php
+                $i++;
+                }
+                ?>
+                  </table>
+             
             </div>
         </div>
     </aside>
@@ -63,7 +56,7 @@
     </main>
     <aside id="profil">
         <div>
-            <p>120 Sportycoins</p>
+            <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins </p>
         </div>
         <div>
             <img src="../../public/images/logo.png">
@@ -79,12 +72,12 @@
 <div class="modal" id="modal">
         <div class="modal-inner">
             <h2>Ajouter une actualité</h2>
-            <form id="formActu">
+            <form id="formActu" action="/public/json-actu"  method="POST">
                 <label for="titre">Titre</label>
                 <input type="text" id="titre" name="titre" placeholder="Titre de l'actualité">
                 <label for="contenu">Contenu</label>
                 <textarea id="contenu" name="contenu" placeholder="Contenu de l'actualité"></textarea>
-                <button id="ajoutActu">Ajouter</button>
+                <input id="ajoutActu" type="submit"value="Ajouter"/>
             </form>
                 <button id="closeModal">Annuler</button>
         </div>
@@ -93,12 +86,6 @@
 </html>
 <script src="../../public/js/changeCurrentPost.js"></script>
 <script src="../../public/js/actu.js"></script>
-<?php 
-    if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
-        // La variable $_SESSION['currpost'] est initialisée et non vide
-        echo "<script src='../../public/js/ajt_com.js'></script>";
-    } else {
-        // La variable $_SESSION['currpost'] n'est pas initialisée ou est vide
-        echo "<script src='../../public/js/ajt_actu.js'></script>;";
-    }
-?>
+
+<script src="../../public/js/switch_fichier_js_actu.js"></script>
+<script id="fichier"></script>

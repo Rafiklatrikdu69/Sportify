@@ -27,9 +27,16 @@ class EvenementDAO extends DAO{
         }
     
         public function insertEvenement($data){
-            $sql = "INSERT INTO Evenement (id, idMatch, idUtilisateur, score1, score2, points) VALUES (:id, :idMatch, :idUtilisateur, :score1, :score2, :points)";
-            $sth = $this->insert($sql);
-            return $sth;
+            $sql = "INSERT INTO EVENEMENT (`NOM_EVENEMENT`, `DATE_EVENEMENT`, `EQUIPE_DOMICILE`, `EQUIPE_EXTERIEUR`, `COTE_DOMICILE`, `COTE_EXTERIEUR`, `CAT_SPORT`, `ACTIVE`)  VALUES (:nom_event,:date_event, :equD, :equE, :coteD, :coteE,:cat,:active)";
+            $params= array('nom_event'=>$data['nom'],
+            'date_event'=>$data['date'],
+               'equD'=>$data['equD'],
+               'equE'=>$data['equG'],
+               'coteD'=>$data['coteD'],
+               'coteE'=>$data['coteE'],
+               'cat'=>$data['cat'], 
+               'active'=>1 );
+            $this->insert($sql,$params);
         }
     
         public function updateEvenement($data){

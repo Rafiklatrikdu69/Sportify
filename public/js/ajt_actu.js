@@ -35,20 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
         let post = new Post(titre, contenu);
         console.log(post);
 
-        fetch('/public/json-actu', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            body: JSON.stringify(post)
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log('Success:', data);
-            window.location.reload();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+   
     });
 });

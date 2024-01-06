@@ -10,6 +10,7 @@ class ActuController extends Controllers{
                 "tabUsers" => (new UtilisateurDAO())->getAllUsers(),
                 'tabPosts' => (new ActuDAO())->getPostsByCurrPost($currPostValue),
                 'tabClassement' => (new UtilisateurDAO())->getTop10(),
+                "pointsUser"=>( new UtilisateurDAO())->getPointUser($_SESSION['nom'])
             ]);
         } else {
             // Si 'currpost' n'est pas défini, récupérer toutes les publications normalement
@@ -17,7 +18,9 @@ class ActuController extends Controllers{
                 "tabUsers" => (new UtilisateurDAO())->getAllUsers(),
                 'tabPosts' => (new ActuDAO())->getAll(),
                 'tabClassement' => (new UtilisateurDAO())->getTop10(),
+                "pointsUser"=>( new UtilisateurDAO())->getPointUser($_SESSION['nom'])
             ]);
+            $_SESSION['currpost'] = 0;
         }
     }
     

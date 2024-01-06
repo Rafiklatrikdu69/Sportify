@@ -36,6 +36,11 @@ class PronoController extends Controllers{
         file_put_contents('data.json', $finalEncodedData);
     
     }
+
+    public function insert(){
+        $event = new EvenementDAO();
+        $event->insertEvenement($_POST);
+    }
     
   
 }

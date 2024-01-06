@@ -56,23 +56,26 @@
 	<div class="part-middle" id="part-4">
 		<li id="liste">Inserer un matchs</li>
 		
-			
-			<form action="" method="post">
+			<div class="form-pos">
+			<form action="/public/insert-prono" method="POST">
 				<label for="">Nom du match</label>
-				<input type="text">
+				<input type="text" name="nom">
 				<label for="">Date evenements</label>
-				<input type="text">
+				<input type="date" name="date">
 				<label for="">Equipe domicile</label>
-				<input type="text">
-				<label for="">Cote domicile</label>
-				<input type="text">
+				<input type="text" name="equD">
+				<label for="">Equipe Exterieur</label>
+				<input type="text" name="equG">
+
+				<label for="" >Cote domicile</label>
+				<input type="number" name="coteD">
 				<label for="">Cote exterieur</label>
-				<input type="text">
+				<input type="number" name="coteE">
 				<label for="">Categorie sport</label>
-				<input type="text">
+				<input type="text" name="cat">
 				<input type="submit" value="Valider">
 			</form>
-		
+			</div>
 	
 	
 	</div>
