@@ -17,7 +17,13 @@ switch ($request) {
                 $route->post('/public/json-item', [new JsonControllerItem(), 'ajout']);
                 break;
                 case '/public/json-actu':
-                    $route->post('/public/json-actu', [new JsonControllerActu(), 'ajoutActu']);
+
+                    if(isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0){
+                        $route->post('/public/json-actu', [new JsonControllerCom(), 'ajoutCom'],);
+                    }
+                    else{
+                        $route->post('/public/json-actu', [new JsonControllerActu(), 'ajoutActu'],);
+                    }
                     break;
                     case '/public/json-prono':
                         $route->post('/public/json-prono', [new JsonControllerProno(), 'verificationProno']);
