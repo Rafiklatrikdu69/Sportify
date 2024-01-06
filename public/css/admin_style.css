@@ -99,7 +99,12 @@ img{
     -webkit-user-select: none;
     touch-action: manipulation;
 }
-
+ form{
+    height: auto;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+}
 .button-22:active {
     background-color: #006AE8;
 }
