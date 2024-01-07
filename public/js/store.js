@@ -1,4 +1,140 @@
-// Definition des const qui vont être utilisées durant tout le code
+let article = document.getElementById('articles')
+let donnee = {}; // Déclarer la variable à l'extérieur
+let couleurList = document.getElementById('couleur')
+let range = document.getElementsByClassName('range')[0]
+var prixRange = 140;
+
+ var option = null;
+
+fetch('/public/boutique/product')
+  .then(response => response.json())
+  .then(dataFromServer => {
+    if (!dataFromServer) {
+      console.log("nul !");
+    }
+
+    donnee = dataFromServer; 
+    console.log("donnee", donnee['1']);
+
+         let array = donnee['1']
+         createSection(array)
+
+
+         var arrByID = array.filter(filtrerParPrix);
+         
+         range.addEventListener('change',function(){
+            while (article.hasChildNodes()) {
+                article.removeChild(article.firstChild);
+              }
+           
+            prixRange = parseInt(this.value)
+            console.log(typeof this.value)
+            console.log(prixRange)
+            arrByID=  array.filter(filtrerParPrix);
+            createSection(arrByID) 
+            
+          })
+         couleurList.addEventListener('change', function() {
+
+            if (couleurList.selectedOptions.length > 0) {
+              
+              
+               
+                option = couleurList.selectedOptions[0].label;
+                if(option==="Aucune"){
+                    while (article.hasChildNodes()) {
+                        article.removeChild(article.firstChild);
+                      }
+                    createSection(array) 
+                    
+                }else{ 
+              console.log('Option sélectionnée :', couleurList.selectedOptions[0].label);
+            
+              arrByID = array.filter(filtrerParID);
+              while (article.hasChildNodes()) {
+                article.removeChild(article.firstChild);
+              }
+          
+              console.log(arrByID)
+             
+              createSection(arrByID)           
+            }
+                
+            } else {
+              
+              console.log('Aucune option sélectionnée.');
+            }
+          });
+       
+         console.log("Tableau filtré\n", arrByID);
+     
+       
+     
+
+  
+  })
+  .catch(error => {
+    console.error('Erreur lors de la récupération des données:', error);
+  });
+  var elementsInvalides = 0;
+  
+  function filtrerParID(obj,prix) {
+    // Si c'est un nombre
+    if (obj.couleur===option) {
+      return true;
+    } else {
+      elementsInvalides++;
+      return false;
+    }
+  }
+  function filtrerParPrix(obj) {
+    // Si c'est un nombre
+    if (obj.prix===prixRange) {
+      return true;
+    } else {
+      elementsInvalides++;
+      return false;
+    }
+  }
+  function createSection(arrByID){
+    
+    for(let i = 0;i<arrByID.length;i++){
+           
+        let divCard = document.createElement('div')
+        divCard.setAttribute('class','card')
+        let img = document.createElement('img')
+        img.setAttribute('src','images/img'+arrByID[i].id+'.jpg')
+        let h1 = document.createElement('h1')
+        h1.setAttribute('class','nom')
+       
+        h1.setAttribute('id',arrByID[i].id)
+        h1.textContent =arrByID[i].nom
+       
+        let p1= document.createElement('p')
+        p1.setAttribute('class','price')
+        p1.setAttribute('id',arrByID[i].prix)
+        p1.innerHTML = arrByID[i].prix + " points";
+        let p2 = document.createElement('p')
+        p2.innerHTML = arrByID[i].description
+        let p3 = document.createElement('p')
+        let btn = document.createElement('button')
+        btn.setAttribute('id','achat')
+        btn.innerHTML = "Acheter"
+        p3.appendChild(btn)
+      
+       
+       
+      
+        divCard.appendChild(img)
+        divCard.appendChild(h1)
+        divCard.appendChild(p1)
+        divCard.appendChild(p2)
+        divCard.appendChild(p3)
+       
+        article.appendChild(divCard)
+    }
+
+    // Definition des const qui vont être utilisées durant tout le code
 const boutique = document.getElementById("boutique");
 const actu = document.getElementById('actu');
 const prono = document.getElementById('prono');
@@ -59,7 +195,6 @@ function showConfirmation(itemId, itemPrice, itemName) {
 
 closeModalBtn.addEventListener('click', function() {
     modal.classList.remove('open');
-    //confirmPurchaseBtn.removeEventListener('click', confirmHandler);
 });
 
 function handleConfirmPurchase(itemId, itemPrice) {
@@ -87,7 +222,6 @@ function item(item_id, points) {
 }
 
 //let achat = document.querySelectorAll('#achat');
-
 achat.forEach(function (achatBtn) {
     achatBtn.addEventListener("click", function (event) {
         let parentCard = event.target.closest('.card');
@@ -98,6 +232,8 @@ achat.forEach(function (achatBtn) {
         showConfirmation(itemId, itemPrice, itemName);
     });
 });
+  }
+
 
 
 
