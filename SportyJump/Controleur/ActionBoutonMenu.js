@@ -6,37 +6,37 @@ const btFlecheGauche = document.getElementById("flecheGauche");
 function BoutonPressed() {
     btJouer.addEventListener("mouseover", function () {
         btJouer.src = "Dessin/Menu/boutonJouerPresse.png";
-        btJouer.style.cursor = "pointer"; 
+        btJouer.style.cursor = "pointer";
     });
     btClassement.addEventListener("mouseover", function () {
         btClassement.src = "Dessin/Menu/boutonClassementPresse.png";
-        btClassement.style.cursor = "pointer"; 
+        btClassement.style.cursor = "pointer";
     });
     btFlecheDroite.addEventListener("mouseover", function () {
         btFlecheDroite.src = "Dessin/Menu/boutonDroitePresse.png";
-        btFlecheDroite.style.cursor = "pointer"; 
+        btFlecheDroite.style.cursor = "pointer";
     });
     btFlecheGauche.addEventListener("mouseover", function () {
         btFlecheGauche.src = "Dessin/Menu/boutonGauchePresse.png";
-        btFlecheGauche.style.cursor = "pointer"; 
+        btFlecheGauche.style.cursor = "pointer";
     });
 }
 function BoutonReleased() {
     btJouer.addEventListener("mouseout", function () {
         btJouer.src = "Dessin/Menu/boutonJouer.png";
-        btJouer.style.cursor = "default"; 
+        btJouer.style.cursor = "default";
     });
     btClassement.addEventListener("mouseout", function () {
         btClassement.src = "Dessin/Menu/boutonClassement.png";
-        btClassement.style.cursor = "default"; 
+        btClassement.style.cursor = "default";
     });
     btFlecheDroite.addEventListener("mouseout", function () {
         btFlecheDroite.src = "Dessin/Menu/boutonDroite.png";
-        btFlecheDroite.style.cursor = "default"; 
+        btFlecheDroite.style.cursor = "default";
     });
     btFlecheGauche.addEventListener("mouseout", function () {
         btFlecheGauche.src = "Dessin/Menu/boutonGauche.png";
-        btFlecheGauche.style.cursor = "default"; 
+        btFlecheGauche.style.cursor = "default";
     });
 }
 function BoutonClick() {
@@ -44,7 +44,7 @@ function BoutonClick() {
         AfficherChargement();
     });
     btClassement.addEventListener("click", function () {
-        
+        window.location.href = "TableauScore.html";
     });
     btFlecheDroite.addEventListener("click", function () {
         switch (getType()) {

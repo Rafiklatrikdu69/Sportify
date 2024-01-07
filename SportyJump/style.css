@@ -215,3 +215,73 @@ header>a:first-child {
     align-items: center;
     margin-bottom: 0;
 }
+
+.tableauScore {
+    position: absolute;
+    font-family: 'Press Start 2P';
+    font-size: 20px;
+    border-spacing: 30px;
+    border-collapse: separate;
+    margin-top: 50px;
+}
+
+.ligne0 {
+    color: #fcfc04;
+}
+
+.ligne1 {
+    color: #dcdcdc;
+}
+
+.ligne2 {
+    color: #fc0404;
+}
+
+.ligne3 {
+    color: #fcb444;
+}
+
+.ligne4 {
+    color: #fcb494;
+}
+
+.ligne5 {
+    color: #f4cc34;
+}
+
+.ligne6 {
+    color: #fcfc04;
+}
+
+.ligne7 {
+    color: #14b42c;
+}
+
+.ligne8 {
+    color: #04fcdc;
+}
+
+.ligne9 {
+    color: #149cb4;
+}
+
+.ligne10 {
+    color: #0cd424;
+}
+
+.titre {
+    padding: 40;
+    position: absolute;
+    font-family: 'Press Start 2P';
+    font-size: 25px;
+    color: #04fcdc;
+    text-align: center;
+}
+
+tr>td:first-child {
+    text-align: left;
+}
+
+tr>td:last-child {
+    text-align: right;
+}
