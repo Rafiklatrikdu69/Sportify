@@ -52,6 +52,9 @@ switch ($request) {
                                             case '/public/boutique':
                                                 $route->get('/public/boutique', [new StoreController(), 'index']);
                                                 break;
+                                                case '/public/boutique/product':
+                                                    $route->get('/public/boutique/product', [new StoreController(), 'show']);
+                                                    break;
                                                 
                                                 case '/public/pronostique':
                                                     $route->get('/public/pronostique', [new PronoController(), 'index']);
