@@ -28,6 +28,21 @@ class ItemsDAO extends DAO{
         return $tab;
     }
     
+    public function getOwnedItems($pseudo){
+        $sql = "SELECT * FROM `ITEMS` WHERE ITEM_ID IN (SELECT ITEM_ID FROM INVENTAIRE WHERE UTILISATEUR_ID = (SELECT UTILISATEUR_ID FROM UTILISATEUR WHERE PSEUDO = :pseudo))";
+        $params = array(":pseudo" => $pseudo);
+        $sth = $this->queryAll($sql, $params);
+        
+        $tab = [];
+        foreach($sth as $item){
+            // Créer un objet Items à partir des résultats
+            $items = new Items($item[0],$item[1],$item[2],$item[3],$item[4],$item[5]);
+            
+            $tab[] = $items; // Ajout de l'objet Items dans le tableau
+        }
+        return $tab;
+    }
+    
     
     public function insertItems($data){
         $sql = "INSERT INTO Items (id, name, type, description, price, color) VALUES (:id, :name, :type, :description, :price, :color)";
