@@ -39,7 +39,6 @@ function PlacementPiece() {
         piece.style.position = "absolute";
         piece.style.left = cooPiece[0] + "px";
         piece.style.top = cooPiece[1] + "px";
-      
     }
 }
 
@@ -76,42 +75,13 @@ function PlacementScore() {
     s3.style.top = getYTerrain() + 1185 / getFacteur() + placement2 + "px";
     s3.style.fontSize = 48 / getFacteur() + "px";
 
-
     var s4 = document.getElementById("pieceScore");
     s4.innerHTML = "×" + nbPieceTexte;
-    let scoreFin=0;
-    fetch('/public/json-point-jeu')
-    .then(response => response.text())
-     .then(data => {
-        donnee = JSON.parse(data);
-        scoreFin = Math.round(donnee[1])+nbPieceTexte*1;
-        console.log("le score est de :"+scoreFin)
-        document.getElementsByClassName('point-user')[0].innerHTML = "Vous avez "+scoreFin+" points";
-         //console.log(JSON.parse(data))
-     });
-     function Score (score){
-        this.score = score;
-    }
-    e = new Score(nbPieceTexte*1)
-     fetch("/public/json-jeu-insere", {
-        "method": "POST",
-        "headers": {
-            "Content-Type": "application/json; charset=utf-8"
-        },
-      
-        "body": JSON.stringify(e)
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-    })
-
     s4.style.position = "absolute";
     s4.style.left = getXTerrain() + 350 / getFacteur() + "px";
     s4.style.top = getYTerrain() + 1435 / getFacteur() + placement3 + "px";
     s4.style.fontSize = 80 / getFacteur() + "px";
 }
-
 function PlacementNbPiece() {
     var nbPiece = document.getElementById("nbPiece");
     nbPiece.style.position = "absolute";

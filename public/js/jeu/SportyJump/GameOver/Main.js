@@ -2,7 +2,9 @@ window.onload = function () {
     setImageTerrain();
     setTerrain();
 
+
     setListePlateforme();
+    setTableauDeplacementPlateforme();
     setCooPlateformeForGameOver();
 
     DefinirTailleBallonHitBoxSaut();
@@ -37,5 +39,4 @@ window.onload = function () {
 
     startTimerDefilementObjets();
     startTimerChuteLibre();
-    // console.log("Le score :"+ localStorage.getItem("scoreTexte"))
 }

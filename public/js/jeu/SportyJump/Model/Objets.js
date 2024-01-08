@@ -237,7 +237,7 @@ function setImageVole() {
 function startTimerDecollage() {
     decollage = setInterval(function () {
         compteurJetDebut++
-        if (compteurJetDebut >= 110) {
+        if (compteurJetDebut >= 225) {
             setImageVole();
             setReculement();
             startTimerVole();
@@ -321,7 +321,7 @@ function stopTimerVole() {
 function startTimerFinVole() {
     fin = setInterval(function () {
         compteurJetFin++;
-        if (compteurJetFin >= 600) {
+        if (compteurJetFin >= 800) {
             stopTimerVole();
             activerChuteLibre = false;
             setReculementWithValue(25);

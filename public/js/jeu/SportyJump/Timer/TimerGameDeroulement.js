@@ -6,9 +6,7 @@ function startTimerBallonDeplacement() {
         ActionBoutonBallon();
         Fall();
         GameOver();
-        for (let i = 0; i < getNbPlateforme(); i++) {
-            let j = i + 1;
-            let p = document.querySelector(".plateforme:nth-child(" + j + ")");
+        document.querySelectorAll(".plateforme").forEach(function (p) {
             if (IsPlateformeTouch(p)) {
                 ActivationScore();
                 ActivationPlateforme();
@@ -24,8 +22,8 @@ function startTimerBallonDeplacement() {
                 }
             }
             NouvelAffichagePlateformeDescente(p);
-            isSupperposed(p);
-        }
+            mouvementPlateforme(p);
+        });
     }, getRafraichissement());
 }
 

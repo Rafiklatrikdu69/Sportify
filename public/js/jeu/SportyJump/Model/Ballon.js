@@ -1,7 +1,7 @@
 const ballonImage = document.getElementById("ballonImage");
 const ballonHitBoxSaut = document.getElementById("ballonHitBoxSaut");
 const ballonHitBoxGet = document.getElementById("ballonHitBoxGet");
-const vitesseAbscisse = 16 / getFacteur();
+const vitesseAbscisse = 16 / getFacteur() * 1.25;
 const typeBallon = getType();
 var jump = 40 / getFacteur();
 var gravity = 0;
@@ -9,13 +9,24 @@ var monstreTouch = false;
 let reinitialiseBallon;
 var keyDroite = false;
 var keyGauche = false;
-
+var nbPlateformeTouch = 0;
+var nbMonstreTouch = 0;
+var invulnerable = false;
 //================================================================== Configuration ==================================================================//
 //================================================================== Configuration ==================================================================//
 //================================================================== Configuration ==================================================================//
 
+function setInvulnerabiliteBallon(op) {
+    invulnerable = op;
+}
+function BallonIsInvulnerable() {
+    return invulnerable;
+}
 function setGravity() {
     gravity = jump;
+}
+function setJump(nb) {
+    jump = nb;
 }
 function egaliserCoo() {
     ballonImage.style.left = getXBallonHitBoxSaut() - 48 / getFacteur() + "px";
@@ -116,7 +127,7 @@ function ActionBoutonBallon() {
     }
     if (keyGauche) {
         setDirectionGauche();
-        if (getXBallonHitBoxSaut() <= getXTerrain() - 20) {
+        if (getXBallonHitBoxSaut() <= getXTerrain() - 25) {
             teleportationDroite();
         }
     }
@@ -161,26 +172,38 @@ function makeJump() {
     gravity = -jump;
 }
 function EquilibrageJumpEtVitesse() {
-    if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
-        jump = 40 / getFacteur();
-        setVitessePlateforme(50 / getFacteur());
+    if (getType() == 3) {
+        if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
+            jump = 43 / getFacteur();
+            setVitessePlateforme(60 / getFacteur());
+        } else {
+            jump = 22 / getFacteur();
+            setVitessePlateforme(100 / getFacteur());
+        }
     } else {
-        jump = 20 / getFacteur();
-        setVitessePlateforme(90 / getFacteur());
+        if (getYBallonHitBoxSaut() > 300 + getYTerrain()) {
+            jump = 37 / getFacteur();
+            setVitessePlateforme(45 / getFacteur());
+        } else {
+            jump = 20 / getFacteur();
+            setVitessePlateforme(70 / getFacteur());
+        }
     }
+    setPointGagner(20);
     setReculement();
-
 }
 function IsPlateformeTouch(plateforme) {
     let op = false;
-    if (!monstreTouch && gravity > 5 &&
+    if (!monstreTouch && gravity > 8 &&
         getXBallonHitBoxSaut() + getLongueurHitBoxSaut() >= getXPlateforme(plateforme) && getXBallonHitBoxSaut() <= getXPlateforme(plateforme) + getLongueurPlateforme(plateforme) &&
-        getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYPlateforme(plateforme) && getYBallonHitBoxSaut() <= getYPlateforme(plateforme) + getLargeurPlateforme(plateforme)) {
+        getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYPlateforme(plateforme) && getYBallonHitBoxSaut() <= getYPlateforme(plateforme) + getLargeurPlateforme(plateforme) + 10) {
         op = true;
         stopTimerRebond();
         EquilibrageJumpEtVitesse();
         makeJump();
         setRebond(typeBallon);
+        nbPlateformeTouch++;
+        invulnerable = false;
     }
     return op;
 }
@@ -193,10 +216,15 @@ function BallonElimineMonstre() {
     if (gravity > 5 &&
         getXBallonHitBoxSaut() + getLongueurHitBoxSaut() >= getXMonstreHitBoxVulnerable() && getXBallonHitBoxSaut() <= getXMonstreHitBoxVulnerable() + getLongueurHitBoxVulnerable() &&
         getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYMonstreHitBoxVulnerable() && getYBallonHitBoxSaut() <= getYMonstreHitBoxVulnerable() + getLargeurHitBoxVulnerable()) {
+
+        CadrageScoreMonstre();
+        AfficherScoreMonstre();
+        startTimerScoreMonstre();
         jump = 40 / getFacteur();
         makeJump();
         setRebond(getType());
         EliminerMonstre();
+        nbMonstreTouch++;
     }
 }
 //Méthodes utilsées dans le fichier monstre.js; 
@@ -221,6 +249,8 @@ function GameOver() {
         TransfererCooMonstre();
         TransfererCooPiece();
         window.location.href = "GameOver.html?entier=" + encodeURIComponent(getType());
+        //console.log("nombre de plateforme touchée : " + nbPlateformeTouch);
+        //console.log("nombre de monstre éliminé : " + nbMonstreTouch);
     }
 }
 
@@ -276,3 +306,38 @@ function deplacementHautBasBallon() {
     egaliserCoo();
 }
 
+
+//=============================================================== Partie Menu ===============================================================//
+//=============================================================== Partie Menu ===============================================================//
+//=============================================================== Partie Menu ===============================================================//
+
+function IsPlateformeTouchForMenu(plateforme) {
+    let op = false;
+    if (!monstreTouch && gravity > 8 &&
+        getXBallonHitBoxSaut() + getLongueurHitBoxSaut() >= getXPlateforme(plateforme) && getXBallonHitBoxSaut() <= getXPlateforme(plateforme) + getLongueurPlateforme(plateforme) &&
+        getYBallonHitBoxSaut() + getLargeurHitBoxSaut() >= getYPlateforme(plateforme) && getYBallonHitBoxSaut() <= getYPlateforme(plateforme) + getLargeurPlateforme(plateforme) + 10) {
+        op = true;
+        stopTimerRebond();
+        makeJump();
+        setRebond(typeBallon);
+    }
+    return op;
+}
+
+
+//=============================================================== Partie JetPack ===============================================================//
+//=============================================================== Partie JetPack ===============================================================//
+//=============================================================== Partie JetPack ===============================================================//
+
+function makeJumpAfterJetPack() {
+    if (gravity > 0) {
+        ballonHitBoxSaut.style.top = getYBallonHitBoxSaut() - gravity + "px";
+        gravity = gravity - 1;
+        egaliserCoo();
+    } else {
+        startTimerBallonDeplacement();
+        startTimerConfigurationModels();
+        stopTimerAtterissage();
+        jetIsTouch = false;
+    }
+}
