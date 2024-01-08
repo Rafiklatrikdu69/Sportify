@@ -64,6 +64,7 @@ body {
     margin: 0;
     background-color: #226B80;
     -webkit-font-smoothing: antialiased;
+   
 }
 
 .interfaceJeu {
@@ -75,6 +76,8 @@ body {
     overflow: hidden;
     width: 633px;
     height: 960px;
+    margin-top: 150px;
+    zoom:40%;
 }
 
 #police {
@@ -103,4 +106,10 @@ body {
     height: 2%;
     outline-offset: 10px;
     outline: 10px solid #FFEBD3;
+}
+
+@media screen and (min-width: 900px) {
+    .interfaceJeu{
+        zoom:45%;
+    }
 }
