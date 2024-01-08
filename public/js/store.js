@@ -230,62 +230,11 @@ achat.forEach(function (achatBtn) {
     });
 });
 
-  })
-  .catch(error => {
-    console.error('Erreur lors de la récupération des données:', error);
-  });
-  var elementsInvalides = 0;
-  
-  function filtrerParID(obj,prix) {
-    // Si c'est un nombre
-    if (obj.couleur===option) {
-      return true;
-    } else {
-      elementsInvalides++;
-      return false;
-    }
-  }
-  
-  function createSection(arrByID){
-    
-    for(let i = 0;i<arrByID.length;i++){
-           
-        let divCard = document.createElement('div')
-        divCard.setAttribute('class','card')
-        let img = document.createElement('img')
-        img.setAttribute('src','images/img'+arrByID[i].id+'.jpg')
-        let h1 = document.createElement('h1')
-        h1.setAttribute('class','nom')
-       
-        h1.setAttribute('id',arrByID[i].id)
-        h1.textContent =arrByID[i].nom
-       
-        let p1= document.createElement('p')
-        p1.setAttribute('class','price')
-        p1.setAttribute('id',arrByID[i].prix)
-        p1.innerHTML = arrByID[i].prix + " points";
-        let p2 = document.createElement('p')
-        p2.innerHTML = arrByID[i].description
-        let p3 = document.createElement('p')
-        let btn = document.createElement('button')
-        btn.setAttribute('id','achat')
-        btn.innerHTML = "Acheter"
-        p3.appendChild(btn)
-      
-       
-       
-      
-        divCard.appendChild(img)
-        divCard.appendChild(h1)
-        divCard.appendChild(p1)
-        divCard.appendChild(p2)
-        divCard.appendChild(p3)
-       
-        article.appendChild(divCard)
-    }
-   
-  }
+;
 
+  
+
+  }
 
 
 
