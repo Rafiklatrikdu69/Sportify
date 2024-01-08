@@ -7,11 +7,9 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
-    <script src="Model/Dimension.js" defer></script>
     <script src="Model/Tutoriel.js" defer></script>
-    <script src="Model/Terrain.js" defer></script>
+    <script src="Controleur/ActionTableauScore.js" defer></script>
     <script src="TableauScore/Main.js" defer></script>
-
 
     <title>SportyJump_Menu</title>
 </head>
@@ -28,7 +26,7 @@
     </header>
     <div class="interfaceJeu">
         <table class="tableauScore">
-            <p class="titre">Tableau des Scores</p>
+            <p class="titreTableauScore">- Tableau des Scores -</p>
             <tr class="ligne0">
                 <td> RANG </td>
                 <td> SCORE </td>
@@ -36,12 +34,12 @@
             </tr>
             <tr class="ligne1">
                 <td> 1ST </td>
-                <td> 100000</td>
+                <td> 100000000</td>
                 <td> ChocoPops </td>
             </tr>
             <tr class="ligne2">
                 <td> 2ND </td>
-                <td> 100000</td>
+                <td> 1000000</td>
                 <td> Lufty </td>
             </tr>
             <tr class="ligne3">
@@ -85,7 +83,7 @@
                 <td> Muhadinibishi</td>
             </tr>
         </table>
-        <img id="terrain" src="Dessin/Terrain/foot.png" alt="Mon Image">
+        <p id="boutonMenu" class="boutonMenu"> Retour au Menu </p>
     </div>
 
     <div class="tuto" id="tuto">

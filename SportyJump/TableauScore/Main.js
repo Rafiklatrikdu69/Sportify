@@ -1,4 +1,6 @@
 window.onload = function () {
-    setTerrain();
-    setTerrainScore();
+    document.querySelector(".interfaceJeu").style.backgroundColor = "black"; 
 }
+
+
+

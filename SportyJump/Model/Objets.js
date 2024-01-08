@@ -237,7 +237,7 @@ function setImageVole() {
 function startTimerDecollage() {
     decollage = setInterval(function () {
         compteurJetDebut++
-        if (compteurJetDebut >= 225) {
+        if (compteurJetDebut >= 110) {
             setImageVole();
             setReculement();
             startTimerVole();
@@ -245,7 +245,7 @@ function startTimerDecollage() {
             stopTimerDecollage();
             phaseJet = 2;
         }
-    }, 1);
+    }, 4);
 }
 function stopTimerDecollage() {
     clearInterval(decollage);
@@ -321,7 +321,7 @@ function stopTimerVole() {
 function startTimerFinVole() {
     fin = setInterval(function () {
         compteurJetFin++;
-        if (compteurJetFin >= 1500) {
+        if (compteurJetFin >= 600) {
             stopTimerVole();
             activerChuteLibre = false;
             setReculementWithValue(25);
@@ -334,7 +334,7 @@ function startTimerFinVole() {
             phaseJet = 3;
             activerChuteJetPause = true;
         }
-    }, 1);
+    }, 4);
 }
 function stopTimerFinVole() {
     clearInterval(fin);

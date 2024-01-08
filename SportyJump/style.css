@@ -220,9 +220,8 @@ header>a:first-child {
     position: absolute;
     font-family: 'Press Start 2P';
     font-size: 20px;
-    border-spacing: 30px;
+    border-spacing: 35px;
     border-collapse: separate;
-    margin-top: 50px;
 }
 
 .ligne0 {
@@ -269,9 +268,9 @@ header>a:first-child {
     color: #0cd424;
 }
 
-.titre {
-    padding: 40;
-    position: absolute;
+.titreTableauScore {
+    margin-top: 60px;
+    position: relative;
     font-family: 'Press Start 2P';
     font-size: 25px;
     color: #04fcdc;
@@ -283,5 +282,18 @@ tr>td:first-child {
 }
 
 tr>td:last-child {
-    text-align: right;
+    text-align: center;
+}
+tr>td:nth-child(2){
+   text-align: center;
+}
+
+.boutonMenu{
+    color: #dcdcdc;
+    font-size: 35px;
+    position:relative;
+    margin-top: 112%;
+    text-align: center;
+    font-family: 'Press Start 2P';
+    cursor: pointer;
 }
