@@ -487,3 +487,8 @@ legend:nth-of-type(4){
   transform: scale(0.9);
   opacity: 1;
 }
+@media screen and (min-width: 900px) {
+  body{
+      zoom:70%;
+  }
+}

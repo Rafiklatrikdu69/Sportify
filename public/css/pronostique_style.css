@@ -19,6 +19,7 @@ body{
     margin: 0;
     background-color: #226B80;
     -webkit-font-smoothing: antialiased;
+   
 }
 
 
@@ -486,5 +487,10 @@ th {
 
 .modal-inner h2{
     margin: 0;
+}
+@media screen and (min-width: 900px) {
+    body{
+        zoom:60%;
+    }
 }
 
