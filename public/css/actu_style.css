@@ -132,6 +132,10 @@ main{
     max-width: 20%;
     height: auto;
 }
+#like:hover{
+    filter:drop-shadow(0 0 5px #40A798);
+    -webkit-filter:drop-shadow(0 0 5px #40A798);
+}
 #comment{
     max-width: 35%;
     height: auto;
@@ -415,3 +419,26 @@ p{
     visibility: hidden;
     color: red;
 }
+
+.custom-like{
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* hover like, l'image devient bleu */
+.custom-like:hover{
+    filter:drop-shadow(0 0 5px #40A798);
+    -webkit-filter:drop-shadow(0 0 5px #40A798);
+}
+
+/* like clicked */
+.custom-like:active{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+

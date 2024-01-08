@@ -207,4 +207,45 @@ class UtilisateurDAO extends DAO{
   
         return $tab;
     }
+
+    public function getClassement($name) {
+        $sql = "SELECT PSEUDO, POINT_CLASSEMENT FROM `UTILISATEUR` ORDER BY POINT_CLASSEMENT DESC";
+        
+        $results = $this->queryAll($sql);
+        
+        if ($results !== false) {
+            $classement = 1;
+            foreach ($results as $user) {
+                if ($user['PSEUDO'] === $name) {
+                    return $classement;
+                }
+                $classement++;
+            }
+            // Si le nom d'utilisateur n'est pas trouvé dans les résultats
+            echo "Erreur : Nom d'utilisateur non trouvé dans le classement.";
+            return null;
+        } else {
+            echo "Erreur : Impossible de récupérer le classement depuis la base de données.";
+            return null;
+        }
+    }
+
+    public function getPdp($name){
+        $sql = "SELECT PDP_ID FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $result = $this->queryRow($sql, array('pseudo' => $name));
+        if ($result) {
+            return $result['PDP_ID'];
+        } else {
+            echo "Erreur : Impossible de récupérer l'ID de l'utilisateur depuis la base de données.";
+            return null;
+        }
+    }
+
+    public function updatePdpByName($name, $pdp) {
+        $sql = "UPDATE `UTILISATEUR` SET PDP_ID = :pdp WHERE PSEUDO = :pseudo";
+        $this->update($sql, array(
+            "pseudo" => $name,
+            "pdp" => $pdp
+        ));
+    }
 }

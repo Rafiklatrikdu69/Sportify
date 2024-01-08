@@ -29,3 +29,4 @@ function chbgout() {
     actu.style.marginLeft = "10%"
     actu.style.marginRight = "10%"
 }
+

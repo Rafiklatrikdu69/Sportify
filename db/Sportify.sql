@@ -170,7 +170,8 @@ CREATE TABLE `UTILISATEUR` (
   `POINT_CLASSEMENT` int DEFAULT '0',
   `STATUS` int DEFAULT '0',
   `SCORE_JEU` int DEFAULT '0',
-  `LAST_CONNECTION` date DEFAULT NULL
+  `LAST_CONNECTION` date DEFAULT NULL,
+  `PDP_ID` varchar(100) DEFAULT 'http://localhost/public/images/logo.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --

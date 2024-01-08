@@ -61,9 +61,9 @@ use \App\Config;
             <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins</p>
             </div>
             <div>
-                <img src="images/logo.png">
+                <button id="buttonpdp"><img id="imagepdp" src="<?php echo $userPdp?>"></button>
                 <p><?php echo $_SESSION['nom']?></p>
-                <p>Classement</p>
+                <p><?php echo (int)$userRank; ?></p>
                 <p>Prono réussi</p>
                 <p>Badges</p>
                 <p>Equipe préférée</p>
@@ -79,6 +79,19 @@ use \App\Config;
             <button id="closeModal">Annuler</button>
         </div>
     </div>
+
+
+    <div id="modalpdp">
+        <div id="modalpdp-inner">
+            <h2>Choisissez votre photo de profil:</h2>
+            <?php
+            foreach($tabItemsOwned as $item){?>
+                <img class="imgpdp" src="images/img<?php echo $item->getId()?>.jpg">
+            <?php }?>
+            <button id="submitpdp">Confirmer</button>
+            <button id="closemodalpdp">Annuler</button>
+        </div>
+    </div> 
 
     
     <script src="../../public/js/store.js"></script>
