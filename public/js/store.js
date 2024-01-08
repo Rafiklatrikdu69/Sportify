@@ -37,9 +37,6 @@ fetch('/public/boutique/product')
          couleurList.addEventListener('change', function() {
 
             if (couleurList.selectedOptions.length > 0) {
-              
-              
-               
                 option = couleurList.selectedOptions[0].label;
                 if(option==="Aucune"){
                     while (article.hasChildNodes()) {
