@@ -196,7 +196,6 @@ closeModalBtn.addEventListener('click', function() {
 
 function handleConfirmPurchase(itemId, itemPrice) {
     let items = new item(itemId, itemPrice);
-
     fetch('/public/json-item', {
         method: "POST",
         headers: {
@@ -204,7 +203,12 @@ function handleConfirmPurchase(itemId, itemPrice) {
         },
         body: JSON.stringify(items)
     })
-    .then(response => response.text())
+    .then(function(response){
+      response.text();
+      window.location.reload();
+    }
+      
+    )
     .then(data => {
         console.log(data);
     })
