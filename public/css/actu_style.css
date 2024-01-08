@@ -441,4 +441,9 @@ p{
     margin-left: 10%;
     margin-right: 10%;
 }
+@media screen and (min-width: 900px) {
+    body{
+        zoom:65%;
+    }
+}
 
