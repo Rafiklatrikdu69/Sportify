@@ -13,6 +13,7 @@ class StoreController extends Controllers {
             "userId"=>(new utilisateurDAO())->getUserId($_SESSION['nom']),
             "userRank"=>(new utilisateurDAO())->getClassement($_SESSION['nom']),
             "userPdp"=>(new utilisateurDAO())->getPdp($_SESSION['nom']),
+            "pronoWin"=>(new utilisateurDAO())->getPronoWin($_SESSION['nom']),
         ]);
         
         

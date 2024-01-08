@@ -248,4 +248,25 @@ class UtilisateurDAO extends DAO{
             "pdp" => $pdp
         ));
     }
+
+
+    public function getPronoWin($name){
+        $sql = "SELECT COUNT(PRONOSTIC.COTE_PRONO) AS NB_PRONO
+                FROM 
+                    PRONOSTIC 
+                JOIN 
+                    UTILISATEUR ON UTILISATEUR.UTILISATEUR_ID = PRONOSTIC.PRONOSTIQUEUR_ID 
+                JOIN 
+                    EVENEMENT ON PRONOSTIC.MATCH_PRONO = EVENEMENT.EVENEMENT_ID 
+                WHERE 
+                    UTILISATEUR.PSEUDO = :nom AND PRONOSTIC.STATUS = 1";
+        $stmt = $this->queryAll($sql, array("nom" => $name));
+        $result = $stmt[0];
+        if ($result) {
+            return $result['NB_PRONO'];
+        } else {
+            echo "Erreur : Impossible de récupérer le nombre de pronostics gagnés depuis la base de données.";
+            return null;
+        }
+    }
 }

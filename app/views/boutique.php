@@ -63,8 +63,8 @@ use \App\Config;
             <div>
                 <button id="buttonpdp"><img id="imagepdp" src="<?php echo $userPdp?>"></button>
                 <p><?php echo $_SESSION['nom']?></p>
-                <p><?php echo (int)$userRank; ?></p>
-                <p>Prono réussi</p>
+                <p><?php echo "Rank: " . (int)$userRank; ?></p>
+                <p><?php echo "Prono réussi: " . (int)$pronoWin?></p>
                 <p>Badges</p>
                 <p>Equipe préférée</p>
             </div>
