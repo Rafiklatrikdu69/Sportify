@@ -44,7 +44,7 @@ setInterval(checkGen, 500);
 
 
 function checkGen(){
-  if(etape === -1){
+if(etape === -1){
     name_check = checkName()
     if(name_check === false){
       plusSlides(1)
@@ -85,13 +85,13 @@ function checkform(){
   }
 
   function checkName(){
-    const nameRegex = /^[a-zA-Z]+$/;
+    const nameRegex = /^[a-zA-Z0-9]{3,}$/;
     let c = nameRegex.test(document.getElementById("username").value);
     return c;
   }
 
   function checkPassword(){
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$/;
+    const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/    ;
     let b = passwordRegex.test(document.getElementById("password").value);
     return b;
   }

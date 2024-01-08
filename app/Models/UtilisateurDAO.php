@@ -7,7 +7,7 @@
 class UtilisateurDAO extends DAO{
     
     public function getAllUsers(){
-        $sql = "SELECT * FROM `UTILISATEUR`";
+        $sql = "SELECT * FROM `UTILISATEUR` WHERE STATUS = 1";
         $res = $this->queryAll($sql);
         $tab = [];
     
@@ -127,7 +127,16 @@ class UtilisateurDAO extends DAO{
     }
 
     public function deleteUtilisateurByID($id){
-        $sql = "DELETE  FROM UTILISATEUR WHERE UTILISATEUR_ID = :id";
+
+        $sql = "DELETE FROM `UTILISATEUR` WHERE UTILISATEUR_ID = :id";
+        $this->delete($sql, array('id' => $id));
+
+        $sql = "DELETE FROM `INVENTAIRE` WHERE UTILISATEUR_ID = :id";
+        $this->delete($sql, array('id' => $id));
+
+
+        $sql = "DELETE FROM `PRONOSTIC` WHERE PRONOSTIQUEUR_ID = :id";
+
         $this->delete($sql, array('id' => $id));
     }
     
@@ -144,5 +153,120 @@ class UtilisateurDAO extends DAO{
             return null;
         }
     }
-}
 
+    public function setLastConnection($name){
+        $sql = "UPDATE `UTILISATEUR` SET LAST_CONNECTION = CAST(NOW() AS DATE) WHERE PSEUDO = :pseudo";
+        $this->update($sql, array(
+            "pseudo" => $name
+        ));
+    }
+
+
+    public function addPoint($name){
+        $sql = "UPDATE `UTILISATEUR` SET POINT_ACTUEL = POINT_ACTUEL + 10 WHERE UTILISATEUR_ID = :id";
+        $this->update($sql, array(
+            "id" => $this->getUserId($name)
+        ));
+    }
+    public function updatePointJeu($points,$name){
+        $sql = "UPDATE `UTILISATEUR` SET POINT_ACTUEL = POINT_ACTUEL + :points WHERE UTILISATEUR_ID = :id";
+        $this->update($sql, array(
+            "points"=>$points,
+            "id" => $this->getUserId($name)
+           
+        ));
+    }
+    public function getLastConnection($name){
+        $sql = "SELECT LAST_CONNECTION FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $result = $this->queryRow($sql, array('pseudo' => $name));
+        if ($result) {
+            if($result['LAST_CONNECTION'] != date("Y-m-d")){
+                (new UtilisateurDAO())->addPoint($name);
+                (new UtilisateurDAO())->setLastConnection($name);
+                return "Vous avez gagné 10 points pour votre connexion quotidienne !";
+            }
+            else{
+                return date("Y-m-d");
+            }
+        }
+        else {
+            echo "Erreur : Impossible de récupérer la dernière connexion de l'utilisateur depuis la base de données.";
+            return "";
+        }
+    }
+
+    public function getTop10(){
+        $sql = "SELECT * FROM `UTILISATEUR` WHERE STATUS = 1 ORDER BY POINT_CLASSEMENT DESC LIMIT 10";
+        $res = $this->queryAll($sql);
+        $tab = [];
+    
+        foreach($res as $user){
+           $us = new Utilisateur($user[0],$user[1],$user[2],$user[3],$user[4],$user[5],$user[6],$user[7]);
+           $tab[]  = $us;
+        }
+  
+        return $tab;
+    }
+
+    public function getClassement($name) {
+        $sql = "SELECT PSEUDO, POINT_CLASSEMENT FROM `UTILISATEUR` ORDER BY POINT_CLASSEMENT DESC";
+        
+        $results = $this->queryAll($sql);
+        
+        if ($results !== false) {
+            $classement = 1;
+            foreach ($results as $user) {
+                if ($user['PSEUDO'] === $name) {
+                    return $classement;
+                }
+                $classement++;
+            }
+            // Si le nom d'utilisateur n'est pas trouvé dans les résultats
+            echo "Erreur : Nom d'utilisateur non trouvé dans le classement.";
+            return null;
+        } else {
+            echo "Erreur : Impossible de récupérer le classement depuis la base de données.";
+            return null;
+        }
+    }
+
+    public function getPdp($name){
+        $sql = "SELECT PDP_ID FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $result = $this->queryRow($sql, array('pseudo' => $name));
+        if ($result) {
+            return $result['PDP_ID'];
+        } else {
+            echo "Erreur : Impossible de récupérer l'ID de l'utilisateur depuis la base de données.";
+            return null;
+        }
+    }
+
+    public function updatePdpByName($name, $pdp) {
+        $sql = "UPDATE `UTILISATEUR` SET PDP_ID = :pdp WHERE PSEUDO = :pseudo";
+        $this->update($sql, array(
+            "pseudo" => $name,
+            "pdp" => $pdp
+        ));
+    }
+
+
+    public function getPronoWin($name){
+        $sql = "SELECT COUNT(PRONOSTIC.COTE_PRONO) AS NB_PRONO
+                FROM 
+                    PRONOSTIC 
+                JOIN 
+                    UTILISATEUR ON UTILISATEUR.UTILISATEUR_ID = PRONOSTIC.PRONOSTIQUEUR_ID 
+                JOIN 
+                    EVENEMENT ON PRONOSTIC.MATCH_PRONO = EVENEMENT.EVENEMENT_ID 
+                WHERE 
+                    UTILISATEUR.PSEUDO = :nom AND PRONOSTIC.STATUS = 1";
+        $stmt = $this->queryAll($sql, array("nom" => $name));
+        $result = $stmt[0];
+        if ($result) {
+            return $result['NB_PRONO'];
+        } else {
+            echo "Erreur : Impossible de récupérer le nombre de pronostics gagnés depuis la base de données.";
+            return null;
+        }
+    }
+}

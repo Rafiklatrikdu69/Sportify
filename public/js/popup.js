@@ -62,21 +62,28 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             "body": JSON.stringify(pronostique1)
         })
-            .then(function (response) {
-                return response.text();
-            })
+        .then(function(response) {
+            var text = response.text();
+            window.location.reload();
+            return text;
+        })
             .then(function (data) {
                 console.log(data);
+                resultatElement.textContent="";
+                    document.getElementsByClassName('match-deja-jouer')[0].style.visibility = "hidden";
+                
                 if(data==true){
                     resultatElement.textContent = "Vous avez deja pronostiquer !";
                     document.getElementsByClassName('match-deja-jouer')[0].style.visibility = "visible";
-                    
+                    location.reload();
                 }
+               
                 if(data==="point"){
                     resultatElement.textContent = "Vous n'avez pas assez de points !";
                     document.getElementsByClassName('match-deja-jouer')[0].style.visibility = "visible";
-                    
+                    location.reload();
                 }
+              
 
               
                

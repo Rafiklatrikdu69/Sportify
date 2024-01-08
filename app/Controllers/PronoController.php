@@ -4,8 +4,10 @@ class PronoController extends Controllers{
      
        (new VerifSession());
         View::View('pronostique',["tableau"=>(new EvenementDAO())->getAll(),
-    "pointsUser"=>( new utilisateurDAO())->getPointUser($_SESSION['nom'])]);
-       
+    "pointsUser"=>( new UtilisateurDAO())->getPointUser($_SESSION['nom']),
+    "tableauProno"=>(new PronostiqueDAO())->selectPronoByUser($_SESSION['nom']),
+    "lastConnection"=>(new UtilisateurDAO())->getLastConnection($_SESSION['nom'])]);
+    
         $testData=(new EvenementDAO())->getAll();
         $encodedDataArray = [];
         
@@ -33,6 +35,11 @@ class PronoController extends Controllers{
  
         file_put_contents('data.json', $finalEncodedData);
     
+    }
+
+    public function insert(){
+        $event = new EvenementDAO();
+        $event->insertEvenement($_POST);
     }
     
   

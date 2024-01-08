@@ -4,6 +4,7 @@ require 'DAO.php';
 
 
 class ItemsDAO extends DAO{
+    
     public function get($id){
         $sql = "SELECT * FROM Items WHERE id = :id";
         $params = array(":id" => $id);
@@ -20,6 +21,21 @@ class ItemsDAO extends DAO{
         $sth = $this->queryAll($sql);
         $tab = [];
         foreach($sth as $item){
+            $items = new Items($item[0],$item[1],$item[2],$item[3],$item[4],$item[5]);
+            
+            $tab[] = $items; // Ajout de l'objet Items dans le tableau
+        }
+        return $tab;
+    }
+    
+    public function getOwnedItems($pseudo){
+        $sql = "SELECT * FROM `ITEMS` WHERE ITEM_ID IN (SELECT ITEM_ID FROM INVENTAIRE WHERE UTILISATEUR_ID = (SELECT UTILISATEUR_ID FROM UTILISATEUR WHERE PSEUDO = :pseudo))";
+        $params = array(":pseudo" => $pseudo);
+        $sth = $this->queryAll($sql, $params);
+        
+        $tab = [];
+        foreach($sth as $item){
+            // Créer un objet Items à partir des résultats
             $items = new Items($item[0],$item[1],$item[2],$item[3],$item[4],$item[5]);
             
             $tab[] = $items; // Ajout de l'objet Items dans le tableau

@@ -1,0 +1,115 @@
+@font-face {
+    font-family: futura;
+    src: url(font/SansSerifBldFLF.otf);
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+*{
+    font-family: futura;
+}
+
+header {
+    font-family: futura;
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    grid-template: 1fr / 10% 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    height: auto;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s, color 0.3s, margin-left 0.3s, margin-right 0.3s;
+}
+
+
+header img {
+    grid-area: 1/1/2/2;
+    width: 4rem;
+    height: 4rem;
+}
+
+header a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    transition: background-color 0.3s, color 0.3s, margin-left 0.3s, margin-right 0.3s;
+}
+
+header>a:hover {
+    background-color: #40A798;
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+header>a:first-child {
+    background-color: black;
+    color: black;
+}
+
+#jeu {
+    /* changer la couleur pour montrer qu'on est sur cette page */
+    background-color: #40A798;
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+body {
+    margin: 0;
+    background-color: #226B80;
+    -webkit-font-smoothing: antialiased;
+   
+}
+
+.interfaceJeu {
+    position: absolute;
+    top: calc(5rem + 16px);
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 200px #000000;
+    overflow: hidden;
+    width: 633px;
+    height: 960px;
+    margin-top: 150px;
+    zoom:40%;
+}
+
+#police {
+    position: absolute;
+    font-family: 'Press Start 2P';
+    color: black;
+    font-size: 30px;
+    white-space: nowrap;
+}
+
+.plateforme {
+    position: absolute;
+}
+
+.invisible {
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.point-user{
+    background-color: #FFEBD3;
+    color: black;
+    grid-area: 2/1/6/2;
+    text-align: center;
+    border-radius: 4px;
+    height: 2%;
+    outline-offset: 10px;
+    outline: 10px solid #FFEBD3;
+}
+
+@media screen and (min-width: 900px) {
+    .interfaceJeu{
+        zoom:45%;
+    }
+}

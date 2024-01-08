@@ -37,7 +37,7 @@
 			</span>
 		</button>
 
-		<button class="button" id="pronostique">
+		<button class="button" id="events">
 			<ion-icon name="calendar-outline"></ion-icon>
 			<span class="button-flex">
 				<img src="images/calendar-outline.svg" alt="photo user">
@@ -53,16 +53,47 @@
 			</span>
 		</button>
 	</div>
+	<div class="part-middle" id="part-4">
+		<li id="liste">Inserer un matchs</li>
+		
+			<div class="form-pos">
+			<form action="/public/insert-prono" method="POST">
+				<label for="">Nom du match</label>
+				<input type="text" name="nom">
+				<label for="">Date evenements</label>
+				<input type="date" name="date">
+				<label for="">Equipe domicile</label>
+				<input type="text" name="equD">
+				<label for="">Equipe Exterieur</label>
+				<input type="text" name="equG">
 
-	<div class="part-middle">
+				<label for="" >Cote domicile</label>
+				<input type="number" name="coteD">
+				<label for="">Cote exterieur</label>
+				<input type="number" name="coteE">
+				<label for="">Categorie sport</label>
+				<input type="text" name="cat">
+				<input type="submit" value="Valider">
+			</form>
+			</div>
+	
+	
+	</div>
+
+	<div class="part-middle" id="part-1">
 		<li id="liste">Liste des utilisateurs</li>
 		<div class="user">
+			
 			<div class="id">ID</div>
 			<div class="pseudo">Pseudo</div>
 			<div class="adresse-mail">Email</div>
 			<div class="point">Point actuel</div>
 			<div class="point-class">Point Classement</div>
 			<div class="score">Score</div>
+			<div class="dropdown">
+					<button class="dropbtn" id="ajout-util">Ajouter</button>
+					
+				</div>
 		</div>
 	
 	
@@ -71,7 +102,7 @@
 				<div class="id" id="<?php echo $user->getUtilisateurId();?>"><?php echo $user->getUtilisateurId();?></div>
 				<div class="pseudo"><?php echo $user->getPseudo();?></div>
 				<div class="adresse-mail"><?php echo $user->getEmail();?></div>
-				<div class="point"><?php echo $user->getPointActuel();?></div>
+				<div class="point"><?php echo (int)$user->getPointActuel();?></div>
 				<div class="point-class"><?php echo $user->getPointClassement();?></div>
 				<div class="score"><?php  echo $user->getScoreJeu()?></div>
 				<div class="dropdown">
@@ -87,6 +118,83 @@
 		<?php } ?>
 	</div>
 
-	<script src="../../public/js/admin.js"></script>
+	<div class="part-middle" id="ajout">
+<form action="/public/	verification-formulaire-inscription" method="POST">
+	<label for="">Le pseudo</label>
+	<input type="text" name="username">
+	<label for="">Le mot de passe</label>
+	<input type="password" name="password">
+	<label for="">Adresse mail</label>
+	<input type="text" name="email">
+	<input type="submit" value="Terminer">
+</form>
+</div>
+	
+ </div>  
+		<main>
+            <!-- la section avec les pronostics est ici -->
+            
+        </main>
+
+		<div class="part-middle" id="part-3">
+		<li id="liste">Liste des matchs</li>
+		<div class="pronostique">
+			<div class="id">ID</div>
+			<div class="equipe_d">equipe 1</div>
+			<div class="equipe_e">equipe 2</div>
+			<div class="nom_even">Ligue</div>
+			<div class="cat_sport">categorie</div>
+			<div class="date">Date</div>
+			<div class="cote_d">Cote domicile</div>
+			<div class="cote_e">Cote Exterieur</div>
+		</div>
+	
+	
+		<?php foreach($evenement as $evenements){?>
+			<div class="pronostique">
+				<div class="id" id="<?php echo $evenements->getId();?>"><?php echo $evenements->getId();?></div>
+				<div class="equipe_d"><?php echo $evenements->getEquipe_domicile();?></div>
+				<div class="equipe_e"><?php echo $evenements->getEquipe_exterieur();?></div>
+				<div class="nom_even"><?php echo $evenements->getNomEvenement();?></div>
+				<div class="cat_sport"><?php echo $evenements->getCatSport();?></div>
+				<div class="date"><?php  echo $evenements->getDate_evenement()?></div>
+				<div class="cote_d"><?php  echo $evenements->getCote_domicile()?></div>
+				<div class="cote_e"><?php  echo $evenements->getCote_exterieur()?></div>
+				<div class="dropdown">
+					<button class="dropbtn">Actions</button>
+					<div class="dropdown-content">
+						<ul>
+							<li class="myBtn" id="<?php echo $evenements->getId();?>">Terminer</li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		
+	
+	
+		
+	<!-- Trigger/Open The Modal -->
+<!-- <button id="myBtn">Open Modal</button> -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content" id="<?php echo $evenements->getId();?>">
+    <!-- <span class="close">&times;</span> -->
+   <input class="<?php  echo $evenements->getCote_domicile()?>" type="submit" value="<?php  echo $evenements->getCote_domicile()?>" id="btn-terminer">
+   <input class="<?php  echo $evenements->getCote_exterieur()?>" type="submit" value="<?php  echo $evenements->getCote_exterieur()?>" id="btn-terminer">
+  </div>
+
+</div>
+		<?php } ?>
+		
+		</div>
+
+	<script src="../../public/js/admin.js">
+
+		
+	</script>
 </body>
 </html>

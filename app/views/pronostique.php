@@ -16,31 +16,42 @@ use \App\Config;
 <body>
     <?php header::header()?>
     <div id="base">
-        <aside id="categorie">
-            <form>
-                <fieldset>
-                    <legend>Filtres</legend>
-                    <legend>Types d'item</legend>
-                    <input type="radio" name="categorie" value="icone">Icône<br>
-                    <input type="radio" name="categorie" value="fond">Fond<br>
-                    <input type="radio" name="categorie" value="badges">Badges<br>
-                    <input type="radio" name="categorie" value="badges">Style nom<br>
-                    <legend>Couleur</legend>
-                    <select id="couleur">
-                        <option value="">Aucune</option>
-                        <option value="dog">Rouge</option>
-                        <option value="cat">Vert</option>
-                        <option value="hamster">Bleu</option>
-                        <option value="parrot">Noir</option>
-                        <option value="spider">Blanc</option>
-                    </select>
-                    <br>
-                    <legend>Disponibilité</legend>
-                    <input type="radio" name="dispo" value="possédé">Possédé<br>
-                    <input type="radio" name="dispo" value="possédé">Non possédé<br>
-                       
-                </fieldset>
-            </form>
+        <aside id="liste_prono">
+        <div id="Tablo">
+    <h2 id="h2">Historique des pronostics</h2>
+    <div class="scrollable-container">
+        <?php
+        echo '<table>';
+        echo '<thead>';
+        echo '<tr>';
+        echo '<th>Equipe gagnante</th>';
+        echo '<th>Equipe perdante</th>';
+        echo '<th>Cote</th>';
+        echo '<th>Mise</th>';
+        echo '</tr>';
+        echo '</thead>';
+        echo '<tbody>';
+
+        if (empty($tableauProno)) {
+            echo '<tr>';
+            echo '<td colspan="5">Vous n\'avez pas encore parié</td>';
+            echo '</tr>';
+        }
+        foreach ($tableauProno as $prono) {
+            $lastProno = $prono;
+            echo '<tr>';
+            echo '<td>' . $prono->getEquipeConcernee() . '</td>';
+            echo '<td>' . $prono->getEquipePerdante() . '</td>';
+            echo '<td>' . $prono->getCote() . '</td>';
+            echo '<td>' . $prono->getMise() . '</td>';
+            echo '</tr>';
+        }
+
+        echo '</tbody>';
+        echo '</table>';
+        ?>
+    </div>
+</div>
         </aside>
         <main>
             <!-- la section avec les pronostics est ici -->
@@ -48,7 +59,7 @@ use \App\Config;
         </main>
     <aside id="profil">
             <div>
-                <p id="coin"><?php echo $pointsUser; ?> Sporticoins</p>
+                <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins</p>
             </div>
             <div>
                 <img src="images/logo.png">
@@ -68,16 +79,21 @@ use \App\Config;
                 <p>Vous avez choisi la cote <span id="cote_joue"></span></p>
                 <p class="match-deja-jouer" id="resultat">Vous avez deja parier sur ce match</p>
                 <form id="pariForm">
-                    <input type="number" name="mise" id="mise" placeholder="0">
+                    <input type="number" name="mise" id="mise" placeholder="0" min="1">
                     <input type="submit" value="Valider">
                 </form>
                 <p id="gain">Votre gain potentiel est de : </p>
                 <button id="closeModal">Annuler</button>
         </div>
     </div>
-                
+    <div class="modal" id="modalR">
+        <div class="modal-innerR">
+                <h2 id="DailyReward"><?php echo $lastConnection; ?></h2>
+                <button id="closeModalR">Fermer</button>
+        </div>
     </div>
 </body>
 </html>
 <script src="../../public/js/prono.js"></script>
 <script src="../../public/js/popup.js"></script>
+<script src="../../public/js/daily_reward.js"></script>

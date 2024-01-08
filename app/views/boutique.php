@@ -48,37 +48,23 @@ use \App\Config;
 
         <section id="articles">
 
-        <?php
-            foreach($tabItems as $item){?>
-            <div class="card">
-                <img src="images/logo.png">
-                <h1 class="nom" id="<?php echo $item->getId()?>"><?php echo $item->getName()?></h1>
-                <p class="price" id="<?php echo $item->getPrice()?>"><?php echo $item->getPrice()?> points</p>
-                <p><?php echo $item->getDescription()?></p>
-                <p><button id="achat">Acheter</button></p>
-            </div>
-            <?php }?>
+       
 
 
-            <!-- <div class="card">
-                <img src="images/logo.png">
-                <h1>T-shirt Fornite</h1>
-                <p class="price">120 points</p>
-                <p>Le skin t-shirt plus apprécié des utilisateurs</p>
-                <p><button>Acheter</button></p>
-            </div>  -->
+           
 
         </section>
-        
+
+      
         <aside id="profil">
             <div>
-            <p id="coin"><?php echo $pointsUser; ?> Sporticoins</p>
+            <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins</p>
             </div>
             <div>
-                <img src="images/logo.png">
+                <button id="buttonpdp"><img id="imagepdp" src="<?php echo $userPdp?>"></button>
                 <p><?php echo $_SESSION['nom']?></p>
-                <p>Classement</p>
-                <p>Prono réussi</p>
+                <p><?php echo "Rank: " . (int)$userRank; ?></p>
+                <p><?php echo "Prono réussi: " . (int)$pronoWin?></p>
                 <p>Badges</p>
                 <p>Equipe préférée</p>
             </div>
@@ -93,6 +79,19 @@ use \App\Config;
             <button id="closeModal">Annuler</button>
         </div>
     </div>
+
+
+    <div id="modalpdp">
+        <div id="modalpdp-inner">
+            <h2>Choisissez votre photo de profil:</h2>
+            <?php
+            foreach($tabItemsOwned as $item){?>
+                <img class="imgpdp" src="images/img<?php echo $item->getId()?>.jpg">
+            <?php }?>
+            <button id="submitpdp">Confirmer</button>
+            <button id="closemodalpdp">Annuler</button>
+        </div>
+    </div> 
 
     
     <script src="../../public/js/store.js"></script>

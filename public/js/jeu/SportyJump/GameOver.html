@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <script src="Model/Dimension.js" defer></script>
+    <script src="Model/Terrain.js" defer></script>
+    <script src="Model/Ballon.js" defer></script>
+    <script src="Model/TailleModel.js" defer></script>
+    <script src="Model/Plateforme.js" defer></script>
+    <script src="Model/ListePlateforme.js" defer></script>
+    <script src="Model/Monstre.js" defer></script>
+    <script src="Model/Piece.js" defer></script>
+    <script src="GameOver/Bouton.js" defer></script>
+    <script src="GameOver/PlacementElement.js" defer></script>
+    <script src="GameOver/GetteurSetteurElement.js" defer></script>
+    <script src="Controleur/ActionBallon.js" defer></script>
+    <script src="Controleur/ActionBoutonGameOver.js" defer></script>
+    <script src="Timer/TimerGameOverChuteLibre.js" defer></script>
+    <script src="Timer/TimerGameOverDefilementObjets.js" defer></script>
+    <script src="GameOver/Main.js" defer></script>
+    <title>SportyJump_GameOver</title>
+</head>
+
+<body>
+    <header>
+        <a id="accueil" href="/public/actualite"><img src="logo.png"></a>
+        <a id="actu" href="/public/actualite">Actu</a>
+        <a id="prono" href="/public/pronostique">Prono</a>
+        <a id="boutique" href="/public/boutique">Boutique</a>
+        <a id="jeu" href="/public/boutique">Mini-Jeu</a>
+        <a id="deconnexion" href="/public/deconnexion">Déconnexion</a>
+    </header>
+   
+    <div class="interfaceJeu">
+        <div class="point-user">hasdsadm</div>
+        <div id="plateforme"></div>
+        <div id="police">
+            <a id="actuelScore">VOTRE SCORE:</a>
+            <a id="pieceScore">×0</a>
+            <a id="meilleurScorePersonnel">VOTRE MEILLEUR SCORE:XXXX</a>
+            <a id="meilleurScore">GLOBAL MEILLEUR SCORE:XXXX</a>
+        </div>
+        <img id="terrain" src="Dessin/Terrain/foot.png" alt="Mon Image">
+        <img id="ballonImage" src="Dessin/Ballon/ballon_foot.png" alt="Mon Image">
+        <img id="piece" src="Dessin/Piece/piece.gif" alt="Mon Image">
+        <img id="monstreImage" src="Dessin/Monstre/Albanie.png" alt="Mon Image">
+        <img id="nbPiece" src="Dessin/Piece/piece.gif" alt="Mon Image">
+        <img id="titre" src="Dessin/GameOver/titre.png" alt="Mon Image">
+        <img id="boutonJouer" src="Dessin/GameOver/boutonJouer.png" alt="Mon Image">
+        <img id="boutonMenu" src="Dessin/GameOver/boutonMenu.png" alt="Mon Image">
+
+        <div class="invisible">
+            <img id="ballonHitBoxSaut" src="Dessin/Ballon/HitBox.png" alt="Mon Image">
+            <img id="ballonHitBoxGet" src="Dessin/Ballon/HitBoxGet.png" alt="Mon Image">
+            <img id="monstreHitBoxAttack" src="Dessin/Monstre/HitBoxMonstre.png" alt="Mon Image">
+            <img id="monstreHitBoxVulnerable" src="Dessin/Monstre/HitBoxVulnerableMonstre.png" alt="Mon Image">
+        </div>
+    </div>
+</body>
+
+</html>
