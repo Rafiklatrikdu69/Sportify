@@ -20,7 +20,7 @@
         <div id="classement">
             <div>
                 <table>
-                <tr><th>Classement</th></tr>
+                <tr><th colspan="2">Classement</th></tr>
               
                 <?php
                  $i = 1;

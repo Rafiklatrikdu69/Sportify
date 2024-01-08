@@ -100,8 +100,8 @@ main{
     margin-right: 10%;
     padding: 2%;
     position: fixed;
-    right: 68%;
-    bottom: 20%;
+    right: 67%;
+    bottom: 50%;
 }
 
 #actualite{
@@ -318,8 +318,7 @@ p{
     transition: 0.3s;
 }
 
-#ajt_actu{
-}
+
 
 #classement{
     background-color: #FFEBD3;
@@ -364,8 +363,6 @@ p{
     background-color: #FFDAB9;
     color: black;
 }
-
-
 
 
 
