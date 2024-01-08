@@ -7,6 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
+*{
+    font-family: futura;
+}
+
 header {
     font-family: futura;
     background-color: rgb(0, 0, 0);
@@ -88,4 +92,15 @@ body {
 .invisible {
     overflow: hidden;
     visibility: hidden;
+}
+
+.point-user{
+    background-color: #FFEBD3;
+    color: black;
+    grid-area: 2/1/6/2;
+    text-align: center;
+    border-radius: 4px;
+    height: 2%;
+    outline-offset: 10px;
+    outline: 10px solid #FFEBD3;
 }
