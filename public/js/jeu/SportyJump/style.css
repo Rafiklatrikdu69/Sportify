@@ -297,3 +297,16 @@ tr>td:nth-child(2){
     font-family: 'Press Start 2P';
     cursor: pointer;
 }
+
+.point-user{
+    position: absolute;
+    background-color: #FFEBD3;
+    color: black; 
+    height: 2%;
+    width: 633px;
+    text-align: center;
+    border-radius: 4px;
+    font-family: futura;
+    outline-offset: 10px;
+    outline: 10px solid #FFEBD3;
+}

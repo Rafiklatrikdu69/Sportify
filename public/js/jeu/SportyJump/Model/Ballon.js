@@ -248,6 +248,7 @@ function GameOver() {
         TransfererScore();
         TransfererCooMonstre();
         TransfererCooPiece();
+        localStorage.setItem("activerModification", JSON.stringify(true));
         window.location.href = "GameOver.html?entier=" + encodeURIComponent(getType());
         //console.log("nombre de plateforme touchée : " + nbPlateformeTouch);
         //console.log("nombre de monstre éliminé : " + nbMonstreTouch);
