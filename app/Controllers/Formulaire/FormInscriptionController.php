@@ -3,6 +3,16 @@
 
 class FormInscriptionController extends DefaultFormController{
     public function verification(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+                echo "post";
+
+        }
+        else{
+            echo "get";
+        }
+        echo $_POST['username'];
+        echo $_POST['email'];
+        echo $_POST['password'];
         ob_start();
         if(!empty($_POST['username'])&& !empty($_POST['email']) && !empty($_POST['password'])&&$_SERVER['REQUEST_METHOD'] === 'POST'){
             

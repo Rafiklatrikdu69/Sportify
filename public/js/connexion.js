@@ -1,6 +1,6 @@
 let slideIndex = 1;
 showSlides(slideIndex);
-
+var nb1= 0;
 var etape = 0;
 
 function plusSlides(n) {
@@ -38,6 +38,18 @@ function showSlides(n) {
   }
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1] += " active";
+  console.log("index : "+slideIndex)
+
+  if(slideIndex ==1){
+    nb1++;
+    
+  //  document.getElementsByTagName('form')[0].submit()
+  }
+  if(nb1==2){
+    console.log("on envoit ! ")
+    document.getElementsByTagName('form')[0].submit()
+  }
+ 
 }
   
 setInterval(checkGen, 500);
@@ -75,7 +87,7 @@ if(etape === -1){
 
 function checkform(){
   let form = document.getElementsByClassName("forms");
-  form[0].submit();
+  // form[0].submit();
 }
 
   function checkMail(){
