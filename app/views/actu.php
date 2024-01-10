@@ -20,14 +20,18 @@
         <div id="classement">
             <div>
                 <table>
-                <tr><th colspan="2">Classement</th></tr>
+                    <tr><th colspan="3">CLassement</th></tr>
+                    <tr><th class="noRank">No</th>
+                    <th>Pseudo</th>
+                    <th>Score</th></tr>
               
                 <?php
                  $i = 1;
                 foreach($tabClassement as $user){
                 ?>
-                    <tr><td><?php  echo $i ?></td>
-                    <td><?php echo  $user->getPseudo(). '-' .$user->getPointClassement()?></td></tr>
+                    <tr><td class="noRank"><?php  echo $i ?></td>
+                    <td><?php echo  $user->getPseudo()?></td>
+                    <td><?php echo $user->getPointClassement()?></td></tr>
 
                 <?php
                 $i++;

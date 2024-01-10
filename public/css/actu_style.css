@@ -100,9 +100,11 @@ main{
     margin-right: 10%;
     padding: 2%;
     position: fixed;
-    right: 67%;
+    right: 63%;
     bottom: 50%;
 }
+
+
 
 #actualite{
     color: black;
@@ -362,6 +364,10 @@ p{
 #classement table tr:nth-child(2n+1){
     background-color: #FFDAB9;
     color: black;
+}
+
+#classement table tr .noRank{
+    width: 10%;
 }
 
 
