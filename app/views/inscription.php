@@ -19,7 +19,7 @@ use \App\Config;
       <div class="div2">
       <div class="slideshow-container">
       <div class="mySlides fade">
-      <form action="/public/verification-formulaire-inscription" method="POST">
+      <form action="/public/verification-formulaire-inscription" method="POST" class="froms">
       <div id="us">
         <div id="corps">
         <label>Nom d'utilisateur</label>

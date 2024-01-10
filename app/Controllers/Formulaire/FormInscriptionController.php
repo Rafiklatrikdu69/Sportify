@@ -3,22 +3,16 @@
 
 class FormInscriptionController extends DefaultFormController{
     public function verification(){
-        if($_SERVER['REQUEST_METHOD']=='POST'){
-                echo "post";
-
-        }
-        else{
-            echo "get";
-        }
+    
+      
         echo $_POST['username'];
-        echo $_POST['email'];
-        echo $_POST['password'];
-        ob_start();
+        
         if(!empty($_POST['username'])&& !empty($_POST['email']) && !empty($_POST['password'])&&$_SERVER['REQUEST_METHOD'] === 'POST'){
             
             $nom =   Validate::html($_POST['username']);
             $email =  Validate::html($_POST['email']);
             $mdp =  Validate::html($_POST['password']);
+            echo $nom . $email . $mdp;
             $emailProtect =     filter_var($email,FILTER_SANITIZE_EMAIL);
             if(filter_var($emailProtect,FILTER_VALIDATE_EMAIL)){
             echo $nom . $emailProtect . $mdp;
@@ -29,17 +23,24 @@ class FormInscriptionController extends DefaultFormController{
                 $utilisateur = new Utilisateur(0,$nom,$emailProtect,$pass_protect,100,0,1,0);
                 (new UtilisateurDAO())->insertUtilisateur($utilisateur);
                 echo "insert reussi !";
-                
+                //Appel script js
+                echo "<script>
+                    window.location.replace('http://localhost/public/connexion');
+                </script>";
+ 
             }else{
-                Redirect::redirect('/public/inscription');
+                echo "insert echoué !";
+                echo "<script>
+                    window.location.replace('http://localhost/public/connexion');
+                </script>";
             }
-            Redirect::redirect('/public/connexion');
+           
            
         }
           
-        }else{
-            Redirect::redirect('/public/inscription');
         }
-        ob_end_clean();
+   
+     
+        
     }
 }
