@@ -25,9 +25,14 @@
         <a id="jeu" href="/public/boutique">Mini-Jeu</a>
         <a id="deconnexion" href="/public/deconnexion">Déconnexion</a>
     </header>
+
     <div class="interfaceJeu">
-        <table class="tableauScore">
-            <p class="titreTableauScore">- Tableau des Scores -</p>
+        <p class="titreTableauScore">- Tableau des Scores -</p>
+        
+        <?php
+            require("TableauScore/TableauBD.php"); 
+            $tab = test(); 
+            echo '<table class="tableauScore">
             <tr class="ligne0">
                 <td> RANG </td>
                 <td> SCORE </td>
@@ -35,55 +40,56 @@
             </tr>
             <tr class="ligne1">
                 <td> 1ST </td>
-                <td> 100000000</td>
-                <td> ChocoPops </td>
+                <td>'. $tab[0][0] .'</td>
+                <td>'. $tab[0][1] .'</td>
             </tr>
             <tr class="ligne2">
                 <td> 2ND </td>
-                <td> 1000000</td>
-                <td> Lufty </td>
+                <td>'. $tab[1][0] .'</td>
+                <td>'. $tab[1][1] .'</td>
             </tr>
             <tr class="ligne3">
                 <td> 3RD </td>
-                <td> 100000 </td>
-                <td> Lyollzz </td>
+                <td>'. $tab[2][0] .'</td>
+                <td>'. $tab[2][1] .'</td>
             </tr>
             <tr class="ligne4">
                 <td> 4TH </td>
-                <td> 100000 </td>
-                <td> LoïsKassis </td>
+                <td>'. $tab[3][0] .'</td>
+                <td>'. $tab[3][1] .'</td>
             </tr>
             <tr class="ligne5">
                 <td> 5TH </td>
-                <td> 100000 </td>
-                <td> Pelilikian </td>
+                <td>'. $tab[4][0] .'</td>
+                <td>'. $tab[4][1] .'</td>
             </tr>
             <tr class="ligne6">
                 <td> 6TH </td>
-                <td> 100000 </td>
-                <td> Mass$$</td>
+                <td>'. $tab[5][0] .'</td>
+                <td>'. $tab[5][1] .'</td>
             </tr>
             <tr class="ligne7">
                 <td> 7TH </td>
-                <td> 100000 </td>
-                <td> Shuuss</td>
+                <td>'. $tab[6][0] .'</td>
+                <td>'. $tab[6][1] .'</td>
             </tr>
             <tr class="ligne8">
                 <td> 8TH </td>
-                <td> 100000 </td>
-                <td> AbuTotem</td>
+                <td>'. $tab[7][0] .'</td>
+                <td>'. $tab[7][1] .'</td>
             </tr>
             <tr class="ligne3">
                 <td> 9TH </td>
-                <td> 100000 </td>
-                <td> Slovenisl</td>
+                <td>'. $tab[8][0] .'</td>
+                <td>'. $tab[8][1] .'</td>
             </tr>
             <tr class="ligne10">
                 <td> 10TH </td>
-                <td> 100000 </td>
-                <td> Muhadinibishi</td>
+                <td>'. $tab[9][0] .'</td>
+                <td>'. $tab[9][1] .'</td>
             </tr>
-        </table>
+        </table>'
+        ?>
         <p id="boutonMenu" class="boutonMenu"> Retour au Menu </p>
     </div>
 

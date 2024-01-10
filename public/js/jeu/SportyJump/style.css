@@ -220,7 +220,7 @@ header>a:first-child {
     position: absolute;
     font-family: 'Press Start 2P';
     font-size: 20px;
-    border-spacing: 35px;
+    border-spacing: 45px 35px;
     border-collapse: separate;
 }
 
