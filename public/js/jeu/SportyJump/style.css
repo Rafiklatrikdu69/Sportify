@@ -217,11 +217,11 @@ header>a:first-child {
 }
 
 .tableauScore {
-    position: absolute;
     font-family: 'Press Start 2P';
     font-size: 20px;
-    border-spacing: 45px 35px;
+    border-spacing: 50px 35px;
     border-collapse: separate;
+    margin: auto;
 }
 
 .ligne0 {
@@ -291,8 +291,7 @@ tr>td:nth-child(2){
 .boutonMenu{
     color: #dcdcdc;
     font-size: 35px;
-    position:relative;
-    margin-top: 112%;
+    margin-top: 7%;
     text-align: center;
     font-family: 'Press Start 2P';
     cursor: pointer;

@@ -173,8 +173,25 @@ class UtilisateurDAO extends DAO{
         $this->update($sql, array(
             "points"=>$points,
             "id" => $this->getUserId($name)
-           
         ));
+    }
+    public function getScoreClassementJeu(){
+        $tab = [];
+        try {
+            $sql = "SELECT SCORE_CLASSEMENT, PSEUDO FROM UTILISATEUR ORDER BY SCORE_CLASSEMENT DESC LIMIT 10";
+            $score = $this->queryAll($sql);
+            foreach ($score as $user) {
+                $infos = []; 
+                $infos[] = $user[0]; 
+                $infos[] = $user[1];
+                $tab[] = $infos;  
+            }
+            return $tab;
+        } catch (PDOException $e) {
+            error_log("Erreur de base de données: " . $e->getMessage());
+            return ;
+        }
+        return $tab; 
     }
     public function getLastConnection($name){
         $sql = "SELECT LAST_CONNECTION FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";

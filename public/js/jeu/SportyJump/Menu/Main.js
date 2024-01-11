@@ -44,7 +44,7 @@ window.onload = function () {
     .then(response => response.text())
      .then(data => {
         donnee = JSON.parse(data);
+        console.log(donnee); 
         point.innerHTML= "Vous avez "+donnee[1]+" points";
      });
-
 }

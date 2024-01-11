@@ -8,7 +8,7 @@ class JsonControllerJeu{
         $userPoint = new UtilisateurDAO();
         $data = [1=>$userPoint->getPointUser($_SESSION['nom'])];
         $tab =  json_encode($data, true);
-        echo $tab;
+        echo $tab; 
         //file_put_contents('test.json', $data);
     }
     
@@ -21,5 +21,12 @@ class JsonControllerJeu{
             echo "le score: ".$tab['score'];
             $userPoint->updatePointJeu($tab['score'],$_SESSION['nom']);
         }
+    }
+
+    public function classement(){
+        $userPoint = new UtilisateurDAO(); 
+        $data = $userPoint-> getScoreClassementJeu(); 
+        $tab = json_encode($data, true);
+        echo $tab; 
     }
 }

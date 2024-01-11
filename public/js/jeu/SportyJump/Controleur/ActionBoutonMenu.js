@@ -44,7 +44,7 @@ function BoutonClick() {
         AfficherChargement();
     });
     btClassement.addEventListener("click", function () {
-        window.location.href = "TableauScore.php";
+        window.location.href = "TableauScore.html";
     });
     btFlecheDroite.addEventListener("click", function () {
         switch (getType()) {

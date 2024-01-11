@@ -4,12 +4,12 @@ var bouton = document.getElementById("boutonMenu");
 
 function boutonReleased(){
     bouton.style.fontSize = "35px"; 
-    bouton.style.marginTop = "112%"; 
+    bouton.style.marginTop = "7%"; 
 }
 
 function boutonPressed(){
     bouton.style.fontSize = "27px"; 
-    bouton.style.marginTop = "112,5%";
+    bouton.style.marginTop = "7.5%";
 }
 
 function boutonClick(){

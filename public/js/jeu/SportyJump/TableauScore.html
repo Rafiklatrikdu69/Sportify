@@ -28,11 +28,7 @@
 
     <div class="interfaceJeu">
         <p class="titreTableauScore">- Tableau des Scores -</p>
-        
-        <?php
-            require("TableauScore/TableauBD.php"); 
-            $tab = test(); 
-            echo '<table class="tableauScore">
+            <table class="tableauScore">
             <tr class="ligne0">
                 <td> RANG </td>
                 <td> SCORE </td>
@@ -40,56 +36,55 @@
             </tr>
             <tr class="ligne1">
                 <td> 1ST </td>
-                <td>'. $tab[0][0] .'</td>
-                <td>'. $tab[0][1] .'</td>
+                <td id="s1"> VIDE </td>
+                <td id="p1"> VIDE </td>
             </tr>
             <tr class="ligne2">
                 <td> 2ND </td>
-                <td>'. $tab[1][0] .'</td>
-                <td>'. $tab[1][1] .'</td>
+                <td id="s2"> VIDE </td>
+                <td id="p2"> VIDE </td>
             </tr>
             <tr class="ligne3">
                 <td> 3RD </td>
-                <td>'. $tab[2][0] .'</td>
-                <td>'. $tab[2][1] .'</td>
+                <td id="s3"> VIDE </td>
+                <td id="p3"> VIDE </td>
             </tr>
             <tr class="ligne4">
                 <td> 4TH </td>
-                <td>'. $tab[3][0] .'</td>
-                <td>'. $tab[3][1] .'</td>
+                <td id="s4"> VIDE </td>
+                <td id="p4"> VIDE </td>
             </tr>
             <tr class="ligne5">
                 <td> 5TH </td>
-                <td>'. $tab[4][0] .'</td>
-                <td>'. $tab[4][1] .'</td>
+                <td id="s5"> VIDE </td>
+                <td id="p5"> VIDE </td>
             </tr>
             <tr class="ligne6">
                 <td> 6TH </td>
-                <td>'. $tab[5][0] .'</td>
-                <td>'. $tab[5][1] .'</td>
+                <td id="s6"> VIDE </td>
+                <td id="p6"> VIDE </td>
             </tr>
             <tr class="ligne7">
                 <td> 7TH </td>
-                <td>'. $tab[6][0] .'</td>
-                <td>'. $tab[6][1] .'</td>
+                <td id="s7"> VIDE </td>
+                <td id="p7"> VIDE </td>
             </tr>
             <tr class="ligne8">
                 <td> 8TH </td>
-                <td>'. $tab[7][0] .'</td>
-                <td>'. $tab[7][1] .'</td>
+                <td id="s8"> VIDE </td>
+                <td id="p8"> VIDE </td>
             </tr>
             <tr class="ligne3">
                 <td> 9TH </td>
-                <td>'. $tab[8][0] .'</td>
-                <td>'. $tab[8][1] .'</td>
+                <td id="s9"> VIDE </td>
+                <td id="p9"> VIDE </td>
             </tr>
             <tr class="ligne10">
                 <td> 10TH </td>
-                <td>'. $tab[9][0] .'</td>
-                <td>'. $tab[9][1] .'</td>
+                <td id="s10"> VIDE </td>
+                <td id="p10"> VIDE </td>
             </tr>
-        </table>'
-        ?>
+        </table>
         <p id="boutonMenu" class="boutonMenu"> Retour au Menu </p>
     </div>
 

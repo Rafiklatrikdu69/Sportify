@@ -88,17 +88,23 @@ switch ($request) {
                                                                     case '/public/json-jeu-insere':
                                                                         $route->post('/public/json-jeu-insere',[new JsonControllerJeu(),'point']);
                                                                         break;
-                                                                        case '/public/insert-prono':
-                                                                            $route->post('/public/insert-prono',[new PronoController(),'insert']);
-                                                                            break;
-                                                                            case '/public/actu/session-actu':
-                                                                                $route->get('/public/actu/session-actu',[new SessionController(),'index']);
+                                                                        case '/public/json-jeu-getClassement' :
+                                                                            $route->get('/public/json-jeu-getClassement', [new JsonControllerJeu(),'classement']);
+                                                                            break; 
+                                                                            case '/public/json-jeu-getClassement' :
+                                                                                $route->get('/public/json-jeu-getClassement', [new JsonControllerJeu(),'classement']);
+                                                                                break; 
+                                                                            case '/public/insert-prono':
+                                                                                $route->post('/public/insert-prono',[new PronoController(),'insert']);
                                                                                 break;
-                                                                        default:
-                                                                        // Gestion des erreurs ou redirection par défaut
-                                                                        break;
-                                                                      
-                                                                    }
+                                                                                case '/public/actu/session-actu':
+                                                                                    $route->get('/public/actu/session-actu',[new SessionController(),'index']);
+                                                                                    break;
+                                                                            default:
+                                                                            // Gestion des erreurs ou redirection par défaut
+                                                                            break;
+        
+                                                                        }
                                                                  
                                                                     
                                                                     $route->resolve($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
