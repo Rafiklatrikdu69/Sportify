@@ -1,6 +1,6 @@
 let slideIndex = 1;
 showSlides(slideIndex);
-
+var nb1= 0;
 var etape = 0;
 
 function plusSlides(n) {
@@ -18,7 +18,8 @@ function plusSlides(n) {
 
 function currentSlide(n) {
   showSlides(slideIndex = n);
-}
+  console.log("index : "+slideIndex)
+  }
 
 function showSlides(n) {
   let i;
@@ -38,6 +39,13 @@ function showSlides(n) {
   }
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1] += " active";
+
+  if(slideIndex ==1){
+    nb1++;
+    
+  //  document.getElementsByTagName('form')[0].submit()
+  }
+ 
 }
   
 setInterval(checkGen, 500);
@@ -74,7 +82,7 @@ if(etape === -1){
 }
 
 function checkform(){
-  let form = document.getElementsByClassName("forms");
+  let form = document.getElementsByTagName("form");
   form[0].submit();
 }
 

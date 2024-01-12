@@ -1,6 +1,7 @@
 <?php
 class ActuController extends Controllers{
     public function index() {
+        (new VerifSession());
         // Vérifier si la variable de session 'currpost' est définie
         if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
             // Si 'currpost' est défini, récupérer les données en fonction de sa valeur

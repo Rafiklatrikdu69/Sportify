@@ -76,6 +76,7 @@ function PlacementScore() {
     s3.style.top = getYTerrain() + 1185 / getFacteur() + placement2 + "px";
     s3.style.fontSize = 48 / getFacteur() + "px";
 
+
     var s4 = document.getElementById("pieceScore");
     s4.innerHTML = "×" + nbPieceTexte;
     let scoreFin=0;
@@ -85,7 +86,7 @@ function PlacementScore() {
         donnee = JSON.parse(data);
         scoreFin = Math.round(donnee[1])+nbPieceTexte*1;
         console.log("le score est de :"+scoreFin)
-        document.getElementsByClassName('nb_piece')[0].innerHTML = "Vous avez "+scoreFin+" points";
+        document.getElementsByClassName('point-user')[0].innerHTML = "Vous avez "+scoreFin+" points";
          //console.log(JSON.parse(data))
      });
      function Score (score){
