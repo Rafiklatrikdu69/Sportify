@@ -81,3 +81,14 @@ function check3() {
         document.getElementById("check6").innerHTML = '<i class="far fa-check-circle"></i> <span>Votre email est valide. ❌</span>';
     }
 }
+
+function show(){
+    var input = document.getElementById("password");
+    if (input.type === "password") {
+        input.type = "text";
+        document.getElementById("eye").src="images/eye.png";
+    } else {
+        input.type = "password";
+        document.getElementById("eye").src= "images/hidden.png";
+    }
+}

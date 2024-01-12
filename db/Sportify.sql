@@ -47,7 +47,12 @@ INSERT INTO `EVENEMENT` (`EVENEMENT_ID`, `NOM_EVENEMENT`, `DATE_EVENEMENT`, `EQU
 (2, 'LIGUE 1', '2023-10-23', 'OL', 'ASSE', 1.8, 2.2, 'Football', 1),
 (3, 'LIGA', '2023-12-21', 'BARCELONA', 'REAL MADRID', 1.8, 2, 'Football', 1),
 (4, 'LIGA', '2023-12-21', 'ATLETICO MADRID', 'SEVILLE', 1.5, 2.5, 'Football', 1),
-(5, 'PREMIER LEAGUE', '2023-11-21', 'MAN U', 'MAN C', 1.5, 2.5, 'Football', 1);
+(5, 'PREMIER LEAGUE', '2023-11-21', 'MAN U', 'MAN C', 1.5, 2.5, 'Football', 1),
+(6, 'World Cup', '2023-11-21', 'FRANCE', 'AFRIQUE DU SUD', 1.5, 2.5, 'Rugby', 1),
+(7,'US OPEN','2023-11-21','NADAL','DJOKOVIC',1.5,2.5,'Tennis',1),
+(8,'NBA','2024-01-23','LAKERS','BULLS',1.5,2.5,'Basketball',1),
+(9,'IUT','2024-01-25','RAMAZAN','RAFIK',1.5,2.5,'Karate',1);
+
 
 -- --------------------------------------------------------
 
