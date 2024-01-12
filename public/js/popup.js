@@ -104,7 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const div1 = document.createElement('div');
                 div1.setAttribute("class", "div1");
                 const img = document.createElement('img');
-                img.setAttribute("src", "../../public/images/football.svg");
+                console.log();
+                img.setAttribute("src", `../../public/images/${data[index].cat_sport}.svg`);
                 img.setAttribute("id", "image_sport");
                 div1.appendChild(img);
                 
