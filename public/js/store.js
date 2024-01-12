@@ -3,9 +3,12 @@ let donnee = {}; // Déclarer la variable à l'extérieur
 let couleurList = document.getElementById('couleur')
 let range = document.getElementsByClassName('range')[0]
 var prixRange = 140;
-
+let tabPrix = []
+let tabCouleur = []
  var option = null;
-
+function filtre(prix){
+    this.prix = prix; 
+}
 fetch('/public/boutique/product')
   .then(response => response.json())
   .then(dataFromServer => {
@@ -18,11 +21,12 @@ fetch('/public/boutique/product')
 
          let array = donnee['1']
          createSection(array)
-
-
+         
+        tabCouleur = array
          var arrByID = array.filter(filtrerParPrix);
          
          range.addEventListener('change',function(){
+          tabPrix = array
             while (article.hasChildNodes()) {
                 article.removeChild(article.firstChild);
               }
@@ -30,12 +34,17 @@ fetch('/public/boutique/product')
             prixRange = parseInt(this.value)
             console.log(typeof this.value)
             console.log(prixRange)
-            arrByID=  array.filter(filtrerParPrix);
-            createSection(arrByID) 
-            
+            tabPrix=  array.filter(filtrerParPrix);
+            let new_array = tabCouleur.filter(
+              (element) => tabPrix.includes(element));
+              
+              console.log(new_array)
+            createSection(new_array) 
+            new_array = null
           })
+       
          couleurList.addEventListener('change', function() {
-
+              tabCouleur = array
             if (couleurList.selectedOptions.length > 0) {
                 option = couleurList.selectedOptions[0].label;
                 if(option==="Aucune"){
@@ -46,15 +55,18 @@ fetch('/public/boutique/product')
                     
                 }else{ 
               console.log('Option sélectionnée :', couleurList.selectedOptions[0].label);
-            
-              arrByID = array.filter(filtrerParID);
+              tabCouleur=  array.filter(filtrerParID);
+              let new_array = tabCouleur.filter(
+                (element) => tabPrix.includes(element));
+                
+                console.log(new_array)
+
               while (article.hasChildNodes()) {
                 article.removeChild(article.firstChild);
               }
-          
-              console.log(arrByID)
+  
              
-              createSection(arrByID)           
+              createSection(new_array)           
             }
                 
             } else {
@@ -86,7 +98,7 @@ fetch('/public/boutique/product')
   }
   function filtrerParPrix(obj) {
     // Si c'est un nombre
-    if (obj.prix===prixRange) {
+    if (obj.prix<=prixRange) {
       return true;
     } else {
       elementsInvalides++;

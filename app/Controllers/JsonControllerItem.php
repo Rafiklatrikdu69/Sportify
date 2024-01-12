@@ -26,4 +26,11 @@ class JsonControllerItem{
             }
         }
     }
+
+    public function  filtre_item(){
+        $data = file_get_contents("php://input");
+        $items = json_decode($params,true);
+        var_dump($items);
+       // (new ItemsDAO())->getFilteredResults($items);
+    }
 }
