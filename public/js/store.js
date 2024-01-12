@@ -5,7 +5,9 @@ let range = document.getElementsByClassName('range')[0]
 var prixRange = 140;
 let tabPrix = []
 let tabCouleur = []
+let tabPossede = []
  var option = null;
+ var type = "Chapeau"
 function filtre(prix){
     this.prix = prix; 
 }
@@ -23,6 +25,8 @@ fetch('/public/boutique/product')
          createSection(array)
          
         tabCouleur = array
+       tabPossede = array
+       tabPrix = array
          var arrByID = array.filter(filtrerParPrix);
          
          range.addEventListener('change',function(){
@@ -35,9 +39,12 @@ fetch('/public/boutique/product')
             console.log(typeof this.value)
             console.log(prixRange)
             tabPrix=  array.filter(filtrerParPrix);
+            tabPossede = array.filter(filtrerParPossion)
             let new_array = tabCouleur.filter(
               (element) => tabPrix.includes(element));
-              
+              new_array = new_array.filter(
+                (element) => tabPossede.includes(element)
+              )
               console.log(new_array)
             createSection(new_array) 
             new_array = null
@@ -56,9 +63,12 @@ fetch('/public/boutique/product')
                 }else{ 
               console.log('Option sélectionnée :', couleurList.selectedOptions[0].label);
               tabCouleur=  array.filter(filtrerParID);
+              tabPossede = array.filter(filtrerParPossion)
               let new_array = tabCouleur.filter(
                 (element) => tabPrix.includes(element));
-                
+                new_array = new_array.filter(
+                  (element) => tabPossede.includes(element)
+                )
                 console.log(new_array)
 
               while (article.hasChildNodes()) {
@@ -66,7 +76,8 @@ fetch('/public/boutique/product')
               }
   
              
-              createSection(new_array)           
+              createSection(new_array) 
+              new_array = null          
             }
                 
             } else {
@@ -74,6 +85,27 @@ fetch('/public/boutique/product')
               console.log('Aucune option sélectionnée.');
             }
           });
+
+          let dispo = document.querySelectorAll('.dispo')
+          for(let i = 0;i<dispo.length;i++){
+            dispo[i].addEventListener("click",function(){
+              console.log(dispo[i].value)
+              while (article.hasChildNodes()) {
+                article.removeChild(article.firstChild);
+              }
+              type = dispo[i].value;
+             tabPossede = array.filter(filtrerParPossion)
+              let new_array = tabCouleur.filter(
+                (element) => tabPrix.includes(element));
+                new_array = new_array.filter(
+                  (element) => tabPossede.includes(element)
+                )
+                console.log(new_array)
+                createSection(new_array)
+                new_array = null
+
+            })
+          }          
        
          console.log("Tableau filtré\n", arrByID);
      
@@ -99,6 +131,16 @@ fetch('/public/boutique/product')
   function filtrerParPrix(obj) {
     // Si c'est un nombre
     if (obj.prix<=prixRange) {
+      return true;
+    } else {
+      elementsInvalides++;
+      return false;
+    }
+  }
+
+  function filtrerParPossion(obj) {
+    // Si c'est un nombre
+    if (obj.type===type) {
       return true;
     } else {
       elementsInvalides++;

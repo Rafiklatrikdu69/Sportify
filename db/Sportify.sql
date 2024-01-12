@@ -93,12 +93,12 @@ CREATE TABLE `ITEMS` (
 --
 
 INSERT INTO `ITEMS` (`ITEM_ID`, `NOM_ITEM`, `TYPE`, `DESCRIPTION`, `PRIX`, `COULEUR`) VALUES
-(1, 'Chapeau', 'Chapeau', 'Chapeau de cowboy', 100, 'Marron'),
-(2, 'T-shirt', 'Chapeau', 'T-shirt de cowboy', 100, 'Noir'),
-(3, 'Pantalon', 'Chapeau', 'Pantalon de cowboy', 100, 'Blanc'),
-(4, 'Chaussures', 'Chapeau', 'Chaussures de cowboy', 100, 'Rouge'),
-(5, 'Montres', 'Chapeau', 'Montres de cowboy', 100, 'Bleu'),
-(6, 'Sac', 'Chapeau', 'Sac de cowboy', 100, 'Vert');
+(1, 'Rafik', 'Icone', 'Chapeau de cowboy', 100, 'Marron'),
+(2, 'Haithem', 'Icone', 'T-shirt de cowboy', 112, 'Noir'),
+(3, 'Arda Guler', 'Badge', 'Pantalon de cowboy', 12000, 'Blanc'),
+(4, 'Barca', 'Ecusson', 'Chaussures de cowboy', 200, 'Rouge'),
+(5, 'Logo de l''iut ', 'Icone', 'Montres de cowboy', 350, 'Bleu'),
+(6, 'Ramazan', 'Badge', 'Sac de cowboy', 12, 'Vert');
 
 -- --------------------------------------------------------
 
