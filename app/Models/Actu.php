@@ -10,12 +10,12 @@ class Actu{
     private $nb_like;
 
     function __construct($id,$auteur_id,$auteur_nom,$post_titre,$post_contenu,$nb_like) {
+        $this->id = $id;
         $this->auteur_id = $auteur_id;
         $this->auteur_nom = $auteur_nom;
         $this->post_titre = $post_titre;
         $this->post_contenu = $post_contenu;
         $this->nb_like = $nb_like;
-        $this->id = $id;
     }
 
     function getId() {

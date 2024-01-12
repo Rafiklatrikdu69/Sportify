@@ -13,8 +13,8 @@ class LikesDAO extends DAO{
             return $tab;
         }
     
-        public funrtion getByUserId($id){
-            $sql = "SELECT * FROM Likes WHERE USER_ID = :id";
+        public function getByUserId($id){
+            $sql = "SELECT * FROM LIKES WHERE UTILISATEUR_ID = :id";
             $params = array(":id" => $id);
             $sth = $this->queryAll($sql, $params);
             $tab = [];

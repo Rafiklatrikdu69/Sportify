@@ -60,6 +60,10 @@ switch ($request) {
                                                 case '/public/boutique/product':
                                                     $route->get('/public/boutique/product', [new StoreController(), 'show']);
                                                     break;
+                                                    
+                                                case '/public/actu/like':
+                                                    $route->get('/public/actu/like', [new ActuController(), 'sendLikes']);
+                                                    break;
                                                 
                                                 case '/public/pronostique':
                                                     $route->get('/public/pronostique', [new PronoController(), 'index']);
