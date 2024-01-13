@@ -45,6 +45,7 @@ switch ($request) {
                                 case '/public/verification-formulaire-connexion':
                                     $route->post('/public/verification-formulaire-connexion', [new FormConnexionController(), 'verification']);
                                     break;
+                                  
                                     case '/public/inscription':
                                         
                                         $route->get('/public/inscription', [new InscriptionControllers(), 'index']);
