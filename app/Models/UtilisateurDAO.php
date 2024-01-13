@@ -161,7 +161,6 @@ class UtilisateurDAO extends DAO{
         ));
     }
 
-
     public function addPoint($name){
         $sql = "UPDATE `UTILISATEUR` SET POINT_ACTUEL = POINT_ACTUEL + 10 WHERE UTILISATEUR_ID = :id";
         $this->update($sql, array(
@@ -192,6 +191,35 @@ class UtilisateurDAO extends DAO{
             return ;
         }
         return $tab; 
+    }
+
+    public function updateScoreJeu($score, $id){
+        $sql = "UPDATE `UTILISATEUR` SET SCORE_CLASSEMENT = :score WHERE UTILISATEUR_ID = :id";
+        $this->update($sql, array(
+            "score"=>$score,
+            "id" => $this->getUserId($id)
+        ));
+    }
+
+    public function getMeilleurScore(){
+        $sql = "SELECT MAX(SCORE_CLASSEMENT) AS MAX_SCORE FROM `UTILISATEUR`";
+        $result = $this->queryRow($sql, null);
+        if ($result) {
+            return $result['MAX_SCORE'];
+        } else {
+            echo "Erreur : Impossible de récupérer le nombre de points de l'utilisateur depuis la base de données.";
+            return null;
+        }
+    }
+    public function getMeilleurScoreUser($nom){
+        $sql = "SELECT SCORE_CLASSEMENT FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $result = $this->queryRow($sql, array('pseudo' => $nom));
+        if ($result) {
+            return $result['SCORE_CLASSEMENT'];
+        } else {
+            echo "Erreur : Impossible de récupérer le nombre de points de l'utilisateur depuis la base de données.";
+            return null;
+        }
     }
     public function getLastConnection($name){
         $sql = "SELECT LAST_CONNECTION FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";

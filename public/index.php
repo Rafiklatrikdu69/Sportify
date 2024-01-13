@@ -91,9 +91,15 @@ switch ($request) {
                                                                         case '/public/json-jeu-getClassement' :
                                                                             $route->get('/public/json-jeu-getClassement', [new JsonControllerJeu(),'classement']);
                                                                             break; 
-                                                                            case '/public/json-jeu-getClassement' :
-                                                                                $route->get('/public/json-jeu-getClassement', [new JsonControllerJeu(),'classement']);
-                                                                                break; 
+                                                                                case '/public/json-jeu-getMeilleurScore' :
+                                                                                    $route->get('/public/json-jeu-getMeilleurScore', [new JsonControllerJeu(),'meilleurScore']);
+                                                                                    break; 
+                                                                                case '/public/json-jeu-getMeilleurScoreUser' :
+                                                                                    $route->get('/public/json-jeu-getMeilleurScoreUser', [new JsonControllerJeu(),'meilleurScoreUser']);
+                                                                                    break; 
+                                                                                case '/public/json-jeu-UpdateScoreJeu' :
+                                                                                    $route->post('/public/json-jeu-UpdateScoreJeu', [new JsonControllerJeu(),'updateScore']);
+                                                                                    break; 
                                                                             case '/public/insert-prono':
                                                                                 $route->post('/public/insert-prono',[new PronoController(),'insert']);
                                                                                 break;

@@ -56,6 +56,24 @@ function PlacementTitre() {
 function PlacementScore() {
     var scoreTexte = JSON.parse(localStorage.getItem("scoreTexte"));
     var nbPieceTexte = JSON.parse(localStorage.getItem("nbPieceTexte"));
+    
+    function Score (score){
+        this.score = score;
+    }
+    e = new Score(scoreTexte*1)
+
+    fetch('/public/json-jeu-UpdateScoreJeu', {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+      
+        "body": JSON.stringify(e) 
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    })
 
     var s = document.getElementById("actuelScore");
     s.innerHTML = "VOTRE SCORE:" + scoreTexte;
@@ -67,28 +85,38 @@ function PlacementScore() {
     s2.style.position = "absolute";
     s2.style.left = getXTerrain() + 50 / getFacteur() + "px";
     s2.style.top = getYTerrain() + 1100 / getFacteur() + placement2 + "px";
-    s2.style.fontSize = 48 / getFacteur() + "px";
+    s2.style.fontSize = 45 / getFacteur() + "px";
 
     var s3 = document.getElementById("meilleurScore");
     s3.style.position = "absolute";
     s3.style.left = getXTerrain() + 15 / getFacteur() + "px";
     s3.style.top = getYTerrain() + 1185 / getFacteur() + placement2 + "px";
-    s3.style.fontSize = 48 / getFacteur() + "px";
+    s3.style.fontSize = 45 / getFacteur() + "px";
+
+    //FETCH => MEILLEUR SCORE GLOBAL DU JEU; 
+    fetch('/public/json-jeu-getMeilleurScore')
+    .then(response => response.text())
+     .then(data => {
+        donnee = JSON.parse(data);
+        console.log(donnee); 
+        s3.innerHTML = "Meilleur score global:" + donnee[1]; 
+     });
+
+    //FETCH => MEILLEUR SCORE PERSONNEL DU JOUEUR; 
+    fetch('/public/json-jeu-getMeilleurScoreUser')
+    .then(response => response.text())
+     .then(data => {
+        donnee = JSON.parse(data);
+        console.log(donnee); 
+        s2.innerHTML = "Votre meilleur score:" + donnee[1];  
+     });
 
     var s4 = document.getElementById("pieceScore");
     s4.innerHTML = "×" + nbPieceTexte;
-    let scoreFin=0;
 
     var activer = JSON.parse(localStorage.getItem("activerModification"));
     console.log(activer); 
     if(activer){
-        fetch('/public/json-point-jeu')
-        .then(response => response.text())
-         .then(data => {
-            donnee = JSON.parse(data);
-            scoreFin = Math.round(donnee[1])+nbPieceTexte*1;
-            document.getElementsByClassName('point-user')[0].innerHTML = "Vous avez "+scoreFin+".00 points";
-         });
          function Score (score){
             this.score = score;
         }

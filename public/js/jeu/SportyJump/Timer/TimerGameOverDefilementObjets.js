@@ -1,5 +1,4 @@
 let defilementObjets;
-
 function startTimerDefilementObjets() {
     defilementObjets = setInterval(function () {
         redressementBallon();
@@ -13,6 +12,10 @@ function startTimerDefilementObjets() {
             setYScoreActuel();
             setYScorePersonnel();
             setYScoreGlobal();
+        }else{
+            centrerScore(document.getElementById("actuelScore")); 
+            centrerScore(document.getElementById("meilleurScorePersonnel")); 
+            centrerScore(document.getElementById("meilleurScore"));
         }
         if (getYScorePiece() > 1400 / getFacteur()) {
             setYScorePiece();
@@ -31,4 +34,12 @@ function startTimerDefilementObjets() {
 }
 function stopTimerDefilementObjets() {
     clearInterval(defilementObjets);
+}
+
+function centrerScore(police){
+    var interface = document.getElementById("terrain");
+    var interfaceWidth = interface.width; 
+    var policeWidth = police.offsetWidth; 
+    var centreX = (interfaceWidth - policeWidth) / 2; 
+    police.style.left = centreX + "px"; 
 }
