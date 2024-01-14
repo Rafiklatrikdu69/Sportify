@@ -95,7 +95,7 @@ CREATE TABLE `ITEMS` (
 INSERT INTO `ITEMS` (`ITEM_ID`, `NOM_ITEM`, `TYPE`, `DESCRIPTION`, `PRIX`, `COULEUR`) VALUES
 (1, 'Rafik', 'Icone', 'Chapeau de cowboy', 100, 'Marron'),
 (2, 'Haithem', 'Icone', 'T-shirt de cowboy', 112, 'Noir'),
-(3, 'Arda Guler', 'Badge', 'Pantalon de cowboy', 12000, 'Blanc'),
+(3, 'Arda Guler', 'Badge', 'Pantalon de cowboy', 120, 'Blanc'),
 (4, 'Barca', 'Ecusson', 'Chaussures de cowboy', 200, 'Rouge'),
 (5, 'Logo de l''iut ', 'Icone', 'Montres de cowboy', 350, 'Bleu'),
 (6, 'Ramazan', 'Badge', 'Sac de cowboy', 12, 'Vert');

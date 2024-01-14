@@ -20,9 +20,8 @@ use \App\Config;
                     <legend>Filtres</legend>
                     <legend>Types d'item</legend>
                     <input type="radio" name="categorie" value="Badge" class="dispo">Badge<br>
-                    <input type="radio" name="categorie" value="fond">Fond<br>
-                    <input type="radio" name="categorie" value="badges">Badges<br>
-                    <input type="radio" name="categorie" value="badges">Style nom<br>
+                    <input type="radio" name="categorie" value="Icone"  class="dispo">Icone<br>
+                    <input type="radio" name="categorie" value="Ecusson"  class="dispo">Ecusson<br>
                     <legend>Couleur</legend>
                     <select id="couleur">
                         <option value="">Aucune</option>
@@ -37,10 +36,10 @@ use \App\Config;
                         <input type="range" class="range" min="10" max="500" step="10">
                         <output class="bubble"></output>
                     </div><br>
-                    <legend>Disponibilité</legend>
+                    <!-- <legend>Disponibilité</legend>
                     <input type="radio" name="dispo" value="possédé" class="dispo">Possédé<br>
                     <input type="radio" name="dispo" value="pas possédé" class="dispo">Non possédé<br>
-                       
+                        -->
                 </fieldset>
                 <script src="../../public/js/prix.js"></script>
             </form>
