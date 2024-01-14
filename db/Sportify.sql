@@ -47,7 +47,12 @@ INSERT INTO `EVENEMENT` (`EVENEMENT_ID`, `NOM_EVENEMENT`, `DATE_EVENEMENT`, `EQU
 (2, 'LIGUE 1', '2023-10-23', 'OL', 'ASSE', 1.8, 2.2, 'Football', 1),
 (3, 'LIGA', '2023-12-21', 'BARCELONA', 'REAL MADRID', 1.8, 2, 'Football', 1),
 (4, 'LIGA', '2023-12-21', 'ATLETICO MADRID', 'SEVILLE', 1.5, 2.5, 'Football', 1),
-(5, 'PREMIER LEAGUE', '2023-11-21', 'MAN U', 'MAN C', 1.5, 2.5, 'Football', 1);
+(5, 'PREMIER LEAGUE', '2023-11-21', 'MAN U', 'MAN C', 1.5, 2.5, 'Football', 1),
+(6, 'World Cup', '2023-11-21', 'FRANCE', 'AFRIQUE DU SUD', 1.5, 2.5, 'Rugby', 1),
+(7,'US OPEN','2023-11-21','NADAL','DJOKOVIC',1.5,2.5,'Tennis',1),
+(8,'NBA','2024-01-23','LAKERS','BULLS',1.5,2.5,'Basketball',1),
+(9,'IUT','2024-01-25','RAMAZAN','RAFIK',1.5,2.5,'Karate',1);
+
 
 -- --------------------------------------------------------
 
@@ -88,12 +93,12 @@ CREATE TABLE `ITEMS` (
 --
 
 INSERT INTO `ITEMS` (`ITEM_ID`, `NOM_ITEM`, `TYPE`, `DESCRIPTION`, `PRIX`, `COULEUR`) VALUES
-(1, 'Chapeau', 'Chapeau', 'Chapeau de cowboy', 100, 'Marron'),
-(2, 'T-shirt', 'Chapeau', 'T-shirt de cowboy', 100, 'Noir'),
-(3, 'Pantalon', 'Chapeau', 'Pantalon de cowboy', 100, 'Blanc'),
-(4, 'Chaussures', 'Chapeau', 'Chaussures de cowboy', 100, 'Rouge'),
-(5, 'Montres', 'Chapeau', 'Montres de cowboy', 100, 'Bleu'),
-(6, 'Sac', 'Chapeau', 'Sac de cowboy', 100, 'Vert');
+(1, 'Rafik', 'Icone', 'Chapeau de cowboy', 100, 'Marron'),
+(2, 'Haithem', 'Icone', 'T-shirt de cowboy', 112, 'Noir'),
+(3, 'Arda Guler', 'Badge', 'Pantalon de cowboy', 120, 'Blanc'),
+(4, 'Barca', 'Ecusson', 'Chaussures de cowboy', 200, 'Rouge'),
+(5, 'Logo de l''iut ', 'Icone', 'Montres de cowboy', 350, 'Bleu'),
+(6, 'Ramazan', 'Badge', 'Sac de cowboy', 12, 'Vert');
 
 -- --------------------------------------------------------
 
