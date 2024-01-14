@@ -55,8 +55,9 @@
           <!-- Jusqu'ici -->
     </main>
     <aside id="profil">
-        <div>
+        <div class="coin" >
             <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins </p>
+            
         </div>
         <div>
             <img src="../../public/images/logo.png">
@@ -87,6 +88,6 @@
 <script src="../../public/js/changeCurrentPost.js"></script>
 <script src="../../public/js/actu.js"></script>
 <script src="../../public/js/maj_like.js"></script>
-
+<script src="../../public/js/btnAdmin.js"></script>
 <script src="../../public/js/switch_fichier_js_actu.js"></script>
 <script id="fichier"></script>

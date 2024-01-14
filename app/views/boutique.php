@@ -56,7 +56,7 @@ use \App\Config;
 
       
         <aside id="profil">
-            <div>
+            <div class="coin">
             <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins</p>
             </div>
             <div>
@@ -92,7 +92,7 @@ use \App\Config;
         </div>
     </div> 
 
-    
+    <script src="../../public/js/btnAdmin.js"></script>
     <script src="../../public/js/store.js"></script>
 </body>
 
