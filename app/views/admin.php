@@ -11,6 +11,7 @@
 		<label for="">Recherche</label>
 		<input id="searchbar" onkeyup="" type="text" name="search" placeholder="Chercher ...">
 	</nav>
+	
 	<div class="part-left">
 		<div>Sportify</div>
 		<button class="button" id="user">
