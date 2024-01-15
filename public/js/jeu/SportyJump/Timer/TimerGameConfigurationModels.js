@@ -26,6 +26,12 @@ function startTimerConfigurationModels() {
         if (!MonstreIsNull()) {
             supprimerMonstre();
         }
+        if (ScoreMonstreIsActif()) {
+            CadrageScoreMonstre();
+            AjoutPointMonstre();
+        }
+        RessortIsTouch();
+        JetPackIsTouch();
     }, getRafraichissement());
 }
 

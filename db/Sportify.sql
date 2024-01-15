@@ -47,7 +47,12 @@ INSERT INTO `EVENEMENT` (`EVENEMENT_ID`, `NOM_EVENEMENT`, `DATE_EVENEMENT`, `EQU
 (2, 'LIGUE 1', '2023-10-23', 'OL', 'ASSE', 1.8, 2.2, 'Football', 1),
 (3, 'LIGA', '2023-12-21', 'BARCELONA', 'REAL MADRID', 1.8, 2, 'Football', 1),
 (4, 'LIGA', '2023-12-21', 'ATLETICO MADRID', 'SEVILLE', 1.5, 2.5, 'Football', 1),
-(5, 'PREMIER LEAGUE', '2023-11-21', 'MAN U', 'MAN C', 1.5, 2.5, 'Football', 1);
+(5, 'PREMIER LEAGUE', '2023-11-21', 'MAN U', 'MAN C', 1.5, 2.5, 'Football', 1),
+(6, 'World Cup', '2023-11-21', 'FRANCE', 'AFRIQUE DU SUD', 1.5, 2.5, 'Rugby', 1),
+(7,'US OPEN','2023-11-21','NADAL','DJOKOVIC',1.5,2.5,'Tennis',1),
+(8,'NBA','2024-01-23','LAKERS','BULLS',1.5,2.5,'Basketball',1),
+(9,'IUT','2024-01-25','RAMAZAN','RAFIK',1.5,2.5,'Karate',1);
+
 
 -- --------------------------------------------------------
 
@@ -88,12 +93,12 @@ CREATE TABLE `ITEMS` (
 --
 
 INSERT INTO `ITEMS` (`ITEM_ID`, `NOM_ITEM`, `TYPE`, `DESCRIPTION`, `PRIX`, `COULEUR`) VALUES
-(1, 'Chapeau', 'Chapeau', 'Chapeau de cowboy', 100, 'Marron'),
-(2, 'T-shirt', 'Chapeau', 'T-shirt de cowboy', 100, 'Noir'),
-(3, 'Pantalon', 'Chapeau', 'Pantalon de cowboy', 100, 'Blanc'),
-(4, 'Chaussures', 'Chapeau', 'Chaussures de cowboy', 100, 'Rouge'),
-(5, 'Montres', 'Chapeau', 'Montres de cowboy', 100, 'Bleu'),
-(6, 'Sac', 'Chapeau', 'Sac de cowboy', 100, 'Vert');
+(1, 'Rafik', 'Icone', 'Chapeau de cowboy', 100, 'Marron'),
+(2, 'Haithem', 'Icone', 'T-shirt de cowboy', 112, 'Noir'),
+(3, 'Arda Guler', 'Badge', 'Pantalon de cowboy', 120, 'Blanc'),
+(4, 'Barca', 'Ecusson', 'Chaussures de cowboy', 200, 'Rouge'),
+(5, 'Logo de l''iut ', 'Icone', 'Montres de cowboy', 350, 'Bleu'),
+(6, 'Ramazan', 'Badge', 'Sac de cowboy', 12, 'Vert');
 
 -- --------------------------------------------------------
 
@@ -170,6 +175,7 @@ CREATE TABLE `UTILISATEUR` (
   `POINT_CLASSEMENT` int DEFAULT '0',
   `STATUS` int DEFAULT '0',
   `SCORE_JEU` int DEFAULT '0',
+  `SCORE_CLASSEMENT` int DEFAULT '0', 
   `LAST_CONNECTION` date DEFAULT NULL,
   `PDP_ID` varchar(100) DEFAULT 'http://localhost/public/images/logo.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -183,6 +189,20 @@ INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`, 
 (2, 'RamazanLaChienneDu69', 'RamazanLaChienneDu69@example.com', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 100.00, 0, 1, 0, NULL),
 (3, 'Keap', 'Keap@example.com', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 100.00, 0, 1, 0, NULL),
 (4, 'RafikLaTrikDu69', 'RafikLaTrikDu69@example.com', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 100.00, 0, 1, 0, NULL);
+
+
+-- REMPLISSAGE DE DONNEE POUR LE CLASSEMENT DU JEU; 
+INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`,`POINT_ACTUEL`, `POINT_CLASSEMENT`, `STATUS`, `SCORE_JEU`, `SCORE_CLASSEMENT`, `LAST_CONNECTION`) VALUES
+(10, 'ChocoPops', 'rahmaninahil@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 1123.00, 50, 0, 0, 427600, null), 
+(11, 'Lufty', 'lufty@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 987.00, 50, 0, 0, 294000, null), 
+(12, 'Lyollzz', 'leo@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 843.00, 50, 0, 0, 134820, null),
+(13, 'LoîsKassis', 'lois@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 620.00, 50, 0, 0, 102027, null), 
+(14, 'Pelilikian', 'pelikan@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 340.00, 50, 0, 0, 95760, null), 
+(15, 'Mass$$', 'mass@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 170.00, 50, 0, 0, 77490, null), 
+(16, 'Shuus', 'shuus@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 80.00, 50, 0, 0, 16380, null), 
+(17, 'AbuTotem', 'Abu@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 50.00, 50, 0, 0, 13440, null), 
+(18, 'Slovenisl', 'nils@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 35.00, 50, 0, 0, 10500, null), 
+(19, 'Muhadinibishi', 'mumu@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 10.00, 50, 0, 0, 2100, null); 
 
 --
 -- Indexes for dumped tables

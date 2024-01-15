@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <script src="Model/Dimension.js" defer></script>
+    <script src="Model/Tutoriel.js" defer></script>
+    <script src="Controleur/ActionTableauScore.js" defer></script>
+    <script src="TableauScore/Main.js" defer></script>
+
+    <title>SportyJump_Menu</title>
+</head>
+
+<body>
+
+    <header>
+        <a id="accueil" href="/public/actualite"><img src="logo.png"></a>
+        <a id="actu" href="/public/actualite">Actu</a>
+        <a id="prono" href="/public/pronostique">Prono</a>
+        <a id="boutique" href="/public/boutique">Boutique</a>
+        <a id="jeu" href="/public/boutique">Mini-Jeu</a>
+        <a id="deconnexion" href="/public/deconnexion">Déconnexion</a>
+    </header>
+
+    <div class="interfaceJeu">
+        <p class="titreTableauScore">- Tableau des Scores -</p>
+            <table class="tableauScore">
+            <tr class="ligne0">
+                <td> RANG </td>
+                <td> SCORE </td>
+                <td> PSEUDO</td>
+            </tr>
+            <tr class="ligne1">
+                <td> 1ST </td>
+                <td id="s1"> VIDE </td>
+                <td id="p1"> VIDE </td>
+            </tr>
+            <tr class="ligne2">
+                <td> 2ND </td>
+                <td id="s2"> VIDE </td>
+                <td id="p2"> VIDE </td>
+            </tr>
+            <tr class="ligne3">
+                <td> 3RD </td>
+                <td id="s3"> VIDE </td>
+                <td id="p3"> VIDE </td>
+            </tr>
+            <tr class="ligne4">
+                <td> 4TH </td>
+                <td id="s4"> VIDE </td>
+                <td id="p4"> VIDE </td>
+            </tr>
+            <tr class="ligne5">
+                <td> 5TH </td>
+                <td id="s5"> VIDE </td>
+                <td id="p5"> VIDE </td>
+            </tr>
+            <tr class="ligne6">
+                <td> 6TH </td>
+                <td id="s6"> VIDE </td>
+                <td id="p6"> VIDE </td>
+            </tr>
+            <tr class="ligne7">
+                <td> 7TH </td>
+                <td id="s7"> VIDE </td>
+                <td id="p7"> VIDE </td>
+            </tr>
+            <tr class="ligne8">
+                <td> 8TH </td>
+                <td id="s8"> VIDE </td>
+                <td id="p8"> VIDE </td>
+            </tr>
+            <tr class="ligne3">
+                <td> 9TH </td>
+                <td id="s9"> VIDE </td>
+                <td id="p9"> VIDE </td>
+            </tr>
+            <tr class="ligne10">
+                <td> 10TH </td>
+                <td id="s10"> VIDE </td>
+                <td id="p10"> VIDE </td>
+            </tr>
+        </table>
+        <p id="boutonMenu" class="boutonMenu"> Retour au Menu </p>
+    </div>
+
+    <div class="tuto" id="tuto">
+        <div class="circle" id="circle">
+            <div class="question-mark" id="point">?</div>
+        </div>
+        <div class="rectangle" id="rectangle">
+            <div class="tutoType">
+                <div class="tutoMenu"></div>
+                <div class="tutoGamePlay"></div>
+                <div class="tutoPiece"></div>
+                <div class="tutoMonstre"></div>
+                <div class="tutoObject"></div>
+            </div>
+            <div class="cercle_Tuto"></div>
+            <div class="fleche"></div>
+        </div>
+    </div>
+</body>
+
+</html>
