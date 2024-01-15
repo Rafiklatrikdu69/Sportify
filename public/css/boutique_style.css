@@ -373,16 +373,7 @@ legend:nth-of-type(4){
   margin-bottom: 5%;
 }
 
-/* button badge */
-#profil #buttonbadge{
-  background-color: #FFEBD3;
-  color: black;
-  border: none;
-}
 
-#profil #buttonbadge:hover{
-  color: #40A798;
-}
 
 
 
@@ -505,6 +496,14 @@ legend:nth-of-type(4){
 }
 
 
+
+/* button badge */
+#profil #buttonbadge{
+  background-color: #FFEBD3;
+  border: none;
+}
+
+
 /* CSS pour modal photo de profil */
 #modalbadge {
   background-color: rgba(0, 0, 0, 0.3);
@@ -566,10 +565,82 @@ legend:nth-of-type(4){
   opacity: 1;
 }
 
+#imagebadge{
+  scale: 0.6;
+}
 
 
 
 
 
+/* CSS ecusson */
+#profil #buttonecu{
+  background-color: #FFEBD3;
+  border: none;
+}
+
+#modalecu {
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0,3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalecu.open{
+  opacity: 1;
+  z-index: 999;
+}
+
+#modalecu-inner{
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
+}
+
+#modalecu-inner h2{
+  margin: 0;
+}
+
+#modalecu-inner p{
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+/* Règle CSS pour l'image sélectionnée */
+#modalecu-inner img.image-selected.selected {
+  border-radius: 5%;
+  transform: scale(0.9);
+  opacity: 1;
+  /* border déplace l'image, donc box-shadow plus adapté */
+  box-shadow: 0 0 0 4px black;
+}
+
+/* Règle CSS générale pour les images */
+#modalecu-inner img {
+  width: 20%;
+  margin-bottom: 10%;
+  opacity: 0.5;
+}
+
+#modalecu-inner img:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+#imageecu{
+  scale: 0.6;
+}
 
 

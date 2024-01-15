@@ -241,6 +241,28 @@ class UtilisateurDAO extends DAO{
         }
     }
 
+    public function getBadge($name){
+        $sql = "SELECT BADGE_SRC FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $result = $this->queryRow($sql, array('pseudo' => $name));
+        if ($result) {
+            return $result['BADGE_SRC'];
+        } else {
+            echo "Erreur : Impossible de récupérer l'ID de l'utilisateur depuis la base de données.";
+            return null;
+        }
+    }
+
+    public function getEcusson($name){
+        $sql = "SELECT ECUSSON_SRC FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $result = $this->queryRow($sql, array('pseudo' => $name));
+        if ($result) {
+            return $result['ECUSSON_SRC'];
+        } else {
+            echo "Erreur : Impossible de récupérer l'ID de l'utilisateur depuis la base de données.";
+            return null;
+        }
+    }
+
     public function updatePdpByName($name, $pdp) {
         $sql = "UPDATE `UTILISATEUR` SET PDP_SRC = :pdp WHERE PSEUDO = :pseudo";
         $this->update($sql, array(

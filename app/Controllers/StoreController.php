@@ -10,12 +10,14 @@ class StoreController extends Controllers {
             "tabItems"=>(new ItemsDAO())->getAll(),
             "tabItemsOwned"=>(new ItemsDAO())->getOwnedItems($_SESSION['nom']),
             "tabBadge"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Badge"),
+            "userPdp"=>(new utilisateurDAO())->getPdp($_SESSION['nom']),
             "tabIcone"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Icone"),
+            "userBadge"=>(new utilisateurDAO())->getBadge($_SESSION['nom']),
             "tabEcusson"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Ecusson"),
+            "userEcusson"=>(new utilisateurDAO())->getEcusson($_SESSION['nom']),
             "pointsUser"=>(new utilisateurDAO())->getPointUser($_SESSION['nom']),
             "userId"=>(new utilisateurDAO())->getUserId($_SESSION['nom']),
             "userRank"=>(new utilisateurDAO())->getClassement($_SESSION['nom']),
-            "userPdp"=>(new utilisateurDAO())->getPdp($_SESSION['nom']),
             "pronoWin"=>(new utilisateurDAO())->getPronoWin($_SESSION['nom']),
         ]);
         

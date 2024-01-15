@@ -65,8 +65,8 @@ use \App\Config;
                 <p><?php echo $_SESSION['nom']?></p>
                 <p><?php echo "Rank: " . (int)$userRank; ?></p>
                 <p><?php echo "Prono réussi: " . (int)$pronoWin?></p>
-                <button id="buttonbadge"><p>Choisir badge</p></button>
-                <p>Equipe préférée</p>
+                <button id="buttonbadge"><img id="imagebadge" src="<?php echo $userBadge?>"></button>
+                <button id="buttonecu"><img id="imageecu" src="<?php echo $userEcusson?>"></button>
             </div>
         </aside>
     </section>
@@ -109,6 +109,22 @@ use \App\Config;
             </div>
         </div>
     </div> 
+
+    <!-- modal ecusson -->
+    <div id="modalecu">
+        <div id="modalecu-inner">
+            <h2>Choisissez votre badge:</h2>
+            <?php
+            foreach($tabEcusson as $ecusson){?>
+                <img class="imgecu" src="images/img<?php echo $ecusson->getId()?>.jpg">
+            <?php }?>
+            <div>
+            <button id="submitecu">Confirmer</button>
+            <button id="closemodalecu">Annuler</button>
+            </div>
+        </div>
+    </div> 
+
 
 
     
