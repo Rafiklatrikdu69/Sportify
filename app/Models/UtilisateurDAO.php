@@ -294,7 +294,14 @@ class UtilisateurDAO extends DAO{
         ));
     }
 
-
+    public function getStatutByName($name){
+            $sql = "SELECT * FROM `UTILISATEUR`  WHERE PSEUDO = :name AND STATUS = 0";
+           $sth =  $this->queryRow($sql,array(
+                "name"=>$name
+            ));
+           
+            return $sth;
+    } 
     public function getPronoWin($name){
         $sql = "SELECT COUNT(PRONOSTIC.COTE_PRONO) AS NB_PRONO
                 FROM 

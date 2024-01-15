@@ -65,6 +65,10 @@ switch ($request) {
                                                 case '/public/pronostique':
                                                     $route->get('/public/pronostique', [new PronoController(), 'index']);
                                                     break;
+                                                    case '/public/admin':
+                                                        $route->get('/public/admin', [new AdministrationController(), 'show']);
+                                                        break;
+                                                        
                                                     
                                                     case '/public/deconnexion':
                                                         $route->get('/public/deconnexion', [new DeconnexionController(), 'index']);

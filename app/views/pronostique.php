@@ -57,9 +57,9 @@ use \App\Config;
             <!-- la section avec les pronostics est ici -->
             
         </main>
-        <aside id="profil">
-            <div>
-            <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins</p>
+    <aside id="profil">
+            <div class="coin">
+                <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins</p>
             </div>
             <div>
                 <button id="buttonpdp"><img id="imagepdp" src="<?php echo $userPdp?>"></button>
@@ -108,3 +108,4 @@ use \App\Config;
 <script src="../../public/js/prono.js"></script>
 <script src="../../public/js/popup.js"></script>
 <script src="../../public/js/daily_reward.js"></script>
+<script src="../../public/js/btnAdmin.js"></script>
