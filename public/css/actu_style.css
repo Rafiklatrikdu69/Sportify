@@ -462,7 +462,3 @@ p{
     }
 }
 
-.liked{
-    filter:drop-shadow(0 0 5px #40A798);
-    -webkit-filter:drop-shadow(0 0 5px #40A798);
-}

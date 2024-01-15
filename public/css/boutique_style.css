@@ -373,6 +373,17 @@ legend:nth-of-type(4){
   margin-bottom: 5%;
 }
 
+/* button badge */
+#profil #buttonbadge{
+  background-color: #FFEBD3;
+  color: black;
+  border: none;
+}
+
+#profil #buttonbadge:hover{
+  color: #40A798;
+}
+
 
 
 /* css pour popup confirmation d'achat */

@@ -65,7 +65,7 @@ use \App\Config;
                 <p><?php echo $_SESSION['nom']?></p>
                 <p><?php echo "Rank: " . (int)$userRank; ?></p>
                 <p><?php echo "Prono réussi: " . (int)$pronoWin?></p>
-                <p>Badges</p>
+                <button id="buttonbadge"><p>Choisir badge</p></button>
                 <p>Equipe préférée</p>
             </div>
         </aside>
@@ -80,7 +80,7 @@ use \App\Config;
         </div>
     </div>
 
-
+    <!-- moddal photo de profil -->
     <div id="modalpdp">
         <div id="modalpdp-inner">
             <h2>Choisissez votre photo de profil:</h2>
@@ -93,8 +93,23 @@ use \App\Config;
         </div>
     </div> 
 
+    <!-- modal badge -->
+    <div id="modalbadge">
+        <div id="modalbadge-inner">
+            <h2>Choisissez votre badge:</h2>
+            <?php
+            foreach($tabItemsOwned as $item){?>
+                <img class="imgpdp" src="images/img<?php echo $item->getId()?>.jpg">
+            <?php }?>
+            <button id="submitpdp">Confirmer</button>
+            <button id="closemodalpdp">Annuler</button>
+        </div>
+    </div> 
+
+
     
     <script src="../../public/js/store.js"></script>
+    <script src="../../public/js/profil.js"></script>
 </body>
 
 

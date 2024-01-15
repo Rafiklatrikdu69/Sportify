@@ -43,6 +43,9 @@ fetch('/public/actu/like')
             let id = actu.id;
             let like = donnee[id];
             actu.querySelector('.like').innerHTML = like;
+            // changer le style du bouton like
             
+
         })
     })
+
