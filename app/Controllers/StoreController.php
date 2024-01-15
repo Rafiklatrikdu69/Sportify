@@ -9,6 +9,9 @@ class StoreController extends Controllers {
         View::View('boutique',[
             "tabItems"=>(new ItemsDAO())->getAll(),
             "tabItemsOwned"=>(new ItemsDAO())->getOwnedItems($_SESSION['nom']),
+            "tabBadge"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Badge"),
+            "tabIcone"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Badge"),
+            "tabBadge"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Badge"),
             "pointsUser"=>(new utilisateurDAO())->getPointUser($_SESSION['nom']),
             "userId"=>(new utilisateurDAO())->getUserId($_SESSION['nom']),
             "userRank"=>(new utilisateurDAO())->getClassement($_SESSION['nom']),

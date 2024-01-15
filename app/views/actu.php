@@ -20,14 +20,18 @@
         <div id="classement">
             <div>
                 <table>
-                <tr><th colspan="2">Classement</th></tr>
+                    <tr><th colspan="3">CLassement</th></tr>
+                    <tr><th class="noRank">No</th>
+                    <th>Pseudo</th>
+                    <th>Score</th></tr>
               
                 <?php
                  $i = 1;
                 foreach($tabClassement as $user){
                 ?>
-                    <tr><td><?php  echo $i ?></td>
-                    <td><?php echo  $user->getPseudo(). '-' .$user->getPointClassement()?></td></tr>
+                    <tr><td class="noRank"><?php  echo $i ?></td>
+                    <td><?php echo  $user->getPseudo()?></td>
+                    <td><?php echo $user->getPointClassement()?></td></tr>
 
                 <?php
                 $i++;
@@ -43,12 +47,13 @@
         <?php
             foreach($tabPosts as $post){?>
             <!-- <section id="post<?php //$post->getId()?>" class="Actu"> -->
-            <section id="actualite" class="Actu">
+            <section id="actualite<?php echo $post->getId()?>" class="actu">
                 <div class="photo"><img src="../../public/images/logo.png" id="pp"></div>
                 <div class="auteur"><p><?php echo $post->getAuteurName()?> </p></div>
                 <div class="titre"><h1><?php echo $post->getTitre()?></h1></div>
                 <div class="contenue"><p><?php echo $post->getContenu()?></p></div>
-                <div class="like"><button class="custom-like" onclick="updateLike(<?php echo $post->getId()?>)"><img src="../../public/images/like.png" id="like"></button></div>
+                <div class="nbLike"><p><?php echo $post->getNbLike()?></p></div>
+                <div class="like"></p><button class="custom-like" onclick="updateLike(<?php echo $post->getId()?>)"><img src="../../public/images/like.png" id="like"></button></div>
                 <div class="comment"><button class="custom-button" onclick="changeCurrentPost(<?php echo $post->getId()?>)"><img src="../../public/images/comment.png" id="comment"></button></div>
             </section>
         <?php }?>

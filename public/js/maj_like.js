@@ -5,6 +5,8 @@ document.querySelectorAll('.like').forEach(item => {
     })
 })
 
+let actus = document.querySelectorAll('#actualite')
+
 
 
 
@@ -26,3 +28,24 @@ function updateLike(id) {
         console.error('Error:', error);
     });
 }
+
+
+// recuperation tab like by id (tabLikesById) avec un fetch
+fetch('/public/actu/like')
+    .then(response => response.json())
+    .then(dataFromServer => {
+        if (!dataFromServer) {
+          console.log("nul !");
+        }
+
+        donnee = dataFromServer;
+        actus.forEach(actu => {
+            let id = actu.id;
+            let like = donnee[id];
+            actu.querySelector('.like').innerHTML = like;
+            // changer le style du bouton like
+            
+
+        })
+    })
+

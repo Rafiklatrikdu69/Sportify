@@ -64,7 +64,7 @@ class ActuDAO extends DAO{
 
 
     public function getNbLike($id){
-        $sql = "SELECT NB_LIKE FROM `POST` WHERE id = :id";
+        $sql = "SELECT NB_LIKE FROM `POST` WHERE POST_ID = :id";
         $params = array(":id" => $id);
         $sth = $this->queryRow($sql, $params);
         $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -74,17 +74,40 @@ class ActuDAO extends DAO{
         return $row;
     }
 
-    public function updateLike($id,$nbLike){
-        $sql = "UPDATE `POST` SET NB_LIKE = :nbLike WHERE POST_ID = :id";
-        $params = array(":id" => $id,":nbLike" => $nbLike);
-        $sth = $this->insert($sql, $params);
-        return $sth;
-    }
-
     public function addLike($id){
         $sql = "UPDATE `POST` SET NB_LIKE = NB_LIKE + 1 WHERE POST_ID = :id";
         $params = array(":id" => $id);
         $sth = $this->insert($sql, $params);
         return $sth;
+    }
+
+    public function removeLike($id){
+        $sql = "UPDATE `POST` SET NB_LIKE = NB_LIKE - 1 WHERE POST_ID = :id";
+        $params = array(":id" => $id);
+        $sth = $this->insert($sql, $params);
+        return $sth;
+    }
+
+    public function updateLike($id, $user_id){
+        $sql = "SELECT * FROM `LIKES` WHERE POST_ID = :id AND UTILISATEUR_ID = :user_id";
+        $params = array(":id" => $id,":user_id" => $user_id);
+        $sth = $this->queryRow($sql, $params);
+
+        if ($sth == false) { // si l'utilisateur n'a pas encore liké (on like)
+            $sql = "INSERT INTO `LIKES` (POST_ID,UTILISATEUR_ID) VALUES (:id,:user_id)";
+            $params = array(":id" => $id,":user_id" => $user_id);
+            $sth = $this->insert($sql, $params);
+            // appeler addLike
+            $this->addLike($id);
+            return $sth;
+        }
+        else{ // si l'utilisateur a déjà liké (on unlike)
+            $sql = "DELETE FROM `LIKES` WHERE POST_ID = :id AND UTILISATEUR_ID = :user_id";
+            $params = array(":id" => $id,":user_id" => $user_id);
+            $sth = $this->insert($sql, $params);
+            // appeler removeLike
+            $this->removeLike($id);
+            return $sth;
+        }
     }
 }
