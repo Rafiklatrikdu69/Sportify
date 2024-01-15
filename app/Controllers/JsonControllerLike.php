@@ -7,8 +7,10 @@ class JsonControllerLike{
             $data = file_get_contents("php://input");
             $like_info = json_decode($data, true);
             $id = $like_info['id'];
-            (new ActuDAO())->addLike($id);
-            echo "Like ajouté avec succès";
+            $user_id = (new UtilisateurDAO())->getUtilisateurByName($_SESSION['nom']);
+            (new ActuDAO())->updateLike($id, $user_id);
+            
+            
         }
     }
 }
