@@ -31,7 +31,7 @@ class ActuDAO extends DAO{
 
 
     public function getAll(){
-        $sql = "SELECT * FROM `POST` WHERE PARENT_POST = 0";
+        $sql = "SELECT * FROM `POST` WHERE PARENT_POST = 0 ORDER BY POST_ID DESC";
         $sth = $this->queryAll($sql);
         $tab = [];
         foreach($sth as $post){

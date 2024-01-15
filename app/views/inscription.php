@@ -19,6 +19,7 @@ use \App\Config;
       <div class="div2">
       <div class="slideshow-container">
       <div class="mySlides fade">
+      <form action="/public/verification-formulaire-inscription" method="POST" class="froms">
       <div id="us">
         <div id="corps">
         <label>Nom d'utilisateur</label>
@@ -31,6 +32,7 @@ use \App\Config;
             </div>
             </div>
       </div>
+
       <div class="mySlides fade">
       <div id="em">
       <div id="corps">
@@ -48,8 +50,12 @@ use \App\Config;
       <div id="md">
       <div id="corps">
         <label>Mot de passe</label>
+        <div>
         <input type="text" id="password" name="password" onInput="check()" >
+        <img src="images/eye.png" alt="eye" id="eye" onclick="show()">
         </div>
+        </div>
+        </form>
         <div id="val">
         <div id="check0" class="check">
                 <i class="far fa-check-circle"></i>  <span> Au moins une lettre minuscule. ❌</span>
@@ -74,13 +80,21 @@ use \App\Config;
     <br>
     <div class="div3">
     <div class="arrow">
-      <img src="images/test.png" alt="arrow" onclick="plusSlides(-1)" id="right">
+    <img src="images/test.png" alt="arrow" onclick="plusSlides(-1)" id="right">
+    <!-- <input   src="images/test.png" type="submit" value="Envoyer" onclick="plusSlides(-1)" id="right"> -->
     </div>
+    </div>
+    <!-- <div class="arrow"> -->
+    <!-- <input type="submit" value="Envoyer" onclick="plusSlides(-1)" id="right"> -->
+      <!-- <img src="images/test.png" alt="arrow" onclick="plusSlides(-1)" id="right">
+    </div> -->
     </div>  
     <div class="div1">
     <div class="arrow-left">
+
       <img src="../public/images/left.png" alt="arrow" onclick="plusSlides(1)" id="left">
     </div>
+    
     </div>
   <script src="js/connexion.js"></script>
   <script src="js/check.js" defer></script>

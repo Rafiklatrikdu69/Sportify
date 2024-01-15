@@ -13,6 +13,10 @@ function setTerrain() {
     terrain.style.height = nouvelleHauteur + "px";
 }
 
+function setTerrainScore() {
+    terrain.src = "Dessin/Terrain/TableauDesScores.png";
+}
+
 function getXTerrain() {
     return terrain.offsetLeft;
 }

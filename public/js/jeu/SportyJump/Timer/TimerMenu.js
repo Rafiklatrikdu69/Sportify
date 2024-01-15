@@ -3,7 +3,7 @@ const plateforme = document.getElementById("plateforme");
 function startTimerMenu() {
     intervalId = setInterval(function () {
         Fall();
-        IsPlateformeTouch(plateforme);
+        IsPlateformeTouchForMenu(plateforme);
     }, getRafraichissement());
 }
 

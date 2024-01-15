@@ -161,7 +161,6 @@ class UtilisateurDAO extends DAO{
         ));
     }
 
-
     public function addPoint($name){
         $sql = "UPDATE `UTILISATEUR` SET POINT_ACTUEL = POINT_ACTUEL + 10 WHERE UTILISATEUR_ID = :id";
         $this->update($sql, array(
@@ -173,8 +172,54 @@ class UtilisateurDAO extends DAO{
         $this->update($sql, array(
             "points"=>$points,
             "id" => $this->getUserId($name)
-           
         ));
+    }
+    public function getScoreClassementJeu(){
+        $tab = [];
+        try {
+            $sql = "SELECT SCORE_CLASSEMENT, PSEUDO FROM UTILISATEUR ORDER BY SCORE_CLASSEMENT DESC LIMIT 10";
+            $score = $this->queryAll($sql);
+            foreach ($score as $user) {
+                $infos = []; 
+                $infos[] = $user[0]; 
+                $infos[] = $user[1];
+                $tab[] = $infos;  
+            }
+            return $tab;
+        } catch (PDOException $e) {
+            error_log("Erreur de base de données: " . $e->getMessage());
+            return ;
+        }
+        return $tab; 
+    }
+
+    public function updateScoreJeu($score, $id){
+        $sql = "UPDATE `UTILISATEUR` SET SCORE_CLASSEMENT = :score WHERE UTILISATEUR_ID = :id";
+        $this->update($sql, array(
+            "score"=>$score,
+            "id" => $this->getUserId($id)
+        ));
+    }
+
+    public function getMeilleurScore(){
+        $sql = "SELECT MAX(SCORE_CLASSEMENT) AS MAX_SCORE FROM `UTILISATEUR`";
+        $result = $this->queryRow($sql, null);
+        if ($result) {
+            return $result['MAX_SCORE'];
+        } else {
+            echo "Erreur : Impossible de récupérer le nombre de points de l'utilisateur depuis la base de données.";
+            return null;
+        }
+    }
+    public function getMeilleurScoreUser($nom){
+        $sql = "SELECT SCORE_CLASSEMENT FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $result = $this->queryRow($sql, array('pseudo' => $nom));
+        if ($result) {
+            return $result['SCORE_CLASSEMENT'];
+        } else {
+            echo "Erreur : Impossible de récupérer le nombre de points de l'utilisateur depuis la base de données.";
+            return null;
+        }
     }
     public function getLastConnection($name){
         $sql = "SELECT LAST_CONNECTION FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
@@ -249,7 +294,14 @@ class UtilisateurDAO extends DAO{
         ));
     }
 
-
+    public function getStatutByName($name){
+            $sql = "SELECT * FROM `UTILISATEUR`  WHERE PSEUDO = :name AND STATUS = 0";
+           $sth =  $this->queryRow($sql,array(
+                "name"=>$name
+            ));
+           
+            return $sth;
+    } 
     public function getPronoWin($name){
         $sql = "SELECT COUNT(PRONOSTIC.COTE_PRONO) AS NB_PRONO
                 FROM 

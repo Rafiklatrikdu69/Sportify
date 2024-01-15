@@ -203,3 +203,9 @@ input {
 .slideshow-container{
   height: 100%;
 }
+
+#eye{
+  /* decrease the size */
+  width: 20px;
+  height: 20px;
+}

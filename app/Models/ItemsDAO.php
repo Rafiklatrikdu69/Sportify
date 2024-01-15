@@ -84,6 +84,33 @@ class ItemsDAO extends DAO{
         $sth = $this->queryRow($sqlUpdate, $paramsUpdate);
         
     }
+
+    public function getFilteredResults($params) {
+
+     
+        $sql = "SELECT * FROM `ITEMS` WHERE 1=1";
+
+        $params = [];
+
+        if (!empty($couleur)) {
+            $sql .= " AND couleur = :couleur";
+            $params[':couleur'] = $couleur;
+        }
+
+        if (!empty($prixMax)) {
+            $sql .= " AND prix <= :prixMax";
+            $params[':prixMax'] = $prixMax;
+        }
+
+   
+        $result = $this->queryAll($sql, $params);
+        $tab = [];
+
+        foreach ($result as $item) {
+            $items = new Items($item[0], $item[1], $item[2], $item[3], $item[4], $item[5]);
+            $tab[] = $items; // Ajout de l'objet Items dans le tableau
+        }
+    }
     
 }
 

@@ -39,7 +39,6 @@ function PlacementPiece() {
         piece.style.position = "absolute";
         piece.style.left = cooPiece[0] + "px";
         piece.style.top = cooPiece[1] + "px";
-      
     }
 }
 
@@ -57,6 +56,24 @@ function PlacementTitre() {
 function PlacementScore() {
     var scoreTexte = JSON.parse(localStorage.getItem("scoreTexte"));
     var nbPieceTexte = JSON.parse(localStorage.getItem("nbPieceTexte"));
+    
+    function Score (score){
+        this.score = score;
+    }
+    e = new Score(scoreTexte*1)
+
+    fetch('/public/json-jeu-UpdateScoreJeu', {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+      
+        "body": JSON.stringify(e) 
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    })
 
     var s = document.getElementById("actuelScore");
     s.innerHTML = "VOTRE SCORE:" + scoreTexte;
@@ -68,14 +85,13 @@ function PlacementScore() {
     s2.style.position = "absolute";
     s2.style.left = getXTerrain() + 50 / getFacteur() + "px";
     s2.style.top = getYTerrain() + 1100 / getFacteur() + placement2 + "px";
-    s2.style.fontSize = 48 / getFacteur() + "px";
+    s2.style.fontSize = 45 / getFacteur() + "px";
 
     var s3 = document.getElementById("meilleurScore");
     s3.style.position = "absolute";
     s3.style.left = getXTerrain() + 15 / getFacteur() + "px";
     s3.style.top = getYTerrain() + 1185 / getFacteur() + placement2 + "px";
-    s3.style.fontSize = 48 / getFacteur() + "px";
-
+    s3.style.fontSize = 45 / getFacteur() + "px";
 
     var s4 = document.getElementById("pieceScore");
     s4.innerHTML = "×" + nbPieceTexte;
@@ -88,30 +104,63 @@ function PlacementScore() {
         console.log("le score est de :"+scoreFin)
         document.getElementsByClassName('point-user')[0].innerHTML = "Vous avez "+scoreFin+" points";
          //console.log(JSON.parse(data))
-     });
-     function Score (score){
-        this.score = score;
-    }
-    e = new Score(nbPieceTexte*1)
-     fetch("/public/json-jeu-insere", {
-        "method": "POST",
-        "headers": {
-            "Content-Type": "application/json; charset=utf-8"
-        },
-      
-        "body": JSON.stringify(e)
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-    })
 
+    //FETCH => MEILLEUR SCORE GLOBAL DU JEU; 
+    fetch('/public/json-jeu-getMeilleurScore')
+    .then(response => response.text())
+     .then(data => {
+        donnee = JSON.parse(data);
+        console.log(donnee); 
+        s3.innerHTML = "Meilleur score global:" + donnee[1]; 
+
+     });
+
+    //FETCH => MEILLEUR SCORE PERSONNEL DU JOUEUR; 
+    fetch('/public/json-jeu-getMeilleurScoreUser')
+    .then(response => response.text())
+     .then(data => {
+        donnee = JSON.parse(data);
+        console.log(donnee); 
+        s2.innerHTML = "Votre meilleur score:" + donnee[1];  
+     });
+
+    var s4 = document.getElementById("pieceScore");
+    s4.innerHTML = "×" + nbPieceTexte;
+
+    var activer = JSON.parse(localStorage.getItem("activerModification"));
+    console.log(activer); 
+    if(activer){
+         function Score (score){
+            this.score = score;
+        }
+        e = new Score(nbPieceTexte*1)
+        fetch("/public/json-jeu-insere", {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+          
+            "body": JSON.stringify(e)
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+        })
+        localStorage.setItem("activerModification", JSON.stringify(false));
+    }
+    point = document.getElementsByClassName('point-user')[0];
+    fetch('/public/json-point-jeu')
+        .then(response => response.text())
+        .then(data => {
+            donnee = JSON.parse(data);
+            point.innerHTML= "Vous avez "+donnee[1]+" points";
+        });
+    
     s4.style.position = "absolute";
     s4.style.left = getXTerrain() + 350 / getFacteur() + "px";
     s4.style.top = getYTerrain() + 1435 / getFacteur() + placement3 + "px";
     s4.style.fontSize = 80 / getFacteur() + "px";
 }
-
 function PlacementNbPiece() {
     var nbPiece = document.getElementById("nbPiece");
     nbPiece.style.position = "absolute";
