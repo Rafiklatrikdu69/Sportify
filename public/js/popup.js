@@ -114,12 +114,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 div2.setAttribute("class", "div2");
 
                 const p1 = document.createElement("p");
+                p1.setAttribute("class", "TESTING");
                 p1.innerHTML = data[index].equipe_domicile + " - " + data[index].equipe_exterieur;
                 const p2 = document.createElement("p");
+                p2.setAttribute("class", "TESTING");
                 p2.innerHTML = data[index].nom_evenement;
                 const p3 = document.createElement("p");
+                p3.setAttribute("class", "TESTING");
                 p3.innerHTML = data[index].cat_sport;
                 const p4 = document.createElement("p");
+                p4.setAttribute("class", "TESTING");
                 p4.innerHTML = data[index].date_evenement;
                 div2.appendChild(p4);
                 div2.appendChild(p3);

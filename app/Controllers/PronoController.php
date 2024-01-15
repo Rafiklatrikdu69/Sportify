@@ -6,8 +6,13 @@ class PronoController extends Controllers{
         View::View('pronostique',["tableau"=>(new EvenementDAO())->getAll(),
     "pointsUser"=>( new UtilisateurDAO())->getPointUser($_SESSION['nom']),
     "tableauProno"=>(new PronostiqueDAO())->selectPronoByUser($_SESSION['nom']),
-    "lastConnection"=>(new UtilisateurDAO())->getLastConnection($_SESSION['nom'])]);
-    
+    "lastConnection"=>(new UtilisateurDAO())->getLastConnection($_SESSION['nom']),
+    "userId"=>(new utilisateurDAO())->getUserId($_SESSION['nom']),
+    "userRank"=>(new utilisateurDAO())->getClassement($_SESSION['nom']),
+    "userPdp"=>(new utilisateurDAO())->getPdp($_SESSION['nom']),
+    "pronoWin"=>(new utilisateurDAO())->getPronoWin($_SESSION['nom']),
+    "tabItemsOwned"=>(new ItemsDAO())->getOwnedItems($_SESSION['nom'])]);
+        
         $testData=(new EvenementDAO())->getAll();
         $encodedDataArray = [];
         

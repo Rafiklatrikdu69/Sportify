@@ -57,15 +57,15 @@ use \App\Config;
             <!-- la section avec les pronostics est ici -->
             
         </main>
-    <aside id="profil">
+        <aside id="profil">
             <div>
-                <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins</p>
+            <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins</p>
             </div>
             <div>
-                <img src="images/logo.png">
-                <p>Pseudo</p>
-                <p>Classement</p>
-                <p>Prono réussi</p>
+                <button id="buttonpdp"><img id="imagepdp" src="<?php echo $userPdp?>"></button>
+                <p><?php echo $_SESSION['nom']?></p>
+                <p><?php echo "Rank: " . (int)$userRank; ?></p>
+                <p><?php echo "Prono réussi: " . (int)$pronoWin?></p>
                 <p>Badges</p>
                 <p>Equipe préférée</p>
             </div>
@@ -92,6 +92,17 @@ use \App\Config;
                 <button id="closeModalR">Fermer</button>
         </div>
     </div>
+    <div id="modalpdp">
+        <div id="modalpdp-inner">
+            <h2>Choisissez votre photo de profil:</h2>
+            <?php
+            foreach($tabItemsOwned as $item){?>
+                <img class="imgpdp" src="images/img<?php echo $item->getId()?>.jpg">
+            <?php }?>
+            <button id="submitpdp">Confirmer</button>
+            <button id="closemodalpdp">Annuler</button>
+        </div>
+    </div> 
 </body>
 </html>
 <script src="../../public/js/prono.js"></script>
