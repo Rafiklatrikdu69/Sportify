@@ -96,3 +96,62 @@ let buttonbadge = document.getElementById('buttonbadge');
 let modalbadge = document.getElementById('modalbadge');
 let closemodalbadge = document.getElementById('closemodalbadge');
 let submitbadge = document.getElementById('submitbadge');
+
+buttonbadge.addEventListener('click', function () {
+    modalbadge.classList.add('open');
+});
+
+closemodalbadge.addEventListener('click', function () {
+    modalbadge.classList.remove('open');
+});
+
+// clique sur une image de la modal
+let imagesBadges = document.querySelectorAll('.imgbadge');
+let badge;
+let imageBadgeSelected;
+
+imagesBadges.forEach(function(image) {
+    image.addEventListener('click', function() {
+        // Supprimer la classe 'image-selected' de toutes les images
+        images.forEach(function(img) {
+            img.classList.remove('image-selected');
+            img.classList.remove('selected');
+        });
+
+        // Ajouter les classes 'image-selected' et 'selected' à l'image cliquée
+        // L'ajout de deux classes est nécessaire pour que l'image soit correctement stylisée
+        // Car une même propriété peut être définie dans deux classes différentes
+        // Le problème ici venait de l'opacité qui était définie dans les deux classes
+        // Avec ces deux classes (à première vue inutiles), la classe selected devient plus précis
+        // Et donc l'opacité prise en compte est celle de la classe selected
+        image.classList.add('image-selected');
+        image.classList.add('selected');
+
+        // Mettre à jour l'image sélectionnée
+        imageBadgeSelected = image;
+        badge = image.src;
+    });
+});
+
+
+
+// clique sur le bouton submit de la modal
+// change la photo de profil dans la base de données
+submitbadge.addEventListener('click', function () {
+    fetch('/public/json-badge', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+        body: JSON.stringify({badge: badge})
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        window.location.reload();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+);

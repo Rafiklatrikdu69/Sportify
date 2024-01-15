@@ -171,7 +171,9 @@ CREATE TABLE `UTILISATEUR` (
   `STATUS` int DEFAULT '0',
   `SCORE_JEU` int DEFAULT '0',
   `LAST_CONNECTION` date DEFAULT NULL,
-  `PDP_ID` varchar(100) DEFAULT 'http://localhost/public/images/logo.png'
+  `PDP_SRC` varchar(100) DEFAULT 'http://localhost/public/images/logo.png',
+  `BADGE_SRC` varchar(100) DEFAULT 'http://localhost/public/images/logo.png',
+  `ECUSSON_SRC` varchar(100) DEFAULT 'http://localhost/public/images/logo.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --

@@ -231,10 +231,10 @@ class UtilisateurDAO extends DAO{
     }
 
     public function getPdp($name){
-        $sql = "SELECT PDP_ID FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
+        $sql = "SELECT PDP_SRC FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
         $result = $this->queryRow($sql, array('pseudo' => $name));
         if ($result) {
-            return $result['PDP_ID'];
+            return $result['PDP_SRC'];
         } else {
             echo "Erreur : Impossible de récupérer l'ID de l'utilisateur depuis la base de données.";
             return null;
@@ -242,10 +242,26 @@ class UtilisateurDAO extends DAO{
     }
 
     public function updatePdpByName($name, $pdp) {
-        $sql = "UPDATE `UTILISATEUR` SET PDP_ID = :pdp WHERE PSEUDO = :pseudo";
+        $sql = "UPDATE `UTILISATEUR` SET PDP_SRC = :pdp WHERE PSEUDO = :pseudo";
         $this->update($sql, array(
             "pseudo" => $name,
             "pdp" => $pdp
+        ));
+    }
+
+    public function updateBadgeByName($name, $bad) {
+        $sql = "UPDATE `UTILISATEUR` SET BADGE_SRC = :badge WHERE PSEUDO = :pseudo";
+        $this->update($sql, array(
+            "pseudo" => $name,
+            "badge" => $bad
+        ));
+    }
+
+    public function updateEcussonByName($name, $ecu) {
+        $sql = "UPDATE `UTILISATEUR` SET ECUSSON_SRC = :ecusson WHERE PSEUDO = :pseudo";
+        $this->update($sql, array(
+            "pseudo" => $name,
+            "ecusson" => $ecu
         ));
     }
 

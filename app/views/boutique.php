@@ -85,11 +85,13 @@ use \App\Config;
         <div id="modalpdp-inner">
             <h2>Choisissez votre photo de profil:</h2>
             <?php
-            foreach($tabItemsOwned as $item){?>
-                <img class="imgpdp" src="images/img<?php echo $item->getId()?>.jpg">
-            <?php }?>
+            foreach($tabIcone as $icone){?>
+                <img class="imgpdp" src="images/img<?php echo $icone->getId()?>.jpg">
+            <?php }?>    
+            <div>   
             <button id="submitpdp">Confirmer</button>
             <button id="closemodalpdp">Annuler</button>
+            </div>
         </div>
     </div> 
 
@@ -98,11 +100,13 @@ use \App\Config;
         <div id="modalbadge-inner">
             <h2>Choisissez votre badge:</h2>
             <?php
-            foreach($tabItemsOwned as $item){?>
-                <img class="imgpdp" src="images/img<?php echo $item->getId()?>.jpg">
+            foreach($tabBadge as $badge){?>
+                <img class="imgbadge" src="images/img<?php echo $badge->getId()?>.jpg">
             <?php }?>
-            <button id="submitpdp">Confirmer</button>
-            <button id="closemodalpdp">Annuler</button>
+            <div>
+            <button id="submitbadge">Confirmer</button>
+            <button id="closemodalbadge">Annuler</button>
+            </div>
         </div>
     </div> 
 
