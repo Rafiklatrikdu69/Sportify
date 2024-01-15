@@ -43,5 +43,6 @@ fetch('/public/actu/like')
             let id = actu.id;
             let like = donnee[id];
             actu.querySelector('.like').innerHTML = like;
+            
         })
     })
