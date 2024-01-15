@@ -37,7 +37,13 @@ function PlacementScoreNombrePiece() {
     scorePiece.style.left = getXTerrain() + 110 / getFacteur() + "px";
     scorePiece.style.top = getYTerrain() + 160 / getFacteur() + "px";
 }
-
+function PlacementScoreMonstre() {
+    var scoreMonstre = document.getElementById("scoreMonstre");
+    scoreMonstre.style.position = "absolute";
+    scoreMonstre.style.fontSize = "25px";
+    scoreMonstre.style.top = getYTerrain() + 30 / getFacteur() + "px";
+    scoreMonstre.classList.add("invisible");
+}
 function PlacementPiece() {
     var piece = document.getElementById("piece");
     piece.style.position = "absolute";
@@ -46,10 +52,6 @@ function PlacementPiece() {
 function PlacementMonstreHitBoxAttack() {
     var monstreHitBoxAttack = document.getElementById("monstreHitBoxAttack");
     monstreHitBoxAttack.style.position = "absolute";
-    let l = monstreHitBoxAttack.width / getFacteur() + "px";
-    let h = monstreHitBoxAttack.height / getFacteur() + "px";
-    monstreHitBoxAttack.style.width = l;
-    monstreHitBoxAttack.style.height = h;
 }
 function PlacementMonstreImage() {
     var monstreImage = document.getElementById("monstreImage");
@@ -60,4 +62,17 @@ function PlacementMonstreHitBoxVulnerable() {
     var monstreHitBoxVulnerable = document.getElementById("monstreHitBoxVulnerable");
     monstreHitBoxVulnerable.style.position = "absolute";
     egaliserCooMonstre();
+}
+function PlacementRessort() {
+    var ressort = document.getElementById("ressort");
+    ressort.style.position = "absolute";
+    ressort.classList.add("invisible");
+}
+
+function PlacementJetPack() {
+    var jetpack = document.getElementById("jetpackFixe");
+    jetpack.style.position = "absolute";
+    jetpack.style.left = "50px";
+    jetpack.style.top = "80px";
+    jetpack.classList.add("invisible");
 }

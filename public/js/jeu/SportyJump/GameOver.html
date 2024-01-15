@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <script src="Model/Dimension.js" defer></script>
+    <script src="Model/Tutoriel.js" defer></script>
     <script src="Model/Terrain.js" defer></script>
     <script src="Model/Ballon.js" defer></script>
     <script src="Model/TailleModel.js" defer></script>
@@ -27,17 +29,18 @@
 
 <body>
     <header>
-        <a id="accueil" href="/public/actualite"><img src="logo.png"></a>
-        <a id="actu" href="/public/actualite">Actu</a>
+        <a id="accueil" href="/public/actu"><img src="logo.png"></a>
+        <a id="actu" href="/public/actu">Actu</a>
         <a id="prono" href="/public/pronostique">Prono</a>
         <a id="boutique" href="/public/boutique">Boutique</a>
-        <a id="jeu" href="/public/boutique">Mini-Jeu</a>
+        <a id="jeu" href="/public/js/jeu/SportyJump/GameOver.html">Mini-Jeu</a>
         <a id="deconnexion" href="/public/deconnexion">Déconnexion</a>
     </header>
-   
     <div class="interfaceJeu">
-        <div class="point-user">hasdsadm</div>
-        <div id="plateforme"></div>
+
+        <div class="point-user"></div>
+        <img id="plateforme" src="Dessin/Plateforme/plateforme-classique.png" alt="Mon Image">
+        <div id="plateforms"></div>
         <div id="police">
             <a id="actuelScore">VOTRE SCORE:</a>
             <a id="pieceScore">×0</a>
@@ -58,6 +61,22 @@
             <img id="ballonHitBoxGet" src="Dessin/Ballon/HitBoxGet.png" alt="Mon Image">
             <img id="monstreHitBoxAttack" src="Dessin/Monstre/HitBoxMonstre.png" alt="Mon Image">
             <img id="monstreHitBoxVulnerable" src="Dessin/Monstre/HitBoxVulnerableMonstre.png" alt="Mon Image">
+        </div>
+    </div>
+    <div class="tuto" id="tuto">
+        <div class="circle" id="circle">
+            <div class="question-mark" id="point">?</div>
+        </div>
+        <div class="rectangle" id="rectangle">
+            <div class="tutoType">
+                <div class="tutoMenu"></div>
+                <div class="tutoGamePlay"></div>
+                <div class="tutoPiece"></div>
+                <div class="tutoMonstre"></div>
+                <div class="tutoObject"></div>
+            </div>
+            <div class="cercle_Tuto"></div>
+            <div class="fleche"></div>
         </div>
     </div>
 </body>

@@ -19,6 +19,13 @@ function setImageExplosion() {
 function startPieceObtenu() {
     timerAnimationPiece = setInterval(function () {
         piece.classList.add("invisible");
+        activerPiece = false;
+        if (getType() == 4) {
+            reculementPiece = 0;
+            piece.style.top = getYTerrain() + getLargeurTerrain() + 50 + "px";
+            supprimerPiece();
+            AffichagePiece();
+        }
         stopPieceObtenu();
     }, 480);
 }
@@ -58,6 +65,9 @@ function setYPiece(new_y) {
 function setReculementPiece() {
     reculementPiece = getVitesse();
 }
+function setReulementPieceWithValue(nb) {
+    reculementPiece = nb;
+}
 //Méthode défilement de la piece dans la page Game.html; 
 function ReculerPiece() {
     piece.style.top = getYPiece() + reculementPiece + "px";
@@ -76,8 +86,8 @@ function DescentePiece() {
     }
 }
 function AffichagePiece() {
-    let nb = Math.floor(Math.random() * 2);
-    if (nb == 1) {
+    let nb = Math.floor(Math.random() * 3);
+    if (nb == 0 || getType() == 4) {
         pieceIsNull = false;
         setImagePieceGif();
         setXPiece(Math.floor(Math.random() * 1100 / getFacteur()) + 60 / getFacteur());
@@ -91,6 +101,7 @@ function supprimerPiece() {
     if (getYPiece() >= getYTerrain() + getLargeurTerrain()) {
         pieceIsNull = true;
         piece.classList.add("invisible");
+        stopPieceObtenu();
     }
 }
 //Collision entre la piece et le ballon; 
@@ -107,6 +118,9 @@ function PieceTouchee() {
     }
 }
 
+function reculementPieceByPiece() {
+    piece.style.top = getYPiece() + getReculement() + "px";
+}
 //=============================================================== Partie Game Over ===============================================================//
 //=============================================================== Partie Game Over ===============================================================//
 //=============================================================== Partie Game Over ===============================================================//

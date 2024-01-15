@@ -1,4 +1,3 @@
-
 window.onload = function () {
 
     setTerrain();
@@ -13,12 +12,21 @@ window.onload = function () {
 
     setImageBallon(getType());
 
+    PlacementJetPack();
+    DefinirTailleJetPack();
+    PlacementRessort();
+    DefinirTailleRessort();
+
+    setTableauDeplacementPlateforme();
     setListePlateforme();
     setCooListePlateforme();
+    setPlateformeDuRessort();
+    setPlateformeDuJetPack();
 
     PlacementScore();
     PlacementScorePieceImage();
     PlacementScoreNombrePiece();
+    PlacementScoreMonstre();
 
     PlacementPiece();
 
@@ -27,8 +35,8 @@ window.onload = function () {
     PlacementMonstreImage();
     PlacementMonstreHitBoxVulnerable();
 
+    ConfigurationPause();
+
     startTimerBallonDeplacement();
     startTimerConfigurationModels();
-    
 }
-//hfbefbeufveufvej; 

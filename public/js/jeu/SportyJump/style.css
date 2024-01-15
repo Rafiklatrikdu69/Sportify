@@ -7,8 +7,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
-*{
-    font-family: futura;
+body {
+    width: 100%;
+    height: 100%;
+    zoom: 70%;
+    margin: 0 auto;
+    background-color: #226B80;
+    -webkit-font-smoothing: antialiased;
 }
 
 header {
@@ -23,7 +28,6 @@ header {
     z-index: 1000;
     transition: background-color 0.3s, color 0.3s, margin-left 0.3s, margin-right 0.3s;
 }
-
 
 header img {
     grid-area: 1/1/2/2;
@@ -60,12 +64,6 @@ header>a:first-child {
     margin-right: 10%;
 }
 
-body {
-    margin: 0;
-    background-color: #226B80;
-    -webkit-font-smoothing: antialiased;
-}
-
 .interfaceJeu {
     position: absolute;
     top: calc(5rem + 16px);
@@ -75,6 +73,7 @@ body {
     overflow: hidden;
     width: 633px;
     height: 960px;
+    margin: 0 auto;
 }
 
 #police {
@@ -94,13 +93,219 @@ body {
     visibility: hidden;
 }
 
+.tuto {
+    cursor: pointer;
+    position: absolute;
+    top: calc(8rem + 16px);
+    left: 5%;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    background-color: #000;
+    border-radius: 50%;
+    position: relative;
+    border: 10px solid #000;
+    box-shadow: 0 0 50px #000000;
+    transition: background-color 0.3s, color 0.3s, margin-left 0.5s, margin-right 0.5s;
+}
+
+.question-mark {
+    font-size: 2em;
+    color: #fff;
+    font-family: 'Pixelify Sans', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-style: bold;
+}
+
+.rectangle {
+    width: 550px;
+    height: 430px;
+    position: fixed;
+    background-color: #40A798;
+    border: 10px solid #000;
+    border-radius: 20px;
+    left: -690px;
+    top: 250px;
+    transition: width 0.5s ease;
+    overflow: hidden;
+    padding: 10px;
+    cursor: default;
+}
+
+.expanded {
+    width: 700px;
+}
+
+.titre {
+    text-align: center;
+    color: #000;
+    font-family: futura;
+    font-size: 25px;
+    margin-top: 0;
+}
+
+.text {
+    color: #000;
+    font-family: futura;
+    font-size: 20px;
+    padding: 2px;
+}
+
+.tutoMenu {
+    width: 700px;
+    height: 430px;
+}
+
+.tutoGamePlay {
+    width: 700px;
+    height: 430px;
+}
+
+.tutoPiece {
+    width: 700px;
+    height: 430px;
+}
+
+.tutoMonstre {
+    width: 700px;
+    height: 430px;
+}
+
+.tutoObject {
+    width: 700px;
+    height: 430px;
+}
+
+.tutoType {
+    display: grid;
+    grid-template-columns: repeat(5, 700px);
+    grid-gap: 100px;
+}
+
+.cercle_Tuto {
+    display: grid;
+    grid-template-columns: repeat(5, 10px);
+    grid-gap: 10px;
+    padding: 10px;
+    position: "absolute";
+    left: 43%;
+    top: 93%;
+}
+
+.divPiece {
+    display: grid;
+    grid-template: 70px / 70px 20px 119px;
+    grid-gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.divMonstre {
+    display: grid;
+    grid-template: 20px 177px / 130px 117px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.tableauScore {
+    font-family: 'Press Start 2P';
+    font-size: 20px;
+    border-spacing: 50px 35px;
+    border-collapse: separate;
+    margin: auto;
+}
+
+.ligne0 {
+    color: #fcfc04;
+}
+
+.ligne1 {
+    color: #dcdcdc;
+}
+
+.ligne2 {
+    color: #fc0404;
+}
+
+.ligne3 {
+    color: #fcb444;
+}
+
+.ligne4 {
+    color: #fcb494;
+}
+
+.ligne5 {
+    color: #f4cc34;
+}
+
+.ligne6 {
+    color: #fcfc04;
+}
+
+.ligne7 {
+    color: #14b42c;
+}
+
+.ligne8 {
+    color: #04fcdc;
+}
+
+.ligne9 {
+    color: #149cb4;
+}
+
+.ligne10 {
+    color: #0cd424;
+}
+
+.titreTableauScore {
+    margin-top: 60px;
+    position: relative;
+    font-family: 'Press Start 2P';
+    font-size: 25px;
+    color: #04fcdc;
+    text-align: center;
+}
+
+tr>td:first-child {
+    text-align: left;
+}
+
+tr>td:last-child {
+    text-align: center;
+}
+tr>td:nth-child(2){
+   text-align: center;
+}
+
+.boutonMenu{
+    color: #dcdcdc;
+    font-size: 35px;
+    margin-top: 7%;
+    text-align: center;
+    font-family: 'Press Start 2P';
+    cursor: pointer;
+}
+
 .point-user{
+    position: absolute;
     background-color: #FFEBD3;
-    color: black;
-    grid-area: 2/1/6/2;
+    color: black; 
+    height: 2%;
+    width: 633px;
     text-align: center;
     border-radius: 4px;
-    height: 2%;
+    font-family: futura;
     outline-offset: 10px;
     outline: 10px solid #FFEBD3;
 }
