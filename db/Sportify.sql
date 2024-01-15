@@ -193,16 +193,16 @@ INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`, 
 
 -- REMPLISSAGE DE DONNEE POUR LE CLASSEMENT DU JEU; 
 INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`,`POINT_ACTUEL`, `POINT_CLASSEMENT`, `STATUS`, `SCORE_JEU`, `SCORE_CLASSEMENT`, `LAST_CONNECTION`) VALUES
-(10, 'ChocoPops', 'rahmaninahil@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 1123.00, 50, 0, 0, 427600, null), 
-(11, 'Lufty', 'lufty@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 987.00, 50, 0, 0, 294000, null), 
-(12, 'Lyollzz', 'leo@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 843.00, 50, 0, 0, 134820, null),
-(13, 'LoîsKassis', 'lois@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 620.00, 50, 0, 0, 102027, null), 
-(14, 'Pelilikian', 'pelikan@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 340.00, 50, 0, 0, 95760, null), 
-(15, 'Mass$$', 'mass@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 170.00, 50, 0, 0, 77490, null), 
-(16, 'Shuus', 'shuus@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 80.00, 50, 0, 0, 16380, null), 
-(17, 'AbuTotem', 'Abu@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 50.00, 50, 0, 0, 13440, null), 
-(18, 'Slovenisl', 'nils@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 35.00, 50, 0, 0, 10500, null), 
-(19, 'Muhadinibishi', 'mumu@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 10.00, 50, 0, 0, 2100, null); 
+(10, 'ChocoPops', 'rahmaninahil@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 1123.00, 500, 1, 0, 427600, null), 
+(11, 'Lufty', 'lufty@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 987.00, 670, 1, 0, 294000, null), 
+(12, 'Lyollzz', 'leo@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 843.00, 900, 1, 0, 134820, null),
+(13, 'LoîsKassis', 'lois@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 620.00, 300, 1, 0, 102027, null), 
+(14, 'Pelilikian', 'pelikan@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 340.00, 456, 1, 0, 95760, null), 
+(15, 'Mass$$', 'mass@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 170.00, 890, 1, 0, 77490, null), 
+(16, 'Shuus', 'shuus@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 80.00, 230, 1, 0, 16380, null), 
+(17, 'AbuTotem', 'Abu@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 50.00, 6000, 1, 0, 13440, null), 
+(18, 'Slovenisl', 'nils@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 35.00, 120, 1, 0, 10500, null), 
+(19, 'Muhadinibishi', 'mumu@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 10.00, 1150, 1, 0, 2100, null); 
 
 --
 -- Indexes for dumped tables

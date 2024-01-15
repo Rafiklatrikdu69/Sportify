@@ -7,11 +7,10 @@ fetch('/public/admin')
    donnee = JSON.parse(data).cle[0];
    console.log("donne "+donnee)
    if(donnee==1){ 
-   let divCoin = document.getElementsByClassName('coin')[0];
+   let asidecat = document.getElementById("categorie");
    let divAdmin = document.createElement('button');
    divAdmin.innerHTML = "Admin";
-   divCoin.appendChild(divAdmin)
-   divAdmin.setAttribute('id','coin')
+   asidecat.appendChild(divAdmin);
    divAdmin.addEventListener('click',function(){
     window.location.href='/public/administration';   
    })
