@@ -10,7 +10,6 @@
 body {
     width: 100%;
     height: 100%;
-    zoom: 70%;
     margin: 0 auto;
     background-color: #226B80;
     -webkit-font-smoothing: antialiased;
@@ -66,7 +65,7 @@ header>a:first-child {
 
 .interfaceJeu {
     position: absolute;
-    top: calc(5rem + 16px);
+    top: calc(8rem + 16px);
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 0 200px #000000;
@@ -74,6 +73,7 @@ header>a:first-child {
     width: 633px;
     height: 960px;
     margin: 0 auto;
+    zoom: 70%;
 }
 
 #police {
@@ -96,8 +96,9 @@ header>a:first-child {
 .tuto {
     cursor: pointer;
     position: absolute;
-    top: calc(8rem + 16px);
+    top: calc(9rem + 16px);
     left: 5%;
+    zoom:70%;
 }
 
 .circle {
