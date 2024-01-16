@@ -10,20 +10,26 @@ body {
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  zoom : 67%; 
 }
 
+.barreTmp{
+  width: 100%;
+  height: 10%;
+}
 .barreMenu {
+  overflow: hidden;
   background-color: black;
   width: 100%;
-  height: auto;
+  height: 10%;
+  position : fixed; 
   margin: 0;
   color: white;
-  font-size: 35px;
+  font-size: 40px;
   display: grid;
   grid-template: 1fr / 45% 55%;
   align-items: center;
-  justify-content: center;
-
+  justify-content: center; 
 }
 
 .gridTitre {
@@ -32,7 +38,7 @@ body {
   align-items: center;
   justify-content: center;
   grid-template: 1fr / 80px 1fr;
-  margin-left: 35%;
+  margin-left: 50%;
   margin-top: 15px;
   margin-bottom: 15px;
 }
@@ -56,12 +62,12 @@ body {
 .profil>img {
   height: calc(190px / 3);
   width: calc(190px / 3);
-  margin-left: 30px;
+  margin-left: 40px;
   margin-right: 15px;
 }
 
 .gridProfil>a:nth-child(1) {
-  margin-left: 70px;
+  margin-left: 120px;
 }
 
 .arrow-down {
@@ -84,44 +90,206 @@ body {
 
 .accueil {
   display: grid;
-  grid-template: 102%/ 45% 55%;
+  grid-template: 1fr/ 45% 55%;
+  height: 90%;
+  width: 100%;
 }
 
 .droite {
   background: linear-gradient(135deg, black 5%, #226B80 100%);
-  font-size: 38px;
+  font-size: 48px;
   color: rgb(255, 255, 255);
   text-align: center;
   height: 100%;
-  /* Ajustez la hauteur selon vos besoins */
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
 }
 
-.droite>a:nth-child(2) {
-  margin-bottom: 500px;
-}
-
 .cadre {
   background-color: transparent;
-  border: 6px solid #fff;
+  border: 4px solid #fff;
   padding: 20px;
   display: inline-block;
   border-radius: 30px;
   width: 300px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s
 }
 
 .gauche {
-  font-size: 45px;
-  color: rgb(0, 0, 0);
+  font-size: 50px;
+  color: black;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  margin: 0;
+}
+
+.logo {
+  margin-top: 30px;
+  height: calc(933px / 1.3);
+  width: calc(1034px / 1.3);
+}
+
+.ligne{
+  width: 100%;
+  height: 20px;
+  background-color: #1B5363;
+  margin: 0;
+}
+.titre{
+  display: flex;
+  width: 100%;
+  height: 100px;
+  color: white;
+  background: linear-gradient(90deg, black -20%, #226B80 100%);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 55px;
+}
+
+.cadreDescriptif{
+  width: 100%;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bloc{
+  width: 1700px;
+  height: 700px;
+  background-color: white;
+  display: grid;
+  grid-template : 1fr / 45% 55%;
+}
+
+.bloc2{
+  width: 1700px;
+  height: 700px;
+  background-color: white;
+  display: grid;
+  grid-template : 1fr / 55% 45%;
+}
+
+.blocGauche{
+  overflow: hidden;
+  height: 100%;
+  font-size: 50px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+.blocDroite{
+  overflow: hidden;
+  background: linear-gradient(135deg,  #226B80 0%, black 100%);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  grid-template : auto auto auto / 1fr;
+  grid-row-gap: 20px;
+  color: white;
+  font-size: 30px;
+  padding: 30px;
+}
+.blocDroite>a{
+  padding: 35px;
+  background-color: transparent;
+  border: 3px solid #fff;
+  border-radius: 25px;
+}
+.iconeBloc{
+  margin-top: 20px;
+  height: 50px;
+  width: 100px;
+  background: linear-gradient(90deg, black -20%, #226B80 100%);
+  border-radius: 40px;
+}
+.ligne2{
+  width: 100%;
+  height: 10px;
+  background-color: #1B5363;
+  margin: 0;
+}
+
+.blocDroite2{
+  overflow: hidden;
+  height: 100%;
+  font-size: 50px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.blocGauche2{
+  overflow: hidden;
+  background: linear-gradient(135deg,  #226B80 0%, black 100%);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  grid-template : auto auto auto / 1fr;
+  grid-row-gap: 20px;
+  color: white;
+  font-size: 30px;
+  padding: 30px;
+}
+
+.blocGauche2>a{
+  padding: 35px;
+  background-color: transparent;
+  border: 3px solid #fff;
+  border-radius: 25px;
+}
+
+
+.fin{
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+  display: grid;
+  grid-template : 1fr / 33.33% 33.33% 33.33%;
+  font-size: 35px;
+  margin: 0;
+}
+
+footer{
+  font-size: 20px;
+  margin-top: 250px;
+  margin-left: 10px;
+}
+
+.finDroite{
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.gauche>img {
-  height: calc(933px / 1.8);
-  width: calc(1034px / 1.8);
+.cadrageFleche{
+  display: flex; 
+  text-align: center;
+  justify-content: center;
+}
+.cadrageFleche>img{
+  width: calc(1837px / 4);
+  height: calc(594px / 4);
+  margin-top: 20px;
+  cursor: pointer;
+}
+.finDroite>img{
+  margin-top: 20px;
+  height: calc(933px / 4.8);
+  width: calc(1034px / 4.8);
 }
