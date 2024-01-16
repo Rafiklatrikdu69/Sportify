@@ -326,52 +326,60 @@ legend:nth-of-type(4){
   outline: 10px solid #FFEBD3;
 }
 
-#profil div:last-child img{
+#profil div:last-child img:first-of-type{
   grid-area: 1/1/2/2;
   width: 40%;
   margin-bottom: 10%;
   border-radius: 5%;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 5%;
   outline: 4px solid #40A798;
 }
+
+#profil div:last-child #imagebadge, #profil div:last-child #imageecu{
+  width: 40%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  border-radius: 5%;
+  outline: 4px solid #40A798;
+}
+
 
 #profil div:last-child p:nth-of-type(1){
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 #profil div:last-child p:nth-of-type(2){
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 #profil div:last-child p:nth-of-type(3){
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 #profil div:last-child p:nth-of-type(4){
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 #profil div:last-child p:nth-of-type(5){
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5%;
+  margin-top: 2%;
 }
 
-#profil div:last-child p:nth-of-type(6){
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 5%;
-}
+
 
 
 
