@@ -199,7 +199,7 @@ INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`,`
 (13, 'LoîsKassis', 'lois@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 620.00, 300, 1, 0, 102027, null), 
 (14, 'Pelilikian', 'pelikan@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 340.00, 456, 1, 0, 95760, null), 
 (15, 'Mass$$', 'mass@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 170.00, 890, 1, 0, 77490, null), 
-(16, 'Shuus', 'shuus@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 80.00, 230, 1, 0, 16380, null), 
+(16, 'Shuuss', 'shuus@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 80.00, 230, 1, 0, 16380, null), 
 (17, 'AbuTotem', 'Abu@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 50.00, 6000, 1, 0, 13440, null), 
 (18, 'Slovenisl', 'nils@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 35.00, 120, 1, 0, 10500, null), 
 (19, 'Muhadinibishi', 'mumu@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 10.00, 1150, 1, 0, 2100, null); 

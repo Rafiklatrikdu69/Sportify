@@ -297,7 +297,7 @@ function TutoMenu() {
         mode.push(document.createElement("a"));
         mode[i].classList.add("text");
     }
-    mode[0].textContent = "Foot => Mode Normale (Mode le mieux équilibré, fonctionnalité classique)";
+    mode[0].textContent = "Foot => Mode Normal (Mode le mieux équilibré, fonctionnalité classique)";
     mode[1].textContent = "Basket => Mode HardCore (Fréquence des monstres très élevée)"
     mode[2].textContent = "Tennis => Mode Vitesse (Vitesse de la balle augmentée)";
     mode[3].textContent = "Baseball => Mode Richesse (Fréquence des pièces très élevée)";
