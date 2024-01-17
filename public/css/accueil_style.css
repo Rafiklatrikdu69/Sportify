@@ -17,6 +17,7 @@ body {
   width: 100%;
   height: 10%;
 }
+
 .barreMenu {
   overflow: hidden;
   background-color: black;
@@ -44,8 +45,8 @@ body {
 }
 
 .gridTitre>img {
-  height: calc(933px / 13);
-  width: calc(1034px / 13);
+  height: calc(933px / 12);
+  width: calc(1034px / 12);
 }
 
 .gridTitre>a {
@@ -76,7 +77,6 @@ body {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 15px solid #ffffff;
-  border-bottom: none;
   display: inline-block;
   margin: 0 15px;
 }
@@ -93,6 +93,7 @@ body {
   grid-template: 1fr/ 45% 55%;
   height: 90%;
   width: 100%;
+  overflow: hidden;
 }
 
 .droite {
@@ -257,16 +258,16 @@ body {
 .fin{
   overflow: hidden;
   width: 100%;
-  height: 300px;
+  height: 450px;
   display: grid;
   grid-template : 1fr / 33.33% 33.33% 33.33%;
-  font-size: 35px;
+  font-size: 45px;
   margin: 0;
 }
 
 footer{
-  font-size: 20px;
-  margin-top: 250px;
+  font-size: 25px;
+  margin-top: 385px;
   margin-left: 10px;
 }
 
@@ -275,6 +276,8 @@ footer{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  justify-self: end;
+  margin-right: 50px;
 }
 
 .cadrageFleche{
@@ -282,14 +285,55 @@ footer{
   text-align: center;
   justify-content: center;
 }
+
 .cadrageFleche>img{
-  width: calc(1837px / 4);
-  height: calc(594px / 4);
-  margin-top: 20px;
+  width: calc(1837px / 3.5);
+  height: calc(594px / 3.5);
+  margin-top: 60px;
   cursor: pointer;
 }
+
 .finDroite>img{
   margin-top: 20px;
-  height: calc(933px / 4.8);
-  width: calc(1034px / 4.8);
+  height: calc(933px / 3);
+  width: calc(1034px / 3);
+}
+
+.cadreMenu{
+  height: 130px;
+  width: 250px;
+  top : 165px; 
+  position: fixed;
+  left: 77.8%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  background-color: #fff;
+  display: none;
+}
+.menu {
+  height: 100%;
+  width: 100%;
+  font-size: 26px;
+  padding-left: 30px;
+  grid-gap: 0px;
+  display: grid;
+  align-items: center;
+  text-align: left;
+  justify-content: center;
+  grid-template: 50% 50% / 100%;
+}
+.menu>a{
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  top: -22px;
+  left: 80%;
+  transform: translateX(-80%);
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 35px solid #fff;
 }

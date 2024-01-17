@@ -22,10 +22,17 @@ use \App\Config;
         <div class="gridProfil">
             <a>Devenez un Sportifyer  <b>|</b> </a>
             <div class="profil" id="btProfil">
-                <img src="images/profil.png">
-                <a>Profil</a>
-                <div class="arrow-down"></div>
+                <img id="imageProfil" src="images/profil.png">
+                <a id="titreProfil">Profil</a>
+                <div id="flecheProfil" class="arrow-down"></div>
             </div>
+        </div>
+    </div>
+    <div class="cadreMenu">
+        <div class="arrow"></div>
+        <div id="menu" class="menu">
+            <a id="menu1"> S'inscrire </a>
+            <a id="menu2">Se Connecter </a>
         </div>
     </div>
     <div class="barreTmp"></div>
@@ -120,7 +127,7 @@ use \App\Config;
             <a>Site réalisé dans le cadre de la SAE S3</a>
         </footer>
         <div class="cadrageFleche">
-            <img src="images/fleche.png">
+            <img id ="flecheFin" src="images/fleche.png">
         </div>
         <div class="finDroite">
             <a> Sportify </a>
