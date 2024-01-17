@@ -109,7 +109,9 @@ menu2.addEventListener("click", function(){
     window.location.href='/public/connexion'; 
 });     
 
-document.querySelector(".cadreMenu").style.left = document.getElementById("flecheProfil").offsetLeft + 23 + "px"; 
+window.onload = function () {
+    document.querySelector(".cadreMenu").style.left = document.getElementById("flecheProfil").offsetLeft - 47 + "px"; 
+}
 
 function removeCadreProfil(){
     flecheIsClick = false; 
@@ -120,6 +122,6 @@ function removeCadreProfil(){
     document.querySelector(".cadreMenu").style.display = 'none';
 }
 window.addEventListener('resize', function(){
-    document.querySelector(".cadreMenu").style.left = document.getElementById("flecheProfil").offsetLeft - 50 + "px"; 
+    document.querySelector(".cadreMenu").style.left = document.getElementById("flecheProfil").offsetLeft - 47 + "px"; 
 });
 document.body.addEventListener('click', removeCadreProfil); 
