@@ -1,21 +1,14 @@
 <?php
 
-class JsonControllerProno{
-    public function verificationProno(){ 
+class JsonControllerProno implements DefaultJsonController{
+    public function index(){ 
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
-      
-            
-            
             $pronostiqueur_id = null;
             if (isset($_SESSION['nom'])) {
                 $nom = $_SESSION['nom'];
-                
                 $pronostiqueur_id = (new UtilisateurDAO())->getUtilisateurByName($nom);
             }
-            
-            
             if ($pronostiqueur_id !== null) {
                 $data = file_get_contents("php://input");
                 $prono = json_decode($data, true);

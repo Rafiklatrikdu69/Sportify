@@ -1,6 +1,7 @@
 <?php
 
-class JsonControllerCom{
+class JsonControllerCom implements DefaultActualiteStrategy{
+    public function index(){}
     public function ajoutCom() {
         ob_start();
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['currpost']) && $_SESSION['currpost'] !== 0 && !empty($_SESSION['currpost'])) {

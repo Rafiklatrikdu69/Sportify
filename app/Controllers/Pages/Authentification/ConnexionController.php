@@ -1,7 +1,7 @@
 <?php
 
 
-class ConnexionController  extends Controllers{
+class ConnexionController  implements DefaultAuthStrategy{
     
     public function index(){
         View::View('connexion',['name'=>'']);

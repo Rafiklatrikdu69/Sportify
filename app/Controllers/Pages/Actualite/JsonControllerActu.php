@@ -1,6 +1,7 @@
 <?php
 
-class JsonControllerActu{
+class JsonControllerActu implements DefaultActualiteStrategy{
+    public function index(){}
     public function ajoutActu() {
         ob_start();
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && (!isset($_SESSION['currpost']) || empty($_SESSION['currpost']) || $_SESSION['currpost'] == 0)) {

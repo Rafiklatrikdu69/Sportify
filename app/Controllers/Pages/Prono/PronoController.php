@@ -1,5 +1,5 @@
 <?php
-class PronoController extends Controllers{
+class PronoController implements DefaultJsonController{
     public  function index(){
      
        (new VerifSession());

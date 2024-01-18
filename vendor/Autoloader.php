@@ -22,6 +22,11 @@
     $paths = [
         realpath('../header/'),
         realpath('../app/Models/'),
+        realpath('../app/Models/DAO/Actualite'),
+        realpath('../app/Models/DAO/Boutique'),
+        realpath('../app/Models/DAO/Evenement'),
+        realpath('../app/Models/DAO/Pronostique'),
+        realpath('../app/Models/DAO/Utilisateur'),
         realpath('../app/Controllers/'),
         realpath('app/'),
         realpath('../public/Route/'),
@@ -29,7 +34,13 @@
         realpath('../app/Controllers/classesAbstraites/'),
         realpath('config/'),
         realpath('../config/'),
-        realpath('../app/Controllers/Formulaire'),
+        realpath('../app/Controllers/Formulaire/Strategy'),
+        realpath('../app/Controllers/Pages/Prono/'),
+        realpath('../app/Controllers/Pages/Jeu/'),
+        realpath('../app/Controllers/Pages/Actualite/'),
+        realpath('../app/Controllers/Pages/Admin/'),
+        realpath('../app/Controllers/Pages/Deconnexion/'),
+        realpath('../app/Controllers/Pages/Authentification')
     ];
     
     $autoloader = new Autoloader($paths);

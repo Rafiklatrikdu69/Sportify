@@ -1,9 +1,7 @@
 <?php
 
-class JsonControllerJeu{
-    function __construct() {
-        
-    }
+class JsonControllerJeu implements DefaultJeuController{
+    
     public  function  index(){
         $userPoint = new UtilisateurDAO();
         $data = [1=>$userPoint->getPointUser($_SESSION['nom'])];

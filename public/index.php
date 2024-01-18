@@ -17,42 +17,42 @@ switch ($request) {
                 $route->post('/public/json-item', [new JsonControllerItem(), 'ajout']);
                 break;
                 case '/public/json-like':
-                    $route->post('/public/json-like', [new JsonControllerLike(), 'like']);
+                    $route->post('/public/json-like', [new ActualiteStrategy(new JsonControllerLike()), 'like']);
                     break;
                 case '/public/json-pdp':
                     $route->post('/public/json-pdp', [new JsonControllerPdp(), 'updatePdp']);
                     break;
                 case '/public/json-actu':
                     if(isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0){
-                        $route->post('/public/json-actu', [new JsonControllerCom(), 'ajoutCom'],);
+                        $route->post('/public/json-actu', [new ActualiteStrategy(new JsonControllerCom()), 'ajoutCom'],);
                     }
                     else{
-                        $route->post('/public/json-actu', [new JsonControllerActu(), 'ajoutActu'],);
+                        $route->post('/public/json-actu', [ new ActualiteStrategy(new JsonControllerActu()), 'ajoutActu'],);
                     }
                     break;
                     case '/public/json-prono':
-                        $route->post('/public/json-prono', [new JsonControllerProno(), 'verificationProno']);
+                        $route->post('/public/json-prono', [new JsonStrategyProno(new JsonControllerProno()), 'index']);
                         break;
                         case '/public/json-prono-victoire':
-                            $route->post('/public/json-prono-victoire', [new JsonControllerWinProno(), 'victoire']);
+                            $route->post('/public/json-prono-victoire', [new JsonStrategyProno(new JsonControllerWinProno()), 'index']);
                             break;
                             
                             case '/public/connexion':
-                                $route->get('/public/connexion', [new ConnexionController(), 'index']);
+                                $route->get('/public/connexion', [ new AuthStrategy(new ConnexionController()), 'index']);
                                 
                                 
                                 break;
                                 case '/public/verification-formulaire-connexion':
-                                    $route->post('/public/verification-formulaire-connexion', [new FormConnexionController(), 'verification']);
+                                    $route->post('/public/verification-formulaire-connexion', [ (new Strategy(new FormConnexionController())), 'indexView']);
                                     break;
                                   
                                     case '/public/inscription':
                                         
-                                        $route->get('/public/inscription', [new InscriptionControllers(), 'index']);
+                                        $route->get('/public/inscription', [new AuthStrategy(new InscriptionControllers()), 'index']);
                                         break;
                                         
                                         case '/public/verification-formulaire-inscription':
-                                            $route->post('/public/verification-formulaire-inscription', [new FormInscriptionController, 'verification']);
+                                            $route->post('/public/verification-formulaire-inscription', [ (new Strategy(new FormInscriptionController)), 'indexView']);
                                             break;
                                             
                                             case '/public/boutique':
@@ -63,11 +63,11 @@ switch ($request) {
                                                     break;
                                                     
                                                 case '/public/actu/like':
-                                                    $route->get('/public/actu/like', [new ActuController(), 'sendLikes']);
+                                                    $route->get('/public/actu/like', [new ActualiteStrategy(new ActuController()), 'sendLikes']);
                                                     break;
                                                 
                                                 case '/public/pronostique':
-                                                    $route->get('/public/pronostique', [new PronoController(), 'index']);
+                                                    $route->get('/public/pronostique', [ new JsonStrategyProno(new PronoController()), 'index']);
                                                     break;
                                                     case '/public/admin':
                                                         $route->get('/public/admin', [new AdministrationController(), 'show']);
@@ -86,31 +86,31 @@ switch ($request) {
                                                                 $route->get('/public/suppr', [new SuppressionController(), 'suppr']);
                                                                 break;
                                                                 case '/public/actu':
-                                                                    $route->get('/public/actu', [new ActuController(), 'index']);
+                                                                    $route->get('/public/actu', [new ActualiteStrategy(new ActuController()), 'index']);
                                                                     break;
                                                                     case '/public/jeu':
                                                                         $route->get('/public/jeu', [new JeuController(), 'index']);
                                                                         break;
                                                                     case '/public/json-point-jeu':
-                                                                    $route->get('/public/json-point-jeu',[new JsonControllerJeu(),'index']);
+                                                                    $route->get('/public/json-point-jeu',[new StrategyJeu(new JsonControllerJeu()),'index']);
                                                                     break;
                                                                     case '/public/json-jeu-insere':
-                                                                        $route->post('/public/json-jeu-insere',[new JsonControllerJeu(),'point']);
+                                                                        $route->post('/public/json-jeu-insere',[new StrategyJeu(new JsonControllerJeu()),'point']);
                                                                         break;
                                                                         case '/public/json-jeu-getClassement' :
-                                                                            $route->get('/public/json-jeu-getClassement', [new JsonControllerJeu(),'classement']);
+                                                                            $route->get('/public/json-jeu-getClassement', [new StrategyJeu(new JsonControllerJeu()),'classement']);
                                                                             break; 
                                                                                 case '/public/json-jeu-getMeilleurScore' :
-                                                                                    $route->get('/public/json-jeu-getMeilleurScore', [new JsonControllerJeu(),'meilleurScore']);
+                                                                                    $route->get('/public/json-jeu-getMeilleurScore', [new StrategyJeu(new JsonControllerJeu()),'meilleurScore']);
                                                                                     break; 
                                                                                 case '/public/json-jeu-getMeilleurScoreUser' :
-                                                                                    $route->get('/public/json-jeu-getMeilleurScoreUser', [new JsonControllerJeu(),'meilleurScoreUser']);
+                                                                                    $route->get('/public/json-jeu-getMeilleurScoreUser', [new StrategyJeu(new JsonControllerJeu()),'meilleurScoreUser']);
                                                                                     break; 
                                                                                 case '/public/json-jeu-UpdateScoreJeu' :
-                                                                                    $route->post('/public/json-jeu-UpdateScoreJeu', [new JsonControllerJeu(),'updateScore']);
+                                                                                    $route->post('/public/json-jeu-UpdateScoreJeu', [new StrategyJeu(new JsonControllerJeu()),'updateScore']);
                                                                                     break; 
                                                                             case '/public/insert-prono':
-                                                                                $route->post('/public/insert-prono',[new PronoController(),'insert']);
+                                                                                $route->post('/public/insert-prono',[new JsonStrategyPronoProno (new PronoController()),'insert']);
                                                                                 break;
                                                                                 case '/public/actu/session-actu':
                                                                                     $route->get('/public/actu/session-actu',[new SessionController(),'index']);

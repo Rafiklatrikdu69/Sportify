@@ -1,6 +1,7 @@
 <?php
 
-class JsonControllerLike{
+class JsonControllerLike implements DefaultActualiteStrategy{
+    public function index(){}
     public function like(){
         // ajout like
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -9,7 +10,7 @@ class JsonControllerLike{
             $id = $like_info['id'];
             $user_id = (new UtilisateurDAO())->getUtilisateurByName($_SESSION['nom']);
             (new ActuDAO())->updateLike($id, $user_id);
-            
+            var_dump([]);
             
         }
     }

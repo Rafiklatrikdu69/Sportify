@@ -1,5 +1,5 @@
 <?php
-class ActuController extends Controllers{
+class ActuController implements DefaultActualiteStrategy{
     public function index() {
         (new VerifSession());
         $userId = (new UtilisateurDAO())->getUtilisateurByName($_SESSION['nom']);   

@@ -1,7 +1,7 @@
 <?php
 
-class FormConnexionController extends DefaultFormController{
-    public function verification(){
+class FormConnexionController implements DefaultFormController{
+    public function index(){
         ob_start();
         if(!empty($_POST['nom'])&& !empty($_POST['mdp'])&&$_SERVER['REQUEST_METHOD'] === 'POST'){
             echo "osfd";
