@@ -31,8 +31,8 @@ header {
 
 header img {
     grid-area: 1/1/2/2;
-    width: 4rem;
-    height: 4rem;
+    height: calc(933px / 14);
+    width: calc(1034px / 14);
 }
 
 header a {
