@@ -30,8 +30,8 @@ header {
 
 header img {
     grid-area: 1/1/2/2;
-    width: 4rem;
-    height: 4rem;
+    height: calc(933px / 14);
+    width: calc(1034px / 14);
 }
 
 header a {
@@ -65,7 +65,7 @@ header>a:first-child {
 
 .interfaceJeu {
     position: absolute;
-    top: calc(8rem + 16px);
+    top: calc(8.3rem + 16px);
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 0 200px #000000;
@@ -73,7 +73,7 @@ header>a:first-child {
     width: 633px;
     height: 960px;
     margin: 0 auto;
-    zoom: 70%;
+    zoom: 66%;
 }
 
 #police {

@@ -27,9 +27,28 @@ function setClassement(tab){
 }
 
 window.onload = function () {
-   var interface = document.querySelector(".interfaceJeu"); 
-   interface.style.backgroundColor = "black"; 
-   interface.style.alignItems = "center"; 
-   interface.style.justifyContent = "center"; 
-   getClassement(); 
+    var interface = document.querySelector(".interfaceJeu"); 
+    interface.style.backgroundColor = "black"; 
+    interface.style.alignItems = "center"; 
+    interface.style.justifyContent = "center"; 
+    getClassement(); 
+
+    setTerrain();
+    document.getElementById("terrain").style.position = "absolute"; 
+    document.getElementById("terrain").style.top = 0 + "px"; 
+    document.getElementById("terrain").style.opacity = "0"; 
+    document.getElementById("terrain").style.zIndex = "-3";
+    PlacementBallonHitBoxSaut();
+    DefinirTailleBallonHitBoxSaut();
+
+    PlacementBallonHitBoxGet();
+    DefinirTailleBallonHitBoxGet();
+
+    PlacementBallonImage();
+    DefinirTailleBallonImage();
+
+    PlacementJetPack(); 
+    document.getElementById("jet").src = "Dessin/Plateforme/jetpackDecollage.gif";
+
+    startTimerDecollage(); 
 }
