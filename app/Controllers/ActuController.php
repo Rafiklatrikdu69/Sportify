@@ -7,8 +7,6 @@ class ActuController extends Controllers{
         if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
             // Si 'currpost' est défini, récupérer les données en fonction de sa valeur
             $currPostValue = $_SESSION['currpost'];
-            
-    
             View::View('actu', [
                 "tabUsers" => (new UtilisateurDAO())->getAllUsers(),
                 'tabPosts' => (new ActuDAO())->getPostsByCurrPost($currPostValue),

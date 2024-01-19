@@ -44,19 +44,74 @@
     </aside>
     <main>
         <!-- version dynamique -->
-        <?php
-            foreach($tabPosts as $post){?>
-            <!-- <section id="post<?php //$post->getId()?>" class="Actu"> -->
-            <section id="actualite<?php echo $post->getId()?>" class="actu">
-                <div class="photo"><img src="../../public/images/logo.png" id="pp"></div>
-                <div class="auteur"><p><?php echo $post->getAuteurName()?> </p></div>
-                <div class="titre"><h1><?php echo $post->getTitre()?></h1></div>
-                <div class="contenue"><p><?php echo $post->getContenu()?></p></div>
-                <div class="nbLike"><p><?php echo $post->getNbLike()?></p></div>
-                <div class="like"></p><button class="custom-like" onclick="updateLike(<?php echo $post->getId()?>)"><img src="../../public/images/like.png" id="like"></button></div>
-                <div class="comment"><button class="custom-button" onclick="changeCurrentPost(<?php echo $post->getId()?>)"><img src="../../public/images/comment.png" id="comment"></button></div>
-            </section>
-        <?php }?>
+        
+<?php 
+    if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
+        $firstPost = true; // Variable pour suivre le premier élément
+        foreach ($tabPosts as $post) {
+            if ($firstPost == true) {
+                echo '<section id="actualite' . $post->getId() . '" class="actufixed">';
+                echo '<div class="photo"><img src="../../public/images/logo.png" id="pp"></div>';
+                echo '<div class="auteur"><p>' . $post->getAuteurName() . '</p></div>';
+                echo '<div class="titre"><h1>' . $post->getTitre() . '</h1></div>';
+                echo '<div class="contenue"><p>' . $post->getContenu() . '</p></div>';
+                echo '<div class="nbLike"><p>' . $post->getNbLike() . '</p></div>';
+                echo '<div class="like">';
+                echo '<button class="custom-like" onclick="updateLike(' . $post->getId() . ')">';
+                echo '<img src="../../public/images/like.png" id="like">';
+                echo '</button>';
+                echo '</div>';
+                echo '<div class="comment">';
+                echo '<p>' . $post->getNbComment() . '</p>';
+                echo '<button class="custom-button" onclick="changeCurrentPost(' . $post->getId() . ')">';
+                echo '<img src="../../public/images/comment.png" id="comment">';
+                echo '</button>';
+                echo '</div>';
+                echo '</section>';
+                $firstPost = false;
+            } else {
+                echo '<section id="actualite' . $post->getId() . '" class="com">';
+                echo '<div class="photo"><img src="../../public/images/logo.png" id="pp"></div>';
+                echo '<div class="auteur"><p>' . $post->getAuteurName() . '</p></div>';
+                echo '<div class="titre"><h1>' . $post->getTitre() . '</h1></div>';
+                echo '<div class="contenue"><p>' . $post->getContenu() . '</p></div>';
+                echo '<div class="nbLike"><p>' . $post->getNbLike() . '</p></div>';
+                echo '<div class="like">';
+                echo '<button class="custom-like" onclick="updateLike(' . $post->getId() . ')">';
+                echo '<img src="../../public/images/like.png" id="like">';
+                echo '</button>';
+                echo '</div>';
+                echo '<div class="comment">';
+                echo '<button class="custom-button" onclick="changeCurrentPost(' . $post->getId() . ')">';
+                echo '<img src="../../public/images/comment.png" id="comment">';
+                echo '</button>';
+                echo '</div>';
+                echo '</section>';
+            }
+    }
+} else {
+    foreach ($tabPosts as $post) {
+        echo '<section id="actualite' . $post->getId() . '" class="actu">';
+                echo '<div class="photo"><img src="../../public/images/logo.png" id="pp"></div>';
+                echo '<div class="auteur"><p>' . $post->getAuteurName() . '</p></div>';
+                echo '<div class="titre"><h1>' . $post->getTitre() . '</h1></div>';
+                echo '<div class="contenue"><p>' . $post->getContenu() . '</p></div>';
+                echo '<div class="nbLike"><p>' . $post->getNbLike() . '</p></div>';
+                echo '<div class="like">';
+                echo '<button class="custom-like" onclick="updateLike(' . $post->getId() . ')">';
+                echo '<img src="../../public/images/like.png" id="like">';
+                echo '</button>';
+                echo '</div>';
+                echo '<div class="comment">';
+                echo '<button class="custom-button" onclick="changeCurrentPost(' . $post->getId() . ')">';
+                echo '<img src="../../public/images/comment.png" id="comment">';
+                echo '</button>';
+                echo '</div>';
+                echo '</section>';
+    }
+}
+?>
+
           <!-- Jusqu'ici -->
     </main>
     <aside id="profil">
