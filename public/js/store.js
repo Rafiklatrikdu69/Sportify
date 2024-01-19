@@ -100,7 +100,7 @@ fetch('/public/boutique/product')
         let divCard = document.createElement('div')
         divCard.setAttribute('class','card')
         let img = document.createElement('img')
-        img.setAttribute('src','images/img'+arrByID[i].id+'.png')
+        img.setAttribute('src','images/'+arrByID[i].type+arrByID[i].id+'.png')
         let h1 = document.createElement('h1')
         h1.setAttribute('class','nom')
        

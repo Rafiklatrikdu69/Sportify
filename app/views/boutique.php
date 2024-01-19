@@ -88,7 +88,7 @@ use \App\Config;
             <h2>Choisissez votre photo de profil:</h2>
             <?php
             foreach($tabIcone as $icone){?>
-                <img class="imgpdp" src="images/img<?php echo $icone->getId()?>.png">
+                <img class="imgpdp" src="images/Icone<?php echo $icone->getId()?>.png">
             <?php }?>    
             <div>   
             <button id="submitpdp">Confirmer</button>
@@ -103,7 +103,7 @@ use \App\Config;
             <h2>Choisissez votre badge:</h2>
             <?php
             foreach($tabBadge as $badge){?>
-                <img class="imgbadge" src="images/img<?php echo $badge->getId()?>.png">
+                <img class="imgbadge" src="images/Badge<?php echo $badge->getId()?>.png">
             <?php }?>
             <div>
             <button id="submitbadge">Confirmer</button>
@@ -115,10 +115,10 @@ use \App\Config;
     <!-- modal ecusson -->
     <div id="modalecu">
         <div id="modalecu-inner">
-            <h2>Choisissez votre badge:</h2>
+            <h2>Choisissez votre ecusson:</h2>
             <?php
             foreach($tabEcusson as $ecusson){?>
-                <img class="imgecu" src="images/img<?php echo $ecusson->getId()?>.png">
+                <img class="imgecu" src="images/Ecusson<?php echo $ecusson->getId()?>.png">
             <?php }?>
             <div>
             <button id="submitecu">Confirmer</button>
