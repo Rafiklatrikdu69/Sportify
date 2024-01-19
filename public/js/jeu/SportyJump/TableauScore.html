@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <script src="Model/Dimension.js" defer></script>
-    <script src="Model/Tutoriel.js" defer></script>
+    <script src="Model/Terrain.js" defer></script>
+    <script src="Model/Ballon.js" defer></script>
+    <script src="Model/TailleModel.js" defer></script>
+    <script src="TableauScore/PlacementElement.js" defer></script>
+    <script src="TableauScore/jet.js" defer></script>
+    <script src="Controleur/ActionBallon.js" defer></script>
     <script src="Controleur/ActionTableauScore.js" defer></script>
     <script src="TableauScore/Main.js" defer></script>
-
     <title>SportyJump_Menu</title>
 </head>
-
 <body>
-
     <header>
         <a id="accueil" href="/public"><img src="logo.png"></a>
         <a id="actu" href="/public/actu">Actu</a>
@@ -25,7 +27,6 @@
         <a id="jeu" href="/public/boutique">Mini-Jeu</a>
         <a id="deconnexion" href="/public/deconnexion">Déconnexion</a>
     </header>
-
     <div class="interfaceJeu">
         <p class="titreTableauScore">- Tableau des Scores -</p>
             <table class="tableauScore">
@@ -85,7 +86,16 @@
                 <td id="p10"> VIDE </td>
             </tr>
         </table>
+        <img id="terrain" src="Dessin/Terrain/TableauScore.png" alt="Mon Image">
         <p id="boutonMenu" class="boutonMenu"> Retour au Menu </p>
+            <img id="ballonImage" src="Dessin/Ballon/ballon_foot.png" alt="Mon Image">
+            <img id="jet" src="Dessin/Plateforme/jet.png" alt="Mon Image">
+            <div class="invisible">
+                <img id="ballonHitBoxSaut" src="Dessin/Ballon/HitBox.png" alt="Mon Image">
+                <img id="ballonHitBoxGet" src="Dessin/Ballon/HitBoxGet.png" alt="Mon Image">
+                <img id="monstreHitBoxAttack" src="Dessin/Monstre/HitBoxMonstre.png" alt="Mon Image">
+                <img id="monstreHitBoxVulnerable" src="Dessin/Monstre/HitBoxVulnerableMonstre.png" alt="Mon Image">
+            </div>
     </div>
 
     <div class="tuto" id="tuto">
