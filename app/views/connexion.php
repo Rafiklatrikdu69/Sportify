@@ -20,7 +20,8 @@ use \App\Config;
 							<div class="text w-100">
 								<h2>Bienvenue</h2>
 								<p>Pas encore de compte ?</p>
-								<a href="/public/inscription" class="btn btn-white btn-outline-white">S'inscrire</a>
+								<a href="/public/inscription" class="btn btn-white btn-outline-white">S'inscrire</a> <br>
+								<a id="btaccueil" href="/public" class="btn btn-white btn-outline-white">Retour à l'accueil</a>
 							</div>
 			      </div>
 						<div class="login-wrap p-4 p-lg-5">
