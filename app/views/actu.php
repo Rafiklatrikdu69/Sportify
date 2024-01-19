@@ -20,7 +20,7 @@
         <div id="classement">
             <div>
                 <table>
-                    <tr><th colspan="3">CLassement</th></tr>
+                    <tr><th colspan="3">Classement</th></tr>
                     <tr><th class="noRank">No</th>
                     <th>Pseudo</th>
                     <th>Score</th></tr>
