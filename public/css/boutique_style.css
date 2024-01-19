@@ -193,10 +193,9 @@ legend:nth-of-type(4){
     grid-area: 1/2/3/4;
     display: grid;
     grid-template: 1fr 1fr / 1fr 1fr;
-    grid-gap: 2%;
     margin: 3%;
     margin-top: 15%;
-    margin-bottom: 5%;
+    height: 10000000000px; 
 }
 
 /* CSS pour cards */
@@ -330,8 +329,8 @@ legend:nth-of-type(4){
   grid-area: 1/1/2/2;
   width: 40%;
   margin-bottom: 10%;
-  border-radius: 5%;
   margin-top: 5%;
+  border-radius: 5%;
   outline: 4px solid #40A798;
 }
 
@@ -339,6 +338,8 @@ legend:nth-of-type(4){
   width: 40%;
   margin-top: 0%;
   margin-bottom: 0%;
+  padding: 0;
+  margin: -10%;
   border-radius: 5%;
   outline: 4px solid #40A798;
 }

@@ -7,7 +7,7 @@ class JsonControllerEcusson{
             $ecu_info = json_decode($data, true);
             $nom = $_SESSION['nom'];
             $ecu = $ecu_info['ecu'];
-            (new UtilisateurDAO())->updateBadgeByName($nom, $ecu);
+            (new UtilisateurDAO())->updateEcussonByName($nom, $ecu);
             echo "Pdp modifié avec succès";
         }
     }

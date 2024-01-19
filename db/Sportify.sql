@@ -101,10 +101,10 @@ INSERT INTO `ITEMS` (`ITEM_ID`, `NOM_ITEM`, `TYPE`, `DESCRIPTION`, `PRIX`, `COUL
 (11, 'Archer', 'Icone', 'Archer profesionnel', 250, 'Vert'),
 (12, 'JudoKa', 'Icone', 'Kimono de Judo', 350, 'Blanc'),
 (13, 'Hokey', 'Icone', 'Palet de Hokey', 250, 'Noir'),
-(14, 'Foot rétro', 'Icone', 'Ballon de Foot rétro', 500, 'Marron'),
-(15, 'Champion', 'Badge', 'Badge de champion', 200, 'Violet'),
-(16, 'Sergent', 'Badge', 'Badge de sergent', 200, 'Jaune'),
-(17, 'Buteur', 'Badge', 'Meilleur buteur', 200, 'Jaune'),
+(14, 'Champion', 'Badge', 'Badge de champion', 200, 'Violet'),
+(15, 'Sergent', 'Badge', 'Badge de sergent', 200, 'Jaune'),
+(16, 'Buteur', 'Badge', 'Meilleur buteur', 250, 'Jaune'),
+(17, 'Foot rétro', 'Icone', 'Ballon de Foot rétro', 500, 'Marron'),
 (18, 'Home Run', 'Badge', 'Record Home Run', 250, 'Gris'),
 (19, 'Batte Baseball', 'Badge', 'Batte de Baseball stylé', 200, 'Rouge'),
 (20, 'Police', 'Badge', 'Shérif de police', 250, 'Jaune'),
@@ -112,7 +112,9 @@ INSERT INTO `ITEMS` (`ITEM_ID`, `NOM_ITEM`, `TYPE`, `DESCRIPTION`, `PRIX`, `COUL
 (22, 'Médaille', 'Badge', 'Médaille de première place', 350, 'Jaune'),
 (23, 'Terrain Basket', 'Badge', 'Terrain de Basketball', 400, 'Marron'),
 (24, 'Terrain Foot', 'Badge', 'Terrain de Fottball', 400, 'Vert'),
-(25, 'Coupe', 'Badge', 'Coupe vainqueur', 350, 'Jaune');
+(25, 'Coupe', 'Badge', 'Coupe vainqueur', 350, 'Jaune'),
+(26, 'Real Madrid', 'Ecusson', '14 UCL Winners', 1000, 'Blanc'),
+(27, 'Barcelone', 'Ecusson', 'Nothing Winners', 1, 'Bleu');
 
 -- --------------------------------------------------------
 

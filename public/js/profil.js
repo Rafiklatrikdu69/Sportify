@@ -196,7 +196,7 @@ imagesEcus.forEach(function(image) {
         image.classList.add('selected');
 
         // Mettre à jour l'image sélectionnée
-        imageecuSelected = image;
+        imageEcuSelected = image;
         ecu = image.src;
     });
 });

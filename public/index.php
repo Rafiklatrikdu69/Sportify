@@ -25,6 +25,9 @@ switch ($request) {
                 case '/public/json-badge':
                     $route->post('/public/json-badge', [new JsonControllerBadge(), 'updateBadge']);
                     break;
+                case '/public/json-ecu':
+                    $route->post('/public/json-ecu', [new JsonControllerEcusson(), 'updateEcusson']);
+                    break;
                 case '/public/json-actu':
                     if(isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0){
                         $route->post('/public/json-actu', [new JsonControllerCom(), 'ajoutCom'],);
