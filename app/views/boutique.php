@@ -56,7 +56,7 @@ use \App\Config;
 
       
         <aside id="profil">
-            <div class="coin">
+            <div>
             <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins</p>
             </div>
             <div>
@@ -64,8 +64,10 @@ use \App\Config;
                 <p><?php echo $_SESSION['nom']?></p>
                 <p><?php echo "Rank: " . (int)$userRank; ?></p>
                 <p><?php echo "Prono réussi: " . (int)$pronoWin?></p>
-                <button id="buttonbadge"><p>Choisir badge</p></button>
-                <p>Equipe préférée</p>
+                <p>Badge: </p>
+                <button id="buttonbadge"><img id="imagebadge" src="<?php echo $userBadge?>"></button>
+                <p>Ecusson: </p>
+                <button id="buttonecu"><img id="imageecu" src="<?php echo $userEcusson?>"></button>
             </div>
         </aside>
     </section>
@@ -84,27 +86,46 @@ use \App\Config;
         <div id="modalpdp-inner">
             <h2>Choisissez votre photo de profil:</h2>
             <?php
-            foreach($tabItemsOwned as $item){?>
-                <img class="imgpdp" src="images/img<?php echo $item->getId()?>.jpg">
-            <?php }?>
+            foreach($tabIcone as $icone){?>
+                <img class="imgpdp" src="images/Icone<?php echo $icone->getId()?>.png">
+            <?php }?>    
+            <div>   
             <button id="submitpdp">Confirmer</button>
             <button id="closemodalpdp">Annuler</button>
+            </div>
         </div>
     </div> 
 
-    <script src="../../public/js/btnAdmin.js"></script>
     <!-- modal badge -->
     <div id="modalbadge">
         <div id="modalbadge-inner">
             <h2>Choisissez votre badge:</h2>
             <?php
-            foreach($tabItemsOwned as $item){?>
-                <img class="imgpdp" src="images/img<?php echo $item->getId()?>.jpg">
+            foreach($tabBadge as $badge){?>
+                <img class="imgbadge" src="images/Badge<?php echo $badge->getId()?>.png">
             <?php }?>
-            <button id="submitpdp">Confirmer</button>
-            <button id="closemodalpdp">Annuler</button>
+            <div>
+            <button id="submitbadge">Confirmer</button>
+            <button id="closemodalbadge">Annuler</button>
+            </div>
         </div>
     </div> 
+
+    <!-- modal ecusson -->
+    <div id="modalecu">
+        <div id="modalecu-inner">
+            <h2>Choisissez votre ecusson:</h2>
+            <?php
+            foreach($tabEcusson as $ecusson){?>
+                <img class="imgecu" src="images/Ecusson<?php echo $ecusson->getId()?>.png">
+            <?php }?>
+            <div>
+            <button id="submitecu">Confirmer</button>
+            <button id="closemodalecu">Annuler</button>
+            </div>
+        </div>
+    </div> 
+
 
 
     
