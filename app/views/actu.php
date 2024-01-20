@@ -192,6 +192,52 @@
             </div>
         </div>
     </div> 
+    
+</section>
+<div class="modal" id="modal">
+        <div class="modal-inner">
+            <h2>Ajouter une actualité</h2>
+            <form id="formActu" action="/public/json-actu"  method="POST">
+                <label for="titre">Titre</label>
+                <input type="text" id="titre" name="titre" placeholder="Titre de l'actualité">
+                <label for="contenu">Contenu</label>
+                <textarea id="contenu" name="contenu" placeholder="Contenu de l'actualité"></textarea>
+                <input id="ajoutActu" type="submit"value="Ajouter"/>
+            </form>
+                <button id="closeModal">Annuler</button>
+        </div>
+    </div>
+
+     <!-- moddal photo de profil -->
+     <div id="modalpdp">
+        <div id="modalpdp-inner">
+            <h2>Choisissez votre photo de profil:</h2>
+            <?php
+            foreach($tabIcone as $icone){?>
+                <img class="imgpdp" src="images/Icone<?php echo $icone->getId()?>.png">
+            <?php }?>    
+            <div>   
+            <button id="submitpdp">Confirmer</button>
+            <button id="closemodalpdp">Annuler</button>
+            </div>
+        </div>
+    </div> 
+
+    <!-- modal badge -->
+    <div id="modalbadge">
+        <div id="modalbadge-inner">
+            <h2>Choisissez votre badge:</h2>
+            <?php
+            foreach($tabBadge as $badge){?>
+                <img class="imgbadge" src="images/Badge<?php echo $badge->getId()?>.png">
+            <?php }?>
+            <div>
+            <button id="submitbadge">Confirmer</button>
+            <button id="closemodalbadge">Annuler</button>
+            </div>
+        </div>
+    </div> 
+
 </body>
 </html>
 <script src="../../public/js/changeCurrentPost.js"></script>
