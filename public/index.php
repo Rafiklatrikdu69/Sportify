@@ -107,7 +107,12 @@ switch ($request) {
             "insert",
         ]);
         break;
-
+    case "/public/insert-cat":
+        $route->post("/public/insert-cat", [
+            new AdministrationController(),
+            "insertCat",
+            ]);
+        break;
     case "/public/actu/like":
         $route->get("/public/actu/like", [
             new ActualiteStrategy(new ActuController()),

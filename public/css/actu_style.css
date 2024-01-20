@@ -35,8 +35,8 @@ header{
 
 header img{
     grid-area: 1/1/2/2;
-    width: 4rem;
-    height: 4rem;
+    height: calc(933px / 14);
+    width: calc(1034px / 14);
 }
 
 a{
@@ -91,10 +91,9 @@ main{
 
 /* aside gauche (classement + bouton) */
 #gauche{
+    display: grid;
     grid-area: 1/1/2/2;
-    display: flex;
-    flex-direction: column;
-    grid-gap: 2%;
+    grid-gap: 9%;
     top: 10%;
     left: 2%;
     padding: 2%;
@@ -138,8 +137,9 @@ main{
     -webkit-filter:drop-shadow(0 0 5px #40A798);
 }
 #comment{
-    max-width: 35%;
+    max-width: 60%;
     height: auto;
+    margin-top: 25%;
 }
 #pp{
     max-width: 100%;
@@ -173,8 +173,12 @@ main{
         align-items: center;
         justify-content: flex-end;
 }
-.comment { grid-area: 4 / 3 / 5 / 4; }
-
+.comment { grid-area: 4 / 3 / 5 / 4; 
+        /* Alligne l'image a droite'*/
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+}
 
 p{
     font-size:25px;
@@ -192,6 +196,17 @@ p{
     margin-top: 6%;
     font-size: 1.5rem;
     font-weight: bold;
+}
+.nbCom{
+    /* le mettre a gauche */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 25%;
+    margin-top: 6%;
+    font-size: 1.5rem;
+    font-weight: bold;
+
 }
 
 
@@ -458,4 +473,90 @@ p{
     margin-right: 10%;
 }
 
+.actufixed{
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 70%;
+    max-height: 99%;
+    text-align: center;
+    font-family: arial;
+    margin: auto;
+    border-radius: 5%;
+    transition: 0.3s;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    /* Division a l'interieur de l'event */
+    display: grid;
+    grid-template-columns: 0.2fr 0.9fr 0.5fr;
+    grid-template-rows: 0.2fr 0.3fr 1fr 0.2fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    
+}
 
+.com{
+    color: black;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #FFEBD3;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 70%;
+    max-height: 68%;
+    text-align: center;
+    font-family: arial;
+    margin: auto;
+    border-radius: 5%;
+    transition: 0.3s;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    /* Division a l'interieur de l'event */
+    display: grid;
+    grid-template-columns: 0.2fr 0.9fr 0.5fr;
+    grid-template-rows: 0.2fr 0.3fr 1fr 0.2fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    
+}
+
+.icon {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80px;
+    height: 60px;
+    cursor: pointer;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 25px;
+    width: 90%;
+    height: 10px;
+    background-color: #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    animation: arrow 700ms linear infinite;
+  }
+  
+  .arrow::after, .arrow::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 10px;
+    right: -8px;
+    background-color: #fff;
+  }
+  
+  .arrow::after {
+    top: -12px;
+    transform: rotate(45deg);
+  }
+  
+  .arrow::before {
+    top: 12px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    transform: rotate(-45deg);
+  }

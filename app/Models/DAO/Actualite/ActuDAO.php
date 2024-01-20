@@ -22,7 +22,7 @@ class ActuDAO extends DAO{
         $sth = $this->queryAll($sql, $params);
         $tab = [];
         foreach($sth as $post){
-            $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4],$post[5]);
+            $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4],$post[5],$post[7]);
             $tab[] = $post;
         }
         return $tab;
@@ -35,7 +35,7 @@ class ActuDAO extends DAO{
         $sth = $this->queryAll($sql);
         $tab = [];
         foreach($sth as $post){
-            $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4],$post[5]);
+            $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4],$post[5],$post[7]);
             $tab[] = $post;
         }
         return $tab;
@@ -51,6 +51,15 @@ class ActuDAO extends DAO{
     public function insertCom($idUtilisateur,$nomUtilisateur,$titre,$contenu,$nbLike,$parentPost){
         $sql = "INSERT INTO `POST` (AUTEUR_ID,AUTEUR_NOM,NOM_TOPIC,DESCRIPTION_POST,NB_LIKE,PARENT_POST) VALUES (:idUtilisateur,:nomUtilisateur,:titre,:contenu,:nbLike,:parentPost)";
         $params = array(":idUtilisateur" => $idUtilisateur,":nomUtilisateur" => $nomUtilisateur, ":titre" => $titre,":contenu" => $contenu,":nbLike" => $nbLike,":parentPost" => $parentPost);
+        $sth = $this->insert($sql, $params);
+        // appeller addnbcom
+        $this->addnbcom($parentPost);
+        return $sth;
+    }
+
+    public function addnbcom($id){
+        $sql = "UPDATE `POST` SET NB_COM = NB_COM + 1 WHERE POST_ID = :id";
+        $params = array(":id" => $id);
         $sth = $this->insert($sql, $params);
         return $sth;
     }

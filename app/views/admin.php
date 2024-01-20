@@ -53,6 +53,13 @@
 				Equipe
 			</span>
 		</button>
+		<button class="button" id="cat">
+			<ion-icon name="bag-handle-outline"></ion-icon>
+			<span class="button-flex">
+				<img src="images/bag-handle-outline.svg" alt="photo user">
+				Categorie
+			</span>
+		</button>
 	</div>
 	<div class="part-middle" id="part-5">
 		<li id="liste">Inserer une equipe</li>
@@ -62,6 +69,18 @@
 
 				<label for="">Equipe</label>
 				<input type="text" name="equipe">
+			
+				<input type="submit" value="Valider">
+			</form>
+			</div>
+</div>
+<div class="part-middle" id="part-6">
+		<li id="liste">Inserer une categorie</li>
+		
+			<div class="form-pos">
+			<form action="/public/insert-cat" method="POST">
+
+				
 				<label for="">Categorie sport</label>
 				<input type="text" name="cat">
 				<input type="submit" value="Valider">
@@ -69,7 +88,7 @@
 			</div>
 </div>
 	<div class="part-middle" id="part-4">
-		<li id="liste">Inserer un matchs</li>
+		<li id="liste">Inserer un match</li>
 		
 			<div class="form-pos">
 			<form action="/public/insert-prono" method="POST">
@@ -104,8 +123,8 @@
 				<input type="number" name="coteE">
 				<label for="">Categorie sport</label>
 				<select name="cat">
-					<?php foreach($equipe as $elements){?>
-						<option value="<?php  echo $elements->getSport()?>" ><?php  echo $elements->getSport()?></option>
+					<?php foreach($cat as $elements){?>
+						<option value="<?php  echo $elements->getCat()?>" ><?php  echo $elements->getCat()?></option>
 					
 					<?php }?>
 				</select>

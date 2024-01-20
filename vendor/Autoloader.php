@@ -28,6 +28,7 @@
         realpath('../app/Models/DAO/Pronostique'),
         realpath('../app/Models/DAO/Utilisateur'),
         realpath('../app/Models/DAO/Equipe'),
+        realpath('../app/Models/DAO/Categorie'),
         realpath('../app/Controllers/'),
         realpath('app/'),
         realpath('../public/Route/'),

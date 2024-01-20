@@ -21,6 +21,6 @@ Lien du site : [Sportify](--a faire--)
 ## Auteurs
 
 * **Haithem HADJ AZZEM** _alias_ [@KeapRoof]
-* **Rafik BOUCHENNA** _alias_ [@]
-* **Ramazan KUS** _alias_ [@]
+* **Rafik BOUCHENNA** _alias_ [@RafikLaTrikDu69]
+* **Ramazan KUS** _alias_ [@Rameray]
 * **Nahil RAHMANI** _alias_ [@]

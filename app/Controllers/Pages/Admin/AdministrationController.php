@@ -14,7 +14,8 @@ class AdministrationController extends Controllers{
         "evenement"=>(new EvenementDAO())->getAll() ,
         "prono"=>(new PronostiqueDAO())->getAll(),
         "posts"=>(new ActuDAO())->getAll(),
-        "equipe"=>(new EquipeDAO())->getAllEquipes()]
+        "equipe"=>(new EquipeDAO())->getAllEquipes(),
+        "cat"=>(new CategorieDAO())->getAllCategorie()]
        );
     }
 
@@ -26,7 +27,12 @@ class AdministrationController extends Controllers{
         
     }
     public function insert(){
-        (new EquipeDAO())->insertEquipe($_POST['equipe'],$_POST['cat']);
+        (new EquipeDAO())->insertEquipe($_POST['equipe']);
+        Redirect::redirect('/public/administration');
+    }
+    public function insertCat(){
+        (new CategorieDAO())->insertCategorie($_POST['cat']);
+        Redirect::redirect('/public/administration');
     }
     public function get(){
         echo json_encode(["1"=>(new EquipeDAO())->getAllEquipes()]);
