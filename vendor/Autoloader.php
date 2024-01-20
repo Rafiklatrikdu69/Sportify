@@ -27,6 +27,7 @@
         realpath('../app/Models/DAO/Evenement'),
         realpath('../app/Models/DAO/Pronostique'),
         realpath('../app/Models/DAO/Utilisateur'),
+        realpath('../app/Models/DAO/Equipe'),
         realpath('../app/Controllers/'),
         realpath('app/'),
         realpath('../public/Route/'),
@@ -40,7 +41,8 @@
         realpath('../app/Controllers/Pages/Actualite/'),
         realpath('../app/Controllers/Pages/Admin/'),
         realpath('../app/Controllers/Pages/Deconnexion/'),
-        realpath('../app/Controllers/Pages/Authentification')
+        realpath('../app/Controllers/Pages/Authentification'),
+        realpath('../app/Controllers/Pages/Boutique')
     ];
     
     $autoloader = new Autoloader($paths);

@@ -46,34 +46,70 @@
 			</span>
 		</button>
 
-		<button class="button" id="items">
+		<button class="button" id="equipe">
 			<ion-icon name="bag-handle-outline"></ion-icon>
 			<span class="button-flex">
 				<img src="images/bag-handle-outline.svg" alt="photo user">
-				Items
+				Equipe
 			</span>
 		</button>
 	</div>
+	<div class="part-middle" id="part-5">
+		<li id="liste">Inserer une equipe</li>
+		
+			<div class="form-pos">
+			<form action="/public/insert-equipe" method="POST">
+
+				<label for="">Equipe</label>
+				<input type="text" name="equipe">
+				<label for="">Categorie sport</label>
+				<input type="text" name="cat">
+				<input type="submit" value="Valider">
+			</form>
+			</div>
+</div>
 	<div class="part-middle" id="part-4">
 		<li id="liste">Inserer un matchs</li>
 		
 			<div class="form-pos">
 			<form action="/public/insert-prono" method="POST">
-				<label for="">Nom du match</label>
-				<input type="text" name="nom">
+				<label for="">Ligue </label>
+				<select name="nom" >
+					<option value="LIGA">LIGA</option>
+					<option value="LIGUE 1">LIGUE 1</option>
+					<option value="PREMIERE LEAGUE">PREMIERE LEAGUE</option>
+					<option value="BUNDESLIGA">BUNDESLIGA</option>
+				</select>
 				<label for="">Date evenements</label>
 				<input type="date" name="date">
 				<label for="">Equipe domicile</label>
-				<input type="text" name="equD">
+				<select name="equD">
+					<?php foreach($equipe as $elements){?>
+						<option value="<?php  echo $elements->getEquipe()?>" ><?php  echo $elements->getEquipe()?></option>
+					
+					<?php }?>
+				</select>
 				<label for="">Equipe Exterieur</label>
-				<input type="text" name="equG">
+				<select name="equG">
+					<?php foreach($equipe as $elements){?>
+						<option value="<?php  echo $elements->getEquipe()?>" ><?php  echo $elements->getEquipe()?></option>
+					
+					<?php }?>
+				</select>
+			
 
 				<label for="" >Cote domicile</label>
 				<input type="number" name="coteD">
 				<label for="">Cote exterieur</label>
 				<input type="number" name="coteE">
 				<label for="">Categorie sport</label>
-				<input type="text" name="cat">
+				<select name="cat">
+					<?php foreach($equipe as $elements){?>
+						<option value="<?php  echo $elements->getSport()?>" ><?php  echo $elements->getSport()?></option>
+					
+					<?php }?>
+				</select>
+				
 				<input type="submit" value="Valider">
 			</form>
 			</div>

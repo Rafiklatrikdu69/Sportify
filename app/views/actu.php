@@ -8,7 +8,7 @@
     
 </head>
 <body>
-<?php header::header()?>
+<?php header::header("onclick='changeCurrentPost(0)'")?>
 <section id="base">
     <aside id="gauche">
         <div id="ajt_actu">

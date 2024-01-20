@@ -1,9 +1,4 @@
-<?php
 
-use \App\Utils;
-use \App\Config;
-
-?>
 
 <head>
     <link rel="stylesheet" href="css/boutique_style.css">
@@ -19,9 +14,9 @@ use \App\Config;
                 <fieldset>
                     <legend>Filtres</legend>
                     <legend>Types d'item</legend>
-                    <input type="radio" name="categorie" value="Badge" class="dispo">Badge<br>
-                    <input type="radio" name="categorie" value="Icone"  class="dispo">Icone<br>
-                    <input type="radio" name="categorie" value="Ecusson"  class="dispo">Ecusson<br>
+                    <input type="checkbox" name="categorie" value="Badge" class="dispo">Badge<br>
+                    <input type="checkbox" name="categorie" value="Icone"  class="dispo">Icone<br>
+                    <input type="checkbox" name="categorie" value="Ecusson"  class="dispo">Ecusson<br>
                     <legend>Couleur</legend>
                     <select id="couleur">
                         <option value="">Aucune</option>

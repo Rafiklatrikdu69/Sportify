@@ -4,7 +4,7 @@ class ActualiteStrategy{
     public function __construct(DefaultActualiteStrategy $strategy) {
         $this->strategy = $strategy;
     }
-    
+    //les methodes 
     public function index() {
         return $this->strategy->index();
     }

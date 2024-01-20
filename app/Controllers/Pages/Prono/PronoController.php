@@ -43,6 +43,8 @@ class PronoController implements DefaultJsonController{
     }
 
     public function insert(){
+
+        var_dump($_POST);
         $event = new EvenementDAO();
         $event->insertEvenement($_POST);
     }

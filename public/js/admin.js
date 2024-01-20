@@ -10,7 +10,7 @@ function Pronostique(pronostiqueur_id, match_prono, cote_prono, date_prono, mise
 let post = document.getElementById('post');
 let user = document.getElementById('user');
 let pronostique = document.getElementById('pronostique');
-let items = document.getElementById('items');
+let equipe = document.getElementById('equipe');
 let boutonSuppr = document.querySelectorAll('#supp');
 let events = document.getElementById('events');
 let ajoutUtils = document.getElementById('ajout-util');
@@ -91,8 +91,10 @@ events.addEventListener("click",function(){
     console.log("evenement");
     document.getElementById('part-4').style.visibility = "visible"; 
 })
-items.addEventListener("click", function () {
-    console.log("items");
+equipe.addEventListener("click", function () {
+    reset();
+    console.log("equipe");
+    document.getElementById('part-5').style.visibility = "visible"; 
 });
 
 var modal = document.querySelectorAll("#myModal");

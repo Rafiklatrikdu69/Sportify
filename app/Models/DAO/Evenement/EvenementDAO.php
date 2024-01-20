@@ -14,7 +14,7 @@ class EvenementDAO extends DAO{
             return $row;
         }
         public function getAll(){
-            $sql = "SELECT * FROM `EVENEMENT` WHERE ACTIVE = 1";
+            $sql = "SELECT * FROM `EVENEMENT` WHERE ACTIVE = 1 AND DATE_EVENEMENT > SYSDATE()";
 
             $sth = $this->queryAll($sql);
             $tab = [];
@@ -28,6 +28,9 @@ class EvenementDAO extends DAO{
     
         public function insertEvenement($data){
             $sql = "INSERT INTO EVENEMENT (`NOM_EVENEMENT`, `DATE_EVENEMENT`, `EQUIPE_DOMICILE`, `EQUIPE_EXTERIEUR`, `COTE_DOMICILE`, `COTE_EXTERIEUR`, `CAT_SPORT`, `ACTIVE`)  VALUES (:nom_event,:date_event, :equD, :equE, :coteD, :coteE,:cat,:active)";
+            echo "data !!!!";
+            var_dump($data);
+            echo "data !!!!!";
             $params= array('nom_event'=>$data['nom'],
             'date_event'=>$data['date'],
                'equD'=>$data['equD'],

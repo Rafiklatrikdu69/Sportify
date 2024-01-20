@@ -1,9 +1,4 @@
-<?php
 
-use \App\Utils;
-use \App\Config;
-
-?>
 
 <head>
     <link rel="stylesheet" href="css/accueil_style.css">

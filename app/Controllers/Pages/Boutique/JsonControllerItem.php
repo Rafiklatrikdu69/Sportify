@@ -1,7 +1,7 @@
 <?php
 
-class JsonControllerItem{
-    public function ajout() {
+class JsonControllerItem implements DefautBoutiqueStrategy{
+    public function index() {
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //echo "quoicoubeh";
@@ -27,7 +27,7 @@ class JsonControllerItem{
         }
     }
 
-    public function  filtre_item(){
+    public function  show(){
         $data = file_get_contents("php://input");
         $items = json_decode($params,true);
         var_dump($items);

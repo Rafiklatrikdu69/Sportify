@@ -13,7 +13,8 @@ class AdministrationController extends Controllers{
     
         "evenement"=>(new EvenementDAO())->getAll() ,
         "prono"=>(new PronostiqueDAO())->getAll(),
-        "posts"=>(new ActuDAO())->getAll()]
+        "posts"=>(new ActuDAO())->getAll(),
+        "equipe"=>(new EquipeDAO())->getAllEquipes()]
        );
     }
 
@@ -23,5 +24,11 @@ class AdministrationController extends Controllers{
         json_encode($var,true);
         echo   json_encode(["cle"=>(new UtilisateurDAO())->getStatutByName($_SESSION['nom'])],true);
         
+    }
+    public function insert(){
+        (new EquipeDAO())->insertEquipe($_POST['equipe'],$_POST['cat']);
+    }
+    public function get(){
+        echo json_encode(["1"=>(new EquipeDAO())->getAllEquipes()]);
     }
 }

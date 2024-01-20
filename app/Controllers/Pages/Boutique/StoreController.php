@@ -1,7 +1,7 @@
 <?php
 
 // cette classe est un début -> à changer !
-class StoreController extends Controllers {
+class StoreController implements DefautBoutiqueStrategy{
 
     public function index() {
 
