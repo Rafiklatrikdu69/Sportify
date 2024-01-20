@@ -90,9 +90,3 @@ submitpdp.addEventListener('click', function () {
 );
 
 
-
-// button badge
-let buttonbadge = document.getElementById('buttonbadge');
-let modalbadge = document.getElementById('modalbadge');
-let closemodalbadge = document.getElementById('closemodalbadge');
-let submitbadge = document.getElementById('submitbadge');

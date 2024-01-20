@@ -11,8 +11,19 @@ class ActuController implements DefaultActualiteStrategy{
                 "tabUsers" => (new UtilisateurDAO())->getAllUsers(),
                 'tabPosts' => (new ActuDAO())->getPostsByCurrPost($currPostValue),
                 'tabClassement' => (new UtilisateurDAO())->getTop10(),
-                "pointsUser"=>( new UtilisateurDAO())->getPointUser($_SESSION['nom']),
-                "tabLikesById"=>(new LikesDAO())->getByUserId($userId)
+                "tabLikesById"=>(new LikesDAO())->getByUserId($userId),
+                // "tabItems"=>(new ItemsDAO())->getAll(),
+                // "tabItemsOwned"=>(new ItemsDAO())->getOwnedItems($_SESSION['nom']),
+                "tabBadge"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Badge"),
+                "userPdp"=>(new utilisateurDAO())->getPdp($_SESSION['nom']),
+                "tabIcone"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Icone"),
+                "userBadge"=>(new utilisateurDAO())->getBadge($_SESSION['nom']),
+                "tabEcusson"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Ecusson"),
+                "userEcusson"=>(new utilisateurDAO())->getEcusson($_SESSION['nom']),
+                "pointsUser"=>(new utilisateurDAO())->getPointUser($_SESSION['nom']),
+                // "userId"=>(new utilisateurDAO())->getUserId($_SESSION['nom']),
+                "userRank"=>(new utilisateurDAO())->getClassement($_SESSION['nom']),
+                "pronoWin"=>(new utilisateurDAO())->getPronoWin($_SESSION['nom']),
             ]);
         } else {
             // Si 'currpost' n'est pas défini, récupérer toutes les publications normalement
@@ -20,8 +31,19 @@ class ActuController implements DefaultActualiteStrategy{
                 "tabUsers" => (new UtilisateurDAO())->getAllUsers(),
                 'tabPosts' => (new ActuDAO())->getAll(),
                 'tabClassement' => (new UtilisateurDAO())->getTop10(),
-                "pointsUser"=>( new UtilisateurDAO())->getPointUser($_SESSION['nom']),
-                "tabLikesById"=>(new LikesDAO())->getByUserId($userId)
+                "tabLikesById"=>(new LikesDAO())->getByUserId($userId),
+                // "tabItems"=>(new ItemsDAO())->getAll(),
+                // "tabItemsOwned"=>(new ItemsDAO())->getOwnedItems($_SESSION['nom']),
+                "tabBadge"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Badge"),
+                "userPdp"=>(new utilisateurDAO())->getPdp($_SESSION['nom']),
+                "tabIcone"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Icone"),
+                "userBadge"=>(new utilisateurDAO())->getBadge($_SESSION['nom']),
+                "tabEcusson"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Ecusson"),
+                "userEcusson"=>(new utilisateurDAO())->getEcusson($_SESSION['nom']),
+                "pointsUser"=>(new utilisateurDAO())->getPointUser($_SESSION['nom']),
+                //"userId"=>(new utilisateurDAO())->getUserId($_SESSION['nom']),
+                "userRank"=>(new utilisateurDAO())->getClassement($_SESSION['nom']),
+                "pronoWin"=>(new utilisateurDAO())->getPronoWin($_SESSION['nom']),
             ]);
             $_SESSION['currpost'] = 0;
         }

@@ -2,7 +2,7 @@ let article = document.getElementById('articles')
 let donnee = {}; // Déclarer la variable à l'extérieur
 let couleurList = document.getElementById('couleur')
 let range = document.getElementsByClassName('range')[0]
-var prixRange = 140;
+var prixRange = 300;
 let tabPrix = []
 let tabCouleur = []
 let tabPossede = []
@@ -28,7 +28,8 @@ fetch('/public/boutique/product')
     tabPossede = array;
     tabPrix = array;
     tableau = new Tableau(donnee['1']);
-    let new_array; // Déclarez la variable en dehors des blocs pour qu'elle soit accessible partout
+    createSection(array)
+    let new_array; 
     let selectedTypes = [];
 
     function appliquerFiltre() {
@@ -126,71 +127,43 @@ fetch('/public/boutique/product')
   });
 var elementsInvalides = 0;
 
-function filtrerParID(obj, prix) {
-
-  if (obj.couleur === option) {
-    return true;
-  } else {
-    elementsInvalides++;
-    return false;
+function createSection(arrByID){
+    
+  for(let i = 0;i<arrByID.length;i++){
+         console.log(arrByID[i]);
+      let divCard = document.createElement('div')
+      divCard.setAttribute('class','card')
+      let img = document.createElement('img')
+      img.setAttribute('src','images/'+arrByID[i].type+arrByID[i].id+'.png')
+      let h1 = document.createElement('h1')
+      h1.setAttribute('class','nom')
+     
+      h1.setAttribute('id',arrByID[i].id)
+      h1.textContent =arrByID[i].nom
+     
+      let p1= document.createElement('p')
+      p1.setAttribute('class','price')
+      p1.setAttribute('id',arrByID[i].prix)
+      p1.innerHTML = arrByID[i].prix + " points";
+      let p2 = document.createElement('p')
+      p2.innerHTML = arrByID[i].description
+      let p3 = document.createElement('p')
+      let btn = document.createElement('button')
+      btn.setAttribute('id','achat')
+      btn.innerHTML = "Acheter"
+      p3.appendChild(btn)
+    
+     
+     
+    
+      divCard.appendChild(img)
+      divCard.appendChild(h1)
+      divCard.appendChild(p1)
+      divCard.appendChild(p2)
+      divCard.appendChild(p3)
+     
+      article.appendChild(divCard)
   }
-}
-
-function filtrerParPrix(obj) {
-  // Si c'est un nombre
-  if (obj.prix <= prixRange) {
-    return true;
-  } else {
-    elementsInvalides++;
-    return false;
-  }
-}
-
-function filtrerParPossion(obj) {
-
-  if (obj.type === type || type == null) {
-    return true;
-  } else {
-    elementsInvalides++;
-    return false;
-  }
-}
-
-function createSection(arrByID) {
-
-  for (let i = 0; i < arrByID.length; i++) {
-
-    let divCard = document.createElement('div')
-    divCard.setAttribute('class', 'card')
-    let img = document.createElement('img')
-    img.setAttribute('src', 'images/img' + arrByID[i].id + '.jpg')
-    let h1 = document.createElement('h1')
-    h1.setAttribute('class', 'nom')
-
-    h1.setAttribute('id', arrByID[i].id)
-    h1.textContent = arrByID[i].nom
-
-    let p1 = document.createElement('p')
-    p1.setAttribute('class', 'price')
-    p1.setAttribute('id', arrByID[i].prix)
-    p1.innerHTML = arrByID[i].prix + " points";
-    let p2 = document.createElement('p')
-    p2.innerHTML = arrByID[i].description
-    let p3 = document.createElement('p')
-    let btn = document.createElement('button')
-    btn.setAttribute('id', 'achat')
-    btn.innerHTML = "Acheter"
-    p3.appendChild(btn)
-    divCard.appendChild(img)
-    divCard.appendChild(h1)
-    divCard.appendChild(p1)
-    divCard.appendChild(p2)
-    divCard.appendChild(p3)
-
-    article.appendChild(divCard)
-  }
-
-  // Definition des const qui vont être utilisées durant tout le code
   const boutique = document.getElementById("boutique");
   const actu = document.getElementById('actu');
   const prono = document.getElementById('prono');
@@ -282,99 +255,39 @@ function createSection(arrByID) {
       showConfirmation(itemId, itemPrice, itemName);
     });
   });
+  }
+function filtrerParID(obj, prix) {
 
-  ;
+  if (obj.couleur === option) {
+    return true;
+  } else {
+    elementsInvalides++;
+    return false;
+  }
+}
 
+function filtrerParPrix(obj) {
+  // Si c'est un nombre
+  if (obj.prix <= prixRange) {
+    return true;
+  } else {
+    elementsInvalides++;
+    return false;
+  }
+}
 
+function filtrerParPossion(obj) {
 
+  if (obj.type === type || type == null) {
+    return true;
+  } else {
+    elementsInvalides++;
+    return false;
+  }
 }
 
 
-
-
-function getClassement(nom) {
-  fetch('/public/json-classement', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
-      },
-      body: JSON.stringify({
-        nom: nom
-      })
-    })
-    .then(response => response.text())
-    .then(data => {
-      console.log(data);
-      window.location.reload();
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-}
-
-let buttonpdp = document.getElementById('buttonpdp');
-let modalpdp = document.getElementById('modalpdp');
-let closemodalpdp = document.getElementById('closemodalpdp');
-let submitpdp = document.getElementById('submitpdp');
-
-buttonpdp.addEventListener('click', function() {
-  modalpdp.classList.add('open');
-});
-
-closemodalpdp.addEventListener('click', function() {
-  modalpdp.classList.remove('open');
-});
-
-// clique sur une image de la modal
-// change la photo de profil
-let images = document.querySelectorAll('.imgpdp');
-let pdp;
-let imageSelected;
-
-images.forEach(function(image) {
-  image.addEventListener('click', function() {
-    // Supprimer la classe 'image-selected' de toutes les images
-    images.forEach(function(img) {
-      img.classList.remove('image-selected');
-      img.classList.remove('selected');
-    });
-
-
-    image.classList.add('image-selected');
-    image.classList.add('selected');
-
-    // Mettre à jour l'image sélectionnée
-    imageSelected = image;
-    pdp = image.src;
-  });
-});
-
-
-
-
-submitpdp.addEventListener('click', function() {
-  fetch('/public/json-pdp', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
-      },
-      body: JSON.stringify({
-        pdp: pdp
-      })
-    })
-    .then(response => response.text())
-    .then(data => {
-      console.log(data);
-      window.location.reload();
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-});
-
-
-
-
+  
 class Tableau {
   constructor(data) {
     this.data = data;
@@ -410,7 +323,6 @@ class TableauMemento {
     return this.state;
   }
 }
-
 
 
 

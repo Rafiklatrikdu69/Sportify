@@ -93,12 +93,33 @@ CREATE TABLE `ITEMS` (
 --
 
 INSERT INTO `ITEMS` (`ITEM_ID`, `NOM_ITEM`, `TYPE`, `DESCRIPTION`, `PRIX`, `COULEUR`) VALUES
-(1, 'Rafik', 'Icone', 'Chapeau de cowboy', 100, 'Marron'),
-(2, 'Haithem', 'Icone', 'T-shirt de cowboy', 112, 'Noir'),
-(3, 'Arda Guler', 'Badge', 'Pantalon de cowboy', 120, 'Blanc'),
-(4, 'Barca', 'Ecusson', 'Chaussures de cowboy', 200, 'Rouge'),
-(5, 'Logo de l''iut ', 'Icone', 'Montres de cowboy', 350, 'Bleu'),
-(6, 'Ramazan', 'Badge', 'Sac de cowboy', 12, 'Vert');
+(1, 'Kimono', 'Icone', 'Kimono de Karaté', 400, 'Blanc'),
+(2, 'Baseball couronné', 'Icone', 'Balle de Baseball couronné', 250, 'Blanc'),
+(3, 'Crampons', 'Icone', 'Crampons de Foot', 250, 'Bleu'),
+(4, 'Casque', 'Icone', 'Casque de Rallye', 300, 'Vert'),
+(5, 'Rugby', 'Icone', 'Balle de Rugby', 300, 'Bleu'),
+(6, 'Pelé', 'Icone', 'Maillot floqué Pelé', 1000, 'Bleu'),
+(7, 'Vitesse', 'Icone', 'Balle de Baseball en feu', 250, 'Rouge'),
+(8, 'Foot', 'Icone', 'Ballon de Foot', 250, 'Blanc'),
+(9, 'Ballons', 'Icone', 'Ballons de sports', 300, 'Orange'),
+(10, 'Baseball', 'Icone', 'Balle de Baseball', 250, 'Blanc'),
+(11, 'Archer', 'Icone', 'Archer profesionnel', 250, 'Vert'),
+(12, 'JudoKa', 'Icone', 'Kimono de Judo', 350, 'Blanc'),
+(13, 'Hokey', 'Icone', 'Palet de Hokey', 250, 'Noir'),
+(14, 'Champion', 'Badge', 'Badge de champion', 200, 'Violet'),
+(15, 'Sergent', 'Badge', 'Badge de sergent', 200, 'Jaune'),
+(16, 'Buteur', 'Badge', 'Meilleur buteur', 250, 'Jaune'),
+(17, 'Foot rétro', 'Icone', 'Ballon de Foot rétro', 500, 'Marron'),
+(18, 'Home Run', 'Badge', 'Record Home Run', 250, 'Gris'),
+(19, 'Batte Baseball', 'Badge', 'Batte de Baseball stylé', 200, 'Rouge'),
+(20, 'Police', 'Badge', 'Shérif de police', 250, 'Jaune'),
+(21, 'JO', 'Badge', 'Logo des Jeux Olympiques', 300, 'Noir'),
+(22, 'Médaille', 'Badge', 'Médaille de première place', 350, 'Jaune'),
+(23, 'Terrain Basket', 'Badge', 'Terrain de Basketball', 400, 'Marron'),
+(24, 'Terrain Foot', 'Badge', 'Terrain de Fottball', 400, 'Vert'),
+(25, 'Coupe', 'Badge', 'Coupe vainqueur', 350, 'Jaune'),
+(26, 'Real Madrid', 'Ecusson', '14 UCL Winners', 1000, 'Blanc'),
+(27, 'Barcelone', 'Ecusson', 'Nothing Winners', 1, 'Bleu');
 
 -- --------------------------------------------------------
 
@@ -178,7 +199,9 @@ CREATE TABLE `UTILISATEUR` (
   `SCORE_JEU` int DEFAULT '0',
   `SCORE_CLASSEMENT` int DEFAULT '0', 
   `LAST_CONNECTION` date DEFAULT NULL,
-  `PDP_ID` varchar(100) DEFAULT 'http://localhost/public/images/logo.png'
+  `PDP_SRC` varchar(100) DEFAULT 'http://localhost/public/images/logo2.png',
+  `BADGE_SRC` varchar(100) DEFAULT 'http://localhost/public/images/logo2.png',
+  `ECUSSON_SRC` varchar(100) DEFAULT 'http://localhost/public/images/logo2.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --

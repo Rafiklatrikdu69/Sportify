@@ -1,4 +1,9 @@
+<?php
 
+use \App\Utils;
+use \App\Config;
+
+?>
 
 <head>
     <link rel="stylesheet" href="css/boutique_style.css">
@@ -106,7 +111,3 @@
     <script src="../../public/js/store.js"></script>
     <script src="../../public/js/profil.js"></script>
 </body>
-
-
-
-
