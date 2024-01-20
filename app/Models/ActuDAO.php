@@ -17,12 +17,12 @@ class ActuDAO extends DAO{
     // }
 
     public function getPostsByCurrPost($currPostValue){
-        $sql = "SELECT *,COUNT() FROM `POST` WHERE POST_ID = :currPostValue OR PARENT_POST = :currPostValue";
+        $sql = "SELECT * FROM `POST` WHERE POST_ID = :currPostValue OR PARENT_POST = :currPostValue";
         $params = array(":currPostValue" => $currPostValue);
         $sth = $this->queryAll($sql, $params);
         $tab = [];
         foreach($sth as $post){
-            $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4],$post[5],$post[6]);
+            $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4],$post[5],$post[7]);
             $tab[] = $post;
         }
         return $tab;
@@ -34,10 +34,8 @@ class ActuDAO extends DAO{
         $sql = "SELECT * FROM `POST` WHERE PARENT_POST = 0 ORDER BY POST_ID DESC";
         $sth = $this->queryAll($sql);
         $tab = [];
-        $sql2 = "SELECT p.PARENT_POST, COUNT(*) AS nombre_elements FROM ( SELECT DISTINCT PARENT_POST FROM POST) p LEFT JOIN POST ON p.PARENT_POST = POST.PARENT_POST GROUP BY p.PARENT_POST HAVING p.PARENT_POST != 0 ORDER BY p.PARENT_POST;";
-        $sth2 = $this->queryAll($sql2);
         foreach($sth as $post){
-            $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4],$post[5],);
+            $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4],$post[5],$post[7]);
             $tab[] = $post;
         }
         return $tab;
@@ -53,6 +51,15 @@ class ActuDAO extends DAO{
     public function insertCom($idUtilisateur,$nomUtilisateur,$titre,$contenu,$nbLike,$parentPost){
         $sql = "INSERT INTO `POST` (AUTEUR_ID,AUTEUR_NOM,NOM_TOPIC,DESCRIPTION_POST,NB_LIKE,PARENT_POST) VALUES (:idUtilisateur,:nomUtilisateur,:titre,:contenu,:nbLike,:parentPost)";
         $params = array(":idUtilisateur" => $idUtilisateur,":nomUtilisateur" => $nomUtilisateur, ":titre" => $titre,":contenu" => $contenu,":nbLike" => $nbLike,":parentPost" => $parentPost);
+        $sth = $this->insert($sql, $params);
+        // appeller addnbcom
+        $this->addnbcom($parentPost);
+        return $sth;
+    }
+
+    public function addnbcom($id){
+        $sql = "UPDATE `POST` SET NB_COM = NB_COM + 1 WHERE POST_ID = :id";
+        $params = array(":id" => $id);
         $sth = $this->insert($sql, $params);
         return $sth;
     }

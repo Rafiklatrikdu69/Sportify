@@ -13,8 +13,10 @@
     <aside id="gauche">
         <div id="ajt_actu">
             <button id="openModalActu"></button>
-            <button id='backToActu' onclick='changeCurrentPost(0)'>Retour aux actualités</button>
-
+            
+            <div class="icon" id="tichtich">
+                <div class="arrow" onclick='changeCurrentPost(0)'></div>
+            </div>
 
         </div>
         <div id="classement">
@@ -24,7 +26,6 @@
                     <tr><th class="noRank">No</th>
                     <th>Pseudo</th>
                     <th>Score</th></tr>
-              
                 <?php
                  $i = 1;
                 foreach($tabClassement as $user){
@@ -62,7 +63,7 @@
                 echo '</button>';
                 echo '</div>';
                 echo '<div class="comment">';
-                echo '<p>' . $post->getNbComment() . '</p>';
+                echo '<p class="nbCom">' . $post->getNbComment() . '</p>';
                 echo '<button class="custom-button" onclick="changeCurrentPost(' . $post->getId() . ')">';
                 echo '<img src="../../public/images/comment.png" id="comment">';
                 echo '</button>';
@@ -82,6 +83,7 @@
                 echo '</button>';
                 echo '</div>';
                 echo '<div class="comment">';
+                echo '<p class="nbCom">' . $post->getNbComment() . '</p>';
                 echo '<button class="custom-button" onclick="changeCurrentPost(' . $post->getId() . ')">';
                 echo '<img src="../../public/images/comment.png" id="comment">';
                 echo '</button>';
@@ -103,6 +105,7 @@
                 echo '</button>';
                 echo '</div>';
                 echo '<div class="comment">';
+                echo '<p class="nbCom">' . $post->getNbComment() . '</p>';
                 echo '<button class="custom-button" onclick="changeCurrentPost(' . $post->getId() . ')">';
                 echo '<img src="../../public/images/comment.png" id="comment">';
                 echo '</button>';
@@ -117,10 +120,9 @@
     <aside id="profil">
         <div class="coin" >
             <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins </p>
-            
         </div>
         <div>
-            <img src="../../public/images/logo.png">
+            <img src="../../public/images/logo2.png">
             <p>Pseudo</p>
             <p>Classement</p>
             <p>Prono réussi</p>
