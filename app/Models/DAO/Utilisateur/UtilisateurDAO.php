@@ -18,6 +18,15 @@ class UtilisateurDAO extends DAO{
   
         return $tab;
     }
+    public function getStatutByName($name){
+        $sql = "SELECT * FROM `UTILISATEUR`  WHERE PSEUDO = :name AND STATUS = 0";
+       $sth =  $this->queryRow($sql,array(
+            "name"=>$name
+        ));
+       
+        return $sth;
+} 
+
     
     public function select($nom, $mdp) {
         $sql = "SELECT * FROM `UTILISATEUR` WHERE PSEUDO LIKE :pseudo";

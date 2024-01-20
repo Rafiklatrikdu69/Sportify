@@ -1,6 +1,6 @@
 <?php
 
-class AdministrationController extends Controllers{
+class AdministrationController {
     public function index(){
         (new VerifSession());
         if(!(new UtilisateurDAO())->getStatutByName($_SESSION['nom'])){
