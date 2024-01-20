@@ -1,20 +1,20 @@
-function getClassement(nom){
-    fetch('/public/json-classement', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8"
-        },
-        body: JSON.stringify({nom: nom})
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-        window.location.reload();
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
+// function getClassement(nom){
+//     fetch('/public/json-classement', {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json; charset=utf-8"
+//         },
+//         body: JSON.stringify({nom: nom})
+//     })
+//     .then(response => response.text())
+//     .then(data => {
+//         console.log(data);
+//         window.location.reload();
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//     });
+// }
 
 
 

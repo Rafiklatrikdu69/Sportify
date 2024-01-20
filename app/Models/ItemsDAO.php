@@ -1,6 +1,6 @@
 <?php
 
-require 'DAO.php';
+
 
 
 class ItemsDAO extends DAO{

@@ -1,6 +1,5 @@
 <?php
 
-// cette classe est un début -> à changer !
 class StoreController extends Controllers {
 
     public function index() {

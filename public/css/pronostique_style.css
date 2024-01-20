@@ -19,7 +19,7 @@ body{
     margin: 0;
     background-color: #226B80;
     -webkit-font-smoothing: antialiased;
-   
+
 }
 
 
@@ -104,9 +104,7 @@ main{
     grid-row-gap: 0px;
 }
 
-#profil{
-    grid-area: 1 / 3 / 2 / 4;
-}
+
 
 .div1 { grid-area: 1 / 1 / 3 / 2; 
     display: flex;
@@ -319,87 +317,379 @@ legend:nth-of-type(3){
     color: red;
 }
 
+/* aside droit/profil */
+
 #profil {
-    position: fixed;
-    top: 9.5%; 
-    right: 1%; 
-    display: grid;
-    grid-area:  1/4/5/5;
-    grid-template: 1fr 10fr / 1fr;
-    color: black;
-    padding: 2%;
+  position: fixed;
+  top: 12%; 
+  right: 1%; 
+  display: grid;
+  height: 130%;
+  grid-area:  1/4/5/5;
+  grid-template: 1fr 10fr / 1fr;
+  color: black;
+  padding: 2%;
 }
 #profil div:first-child {
-  display: grid;
-  grid-area: 1/1/2/2;
-  text-align: center;
+display: grid;
+grid-area: 1/1/2/2;
+text-align: center;
+background-color: #FFEBD3;
+color: black;
+border-radius: 4px;
+margin-bottom: 20%;
+text-align: center;
+align-items: center;
+top: auto;
+height: 50%;
+}
+
+/* 2eme div, soit le aside des options */
+#profil div:last-child {
+  display: flex;
+  flex-direction: column;
   background-color: #FFEBD3;
   color: black;
+  grid-area: 2/1/6/2;
+  text-align: center;
   border-radius: 4px;
-  margin-bottom: 20%;
+  height: 50%;
+  outline-offset: 10px;
+  outline: 10px solid #FFEBD3;
+}
+
+#profil div:last-child img:first-of-type{
+  grid-area: 1/1/2/2;
+  width: 40%;
+  margin-bottom: 10%;
+  margin-top: 5%;
+  border-radius: 5%;
+  outline: 4px solid #FFEBD3;
+}
+
+#profil div:last-child #imagebadge, #profil div:last-child #imageecu{
+  width: 40%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  padding: 0;
+  margin: -10%;
+  border-radius: 5%;
+  outline: 4px solid #FFEBD3;
 }
 
 
-#profil div:last-child {
-    display: flex;
-    flex-direction: column;
-    background-color: #FFEBD3;
-    color: black;
-    grid-area: 2/1/6/2;
-    text-align: center;
-    border-radius: 4px;
-    height: 50%;
-    outline-offset: 10px;
-    outline: 10px solid #FFEBD3;
-  
-  }
-  
-  #profil div:last-child img{
-    grid-area: 1/1/2/2;
-    width: 40%;
-    margin-bottom: 10%;
-    border-radius: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
-    outline: 4px solid #40A798;
-  }
-  
-  #profil div:last-child p:nth-of-type(1){
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 5%;
-  }
-  
-  #profil div:last-child p:nth-of-type(2){
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 5%;
-  }
-  
-  #profil div:last-child p:nth-of-type(3){
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 5%;
-  }
-  
-  #profil div:last-child p:nth-of-type(4){
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 5%;
-  }
-  
-  #profil div:last-child p:nth-of-type(5){
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 5%;
-  }
-  
-  #profil div:last-child p:nth-of-type(6){
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 5%;
-  }
+#profil div:last-child p:nth-of-type(1){
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+#profil div:last-child p:nth-of-type(2){
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+#profil div:last-child p:nth-of-type(3){
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+#profil div:last-child p:nth-of-type(4){
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+#profil div:last-child p:nth-of-type(5){
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+
+
+
+
+
+
+/* css pour popup confirmation d'achat */
+.modal {
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0,3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.open{
+  opacity: 1;
+  z-index: 999;
+}
+
+.modal-inner{
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
+}
+
+.modal-inner h2{
+  margin: 0;
+}
+
+.modal-inner p{
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+#buttonpdp{
+  background-color: #FFEBD3;
+  color: white;
+  border: none;
+}
+
+#profil div:last-child img:hover{
+  cursor: pointer;
+  outline: 4px solid black;
+  outline-offset: 8px;
+}
+
+
+#profil div:last-child #imagebadge:hover, #profil div:last-child #imageecu:hover{
+  cursor: pointer;
+  outline: 4px solid black;
+  outline-offset: 8px;
+}
+
+
+
+/* CSS pour modal photo de profil */
+#modalpdp {
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0,3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalpdp.open{
+  opacity: 1;
+  z-index: 999;
+}
+
+#modalpdp-inner{
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
+}
+
+#modalpdp-inner h2{
+  margin: 0;
+}
+
+#modalpdp-inner p{
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+/* Règle CSS pour l'image sélectionnée */
+#modalpdp-inner img.image-selected.selected {
+  border-radius: 5%;
+  transform: scale(0.9);
+  opacity: 1;
+  /* border déplace l'image, donc box-shadow plus adapté */
+  box-shadow: 0 0 0 4px black;
+}
+
+/* Règle CSS générale pour les images */
+#modalpdp-inner img {
+  width: 20%;
+  margin-bottom: 10%;
+  opacity: 0.5;
+}
+
+#modalpdp-inner img:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+
+
+/* button badge */
+#profil #buttonbadge{
+  background-color: #FFEBD3;
+  border: none;
+}
+
+
+/* CSS pour modal photo de profil */
+#modalbadge {
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0,3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalbadge.open{
+  opacity: 1;
+  z-index: 999;
+}
+
+#modalbadge-inner{
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
+}
+
+#modalbadge-inner h2{
+  margin: 0;
+}
+
+#modalbadge-inner p{
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+/* Règle CSS pour l'image sélectionnée */
+#modalbadge-inner img.image-selected.selected {
+  border-radius: 5%;
+  transform: scale(0.9);
+  opacity: 1;
+  /* border déplace l'image, donc box-shadow plus adapté */
+  box-shadow: 0 0 0 4px black;
+}
+
+/* Règle CSS générale pour les images */
+#modalbadge-inner img {
+  width: 20%;
+  margin-bottom: 10%;
+  opacity: 0.5;
+}
+
+#modalbadge-inner img:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+#imagebadge{
+  scale: 0.6;
+}
+
+
+
+
+
+
+/* CSS ecusson */
+#profil #buttonecu{
+  background-color: #FFEBD3;
+  border: none;
+}
+
+#modalecu {
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0,3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalecu.open{
+  opacity: 1;
+  z-index: 999;
+}
+
+#modalecu-inner{
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
+}
+
+#modalecu-inner h2{
+  margin: 0;
+}
+
+#modalecu-inner p{
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+/* Règle CSS pour l'image sélectionnée */
+#modalecu-inner img.image-selected.selected {
+  border-radius: 5%;
+  transform: scale(0.9);
+  opacity: 1;
+  /* border déplace l'image, donc box-shadow plus adapté */
+  box-shadow: 0 0 0 4px black;
+}
+
+/* Règle CSS générale pour les images */
+#modalecu-inner img {
+  width: 20%;
+  margin-bottom: 10%;
+  opacity: 0.5;
+}
+
+#modalecu-inner img:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+#imageecu{
+  scale: 0.6;
+}
+
+
 
   #Tablo {
     padding-top: 15%;

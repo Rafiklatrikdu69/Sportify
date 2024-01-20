@@ -288,27 +288,38 @@ legend:nth-of-type(4){
 
 
 
+#profil p{
+    font-size:25px;
+    margin-bottom:0;
+    padding-top:0;
+    margin: 0;
+}
 
+/* aside droit/profil */
 
-/* aside droit/options */
 #profil {
-    position: fixed;
-    top: 9.5%; 
-    right: 1%; 
-    display: grid;
-    grid-area:  1/4/5/5;
-    grid-template: 1fr 10fr / 1fr;
-    color: black;
-    padding: 2%;
+  position: fixed;
+  top: 12%; 
+  right: 1%; 
+  display: grid;
+  height: 130%;
+  grid-area:  1/4/5/5;
+  grid-template: 1fr 10fr / 1fr;
+  color: black;
+  padding: 2%;
 }
 #profil div:first-child {
-  display: grid;
-  grid-area: 1/1/2/2;
-  text-align: center;
-  background-color: #FFEBD3;
-  color: black;
-  border-radius: 4px;
-  margin-bottom: 20%;
+display: grid;
+grid-area: 1/1/2/2;
+text-align: center;
+background-color: #FFEBD3;
+color: black;
+border-radius: 4px;
+margin-bottom: 20%;
+text-align: center;
+align-items: center;
+top: auto;
+height: 50%;
 }
 
 /* 2eme div, soit le aside des options */
@@ -331,7 +342,7 @@ legend:nth-of-type(4){
   margin-bottom: 10%;
   margin-top: 5%;
   border-radius: 5%;
-  outline: 4px solid #40A798;
+  outline: 4px solid #FFEBD3;
 }
 
 #profil div:last-child #imagebadge, #profil div:last-child #imageecu{
@@ -341,7 +352,7 @@ legend:nth-of-type(4){
   padding: 0;
   margin: -10%;
   border-radius: 5%;
-  outline: 4px solid #40A798;
+  outline: 4px solid #FFEBD3;
 }
 
 
@@ -438,6 +449,14 @@ legend:nth-of-type(4){
 }
 
 
+#profil div:last-child #imagebadge:hover, #profil div:last-child #imageecu:hover{
+  cursor: pointer;
+  outline: 4px solid black;
+  outline-offset: 8px;
+}
+
+
+
 /* CSS pour modal photo de profil */
 #modalpdp {
   background-color: rgba(0, 0, 0, 0.3);
@@ -497,11 +516,6 @@ legend:nth-of-type(4){
   cursor: pointer;
   transform: scale(0.9);
   opacity: 1;
-}
-@media screen and (min-width: 900px) {
-  body{
-      zoom:70%;
-  }
 }
 
 
@@ -582,6 +596,7 @@ legend:nth-of-type(4){
 
 
 
+
 /* CSS ecusson */
 #profil #buttonecu{
   background-color: #FFEBD3;
@@ -653,3 +668,11 @@ legend:nth-of-type(4){
 }
 
 
+
+
+
+@media screen and (min-width: 900px) {
+  body{
+      zoom:70%;
+  }
+}
