@@ -119,4 +119,33 @@ class ActuDAO extends DAO{
             return $sth;
         }
     }
+    
+    public function getPdpPosts(){
+        // renvoie une liste des postid et pdp en le recuperant d'utilisateur grace a auteurid
+        $sql = "SELECT POST_ID, PDP_SRC, AUTEUR_ID FROM `POST` JOIN `UTILISATEUR` ON AUTEUR_ID = UTILISATEUR_ID";
+        $sth = $this->queryAll($sql);
+        $tab = [];
+        foreach($sth as $post){
+            // Au lieu de stocker directement les résultats de la requête,
+            // récupérez les PDP en utilisant la méthode getPdp de la classe UtilisateurDAO
+            $auteurId = $post['AUTEUR_ID'];
+            $pdpSrc = (new UtilisateurDAO())->getPdpById($auteurId);
+            
+            // Enregistrez le couple postid et pdp dans le tableau
+            $tab[] = [
+                'POST_ID' => $post['POST_ID'],
+                'PDP_SRC' => $pdpSrc,
+            ];
+        }
+        return $tab;
+    }
+    
+
+    public function updatePdpPostByName($pseudo){
+        // met a jour la pdp du post qui est le meme que PDP_SRC dans la table utilisateur
+        $sql = "UPDATE `POST` SET PDP_SRC = (SELECT PDP_SRC FROM `UTILISATEUR` WHERE NOM_UTILISATEUR = :pseudo) WHERE AUTEUR_NOM = :pseudo";
+        $params = array(":pseudo" => $pseudo);
+        $sth = $this->insert($sql, $params);
+        return $sth;
+    }
 }

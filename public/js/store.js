@@ -9,6 +9,7 @@ let tabPossede = []
 var option = null;
 var type = null
 var tableau = null;
+var repAchat = null;
 
 function filtre(prix) {
   this.prix = prix;
@@ -146,7 +147,7 @@ function createSection(arrByID){
       p1.setAttribute('id',arrByID[i].prix)
       p1.innerHTML = arrByID[i].prix + " points";
       let p2 = document.createElement('p')
-      p2.innerHTML = arrByID[i].description
+      p2.innerHTML = arrByID[i].type + " " + arrByID[i].description
       let p3 = document.createElement('p')
       let btn = document.createElement('button')
       btn.setAttribute('id','achat')
@@ -203,6 +204,9 @@ function createSection(arrByID){
   const modal = document.getElementById('modal');
 
   function showConfirmation(itemId, itemPrice, itemName) {
+    var item_id = itemId;
+    var item_price = itemPrice;
+    var item_name = itemName;
     document.getElementById('itemToBuy').textContent = itemName + ' à ' + itemPrice + ' points';
     modal.classList.add('open');
 
@@ -217,28 +221,55 @@ function createSection(arrByID){
     modal.classList.remove('open');
   });
 
+  modalAchatReussi = document.getElementById('modalachatreussi');
+  closeModalAchatReussiBtn = document.getElementById('closemodalachatreussi');
+  modalPointInsuffisant = document.getElementById('modalpointinsuffisant');
+  closeModalPointInsuffisantBtn = document.getElementById('closemodalpointinsuffisant');
+
   function handleConfirmPurchase(itemId, itemPrice) {
     let items = new item(itemId, itemPrice);
     fetch('/public/json-item', {
         method: "POST",
         headers: {
-          "Content-Type": "application/json; charset=utf-8"
+            "Content-Type": "application/json; charset=utf-8"
         },
         body: JSON.stringify(items)
-      })
-      .then(function(response) {
-          response.text();
-          window.location.reload();
+    })
+    .then(response => response.json())
+    .then(dataFromServer => {
+        if (dataFromServer.hasOwnProperty('item_id')) {
+            console.log('Achat réussi. Item ID:', dataFromServer.item_id);
+            //alert("Achat réussi");
+            // ouverture modal achat reussi
+            modalAchatReussi.classList.add('open');
+            closeModalAchatReussiBtn.addEventListener('click', function() {
+              modalAchatReussi.classList.remove('open');
+              // Recharge la page après un achat réussi
+              window.location.reload();
+            });
+        } else if (dataFromServer.hasOwnProperty('error')) {
+            console.log('Erreur lors de l\'achat:', dataFromServer.error);
+            if(dataFromServer.error == "points insuffisants"){
+              //alert("Vous n'avez pas assez de points pour acheter cet item");
+              // ouverture modal points insuffisants
+              modalPointInsuffisant.classList.add('open');
+              closeModalPointInsuffisantBtn.addEventListener('click', function() {
+                modalPointInsuffisant.classList.remove('open');
+                // Recharge la page après un achat réussi
+                window.location.reload();
+              });
+            }else if(dataFromServer.error == "item deja possede"){
+              alert("Vous possedez deja cet item");
+            }
+        } else {
+            console.log('Réponse inattendue du serveur:', dataFromServer);
         }
+    })
+    .catch(error => {
+        console.error('Erreur lors de la requête:', error);
+    });
+}
 
-      )
-      .then(data => {
-        console.log(data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  }
 
   function item(item_id, points) {
     this.item_id = item_id;
@@ -253,6 +284,8 @@ function createSection(arrByID){
       let itemName = parentCard.querySelector('.nom').textContent;
 
       showConfirmation(itemId, itemPrice, itemName);
+      document.getElementById('itemToBuy').textContent = itemName + ' à ' + itemPrice + ' points';
+      document.getElementById('itemToBuy2').textContent = itemName + ' à ' + itemPrice + ' points';
     });
   });
   }

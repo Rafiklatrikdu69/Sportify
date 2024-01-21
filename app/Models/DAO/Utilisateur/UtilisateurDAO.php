@@ -361,4 +361,18 @@ class UtilisateurDAO extends DAO{
             return null;
         }
     }
+    
+    public function getPdpById($userId){
+        $sql = "SELECT PDP_SRC FROM `UTILISATEUR` WHERE UTILISATEUR_ID = :userId";
+        $params = [':userId' => $userId];
+        $result = $this->queryRow($sql, $params);
+    
+        if ($result) {
+            return $result['PDP_SRC'];
+        } else {
+            // Si aucun résultat n'est trouvé, vous pouvez renvoyer une valeur par défaut
+            // ou gérer l'absence de PDP comme vous le souhaitez
+            return 'chemin/vers/votre/image/par/defaut.jpg';
+        }
+    }
 }
