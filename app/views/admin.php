@@ -165,7 +165,7 @@
 					<button class="dropbtn">Actions</button>
 					<div class="dropdown-content">
 						<ul>
-							<li>Modifier</li>
+							<!-- <li>Modifier</li> -->
 							<li id="supp">Supprimer</li>
 						</ul>
 					</div>
