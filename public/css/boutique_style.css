@@ -393,7 +393,7 @@ height: 50%;
 
 
 /* css pour popup confirmation d'achat */
-.modal {
+.modal{
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 0;
   position: fixed;
@@ -661,5 +661,50 @@ height: 50%;
 #imageecu{
   scale: 0.6;
 }
+
+
+
+
+/* css modal achat reussi et point insuffisant */
+#modalachatreussi, #modalpointinsuffisant {
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0,3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalachatreussi.open, #modalpointinsuffisant.open{
+  opacity: 1;
+  z-index: 999;
+}
+
+#modalachatreussi-inner, #modalpointinsuffisant-inner{
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
+}
+
+#modalachatreussi-inner h2, #modalpointinsuffisant-inner h2{
+  margin: 0;
+}
+
+#modalachatreussi-inner p, #modalpointinsuffisant-inner p{
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+
+
 
 
