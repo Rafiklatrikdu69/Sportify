@@ -147,7 +147,7 @@ function createSection(arrByID){
       p1.setAttribute('id',arrByID[i].prix)
       p1.innerHTML = arrByID[i].prix + " points";
       let p2 = document.createElement('p')
-      p2.innerHTML = arrByID[i].description
+      p2.innerHTML = arrByID[i].type + " " + arrByID[i].description
       let p3 = document.createElement('p')
       let btn = document.createElement('button')
       btn.setAttribute('id','achat')
