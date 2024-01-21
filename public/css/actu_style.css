@@ -186,6 +186,12 @@ p{
   padding-top:0;
   margin: 0;
 }
+
+#profil p{
+  /* taille par defaut de css */
+  font-size: 1rem;
+  margin-bottom: 0;
+}
 .nbLike{
   grid-area: 4 / 2 / 5 / 3;
   /* le mettre a gauche */
@@ -231,14 +237,18 @@ p{
   padding: 2%;
 }
 #profil div:first-child {
-display: grid;
-grid-area: 1/1/2/2;
-text-align: center;
-background-color: #FFEBD3;
-color: black;
-border-radius: 4px;
-margin-bottom: 20%;
-}
+  display: grid;
+  grid-area: 1/1/2/2;
+  text-align: center;
+  background-color: #FFEBD3;
+  color: black;
+  border-radius: 4px;
+  margin-bottom: 20%;
+  text-align: center;
+  align-items: center;
+  top: auto;
+  height: 50%;
+  }
 
 /* 2eme div, soit le aside des options */
 #profil div:last-child {
@@ -561,20 +571,20 @@ margin-bottom: 5%;
   transform: rotate(-45deg);
 }
 
-  /* aside droit/profil */
+ /* aside droit/profil */
 
-  #profil {
-    position: fixed;
-    top: 12%; 
-    right: 1%; 
-    display: grid;
-    height: 130%;
-    grid-area:  1/4/5/5;
-    grid-template: 1fr 10fr / 1fr;
-    color: black;
-    padding: 2%;
-  }
-  #profil div:first-child {
+#profil {
+  position: fixed;
+  top: 12%; 
+  right: 1%; 
+  display: grid;
+  height: 130%;
+  grid-area:  1/4/5/5;
+  grid-template: 1fr 10fr / 1fr;
+  color: black;
+  padding: 2%;
+}
+#profil div:first-child {
 display: grid;
 grid-area: 1/1/2/2;
 text-align: center;
@@ -664,7 +674,7 @@ height: 50%;
 
 
 /* css pour popup confirmation d'achat */
-.modal {
+.modal{
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 0;
   position: fixed;
