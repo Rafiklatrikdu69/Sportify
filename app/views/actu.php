@@ -55,12 +55,14 @@
             //$tabPdp = [];
             if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
                 $firstPost = true;
+                $oo = null;
                 foreach ($tabPosts as $post) {
                     if ($firstPost == true) {
+                        $oo = $post->getAuteurName();
                         $postId = $post->getId();
                         $postPdp = findPdpForPost($tabPdp, $postId);
                         echo '<section id="actualite' . $post->getId() . '" class="actufixed">';
-                        echo '<div class="photo"><img src="../../public/images/logo2.png" id="pp"></div>';
+                        echo '<div class="photo"><img src="'.$postPdp.'" id="pp"></div>';
                         echo '<div class="auteur"><p>' . $post->getAuteurName() . '</p></div>';
                         echo '<div class="titre"><h1>' . $post->getTitre() . '</h1></div>';
                         echo '<div class="contenue"><p>' . $post->getContenu() . '</p></div>';
@@ -83,8 +85,8 @@
                         $postPdp = findPdpForPost($tabPdp, $postId);
         
                         echo '<section id="actualite' . $post->getId() . '" class="com">';
-                        echo '<div class="photo"><img src="../../public/images/logo2.png" id="pp"></div>';
-                        echo '<div class="auteur"><p>' . $post->getAuteurName() . '</p></div>';
+                        echo '<div class="photo"><img src="'.$postPdp.'" id="pp"></div>';
+                        echo '<div class="auteur"><p>' . $post->getAuteurName() . ' répond à '. $oo .'</p></div>';
                         echo '<div class="titre"><h1>' . $post->getTitre() . '</h1></div>';
                         echo '<div class="contenue"><p>' . $post->getContenu() . '</p></div>';
                         echo '<div class="nbLike"><p>' . $post->getNbLike() . '</p></div>';
@@ -107,7 +109,7 @@
                     $postId = $post->getId();
                     $postPdp = findPdpForPost($tabPdp, $postId);
                     echo '<section id="actualite' . $post->getId() . '" class="actu">';
-                    echo '<div class="photo"><img src="../../public/images/logo2.png" id="pp"></div>';
+                    echo '<div class="photo"><img src="'.$postPdp.'"id="pp"></div>';
                     echo '<div class="auteur"><p>' . $post->getAuteurName() . '</p></div>';
                     echo '<div class="titre"><h1>' . $post->getTitre() . '</h1></div>';
                     echo '<div class="contenue"><p>' . $post->getContenu() . '</p></div>';
@@ -163,7 +165,7 @@
 </div>
 
 <!-- Modal photo de profil -->
-<div id="modalpdp">
+<div class="modal" id="modalpdp">
     <div id="modalpdp-inner">
         <h2>Choisissez votre photo de profil:</h2>
         <?php
@@ -178,7 +180,7 @@
 </div> 
 
 <!-- Modal badge -->
-<div id="modalbadge">
+<div class="modal" id="modalbadge">
     <div id="modalbadge-inner">
         <h2>Choisissez votre badge:</h2>
         <?php
@@ -192,7 +194,7 @@
     </div>
 </div> 
 <!-- modal ecusson -->
-<div id="modalecu">
+<div class="modal" id="modalecu">
         <div id="modalecu-inner">
             <h2>Choisissez votre ecusson:</h2>
             <?php

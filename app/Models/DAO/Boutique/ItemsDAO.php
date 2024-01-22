@@ -71,9 +71,9 @@ class ItemsDAO extends DAO{
         return $sth;
     }
     
-    public function selectItemIventaire($id){
-        $sql = "SELECT * FROM INVENTAIRE WHERE ITEM_ID = :id";
-        $params = array(":id" => $id);
+    public function selectItemIventaire($id, $pseudo){
+        $sql = "SELECT * FROM `INVENTAIRE` WHERE ITEM_ID = :id AND UTILISATEUR_ID = (SELECT UTILISATEUR_ID FROM UTILISATEUR WHERE PSEUDO = :pseudo)";
+        $params = array(":id" => $id, ":pseudo" => $pseudo);
         $sth = $this->queryRow($sql, $params);
         
         if($sth){

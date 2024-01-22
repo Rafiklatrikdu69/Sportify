@@ -82,7 +82,7 @@ use \App\Config;
     </div>
 
     <!-- moddal photo de profil -->
-    <div id="modalpdp">
+    <div class="modal" id="modalpdp">
         <div id="modalpdp-inner">
             <h2>Choisissez votre photo de profil:</h2>
             <?php
@@ -97,7 +97,7 @@ use \App\Config;
     </div> 
 
     <!-- modal badge -->
-    <div id="modalbadge">
+    <div class="modal" id="modalbadge">
         <div id="modalbadge-inner">
             <h2>Choisissez votre badge:</h2>
             <?php
@@ -112,7 +112,7 @@ use \App\Config;
     </div> 
 
     <!-- modal ecusson -->
-    <div id="modalecu">
+    <div class="modal" id="modalecu">
         <div id="modalecu-inner">
             <h2>Choisissez votre ecusson:</h2>
             <?php
@@ -128,7 +128,7 @@ use \App\Config;
 
 
     <!-- modal pour achat réussi -->
-    <div id="modalachatreussi">
+    <div class="modal" id="modalachatreussi">
         <div id="modalachatreussi-inner">
             <h2>Achat réussi !</h2>
             <p>Vous avez acheté l'article <span id="itemToBuy2"></span></p>
@@ -137,7 +137,7 @@ use \App\Config;
     </div>
 
     <!-- modal point insuffisant -->
-    <div id="modalpointinsuffisant">
+    <div class="modal" id="modalpointinsuffisant">
         <div id="modalpointinsuffisant-inner">
             <h2>Points insuffisants !</h2>
             <p>Vous n'avez pas assez de points pour acheter cet article</p>
