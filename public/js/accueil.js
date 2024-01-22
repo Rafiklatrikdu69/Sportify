@@ -105,9 +105,6 @@ menu2.addEventListener("mouseover", function(){
 menu1.addEventListener("click", function(){
     window.location.href='/public/inscription';  
 }); 
-menu2.addEventListener("click", function(){
-    window.location.href='/public/connexion'; 
-});     
 
 window.onload = function () {
     document.querySelector(".cadreMenu").style.left = document.getElementById("flecheProfil").offsetLeft - 47 + "px"; 

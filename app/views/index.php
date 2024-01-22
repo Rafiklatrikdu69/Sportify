@@ -28,6 +28,21 @@
         <div id="menu" class="menu">
             <a id="menu1"> S'inscrire </a>
             <a id="menu2">Se Connecter </a>
+            <?php 
+                    if (isset($_SESSION['nom'])) {
+                        echo '<script>
+                                    document.getElementById("menu2").addEventListener("click", function() {
+                                        window.location.href = "/public/actu";
+                                    });
+                            </script>';
+                    }else{
+                        echo '<script>
+                                    document.getElementById("menu2").addEventListener("click", function() {
+                                        window.location.href = "/public/connexion";
+                                    });
+                        </script>'; 
+                    }
+                ?>
         </div>
     </div>
     <div class="barreTmp"></div>
@@ -58,7 +73,6 @@
                                         window.location.href = "/public/actu";
                                     });
                             </script>';
-                        exit();
                     }else{
                         echo '<script>
                                     document.getElementById("btConnecter").addEventListener("click", function() {
