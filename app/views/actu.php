@@ -86,7 +86,7 @@
         
                         echo '<section id="actualite' . $post->getId() . '" class="com">';
                         echo '<div class="photo"><img src="'.$postPdp.'" id="pp"></div>';
-                        echo '<div class="auteur"><p>' . $post->getAuteurName() . ' répond à '. $oo .'</p></div>';
+                        echo '<div class="auteur"><p>' . $post->getAuteurName() . '<hehe> répond à </hehe>'. $oo .'</p></div>';
                         echo '<div class="titre"><h1>' . $post->getTitre() . '</h1></div>';
                         echo '<div class="contenue"><p>' . $post->getContenu() . '</p></div>';
                         echo '<div class="nbLike"><p>' . $post->getNbLike() . '</p></div>';

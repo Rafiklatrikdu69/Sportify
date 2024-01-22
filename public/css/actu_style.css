@@ -146,7 +146,9 @@ main{
   height: auto;
 }
 
-
+hehe{
+  font-size: 1.2rem;
+}
 
 .auteur { grid-area: 1 / 2 / 2 / 4;
       /* Alligne le texte a gauche au millieu de la hauteur*/
@@ -163,9 +165,7 @@ main{
 }
 .contenue { grid-area: 3 / 2 / 4 / 4; 
       /* Debut du texte en haut a gauche*/
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
+      text-align: left;
 }
 .like { grid-area: 4 / 2 / 5 / 3;
       /* Alligne l'image a droite'*/
