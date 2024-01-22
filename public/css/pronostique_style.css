@@ -856,3 +856,12 @@ th {
     opacity: 1;
   }
   
+
+  .modal button, #valider{
+    background-color: black;
+    color: white;
+  }
+  
+  .modal button:hover, #valider:hover{
+    opacity: 0.7;
+  }
