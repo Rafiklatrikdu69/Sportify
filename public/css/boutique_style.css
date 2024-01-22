@@ -249,7 +249,7 @@ padding: 0.1em;
 
 .card img {
   width: 30%;
-  height: 27%;
+  height: auto;
   border-radius: 5%;
 }
 
