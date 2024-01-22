@@ -14,7 +14,7 @@ class FormConnexionController implements DefaultFormController{
             
             if($select){
                 $_SESSION['nom'] = $nom;
-                Redirect::redirect('/public/actu');
+                Redirect::redirect('/public/pronostique');
             }
             else{
                 Redirect::redirect('/public/connexion');
