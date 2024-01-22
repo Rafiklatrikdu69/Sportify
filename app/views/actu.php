@@ -163,7 +163,7 @@
 </div>
 
 <!-- Modal photo de profil -->
-<div id="modalpdp">
+<div class="modal" id="modalpdp">
     <div id="modalpdp-inner">
         <h2>Choisissez votre photo de profil:</h2>
         <?php
@@ -178,7 +178,7 @@
 </div> 
 
 <!-- Modal badge -->
-<div id="modalbadge">
+<div class="modal" id="modalbadge">
     <div id="modalbadge-inner">
         <h2>Choisissez votre badge:</h2>
         <?php
@@ -192,7 +192,7 @@
     </div>
 </div> 
 <!-- modal ecusson -->
-<div id="modalecu">
+<div class="modal" id="modalecu">
         <div id="modalecu-inner">
             <h2>Choisissez votre ecusson:</h2>
             <?php

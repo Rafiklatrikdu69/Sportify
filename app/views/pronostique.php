@@ -88,7 +88,7 @@ use \App\Config;
                 <p class="match-deja-jouer" id="resultat">Vous avez deja parier sur ce match</p>
                 <form id="pariForm">
                     <input type="number" name="mise" id="mise" placeholder="0" min="1">
-                    <input type="submit" value="Valider">
+                    <input id="valider" type="submit" value="Valider">
                 </form>
                 <p id="gain">Votre gain potentiel est de : </p>
                 <button id="closeModal">Annuler</button>
@@ -102,7 +102,7 @@ use \App\Config;
     </div>
 
     <!-- moddal photo de profil -->
-    <div id="modalpdp">
+    <div class="modal" id="modalpdp">
         <div id="modalpdp-inner">
             <h2>Choisissez votre photo de profil:</h2>
             <?php
@@ -117,7 +117,7 @@ use \App\Config;
     </div> 
 
     <!-- modal badge -->
-    <div id="modalbadge">
+    <div class="modal" id="modalbadge">
         <div id="modalbadge-inner">
             <h2>Choisissez votre badge:</h2>
             <?php
@@ -132,7 +132,7 @@ use \App\Config;
     </div> 
 
     <!-- modal ecusson -->
-    <div id="modalecu">
+    <div class="modal" id="modalecu">
         <div id="modalecu-inner">
             <h2>Choisissez votre ecusson:</h2>
             <?php
