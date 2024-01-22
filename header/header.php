@@ -4,7 +4,7 @@ class header{
 
         static function header($onclick =""){
                 echo '<header>
-                <a id="accueil" href="/public/actu"><img src="../public/images/logo.png"></a>
+                <a id="accueil" href="/public"><img src="../public/images/logo.png"></a>
                 <a id="actu" href="/public/actu" '.$onclick.'>Actu</a>
                 <a id="prono" href="/public/pronostique">Prono</a>
                 <a id="boutique" href="/public/boutique">Boutique</a>
