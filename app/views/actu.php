@@ -55,8 +55,10 @@
             //$tabPdp = [];
             if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
                 $firstPost = true;
+                $oo = null;
                 foreach ($tabPosts as $post) {
                     if ($firstPost == true) {
+                        $oo = $post->getAuteurName();
                         $postId = $post->getId();
                         $postPdp = findPdpForPost($tabPdp, $postId);
                         echo '<section id="actualite' . $post->getId() . '" class="actufixed">';
@@ -84,7 +86,7 @@
         
                         echo '<section id="actualite' . $post->getId() . '" class="com">';
                         echo '<div class="photo"><img src="'.$postPdp.'" id="pp"></div>';
-                        echo '<div class="auteur"><p>' . $post->getAuteurName() . '</p></div>';
+                        echo '<div class="auteur"><p>' . $post->getAuteurName() . ' répond à '. $oo .'</p></div>';
                         echo '<div class="titre"><h1>' . $post->getTitre() . '</h1></div>';
                         echo '<div class="contenue"><p>' . $post->getContenu() . '</p></div>';
                         echo '<div class="nbLike"><p>' . $post->getNbLike() . '</p></div>';

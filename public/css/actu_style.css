@@ -122,7 +122,7 @@ main{
   /* Division a l'interieur de l'event */
   display: grid;
   grid-template-columns: 0.2fr 0.9fr 0.5fr;
-  grid-template-rows: 0.2fr 0.3fr 1fr 0.2fr;
+  grid-template-rows: min-content min-content 1fr min-content;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
@@ -501,10 +501,9 @@ margin-bottom: 5%;
   /* Division a l'interieur de l'event */
   display: grid;
   grid-template-columns: 0.2fr 0.9fr 0.5fr;
-  grid-template-rows: 0.2fr 0.3fr 1fr 0.2fr;
+  grid-template-rows: min-content min-content 1fr min-content;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  
 }
 
 .com{
@@ -514,7 +513,7 @@ margin-bottom: 5%;
   background-color: #FFEBD3;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 70%;
-  max-height: 68%;
+  max-height: auto;
   text-align: center;
   font-family: arial;
   margin: auto;
@@ -522,13 +521,11 @@ margin-bottom: 5%;
   transition: 0.3s;
   padding: 2%;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  /* Division a l'interieur de l'event */
   display: grid;
   grid-template-columns: 0.2fr 0.9fr 0.5fr;
-  grid-template-rows: 0.2fr 0.3fr 1fr 0.2fr;
+  grid-template-rows: min-content min-content 1fr min-content;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  
 }
 
 .icon {
