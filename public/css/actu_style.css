@@ -542,6 +542,7 @@ margin-bottom: 5%;
 }
 
 .arrow {
+  visibility: hidden;
   position: absolute;
   top: 25px;
   width: 90%;
