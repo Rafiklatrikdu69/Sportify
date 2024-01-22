@@ -143,20 +143,26 @@ CREATE TABLE `POST` (
 --
 
 INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`, `PARENT_POST`) VALUES
-(1, 1, 'admin', 'Topic 1', 'Le jeune joueur du FC Barcelone Ansu Fati actuellement preter a Brighton est sur le point d\'etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0, 0),
-(2, 1, 'admin', 'Topic 2', 'Le jeune joueur du Real Madrid Arda Guler actuellement preter a Besiktas est sur le point d\'etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0, 0),
-(3, 1, 'admin', 'Topic 3', 'Le jeune joueur de L\'atletico Madrid Joao Felix actuellement preter a Barcelone est sur le point d\'etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0, 0),
-(4, 1, 'admin', 'Topic 4', 'Le jeune joueur du PSG Xavi Simons actuellement preter au PSV est sur le point d\'etre transfere definitivement ezffezfdzefezfzefzefzefzef z feezf zef zef zef zef zef zefze fzef zefze fzefze', 0, 0),
-(5, 1, 'admin', 'Suiii', 'Salut tout le monde', 0, 0),
-(6, 1, 'admin', 'HEHEHE', 'KKDZKDZO DZDKAKDZ KAJDOKA', 0, 0),
-(12, 1, 'admin', 'Super transfert', 'Cool comme transfert', 0, 1),
-(13, 1, 'admin', 'LVOA', 'FHEJZH', 0, 0),
-(14, 1, 'admin', 'fAIT ', 'REVE', 0, 1),
-(15, 1, 'admin', 'HAHAHAHA', 'Beni aziz', 0, 0),
-(16, 1, 'admin', 'Vile', '', 0, 15),
-(17, 1, 'admin', 'J\'adore', 'Meilleur ville de la wilaya de setif', 0, 15),
-(18, 1, 'admin', 'Incroyable', 'J\'aimerai qu\'il reussise', 0, 1),
-(19, 1, 'admin', 'Bienvenue', 'Salut mon gars', 0, 5);
+(6, 1, 'ChocoPops', 'Premier League', ' LIVERPOOL ENCHAINE ET S\'IMPOSE 4 BUTS A 0 FACE A BOURNEMOUTH ! Les Reds sont LEADERS et prennent provisoirement 5 POINTS D\'AVANCE sur Manchester City. Très très gros match de Diogo Jota impliqué dans les trois buts de Liverpool cet après-midi : 2 buts , 1 passe décisive', 4, 0),
+(12, 1, 'Keap', 'Super transfert', 'Cool comme transfert', 3, 1),
+(13, 1, 'ChocoPops', 'Transfert', 'ACCORD DE PRINCIPE entre le Real Madrid et les représentants de Kylian Mbappé.  Mais avant de tout valider définitivement, Kylian Mbappé veut entendre les arguments du PSG.', 5, 0),
+(14, 1, 'Lyollzz', 'Opportunité', 'C\'est pas mal comme transfert j\'espère qu\'il va réussir . La PL est un bon championnat qui pourrait lui permettre de s\'exprimer.', 6, 1),
+(15, 1, 'admin', 'Coupe de France', 'LE STADE RENNAIS ÉLIMINE MARSEILLE ET IRA DÉFIER SOCHAUX EN HUITIÈMES DE FINALE !', 8, 0),
+(16, 1, 'Lyollzz', 'Pitoresque', 'C\'est bien fait il n\'y a que 1 seul olympique', 3, 15),
+(18, 1, 'Lufty', 'Incroyable', 'Je le suivrais personnellement il a un sacré potentiel dommage qu\'une blessure soit venu tout gaché ...', 4, 1),
+(19, 1, 'admin', 'Crack', 'Jannik Sinner est le meilleur tenisman italien je pense que la rivalité avec Carlos Alcaraz sera a suivre durant les prochaine année', 8, 5);
+
+INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`, `PARENT_POST`) VALUES
+(1, 1, 'admin', 'Transfert', 'Le jeune joueur du FC Barcelone Ansu Fati actuellement prêté à Brighton est sur le point d\'être transféré définitivement pour un montant total de 70M et pour une période de 3 ans', 4, 0),
+(2, 1, 'RafikLaTrikDu69', 'CAN', 'C\'est maintenant officiel, l\'Équipe nationale du Maroc se qualifie pour les 8èmes de finale de la compétition', 5, 0),
+(3, 1, 'Keap', 'Serie A', 'Le portier Français Mike Maignan a subi des chants racistes lors du match face à Udinese', 8, 0),
+(4, 1, 'Ramazan', 'NBA', 'La déclaration forte de Wemby : « J\’aime être challengé, menacé, et même envoyé en G-League si je ne suis pas bon. J’aime que mes erreurs entraînent des conséquences. »', 6, 0),
+(5, 1, 'Rafik', 'Open d\'Australie', 'MOLTO BENE  Jannik Sinner élimine le demi-finaliste 2023, Karen Khachanov, et se qualifie en 1/4 de finale de l\'Open d\'Australie sans perdre un set.', 9, 0);
+
+UPDATE `POST` SET `NB_COM` = 1 WHERE `POST`.`POST_ID` = 5;
+UPDATE `POST` SET `NB_COM` = 3 WHERE `POST`.`POST_ID` = 1;
+UPDATE `POST` SET `NB_COM` = 1 WHERE `POST`.`POST_ID` = 15;
+
 
 -- --------------------------------------------------------
 
