@@ -21,7 +21,7 @@ class JsonControllerItem implements DefautBoutiqueStrategy{
             $item = json_decode($data, true);
 
             if (!is_null((new ItemsDAO())->get($item['item_id']))) {
-                if (is_null((new ItemsDAO())->selectItemIventaire($item['item_id']))) {
+                if (is_null((new ItemsDAO())->selectItemIventaire($item['item_id'], $_SESSION['nom']))) {
                     if ((new UtilisateurDAO())->getPointUser($_SESSION['nom']) >= $item['points']) {
                         (new ItemsDAO())->insertInventaire((new UtilisateurDAO())->getUserId($_SESSION['nom']), $item['item_id']);
                         (new ItemsDAO())->updatePrix($item['points'], (new UtilisateurDAO())->getUserId($_SESSION['nom']));

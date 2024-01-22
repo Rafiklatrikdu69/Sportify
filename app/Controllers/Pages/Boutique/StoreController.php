@@ -24,7 +24,7 @@ class StoreController implements DefautBoutiqueStrategy{
         
         
 
-        // // Écriture des données encodées dans le fichier items.json
+        // Écriture des données encodées dans le fichier items.json
         // file_put_contents('items.json', $finalEncodedData);
     }
 
