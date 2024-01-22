@@ -34,7 +34,7 @@ btInscription.addEventListener("click", btInscriptionClick);
 btInscription.addEventListener("mouseout", buttonReleasedI); 
 btInscription.addEventListener("mouseover", buttonPressedI); 
 
-btConnection.addEventListener("click", btConnectionClick);
+//btConnection.addEventListener("click", btConnectionClick);
 btConnection.addEventListener("mouseout", buttonReleasedC);
 btConnection.addEventListener("mouseover", buttonPressedC);
 

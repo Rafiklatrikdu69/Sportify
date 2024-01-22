@@ -65,7 +65,7 @@ header>a:first-child {
 
 .interfaceJeu {
     position: absolute;
-    top: calc(8.3rem + 16px);
+    top: calc(8.431rem + 16px);
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 0 200px #000000;

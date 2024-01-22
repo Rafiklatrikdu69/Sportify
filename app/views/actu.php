@@ -15,7 +15,7 @@
             <button id="openModalActu"></button>
             
             <div class="icon" id="tichtich">
-                <div class="arrow" onclick='changeCurrentPost(0)'></div>
+                <div id="arrow" class="arrow" onclick='changeCurrentPost(0)'></div>
             </div>
         </div>
         <div id="classement">

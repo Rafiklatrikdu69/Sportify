@@ -51,6 +51,22 @@
                 <a>Vous êtes déja un sportifyer</a>
                 </br>
                 <p class="cadre" id="btConnecter">Se connecter</p>
+                <?php 
+                    if (isset($_SESSION['nom'])) {
+                        echo '<script>
+                                    document.getElementById("btConnecter").addEventListener("click", function() {
+                                        window.location.href = "/public/actu";
+                                    });
+                            </script>';
+                        exit();
+                    }else{
+                        echo '<script>
+                                    document.getElementById("btConnecter").addEventListener("click", function() {
+                                        window.location.href = "/public/connexion";
+                                    });
+                        </script>'; 
+                    }
+                ?>
             </div>
         </div>
     </div>
