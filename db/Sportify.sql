@@ -44,14 +44,14 @@ CREATE TABLE `EVENEMENT` (
 --
 
 INSERT INTO `EVENEMENT` (`EVENEMENT_ID`, `NOM_EVENEMENT`, `DATE_EVENEMENT`, `EQUIPE_DOMICILE`, `EQUIPE_EXTERIEUR`, `COTE_DOMICILE`, `COTE_EXTERIEUR`, `CAT_SPORT`, `ACTIVE`) VALUES
-(2, 'LIGUE 1', '2023-10-23', 'OL', 'ASSE', 1.8, 2.2, 'Football', 1),
-(3, 'LIGA', '2023-12-21', 'BARCELONA', 'REAL MADRID', 1.8, 2, 'Football', 1),
-(4, 'LIGA', '2023-12-21', 'ATLETICO MADRID', 'SEVILLE', 1.5, 2.5, 'Football', 1),
-(5, 'PREMIER LEAGUE', '2023-11-21', 'MAN U', 'MAN C', 1.5, 2.5, 'Football', 1),
-(6, 'World Cup', '2023-11-21', 'FRANCE', 'AFRIQUE DU SUD', 1.5, 2.5, 'Rugby', 1),
-(7,'US OPEN','2023-11-21','NADAL','DJOKOVIC',1.5,2.5,'Tennis',1),
-(8,'NBA','2024-01-23','LAKERS','BULLS',1.5,2.5,'Basketball',1),
-(9,'IUT','2024-01-25','RAMAZAN','RAFIK',1.5,2.5,'Karate',1);
+(2, 'LIGUE 1', '2024-01-01', 'OL', 'ASSE', 1.8, 2.2, 'Football', 1),
+(3, 'LIGA', '2024-01-31', 'BARCELONA', 'REAL MADRID', 1.8, 2, 'Football', 1),
+(4, 'LIGA', '2024-01-30', 'ATLETICO MADRID', 'SEVILLE', 1.5, 2.5, 'Football', 1),
+(5, 'PREMIER LEAGUE', '2024-02-06', 'MAN U', 'MAN C', 1.5, 2.5, 'Football', 1),
+(6, 'World Cup', '2024-02-05', 'FRANCE', 'AFRIQUE DU SUD', 1.5, 2.5, 'Rugby', 1),
+(7,'US OPEN','2024-02-01','NADAL','DJOKOVIC',1.5,2.5,'Tennis',1),
+(8,'NBA','2024-01-26','LAKERS','BULLS',1.5,2.5,'Basketball',1),
+(9,'IUT','2024-01-27','RAMAZAN','RAFIK',1.5,2.5,'Karate',1);
 
 
 -- --------------------------------------------------------
@@ -143,21 +143,21 @@ CREATE TABLE `POST` (
 --
 
 INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`, `PARENT_POST`) VALUES
-(6, 1, 'ChocoPops', 'Premier League', ' LIVERPOOL ENCHAINE ET S\'IMPOSE 4 BUTS A 0 FACE A BOURNEMOUTH ! Les Reds sont LEADERS et prennent provisoirement 5 POINTS D\'AVANCE sur Manchester City. Très très gros match de Diogo Jota impliqué dans les trois buts de Liverpool cet après-midi : 2 buts , 1 passe décisive', 4, 0),
-(12, 1, 'Keap', 'Super transfert', 'Cool comme transfert', 3, 1),
-(13, 1, 'ChocoPops', 'Transfert', 'ACCORD DE PRINCIPE entre le Real Madrid et les représentants de Kylian Mbappé.  Mais avant de tout valider définitivement, Kylian Mbappé veut entendre les arguments du PSG.', 5, 0),
-(14, 1, 'Lyollzz', 'Opportunité', 'C\'est pas mal comme transfert j\'espère qu\'il va réussir . La PL est un bon championnat qui pourrait lui permettre de s\'exprimer.', 6, 1),
+(6, 10, 'ChocoPops', 'Premier League', ' LIVERPOOL ENCHAINE ET S\'IMPOSE 4 BUTS A 0 FACE A BOURNEMOUTH ! Les Reds sont LEADERS et prennent provisoirement 5 POINTS D\'AVANCE sur Manchester City. Très très gros match de Diogo Jota impliqué dans les trois buts de Liverpool cet après-midi : 2 buts , 1 passe décisive', 4, 0),
+(12, 3, 'Keap', 'Super transfert', 'Cool comme transfert', 3, 1),
+(13, 10, 'ChocoPops', 'Transfert', 'ACCORD DE PRINCIPE entre le Real Madrid et les représentants de Kylian Mbappé.  Mais avant de tout valider définitivement, Kylian Mbappé veut entendre les arguments du PSG.', 5, 0),
+(14, 12, 'Lyollzz', 'Opportunité', 'C\'est pas mal comme transfert j\'espère qu\'il va réussir . La PL est un bon championnat qui pourrait lui permettre de s\'exprimer.', 6, 1),
 (15, 1, 'admin', 'Coupe de France', 'LE STADE RENNAIS ÉLIMINE MARSEILLE ET IRA DÉFIER SOCHAUX EN HUITIÈMES DE FINALE !', 8, 0),
-(16, 1, 'Lyollzz', 'Pitoresque', 'C\'est bien fait il n\'y a que 1 seul olympique', 3, 15),
-(18, 1, 'Lufty', 'Incroyable', 'Je le suivrais personnellement il a un sacré potentiel dommage qu\'une blessure soit venu tout gaché ...', 4, 1),
+(16, 12, 'Lyollzz', 'Pitoresque', 'C\'est bien fait il n\'y a que 1 seul olympique', 3, 15),
+(18, 11, 'Lufty', 'Incroyable', 'Je le suivrais personnellement il a un sacré potentiel dommage qu\'une blessure soit venu tout gaché ...', 4, 1),
 (19, 1, 'admin', 'Crack', 'Jannik Sinner est le meilleur tenisman italien je pense que la rivalité avec Carlos Alcaraz sera a suivre durant les prochaine année', 8, 5);
 
 INSERT INTO `POST` (`POST_ID`, `AUTEUR_ID`, `AUTEUR_NOM`, `NOM_TOPIC`, `DESCRIPTION_POST`, `NB_LIKE`, `PARENT_POST`) VALUES
 (1, 1, 'admin', 'Transfert', 'Le jeune joueur du FC Barcelone Ansu Fati actuellement prêté à Brighton est sur le point d\'être transféré définitivement pour un montant total de 70M et pour une période de 3 ans', 4, 0),
-(2, 1, 'RafikLaTrikDu69', 'CAN', 'C\'est maintenant officiel, l\'Équipe nationale du Maroc se qualifie pour les 8èmes de finale de la compétition', 5, 0),
-(3, 1, 'Keap', 'Serie A', 'Le portier Français Mike Maignan a subi des chants racistes lors du match face à Udinese', 8, 0),
-(4, 1, 'Ramazan', 'NBA', 'La déclaration forte de Wemby : « J\’aime être challengé, menacé, et même envoyé en G-League si je ne suis pas bon. J’aime que mes erreurs entraînent des conséquences. »', 6, 0),
-(5, 1, 'Rafik', 'Open d\'Australie', 'MOLTO BENE  Jannik Sinner élimine le demi-finaliste 2023, Karen Khachanov, et se qualifie en 1/4 de finale de l\'Open d\'Australie sans perdre un set.', 9, 0);
+(2, 4, 'RafikLaTrikDu69', 'CAN', 'C\'est maintenant officiel, l\'Équipe nationale du Maroc se qualifie pour les 8èmes de finale de la compétition', 5, 0),
+(3, 3, 'Keap', 'Serie A', 'Le portier Français Mike Maignan a subi des chants racistes lors du match face à Udinese', 8, 0),
+(4, 2, 'Rameray', 'NBA', 'La déclaration forte de Wemby : « J\’aime être challengé, menacé, et même envoyé en G-League si je ne suis pas bon. J’aime que mes erreurs entraînent des conséquences. »', 6, 0),
+(5, 4, 'RafikLaTrikDu69', 'Open d\'Australie', 'MOLTO BENE  Jannik Sinner élimine le demi-finaliste 2023, Karen Khachanov, et se qualifie en 1/4 de finale de l\'Open d\'Australie sans perdre un set.', 9, 0);
 
 UPDATE `POST` SET `NB_COM` = 1 WHERE `POST`.`POST_ID` = 5;
 UPDATE `POST` SET `NB_COM` = 3 WHERE `POST`.`POST_ID` = 1;
@@ -216,7 +216,7 @@ CREATE TABLE `UTILISATEUR` (
 
 INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`, `POINT_ACTUEL`, `POINT_CLASSEMENT`, `STATUS`, `SCORE_JEU`, `LAST_CONNECTION`) VALUES
 (1, 'admin', 'admin@admin.fr', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 780.00, 10000, 0, 0, '2024-01-02'),
-(2, 'RamazanLaChienneDu69', 'RamazanLaChienneDu69@example.com', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 100.00, 0, 1, 0, NULL),
+(2, 'Rameray', 'Rameray@example.com', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 100.00, 0, 1, 0, NULL),
 (3, 'Keap', 'Keap@example.com', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 100.00, 0, 1, 0, NULL),
 (4, 'RafikLaTrikDu69', 'RafikLaTrikDu69@example.com', '$2y$10$Oz1T4KvH6JaDhLg/iKWu5eVt/eEgH17srKnvYPhsJ9vU3z6AjpoFi', 100.00, 0, 1, 0, NULL);
 
