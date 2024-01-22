@@ -127,7 +127,23 @@ use \App\Config;
     </div> 
 
 
+    <!-- modal pour achat réussi -->
+    <div id="modalachatreussi">
+        <div id="modalachatreussi-inner">
+            <h2>Achat réussi !</h2>
+            <p>Vous avez acheté l'article <span id="itemToBuy2"></span></p>
+            <button id="closemodalachatreussi">Fermer</button>
+        </div>
+    </div>
 
+    <!-- modal point insuffisant -->
+    <div id="modalpointinsuffisant">
+        <div id="modalpointinsuffisant-inner">
+            <h2>Points insuffisants !</h2>
+            <p>Vous n'avez pas assez de points pour acheter cet article</p>
+            <button id="closemodalpointinsuffisant">Fermer</button>
+        </div>
+    </div>
     
     <script src="../../public/js/store.js"></script>
     <script src="../../public/js/profil.js"></script>

@@ -43,3 +43,17 @@ $icon.onclick = () => {
     iterations: Infinity
   });
 }
+
+
+// function findPdpForPost($tabPdp, $postId) {
+//   foreach ($tabPdp as $pdp) {
+//       if ($pdp['POST_ID'] == $postId) {
+//           return $pdp['PDP_SRC'];
+//       }
+//   }
+//   // Si aucune correspondance trouvée, retournez une valeur par défaut ou gérez l'absence de PDP
+//   return "../../public/images/logo2.png";
+// }
+
+// sections = document.querySelectorAll(section);
+// secttions.foreach()

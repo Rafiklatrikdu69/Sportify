@@ -9,6 +9,7 @@ class StoreController implements DefautBoutiqueStrategy{
         View::View('boutique',[
             "tabItems"=>(new ItemsDAO())->getAll(),
             "tabItemsOwned"=>(new ItemsDAO())->getOwnedItems($_SESSION['nom']),
+            "tabItemsNotOwned"=>(new ItemsDAO())->getItemsNotOwned($_SESSION['nom']),
             "tabBadge"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Badge"),
             "userPdp"=>(new utilisateurDAO())->getPdp($_SESSION['nom']),
             "tabIcone"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Icone"),
@@ -23,13 +24,13 @@ class StoreController implements DefautBoutiqueStrategy{
         
         
 
-        // // Écriture des données encodées dans le fichier items.json
+        // Écriture des données encodées dans le fichier items.json
         // file_put_contents('items.json', $finalEncodedData);
     }
 
     public function show(){
 
-        $items = (new ItemsDAO())->getAll();
+        $items = (new ItemsDAO())->getItemsNotOwned($_SESSION['nom']);
         // Construction de l'array à encoder en JSON
          $encodedDataArray = [];
 
@@ -53,3 +54,9 @@ class StoreController implements DefautBoutiqueStrategy{
      
     }
 }
+
+
+
+
+
+

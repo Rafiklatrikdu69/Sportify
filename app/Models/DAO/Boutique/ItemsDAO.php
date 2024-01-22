@@ -41,6 +41,22 @@ class ItemsDAO extends DAO{
         }
         return $tab;
     }
+
+    public function getItemsNotOwned($pseudo){
+        $sql = "SELECT * FROM `ITEMS` WHERE ITEM_ID NOT IN (SELECT ITEM_ID FROM INVENTAIRE WHERE UTILISATEUR_ID = (SELECT UTILISATEUR_ID FROM UTILISATEUR WHERE PSEUDO = :pseudo))";
+        $params = array(":pseudo" => $pseudo);
+        $sth = $this->queryAll($sql, $params);
+        
+        $tab = [];
+        foreach($sth as $item){
+            // Créer un objet Items à partir des résultats
+            $items = new Items($item[0],$item[1],$item[2],$item[3],$item[4],$item[5]);
+            
+            $tab[] = $items; // Ajout de l'objet Items dans le tableau
+        }
+        return $tab;
+    }
+    
     
     
     public function insertItems($data){
@@ -55,9 +71,9 @@ class ItemsDAO extends DAO{
         return $sth;
     }
     
-    public function selectItemIventaire($id){
-        $sql = "SELECT * FROM INVENTAIRE WHERE ITEM_ID = :id";
-        $params = array(":id" => $id);
+    public function selectItemIventaire($id, $pseudo){
+        $sql = "SELECT * FROM `INVENTAIRE` WHERE ITEM_ID = :id AND UTILISATEUR_ID = (SELECT UTILISATEUR_ID FROM UTILISATEUR WHERE PSEUDO = :pseudo)";
+        $params = array(":id" => $id, ":pseudo" => $pseudo);
         $sth = $this->queryRow($sql, $params);
         
         if($sth){

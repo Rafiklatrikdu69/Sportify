@@ -47,16 +47,16 @@
 		</button>
 
 		<button class="button" id="equipe">
-			<ion-icon name="bag-handle-outline"></ion-icon>
+		<ion-icon name="people-outline"></ion-icon>
 			<span class="button-flex">
-				<img src="images/bag-handle-outline.svg" alt="photo user">
+				<img src="images/people-outline.svg" alt="photo user">
 				Equipe
 			</span>
 		</button>
 		<button class="button" id="cat">
-			<ion-icon name="bag-handle-outline"></ion-icon>
+		<ion-icon name="apps-outline"></ion-icon>
 			<span class="button-flex">
-				<img src="images/bag-handle-outline.svg" alt="photo user">
+				<img src="images/apps-outline.svg" alt="photo user">
 				Categorie
 			</span>
 		</button>
@@ -165,7 +165,7 @@
 					<button class="dropbtn">Actions</button>
 					<div class="dropdown-content">
 						<ul>
-							<li>Modifier</li>
+							<!-- <li>Modifier</li> -->
 							<li id="supp">Supprimer</li>
 						</ul>
 					</div>

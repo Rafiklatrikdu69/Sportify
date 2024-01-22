@@ -2,13 +2,16 @@
 class ActuController implements DefaultActualiteStrategy{
     public function index() {
         (new VerifSession());
-        $userId = (new UtilisateurDAO())->getUtilisateurByName($_SESSION['nom']);   
+        $userId = (new UtilisateurDAO())->getUtilisateurByName($_SESSION['nom']);  
+        $tabUsers = (new UtilisateurDAO())->getAllUsers(); 
+        
         // Vérifier si la variable de session 'currpost' est définie
         if (isset($_SESSION['currpost']) && !empty($_SESSION['currpost']) && $_SESSION['currpost'] != 0) {
             // Si 'currpost' est défini, récupérer les données en fonction de sa valeur
             $currPostValue = $_SESSION['currpost'];
             View::View('actu', [
-                "tabUsers" => (new UtilisateurDAO())->getAllUsers(),
+                "tabUsers" => $tabUsers,
+                "tabPdp" => (new ActuDAO())->getPdpPosts(),
                 'tabPosts' => (new ActuDAO())->getPostsByCurrPost($currPostValue),
                 'tabClassement' => (new UtilisateurDAO())->getTop10(),
                 "tabLikesById"=>(new LikesDAO())->getByUserId($userId),
@@ -25,10 +28,16 @@ class ActuController implements DefaultActualiteStrategy{
                 "userRank"=>(new utilisateurDAO())->getClassement($_SESSION['nom']),
                 "pronoWin"=>(new utilisateurDAO())->getPronoWin($_SESSION['nom']),
             ]);
+
+            // foreach ($tabUsers as $user) {
+            //     $userId = $user->getUtilisateurByName($_SESSION['nom']);
+            //     ${"pdp" . $userId} = (new ActuDAO())->getPdpById($userId);
+            // }
         } else {
             // Si 'currpost' n'est pas défini, récupérer toutes les publications normalement
             View::View('actu', [
-                "tabUsers" => (new UtilisateurDAO())->getAllUsers(),
+                "tabUsers" => $tabUsers,
+                "tabPdp" => (new ActuDAO())->getPdpPosts(),
                 'tabPosts' => (new ActuDAO())->getAll(),
                 'tabClassement' => (new UtilisateurDAO())->getTop10(),
                 "tabLikesById"=>(new LikesDAO())->getByUserId($userId),
@@ -46,6 +55,10 @@ class ActuController implements DefaultActualiteStrategy{
                 "pronoWin"=>(new utilisateurDAO())->getPronoWin($_SESSION['nom']),
             ]);
             $_SESSION['currpost'] = 0;
+            // foreach ($tabUsers as $user) {
+            //     $userId = $user->getUtilisateurByName($_SESSION['nom']);
+            //     ${"pdp" . $userId} = (new ActuDAO())->getPdpById($userId);
+            // }
         }
     }
 
