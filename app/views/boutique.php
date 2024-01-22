@@ -33,7 +33,8 @@ use \App\Config;
                     </select>
                     <legend>Prix max</legend>
                     <div class="range-wrap">
-                        <input type="range" class="range" min="10" max="500" step="10">
+                        <!-- prix de base au max, soit 500 -->
+                        <input type="range" class="range" min="0" max="500" step="25" value="500">
                         <output class="bubble"></output>
                     </div><br>
                     <!-- <legend>Disponibilité</legend>
