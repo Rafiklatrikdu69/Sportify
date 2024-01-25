@@ -392,7 +392,7 @@ function TutoPiece() {
     div.appendChild(piece3);
 
     var text5 = document.createElement("a");
-    text5.textContent = "Si vous ratez la pièce, pas de panique. Elle continuera à défiler vers le bas jusqu'à disparaître. Lorsque la pièce n'est plus disponible, à chaque saut effectué, vous avez une chance sur trois pour qu'elle ré-apparaisse.";
+    text5.textContent = "Si vous ratez la pièce, pas de panique. Elle continuera à défiler vers le bas jusqu'à disparaître. Lorsque la pièce n'est plus disponible, à chaque saut effectué, vous avez une chance sur trois pour qu'elle réapparaisse.";
     text5.classList.add("text");
 
     tuto.appendChild(titre);
