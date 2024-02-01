@@ -234,6 +234,15 @@ INSERT INTO `UTILISATEUR` (`UTILISATEUR_ID`, `PSEUDO`, `EMAIL`, `MOT_DE_PASSE`,`
 (18, 'Slovenisl', 'nils@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 35.00, 120, 1, 0, 10500, null), 
 (19, 'Muhadinibishi', 'mumu@gmail.com', '$2y$10$odqFW26H02RlEP/0Ba7zJOak3zwEW2JPQm49jeFJGz9Wdz09ZQVtq', 10.00, 1150, 1, 0, 2100, null); 
 
+-- changer la photo de profil de quelque utilisateur
+UPDATE `UTILISATEUR` SET `PDP_SRC` = 'http://localhost/public/images/Icone1.png' WHERE `UTILISATEUR`.`UTILISATEUR_ID` = 1;
+UPDATE `UTILISATEUR` SET `PDP_SRC` = 'http://localhost/public/images/Icone2.png' WHERE `UTILISATEUR`.`UTILISATEUR_ID` = 2;
+UPDATE `UTILISATEUR` SET `PDP_SRC` = 'http://localhost/public/images/Icone3.png' WHERE `UTILISATEUR`.`UTILISATEUR_ID` = 3;
+UPDATE `UTILISATEUR` SET `PDP_SRC` = 'http://localhost/public/images/Icone4.png' WHERE `UTILISATEUR`.`UTILISATEUR_ID` = 4;
+UPDATE `UTILISATEUR` SET `PDP_SRC` = 'http://localhost/public/images/Icone5.png' WHERE `UTILISATEUR`.`UTILISATEUR_ID` = 10;
+UPDATE `UTILISATEUR` SET `PDP_SRC` = 'http://localhost/public/images/Icone6.png' WHERE `UTILISATEUR`.`UTILISATEUR_ID` = 11;
+UPDATE `UTILISATEUR` SET `PDP_SRC` = 'http://localhost/public/images/Icone7.png' WHERE `UTILISATEUR`.`UTILISATEUR_ID` = 12;
+
 --
 -- Table structure for table `LIKES`
 --

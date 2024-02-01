@@ -118,7 +118,7 @@
     <div class="cadreDescriptif">
     <div class="bloc">
             <div class="blocGauche">
-                <a> Restez branché aux </br> actualités sportives  </a> </br>
+                <a> Jouez à notre </br> Mini-Jeu </a> </br>
                 <div class="iconeBloc"></div>
             </div>
             <div class="blocDroite">
