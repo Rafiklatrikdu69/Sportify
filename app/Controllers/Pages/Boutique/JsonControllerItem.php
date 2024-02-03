@@ -46,7 +46,7 @@ class JsonControllerItem implements DefautBoutiqueStrategy{
 
     public function  show(){
         $data = file_get_contents("php://input");
-        $items = json_decode($params,true);
+        $items = json_decode($data,true);
         var_dump($items);
        // (new ItemsDAO())->getFilteredResults($items);
     }

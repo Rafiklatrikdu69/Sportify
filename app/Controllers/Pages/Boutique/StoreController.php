@@ -6,12 +6,17 @@ class StoreController implements DefautBoutiqueStrategy{
     public function index() {
 
         (new VerifSession());
+        if(!(new utilisateurDAO())->getPdp($_SESSION['nom'])){
+            $pdp = "images/utilisateur.png";   
+        }else{
+            $pdp= (new utilisateurDAO())->getPdp($_SESSION['nom']);
+        }
         View::View('boutique',[
             "tabItems"=>(new ItemsDAO())->getAll(),
             "tabItemsOwned"=>(new ItemsDAO())->getOwnedItems($_SESSION['nom']),
             "tabItemsNotOwned"=>(new ItemsDAO())->getItemsNotOwned($_SESSION['nom']),
             "tabBadge"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Badge"),
-            "userPdp"=>(new utilisateurDAO())->getPdp($_SESSION['nom']),
+            "userPdp"=>$pdp,
             "tabIcone"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Icone"),
             "userBadge"=>(new utilisateurDAO())->getBadge($_SESSION['nom']),
             "tabEcusson"=>(new ItemsDAO())->getItemsByType($_SESSION['nom'], "Ecusson"),
