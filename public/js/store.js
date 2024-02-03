@@ -14,6 +14,7 @@ var repAchat = null;
 function filtre(prix) {
   this.prix = prix;
 }
+
 fetch('/public/boutique/product')
   .then(response => response.json())
   .then(dataFromServer => {
@@ -29,6 +30,13 @@ fetch('/public/boutique/product')
     tabPossede = array;
     tabPrix = array;
     tableau = new Tableau(donnee['1']);
+    document.getElementById('reboot').addEventListener("click",function(){
+      console.log("reboot")
+       while (article.hasChildNodes()) {
+         article.removeChild(article.firstChild);
+       }
+       createSection(array)
+    })
     createSection(array)
     let new_array; 
     let selectedTypes = [];
@@ -131,7 +139,7 @@ var elementsInvalides = 0;
 function createSection(arrByID){
     
   for(let i = 0;i<arrByID.length;i++){
-         console.log(arrByID[i]);
+         //console.log(arrByID[i]);
       let divCard = document.createElement('div')
       divCard.setAttribute('class','card')
       let img = document.createElement('img')
