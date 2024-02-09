@@ -30,3 +30,30 @@ function chbgout() {
     actu.style.marginRight = "10%"
 }
 
+const $icon = document.querySelector('.icon');
+const $arrow = document.querySelector('.arrow');
+
+$icon.onclick = () => {
+  $arrow.animate([
+    {left: '0'},
+    {left: '10px'},
+    {left: '0'}
+  ],{
+    duration: 700,
+    iterations: Infinity
+  });
+}
+
+
+// function findPdpForPost($tabPdp, $postId) {
+//   foreach ($tabPdp as $pdp) {
+//       if ($pdp['POST_ID'] == $postId) {
+//           return $pdp['PDP_SRC'];
+//       }
+//   }
+//   // Si aucune correspondance trouvée, retournez une valeur par défaut ou gérez l'absence de PDP
+//   return "../../public/images/logo2.png";
+// }
+
+// sections = document.querySelectorAll(section);
+// secttions.foreach()

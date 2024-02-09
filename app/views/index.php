@@ -1,9 +1,4 @@
-<?php
 
-use \App\Utils;
-use \App\Config;
-
-?>
 
 <head>
     <link rel="stylesheet" href="css/accueil_style.css">
@@ -33,6 +28,21 @@ use \App\Config;
         <div id="menu" class="menu">
             <a id="menu1"> S'inscrire </a>
             <a id="menu2">Se Connecter </a>
+            <?php 
+                    if (isset($_SESSION['nom'])) {
+                        echo '<script>
+                                    document.getElementById("menu2").addEventListener("click", function() {
+                                        window.location.href = "/public/actu";
+                                    });
+                            </script>';
+                    }else{
+                        echo '<script>
+                                    document.getElementById("menu2").addEventListener("click", function() {
+                                        window.location.href = "/public/connexion";
+                                    });
+                        </script>'; 
+                    }
+                ?>
         </div>
     </div>
     <div class="barreTmp"></div>
@@ -56,6 +66,21 @@ use \App\Config;
                 <a>Vous êtes déja un sportifyer</a>
                 </br>
                 <p class="cadre" id="btConnecter">Se connecter</p>
+                <?php 
+                    if (isset($_SESSION['nom'])) {
+                        echo '<script>
+                                    document.getElementById("btConnecter").addEventListener("click", function() {
+                                        window.location.href = "/public/actu";
+                                    });
+                            </script>';
+                    }else{
+                        echo '<script>
+                                    document.getElementById("btConnecter").addEventListener("click", function() {
+                                        window.location.href = "/public/connexion";
+                                    });
+                        </script>'; 
+                    }
+                ?>
             </div>
         </div>
     </div>
@@ -71,7 +96,7 @@ use \App\Config;
             <div class="blocDroite">
                 <a> Participez à notre jeu de pronostic et transformez vos prédictions en gains avec nos côtes attractives ! </a>
                 <a> Votre intuition peut vous rapporter gros. Faites parler votre flair sportif et maximiser vos gains.</a>
-                <a> Participez activement au match grâce à l’art des pronostics. Jouez intelligemment et misez astucieucement pour remporter nos côtes imbattables !</a>
+                <a> Participez activement au match grâce à l’art des pronostics. Jouez intelligemment et misez astucieusement pour remporter nos côtes imbattables !</a>
             </div>
         </div>
     </div>
@@ -79,9 +104,9 @@ use \App\Config;
     <div class="cadreDescriptif">
     <div class="bloc2">
             <div class="blocGauche2">
-                <a>Devenez attentif et ne manquez aucun moment forts grâce à notre file d’actualités mis à jour quotidiennement.</a>
-                <a>Participez vous même à la vie sportive. Partager, liker et commenter de nouvelles actualités.</a>
-                <a>Ne ratez plus un seul coup de sifflet. Du suspens, des rebondissements, des records battus. Vibrez au rythme des événements du monde du sport.</a>
+                <a>Devenez attentif et ne manquez aucun moment fort grâce à notre file d’actualités mis à jour quotidiennement.</a>
+                <a>Participez vous-même à la vie sportive. Partager, liker et commenter de nouvelles actualités.</a>
+                <a>Ne ratez plus un seul coup de sifflet. Du suspense, des rebondissements, des records battus. Vibrez au rythme des événements du monde du sport.</a>
             </div>
             <div class="blocDroite2">
                 <a> Restez branché aux </br> actualités sportives  </a> </br>
@@ -93,7 +118,7 @@ use \App\Config;
     <div class="cadreDescriptif">
     <div class="bloc">
             <div class="blocGauche">
-                <a> Restez branché aux </br> actualités sportives  </a> </br>
+                <a> Jouez à notre </br> Mini-Jeu  </a> </br>
                 <div class="iconeBloc"></div>
             </div>
             <div class="blocDroite">
@@ -109,7 +134,7 @@ use \App\Config;
             <div class="blocGauche2">
                 <a>Transformez votre expérience en ligne avec des achats personnalisés dans notre boutique exclusive. </a>
                 <a>Exprimez votre style unique en personnalisant votre compte avec nos articles tendances. Votre style, vos règles.</a>
-                <a>Dépenser vos points gagnés afin de faire de votre compte un chef-d'œuvre personnel. Parcourez la boutique à la recherche de ce qu’il vous manque. Élevez votre style !</a>
+                <a>Dépenser vos points gagnés afin de faire de votre compte un chef-d'œuvre personnel. Parcourez la boutique à la recherche de ce qui vous manque. Élevez votre style !</a>
             </div>
             <div class="blocDroite2">
                 <a> Faites des achats dans </br> notre boutique </a> </br>
@@ -118,7 +143,7 @@ use \App\Config;
         </div>
     </div>
     <div class="ligne"></div>
-    <div class="Titre"> <a>Explorez  notre site dès maintenant !</a></div>
+    <div class="Titre"> <a>Explorez notre site dès maintenant !</a></div>
     <div class="ligne"></div>
 
     <div class="fin">

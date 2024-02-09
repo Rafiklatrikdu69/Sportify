@@ -51,7 +51,7 @@ use \App\Config;
       <div id="corps">
         <label>Mot de passe</label>
         <div>
-        <input type="text" id="password" name="password" onInput="check()" >
+        <input type="password" id="password" name="password" onInput="check()" >
         <img src="images/eye.png" alt="eye" id="eye" onclick="show()">
         </div>
         </div>

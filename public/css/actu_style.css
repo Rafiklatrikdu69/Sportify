@@ -1,219 +1,240 @@
 /* Police d'écriture */
 @font-face {
-    font-family: futura;
-    src: url(font/SansSerifBldFLF.otf);
+  font-family: futura;
+  src: url(font/SansSerifBldFLF.otf);
 }
 
 *{
-    font-family: futura;
-    transition: 0.3s;
+  font-family: futura;
+  transition: 0.3s;
 }
 
 html{
-    height: 100%;
+  height: 100%;
 }
 
 /* Mise a 0 du style css */
 body{
-    margin: 0;
-    background-color: #226B80;
-    height: 100%;
+  margin: 0;
+  background-color: #226B80;
+  height: 100%;
 }
 
 
 /* CSS Relatif au header */
 header{
-    background-color: rgb(0, 0, 0) ;
-    display: grid;
-    grid-template: 1fr / 10% 1fr 1fr 1fr 1fr 1fr;
-    align-items: center;
-    height: auto;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
+  background-color: rgb(0, 0, 0) ;
+  display: grid;
+  grid-template: 1fr / 10% 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  height: auto;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
 header img{
-    grid-area: 1/1/2/2;
-    height: calc(933px / 14);
-    width: calc(1034px / 14);
+  grid-area: 1/1/2/2;
+  height: calc(933px / 14);
+  width: calc(1034px / 14);
 }
 
 a{
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 25px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px;
 }
 
 .custom-button {
-    background: none;
-    border: none;
-    color: inherit;
-    font: inherit;
-    text-align: inherit;
-    cursor: pointer;
-    padding: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  padding: 0;
 }
 
 
 header>a:hover, div>a:hover{
-    background-color: #40A798;
-    color: black;
-    margin-left: 10%;
-    margin-right: 10%;
+  background-color: #40A798;
+  color: black;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 header>a:first-child{
-    background-color: black;
-    color: black;
+  background-color: black;
+  color: black;
 }
 
 main{
-    margin-top: 20%;
-    display: grid;
-    grid-area: 1/2/2/3;
-    /* Add space between the cards */
-    grid-gap: 2%;
+  margin-top: 20%;
+  display: grid;
+  grid-area: 1/2/2/3;
+  /* Add space between the cards */
+  grid-gap: 2%;
 }
 
 
 
 #actu{
-    /* changer la couleur pour montrer qu'on est sure cette page */
-    background-color: #40A798;
-    color: black;
-    margin-left: 10%;
-    margin-right: 10%;
-    grid-gap: 2%;
+  /* changer la couleur pour montrer qu'on est sure cette page */
+  background-color: #40A798;
+  color: black;
+  margin-left: 10%;
+  margin-right: 10%;
+  grid-gap: 2%;
 }
 
 /* aside gauche (classement + bouton) */
 #gauche{
-    grid-area: 1/1/2/2;
-    display: flex;
-    flex-direction: column;
-    grid-gap: 2%;
-    top: 10%;
-    left: 2%;
-    padding: 2%;
-    position: fixed;
-    right: 70%;
-    width: 20%;
+  display: grid;
+  grid-area: 1/1/2/2;
+  grid-gap: 9%;
+  top: 10%;
+  left: 2%;
+  padding: 2%;
+  position: fixed;
+  right: 70%;
+  width: 20%;
 }
 
 
 
 .actu{
-    color: black;
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 70%;
-    max-height: 99%;
-    text-align: center;
-    font-family: arial;
-    margin: auto;
-    border-radius: 5%;
-    transition: 0.3s;
-    padding: 2%;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    /* Division a l'interieur de l'event */
-    display: grid;
-    grid-template-columns: 0.2fr 0.9fr 0.5fr;
-    grid-template-rows: 0.2fr 0.3fr 1fr 0.2fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+  color: black;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 70%;
+  max-height: 99%;
+  text-align: center;
+  font-family: arial;
+  margin: auto;
+  border-radius: 5%;
+  transition: 0.3s;
+  padding: 2%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  /* Division a l'interieur de l'event */
+  display: grid;
+  grid-template-columns: 0.2fr 0.9fr 0.5fr;
+  grid-template-rows: min-content min-content 1fr min-content;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
 .photo { grid-area: 1 / 1 / 2 / 2; }
 #like{
-    max-width: 20%;
-    height: auto;
+  max-width: 20%;
+  height: auto;
 }
 #like:hover{
-    filter:drop-shadow(0 0 5px #40A798);
-    -webkit-filter:drop-shadow(0 0 5px #40A798);
+  filter:drop-shadow(0 0 5px #40A798);
+  -webkit-filter:drop-shadow(0 0 5px #40A798);
 }
 #comment{
-    max-width: 35%;
-    height: auto;
+  max-width: 60%;
+  height: auto;
+  margin-top: 25%;
 }
 #pp{
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
-
+hehe{
+  font-size: 1.2rem;
+}
 
 .auteur { grid-area: 1 / 2 / 2 / 4;
-        /* Alligne le texte a gauche au millieu de la hauteur*/
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+      /* Alligne le texte a gauche au millieu de la hauteur*/
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
 }
 .titre { grid-area: 2 / 2 / 3 / 4;
-    /* Alligne le texte en haut a gauche*/
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    
+  /* Alligne le texte en haut a gauche*/
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  
 }
 .contenue { grid-area: 3 / 2 / 4 / 4; 
-        /* Debut du texte en haut a gauche*/
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
+      /* Debut du texte en haut a gauche*/
+      text-align: left;
 }
 .like { grid-area: 4 / 2 / 5 / 3;
-        /* Alligne l'image a droite'*/
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
+      /* Alligne l'image a droite'*/
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
 }
-.comment { grid-area: 4 / 3 / 5 / 4; }
-
+.comment { grid-area: 4 / 3 / 5 / 4; 
+      /* Alligne l'image a droite'*/
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+}
 
 p{
-    font-size:25px;
-    margin-bottom:0;
-    padding-top:0;
-    margin: 0;
+  font-size:25px;
+  margin-bottom:0;
+  padding-top:0;
+  margin: 0;
+}
+
+#profil p{
+  /* taille par defaut de css */
+  font-size: 1rem;
+  margin-bottom: 0;
 }
 .nbLike{
-    grid-area: 4 / 2 / 5 / 3;
-    /* le mettre a gauche */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-left: 30%;
-    margin-top: 6%;
-    font-size: 1.5rem;
-    font-weight: bold;
+  grid-area: 4 / 2 / 5 / 3;
+  /* le mettre a gauche */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 25%;
+  margin-top: 6%;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nbCom{
+  /* le mettre a gauche */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 25%;
+  margin-top: 6%;
+  font-size: 1.5rem;
+  font-weight: bold;
+
 }
 
 
 
 #base{
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100%;
 }
 
 #profil {
-    position: fixed;
-    top: 9.5%; 
-    right: 1%; 
-    display: grid;
-    grid-area:  1/3/2/4;
-    grid-template: 1fr 10fr / 1fr;
-    color: black;
-    padding: 2%;
+  position: fixed;
+  top: 9.5%; 
+  right: 1%; 
+  display: grid;
+  grid-area:  1/3/2/4;
+  grid-template: 1fr 10fr / 1fr;
+  color: black;
+  padding: 2%;
 }
 #profil div:first-child {
   display: grid;
@@ -223,6 +244,356 @@ p{
   color: black;
   border-radius: 4px;
   margin-bottom: 20%;
+  text-align: center;
+  align-items: center;
+  top: auto;
+  height: 50%;
+  }
+
+/* 2eme div, soit le aside des options */
+#profil div:last-child {
+display: flex;
+flex-direction: column;
+background-color: #FFEBD3;
+color: black;
+grid-area: 2/1/6/2;
+text-align: center;
+border-radius: 4px;
+height: 50%;
+outline-offset: 10px;
+outline: 10px solid #FFEBD3;
+
+}
+
+#profil div:last-child img{
+grid-area: 1/1/2/2;
+width: 40%;
+margin-bottom: 10%;
+border-radius: 5%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 5%;
+outline: 4px solid #40A798;
+}
+
+#profil div:last-child p:nth-of-type(1){
+font-size: 1.5rem;
+font-weight: bold;
+margin-bottom: 5%;
+}
+
+#profil div:last-child p:nth-of-type(2){
+font-size: 1.5rem;
+font-weight: bold;
+margin-bottom: 5%;
+}
+
+#profil div:last-child p:nth-of-type(3){
+font-size: 1.5rem;
+font-weight: bold;
+margin-bottom: 5%;
+}
+
+#profil div:last-child p:nth-of-type(4){
+font-size: 1.5rem;
+font-weight: bold;
+margin-bottom: 5%;
+}
+
+#profil div:last-child p:nth-of-type(5){
+font-size: 1.5rem;
+font-weight: bold;
+margin-bottom: 5%;
+}
+
+#profil div:last-child p:nth-of-type(6){
+font-size: 1.5rem;
+font-weight: bold;
+margin-bottom: 5%;
+}
+
+#openModalActu{
+  
+  background-color: #FFEBD3;
+  color: black;
+  margin-right: 10%;
+  grid-gap: 2%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding: 2%;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  width: 120%;
+}
+
+#openModalActu:hover{
+  background-color: black;
+  color: white;
+  margin-right: 10%;
+  grid-gap: 2%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding: 2%;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+#openModalActu:active{
+  background-color: grey;
+  color: black;
+  margin-right: 10%;
+  grid-gap: 2%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding: 2%;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+
+
+#classement{
+  background-color: #FFEBD3;
+  color: black;
+  margin-right: 10%;
+  margin-top: 10%;
+  border-radius: 4px;
+  text-align: center;
+  transition: 0.3s;
+  width: 120%;
+}
+
+#classement table{
+  width: 100%;
+  height: 150%;
+  border-spacing: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+#classement table tr{
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+#classement table tr td{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+#classement table th{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+}
+
+/* une ligne sur deux d'une autre couleur sauf titre */
+#classement table tr:nth-child(2n+1){
+  background-color: #FFDAB9;
+  color: black;
+}
+
+#classement table tr .noRank{
+  width: 10%;
+}
+
+
+
+
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0,3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.open{
+  opacity: 1;
+  z-index: 999;
+
+}
+
+.modal-inner{
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
+}
+
+.modal-inner h2{
+  margin: 0;
+}
+
+.modal-inner p{
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+
+#match_joue{
+  display: none;
+}
+.match-deja-jouer{
+  
+  visibility: hidden;
+  color: red;
+}
+
+.custom-like{
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* hover like, l'image devient bleu */
+.custom-like:hover{
+  filter:drop-shadow(0 0 5px #40A798);
+  -webkit-filter:drop-shadow(0 0 5px #40A798);
+}
+
+/* like clicked */
+.custom-like:active{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.actufixed{
+  color: black;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 70%;
+  max-height: 99%;
+  text-align: center;
+  font-family: arial;
+  margin: auto;
+  border-radius: 5%;
+  transition: 0.3s;
+  padding: 2%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  /* Division a l'interieur de l'event */
+  display: grid;
+  grid-template-columns: 0.2fr 0.9fr 0.5fr;
+  grid-template-rows: min-content min-content 1fr min-content;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.com{
+  color: black;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #FFEBD3;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 70%;
+  max-height: auto;
+  text-align: center;
+  font-family: arial;
+  margin: auto;
+  border-radius: 5%;
+  transition: 0.3s;
+  padding: 2%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  display: grid;
+  grid-template-columns: 0.2fr 0.9fr 0.5fr;
+  grid-template-rows: min-content min-content 1fr min-content;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.icon {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 80px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.arrow {
+  visibility: hidden;
+  position: absolute;
+  top: 25px;
+  width: 90%;
+  height: 10px;
+  background-color: #fff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+  animation: arrow 700ms linear infinite;
+}
+
+.arrow::after, .arrow::before {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 10px;
+  right: -8px;
+  background-color: #fff;
+}
+
+.arrow::after {
+  top: -12px;
+  transform: rotate(45deg);
+}
+
+.arrow::before {
+  top: 12px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+  transform: rotate(-45deg);
+}
+
+ /* aside droit/profil */
+
+#profil {
+  position: fixed;
+  top: 12%; 
+  right: 1%; 
+  display: grid;
+  height: 130%;
+  grid-area:  1/4/5/5;
+  grid-template: 1fr 10fr / 1fr;
+  color: black;
+  padding: 2%;
+}
+#profil div:first-child {
+display: grid;
+grid-area: 1/1/2/2;
+text-align: center;
+background-color: #FFEBD3;
+color: black;
+border-radius: 4px;
+margin-bottom: 20%;
+text-align: center;
+align-items: center;
+top: auto;
+height: 50%;
 }
 
 /* 2eme div, soit le aside des options */
@@ -237,225 +608,345 @@ p{
   height: 50%;
   outline-offset: 10px;
   outline: 10px solid #FFEBD3;
-
 }
 
-#profil div:last-child img{
+#profil div:last-child img:first-of-type{
   grid-area: 1/1/2/2;
   width: 40%;
   margin-bottom: 10%;
-  border-radius: 5%;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 5%;
-  outline: 4px solid #40A798;
+  border-radius: 5%;
+  outline: 4px solid #FFEBD3;
 }
+
+#profil div:last-child #imagebadge, #profil div:last-child #imageecu{
+  width: 40%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  padding: 0;
+  margin: -10%;
+  border-radius: 5%;
+  outline: 4px solid #FFEBD3;
+}
+
 
 #profil div:last-child p:nth-of-type(1){
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 #profil div:last-child p:nth-of-type(2){
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 #profil div:last-child p:nth-of-type(3){
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 #profil div:last-child p:nth-of-type(4){
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 #profil div:last-child p:nth-of-type(5){
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5%;
-}
-
-#profil div:last-child p:nth-of-type(6){
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 5%;
-}
-
-#openModalActu{
-    
-    background-color: #FFEBD3;
-    color: black;
-    margin-right: 10%;
-    grid-gap: 2%;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    padding: 2%;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 1.5rem;
-    transition: 0.3s;
-    width: 120%;
-}
-
-#openModalActu:hover{
-    background-color: black;
-    color: white;
-    margin-right: 10%;
-    grid-gap: 2%;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    padding: 2%;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 1.5rem;
-    transition: 0.3s;
-}
-
-#openModalActu:active{
-    background-color: grey;
-    color: black;
-    margin-right: 10%;
-    grid-gap: 2%;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    padding: 2%;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 1.5rem;
-    transition: 0.3s;
-}
-
-
-
-#classement{
-    background-color: #FFEBD3;
-    color: black;
-    margin-right: 10%;
-    margin-top: 10%;
-    border-radius: 4px;
-    text-align: center;
-    transition: 0.3s;
-    width: 120%;
-}
-
-#classement table{
-    width: 100%;
-    height: 150%;
-    border-spacing: 0;
-    border-radius: 8px 8px 0 0;
-}
-
-#classement table tr{
-    width: 100%;
-    height: 100%;
-    border-radius: 8px 8px 0 0;
-}
-
-#classement table tr td{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-#classement table th{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-radius: 8px 8px 0 0;
-}
-
-/* une ligne sur deux d'une autre couleur sauf titre */
-#classement table tr:nth-child(2n+1){
-    background-color: #FFDAB9;
-    color: black;
-}
-
-#classement table tr .noRank{
-    width: 10%;
+  margin-top: 2%;
 }
 
 
 
 
 
-.modal {
-    background-color: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: all 0,3s ease-in-out;
-    z-index: -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+
+/* css pour popup confirmation d'achat */
+.modal{
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0,3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal.open{
-    opacity: 1;
-    z-index: 999;
-
+  opacity: 1;
+  z-index: 999;
 }
 
 .modal-inner{
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    padding: 15px 25px;
-    text-align: center;
-    width: 380px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
 }
 
 .modal-inner h2{
-    margin: 0;
+  margin: 0;
 }
 
 .modal-inner p{
-    line-height: 24px;
-    margin: 10px 0;
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+#buttonpdp{
+  background-color: #FFEBD3;
+  color: white;
+  border: none;
+}
+
+#profil div:last-child img:hover{
+  cursor: pointer;
+  outline: 4px solid black;
+  outline-offset: 8px;
 }
 
 
-#match_joue{
-    display: none;
-}
-.match-deja-jouer{
-    
-    visibility: hidden;
-    color: red;
-}
-
-.custom-like{
-    background: none;
-    border: none;
-    color: inherit;
-    font: inherit;
-    text-align: inherit;
-    cursor: pointer;
-    padding: 0;
-}
-
-/* hover like, l'image devient bleu */
-.custom-like:hover{
-    filter:drop-shadow(0 0 5px #40A798);
-    -webkit-filter:drop-shadow(0 0 5px #40A798);
-}
-
-/* like clicked */
-.custom-like:active{
-    margin-left: 10%;
-    margin-right: 10%;
+#profil div:last-child #imagebadge:hover, #profil div:last-child #imageecu:hover{
+  cursor: pointer;
+  outline: 4px solid black;
+  outline-offset: 8px;
 }
 
 
+
+/* CSS pour modal photo de profil */
+#modalpdp {
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0,3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalpdp.open{
+  opacity: 1;
+  z-index: 999;
+}
+
+#modalpdp-inner{
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
+}
+
+#modalpdp-inner h2{
+  margin: 0;
+}
+
+#modalpdp-inner p{
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+/* Règle CSS pour l'image sélectionnée */
+#modalpdp-inner img.image-selected.selected {
+  border-radius: 5%;
+  transform: scale(0.9);
+  opacity: 1;
+  /* border déplace l'image, donc box-shadow plus adapté */
+  box-shadow: 0 0 0 4px black;
+}
+
+/* Règle CSS générale pour les images */
+#modalpdp-inner img {
+  width: 20%;
+  margin-bottom: 10%;
+  opacity: 0.5;
+}
+
+#modalpdp-inner img:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+
+
+/* button badge */
+#profil #buttonbadge{
+  background-color: #FFEBD3;
+  border: none;
+}
+
+
+/* CSS pour modal photo de profil */
+#modalbadge {
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0,3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalbadge.open{
+  opacity: 1;
+  z-index: 999;
+}
+
+#modalbadge-inner{
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
+}
+
+#modalbadge-inner h2{
+  margin: 0;
+}
+
+#modalbadge-inner p{
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+/* Règle CSS pour l'image sélectionnée */
+#modalbadge-inner img.image-selected.selected {
+  border-radius: 5%;
+  transform: scale(0.9);
+  opacity: 1;
+  /* border déplace l'image, donc box-shadow plus adapté */
+  box-shadow: 0 0 0 4px black;
+}
+
+/* Règle CSS générale pour les images */
+#modalbadge-inner img {
+  width: 20%;
+  margin-bottom: 10%;
+  opacity: 0.5;
+}
+
+#modalbadge-inner img:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+#imagebadge{
+  scale: 0.6;
+}
+
+
+
+
+
+
+/* CSS ecusson */
+#profil #buttonecu{
+  background-color: #FFEBD3;
+  border: none;
+}
+
+#modalecu {
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0,3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalecu.open{
+  opacity: 1;
+  z-index: 999;
+}
+
+#modalecu-inner{
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
+}
+
+#modalecu-inner h2{
+  margin: 0;
+}
+
+#modalecu-inner p{
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+/* Règle CSS pour l'image sélectionnée */
+#modalecu-inner img.image-selected.selected {
+  border-radius: 5%;
+  transform: scale(0.9);
+  opacity: 1;
+  /* border déplace l'image, donc box-shadow plus adapté */
+  box-shadow: 0 0 0 4px black;
+}
+
+/* Règle CSS générale pour les images */
+#modalecu-inner img {
+  width: 20%;
+  margin-bottom: 10%;
+  opacity: 0.5;
+}
+
+#modalecu-inner img:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+#imageecu{
+  scale: 0.6;
+}
+
+
+.modal button, #ajoutActu{
+  background-color: black;
+  color: white;
+}
+
+.modal button:hover, #ajoutActu:hover{
+  opacity: 0.7;
+}

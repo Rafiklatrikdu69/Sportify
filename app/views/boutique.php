@@ -19,9 +19,9 @@ use \App\Config;
                 <fieldset>
                     <legend>Filtres</legend>
                     <legend>Types d'item</legend>
-                    <input type="radio" name="categorie" value="Badge" class="dispo">Badge<br>
-                    <input type="radio" name="categorie" value="Icone"  class="dispo">Icone<br>
-                    <input type="radio" name="categorie" value="Ecusson"  class="dispo">Ecusson<br>
+                    <input type="checkbox" name="categorie" value="Badge" class="dispo">Badge<br>
+                    <input type="checkbox" name="categorie" value="Icone"  class="dispo">Icone<br>
+                    <input type="checkbox" name="categorie" value="Ecusson"  class="dispo">Ecusson<br>
                     <legend>Couleur</legend>
                     <select id="couleur">
                         <option value="">Aucune</option>
@@ -33,7 +33,8 @@ use \App\Config;
                     </select>
                     <legend>Prix max</legend>
                     <div class="range-wrap">
-                        <input type="range" class="range" min="10" max="500" step="10">
+                        <!-- prix de base au max, soit 500 -->
+                        <input type="range" class="range" min="0" max="500" step="25" value="500">
                         <output class="bubble"></output>
                     </div><br>
                     <!-- <legend>Disponibilité</legend>
@@ -56,7 +57,7 @@ use \App\Config;
 
       
         <aside id="profil">
-            <div class="coin">
+            <div>
             <p id="coin"><?php echo (int)$pointsUser; ?> Sporticoins</p>
             </div>
             <div>
@@ -64,8 +65,10 @@ use \App\Config;
                 <p><?php echo $_SESSION['nom']?></p>
                 <p><?php echo "Rank: " . (int)$userRank; ?></p>
                 <p><?php echo "Prono réussi: " . (int)$pronoWin?></p>
-                <button id="buttonbadge"><p>Choisir badge</p></button>
-                <p>Equipe préférée</p>
+                <p>Badge: </p>
+                <button id="buttonbadge"><img id="imagebadge" src="<?php echo $userBadge?>"></button>
+                <p>Ecusson: </p>
+                <button id="buttonecu"><img id="imageecu" src="<?php echo $userEcusson?>"></button>
             </div>
         </aside>
     </section>
@@ -80,38 +83,69 @@ use \App\Config;
     </div>
 
     <!-- moddal photo de profil -->
-    <div id="modalpdp">
+    <div class="modal" id="modalpdp">
         <div id="modalpdp-inner">
             <h2>Choisissez votre photo de profil:</h2>
             <?php
-            foreach($tabItemsOwned as $item){?>
-                <img class="imgpdp" src="images/img<?php echo $item->getId()?>.jpg">
-            <?php }?>
+            foreach($tabIcone as $icone){?>
+                <img class="imgpdp" src="images/Icone<?php echo $icone->getId()?>.png">
+            <?php }?>    
+            <div>   
             <button id="submitpdp">Confirmer</button>
             <button id="closemodalpdp">Annuler</button>
+            </div>
         </div>
     </div> 
 
-    <script src="../../public/js/btnAdmin.js"></script>
     <!-- modal badge -->
-    <div id="modalbadge">
+    <div class="modal" id="modalbadge">
         <div id="modalbadge-inner">
             <h2>Choisissez votre badge:</h2>
             <?php
-            foreach($tabItemsOwned as $item){?>
-                <img class="imgpdp" src="images/img<?php echo $item->getId()?>.jpg">
+            foreach($tabBadge as $badge){?>
+                <img class="imgbadge" src="images/Badge<?php echo $badge->getId()?>.png">
             <?php }?>
-            <button id="submitpdp">Confirmer</button>
-            <button id="closemodalpdp">Annuler</button>
+            <div>
+            <button id="submitbadge">Confirmer</button>
+            <button id="closemodalbadge">Annuler</button>
+            </div>
+        </div>
+    </div> 
+
+    <!-- modal ecusson -->
+    <div class="modal" id="modalecu">
+        <div id="modalecu-inner">
+            <h2>Choisissez votre ecusson:</h2>
+            <?php
+            foreach($tabEcusson as $ecusson){?>
+                <img class="imgecu" src="images/Ecusson<?php echo $ecusson->getId()?>.png">
+            <?php }?>
+            <div>
+            <button id="submitecu">Confirmer</button>
+            <button id="closemodalecu">Annuler</button>
+            </div>
         </div>
     </div> 
 
 
+    <!-- modal pour achat réussi -->
+    <div class="modal" id="modalachatreussi">
+        <div id="modalachatreussi-inner">
+            <h2>Achat réussi !</h2>
+            <p>Vous avez acheté l'article <span id="itemToBuy2"></span></p>
+            <button id="closemodalachatreussi">Fermer</button>
+        </div>
+    </div>
+
+    <!-- modal point insuffisant -->
+    <div class="modal" id="modalpointinsuffisant">
+        <div id="modalpointinsuffisant-inner">
+            <h2>Points insuffisants !</h2>
+            <p>Vous n'avez pas assez de points pour acheter cet article</p>
+            <button id="closemodalpointinsuffisant">Fermer</button>
+        </div>
+    </div>
     
     <script src="../../public/js/store.js"></script>
     <script src="../../public/js/profil.js"></script>
 </body>
-
-
-
-
