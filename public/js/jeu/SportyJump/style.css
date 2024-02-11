@@ -106,7 +106,7 @@ header>a:first-child {
     height: 60px;
     background-color: #000;
     border-radius: 50%;
-    position: relative;
+    position: fixed;
     border: 10px solid #000;
     box-shadow: 0 0 50px #000000;
     transition: background-color 0.3s, color 0.3s, margin-left 0.5s, margin-right 0.5s;
@@ -137,6 +137,124 @@ header>a:first-child {
     overflow: hidden;
     padding: 10px;
     cursor: default;
+}
+
+.succes{
+    justify-content: right;
+    position: fixed;
+    top: calc(9rem + 16px);
+    zoom:70%; 
+    right: 6%; 
+    height: 80%;
+}
+
+.circleSucces {
+    width: 60px;
+    height: 60px;
+    background-color: #000;
+    border-radius: 50%;
+    border: 10px solid #000;
+    box-shadow: 0 0 50px #000000;
+    transition: background-color 0.3s, color 0.3s, margin-left 0.5s, margin-right 0.5s;
+    position: fixed;
+    right: 6%; 
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.circleSucces>img{
+    position: absolute;
+    top:50%; 
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: calc(51px/1.5);
+    height: calc(51px/1.5);
+}
+
+.retangleSucces{
+    background-color: transparent;
+    height: 85%;
+    width: 540px;
+    margin-top: 100px;
+    border-radius: 30px;
+    border: 14px solid #FFEBD3;
+    position: relative;
+}
+
+.retangleSucces2::-webkit-scrollbar {
+    width: 0px;
+}
+
+.retangleSucces2{
+    background-color: #FFEBD3;
+    height: 95%;
+    width: 93%;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: scroll;
+}
+
+.retangleSucces2>p{
+    text-align: center;
+    font-family: futura;
+    font-size: 25px;
+}
+
+.retangleSucces2>a{
+    margin-left: 60px;
+    font-family: futura;
+    font-size: 20px;
+}
+
+.categorieSucce{
+    margin: 10px;
+}
+
+.cadreSucces{
+    height: 60px;
+    width: 60px;
+    border: 5px solid #000;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.cadreSucces>img{
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.categorieSucce>img{
+    height: 60px;
+    width: 60px;
+    border: 5px solid #000;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.barreSeparation{
+    background-color: black;
+    height: 5px;
+    border-radius: 10px;
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .expanded {
