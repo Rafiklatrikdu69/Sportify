@@ -1,6 +1,6 @@
 const succes = document.getElementById("circleSucces"); 
-const cadre = document.getElementById("retangleSucces"); 
-const icone = document.querySelectorAll(".cadreSucces img"); 
+const cadre = document.getElementById("rectangleSucces"); 
+const icone = document.querySelectorAll(".cadreSucces"); 
 
 var visible = false; 
 var fixed = false; 
@@ -49,95 +49,42 @@ succes.addEventListener("mouseout", function(){
     }
 }); 
 
-icone.forEach(function(e){
-    e.addEventListener("mouseover", function(){
-        e.style.height = 50 + "px"; 
-        e.style.width = 50 + "px"; 
-
-        var id = findSuccesId(e); 
-        document.getElementById("desc"+ id).style.opacity = "1"; 
-    });
-
-    e.addEventListener("mouseout", function(){
-        e.style.height = 60 + "px"; 
-        e.style.width = 60 + "px"; 
-
-        var id = findSuccesId(e); 
-        document.getElementById("desc"+ id).style.opacity = "0"; 
-    });  
-
-    e.addEventListener("click", function(){
-
-    }); 
+const suce = document.querySelectorAll(".categorieSucces"); 
+suce.forEach(function(categorie){
+    var cadre = categorie.querySelectorAll(".cadreSucces .descriptionSucces"); 
+    var id = 1; 
+    cadre.forEach(function(s){ 
+        if(id%5 == 2){
+            s.style.left = "25%"; 
+            s.style.transform = "translateX(-25%)"; 
+        }else if(id%5 == 3){
+            s.style.left = "50%"; 
+            s.style.transform = "translateX(-50%)"; 
+        }else if(id%5 == 4){
+            s.style.left = "75%"; 
+            s.style.transform = "translateX(-75%)"; 
+        }else if(id%5 == 0){
+            s.style.left = "95%"; 
+            s.style.transform = "translateX(-95%)"; 
+        }
+        id++; 
+    })    
 }); 
 
-function findSuccesId(e){
-    var id = 3; 
-        switch(e.id){
-            case "img1" : id = 1; 
-                break;
-            case "img2" : id = 2; 
-                break; 
-            case "img3" : id = 3; 
-                break;
-            case "img4" : id = 4; 
-                break;
-            case "img5" : id = 5; 
-                break; 
-            case "img6" : id = 6; 
-                break;
-            case "img7" : id = 7; 
-                break;
-            case "img8" : id = 8; 
-                break; 
-            case "img9" : id = 9; 
-                break;
-            case "img10" : id = 10; 
-                break;
-            case "img11" : id = 11; 
-                break; 
-            case "img12" : id = 12; 
-                break;
-            case "img13" : id = 13; 
-                break;
-            case "img14" : id = 14; 
-                break; 
-            case "img15" : id = 15; 
-                break;
-            case "img16" : id = 16; 
-                break;
-            case "img17" : id = 17; 
-                break; 
-            case "img18" : id = 18; 
-                break;
-            case "img19" : id = 19; 
-                break;
-            case "img20" : id = 20; 
-                break; 
-            case "img21" : id = 21; 
-                break;
-            case "img22" : id = 22; 
-                break;
-            case "img23" : id = 23; 
-                break; 
-            case "img24" : id = 24; 
-                break;
-            case "img25" : id = 25; 
-                break;
-            case "img26" : id = 26; 
-                break; 
-            case "img27" : id = 27; 
-                break;
-            case "img28" : id = 28; 
-                break;
-            case "img29" : id = 29; 
-                break; 
-            case "img30" : id = 30; 
-                break;
-        }
-    return id; 
-}
 
-const categorie = document.getElementById("retangleSucces2"); 
+icone.forEach(function(e){
+    var desc = e.querySelector(".descriptionSucces2"); 
+    var img = e.querySelector("img");
 
-categorie.chi
+    img.addEventListener("mouseover", function(){
+        img.style.height = 50 + "px"; 
+        img.style.width = 50 + "px"; 
+        desc.style.opacity = "1"; 
+    });
+
+    img.addEventListener("mouseout", function(){ 
+        img.style.height = 60 + "px"; 
+        img.style.width = 60 + "px"; 
+        desc.style.opacity = "0"; 
+    });  
+}); 
