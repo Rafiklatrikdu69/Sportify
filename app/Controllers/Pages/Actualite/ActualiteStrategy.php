@@ -21,4 +21,7 @@ class ActualiteStrategy{
     public function like() {
         return $this->strategy->like();
     }
+    public function profil() {
+        return $this->strategy->profil();
+    }
 }

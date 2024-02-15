@@ -12,4 +12,5 @@
         static $PATH_MODELS = "App\Models\\";
         static $PATH_VIEWS = "../app/views/";
         static $PATH_PUBLIC = "../public/";
+       
     }

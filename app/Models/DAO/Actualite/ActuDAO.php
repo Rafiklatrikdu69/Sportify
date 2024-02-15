@@ -41,6 +41,18 @@ class ActuDAO extends DAO{
         return $tab;
     }
 
+
+    public function getPostByNameUser($pseudo){
+        $sql = "SELECT * FROM `POST` WHERE AUTEUR_NOM = :nom";
+        $sth = $this->queryAll($sql,array(':nom' => $pseudo));
+        $tab = [];
+        foreach($sth as $post){
+            $post = new Actu($post[0],$post[1],$post[2],$post[3],$post[4],$post[5],$post[7]);
+            $tab[] = $post;
+        }
+        return $tab;
+    }
+
     public function insertActu($idUtilisateur,$nomUtilisateur,$titre,$contenu,$nbLike){
         $sql = "INSERT INTO `POST` (AUTEUR_ID,AUTEUR_NOM,NOM_TOPIC,DESCRIPTION_POST,NB_LIKE) VALUES (:idUtilisateur,:nomUtilisateur,:titre,:contenu,:nbLike)";
         $params = array(":idUtilisateur" => $idUtilisateur,":nomUtilisateur" => $nomUtilisateur, ":titre" => $titre,":contenu" => $contenu,":nbLike" => $nbLike);

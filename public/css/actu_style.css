@@ -126,8 +126,13 @@ main{
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
-
-.photo { grid-area: 1 / 1 / 2 / 2; }
+.photo {
+  display: flex;
+  align-items: center; 
+}
+.photo img {
+  margin-right: 5px; /
+}
 #like{
   max-width: 20%;
   height: auto;

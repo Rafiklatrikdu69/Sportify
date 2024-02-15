@@ -16,5 +16,18 @@ class JsonControllerCom implements DefaultActualiteStrategy{
         }
         ob_end_clean();
     }
+    public function profil() {
+
+            
+    }
     
+    public function ajoutActu()
+    {
+        
+    }    public function like() {
+        
+    }
+    public function sendLikes() {
+      
+    }
 }

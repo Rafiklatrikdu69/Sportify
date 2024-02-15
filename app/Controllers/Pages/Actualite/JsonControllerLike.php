@@ -14,4 +14,20 @@ class JsonControllerLike implements DefaultActualiteStrategy{
             
         }
     }
+    public function profil() {
+
+            
+    }
+    
+    public function ajoutActu()
+    {
+        
+    } 
+    public function ajoutCom() {
+            
+    }
+  
+    public function sendLikes() {
+      
+    }
 }

@@ -4,19 +4,15 @@
 
 class HomeController  extends Controllers
 {
-    
-public function index()
-{
    
-   View::View('index',['name'=>'']);
+   public function index()
+   {
+      
+      View::View('index',['name'=>'']);
+      
+   }
    
-}
-
-
-
-
-
-
+   
 }
 
 

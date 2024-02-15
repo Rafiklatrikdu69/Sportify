@@ -150,6 +150,12 @@ switch ($request) {
             "index",
         ]);
         break;
+    case "/public/actu/profil":
+        $route->post("/public/actu/profil",[
+            new ActualiteStrategy(new ActuController()),
+            "profil",
+        ]);
+            break;
     case "/public/administration/suppr":
         $route->get("/public/suppr", [new SuppressionController(), "suppr"]);
         break;
