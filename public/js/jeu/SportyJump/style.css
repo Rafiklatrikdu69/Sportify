@@ -98,7 +98,7 @@ header>a:first-child {
     position: absolute;
     top: calc(9rem + 16px);
     left: 5%;
-    zoom:70%;
+    zoom: 70%;
 }
 
 .circle {
@@ -139,12 +139,12 @@ header>a:first-child {
     cursor: default;
 }
 
-.succes{
+.succes {
     justify-content: right;
     position: fixed;
     top: calc(9rem + 16px);
-    zoom:70%; 
-    right: 6%; 
+    zoom: 70%;
+    right: 6%;
     height: 80%;
 }
 
@@ -157,21 +157,22 @@ header>a:first-child {
     box-shadow: 0 0 50px #000000;
     transition: background-color 0.3s, color 0.3s, margin-left 0.5s, margin-right 0.5s;
     position: fixed;
-    right: 6%; 
+    right: 6%;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
-.circleSucces>img{
+
+.circleSucces>img {
     position: absolute;
-    top:50%; 
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: calc(51px/1.5);
     height: calc(51px/1.5);
 }
 
-.rectangleSucces{
+.rectangleSucces {
     background-color: transparent;
     height: 0%;
     width: 540px;
@@ -179,7 +180,7 @@ header>a:first-child {
     border-radius: 30px;
     border: 14px solid #FFEBD3;
     position: relative;
-    visibility: hidden; 
+    visibility: hidden;
     transition: height 0.3s;
 }
 
@@ -187,7 +188,7 @@ header>a:first-child {
     width: 0px;
 }
 
-.rectangleSucces2{
+.rectangleSucces2 {
     background-color: #FFEBD3;
     height: 95%;
     width: 93%;
@@ -199,26 +200,27 @@ header>a:first-child {
     overflow: scroll;
 }
 
-.rectangleSucces2>p{
+.rectangleSucces2>p {
     text-align: center;
     font-family: futura;
     font-size: 25px;
 }
 
-.rectangleSucces2>a{
+.rectangleSucces2>a {
     margin-left: 60px;
     font-family: futura;
     font-size: 20px;
 }
-.espace{
+
+.espace {
     margin: 8px;
 }
 
-.categorieSucces{
+.categorieSucces {
     margin-left: 15px;
 }
 
-.cadreSucces{
+.cadreSucces {
     height: 60px;
     width: 60px;
     border: 5px solid #000;
@@ -231,7 +233,7 @@ header>a:first-child {
     display: inline-block;
 }
 
-.cadreSucces>img{
+.cadreSucces>img {
     height: 60px;
     width: 60px;
     position: absolute;
@@ -242,9 +244,10 @@ header>a:first-child {
     opacity: 100%;
     z-index: 1;
     cursor: pointer;
+    opacity: 50%;
 }
 
-.categorieSucces>img{
+.categorieSucces>img {
     height: 60px;
     width: 60px;
     border: 5px solid #000;
@@ -253,19 +256,20 @@ header>a:first-child {
     position: relative;
 }
 
-.descriptionSucces2{
+.descriptionSucces2 {
     opacity: 0;
     transition: opacity 0.03s;
     z-index: 10;
 }
-.descriptionSucces{
+
+.descriptionSucces {
     height: 80px;
     width: 320px;
     position: absolute;
     color: white;
     font-family: Futura;
     font-size: 20px;
-    background-color: #313131; 
+    background-color: #313131;
     border-radius: 25px;
     opacity: 90%;
     top: 104px;
@@ -275,9 +279,9 @@ header>a:first-child {
     z-index: 2;
 }
 
-.descriptionSucces>a{
+.descriptionSucces>a {
     position: absolute;
-    top :50%; 
+    top: 50%;
     transform: translateY(-50%);
     padding-left: 25px;
     padding-right: 15px;
@@ -285,22 +289,22 @@ header>a:first-child {
     opacity: 100%;
 }
 
-.descriptionTriangle{
+.descriptionTriangle {
     position: absolute;
-    top: 76px; 
+    top: 76px;
     width: 0;
     height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-bottom: 30px solid  #313131;
-    left: 50%; 
+    border-bottom: 30px solid #313131;
+    left: 50%;
     transform: translateX(-50%);
     opacity: 90%;
     margin: 0;
     z-index: 2;
 }
 
-.barreSeparation{
+.barreSeparation {
     background-color: black;
     height: 5px;
     border-radius: 10px;
@@ -456,11 +460,12 @@ tr>td:first-child {
 tr>td:last-child {
     text-align: center;
 }
-tr>td:nth-child(2){
-   text-align: center;
+
+tr>td:nth-child(2) {
+    text-align: center;
 }
 
-.boutonMenu{
+.boutonMenu {
     color: #dcdcdc;
     font-size: 35px;
     margin-top: 7%;
@@ -469,10 +474,10 @@ tr>td:nth-child(2){
     cursor: pointer;
 }
 
-.point-user{
+.point-user {
     position: absolute;
     background-color: #FFEBD3;
-    color: black; 
+    color: black;
     height: 2%;
     width: 633px;
     text-align: center;
