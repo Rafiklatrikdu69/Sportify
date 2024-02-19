@@ -198,6 +198,18 @@ switch ($request) {
             "updateScore",
         ]);
         break;
+    case "/public/json-jeu-getAffichageSucces":
+            $route->get("/public/json-jeu-getAffichageSucces", [
+                new StrategyJeu(new JsonControllerJeu()),
+                "affichageSucces",
+            ]);
+            break;
+    case "/public/json-jeu-UpdateSucces":
+        $route->post("/public/json-jeu-UpdateSucces", [
+            new StrategyJeu(new JsonControllerJeu()),
+            "updateSucces",
+        ]);
+       break;
     case "/public/insert-prono":
         $route->post("/public/insert-prono", [
             new JsonStrategyProno(new PronoController()),

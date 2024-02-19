@@ -230,6 +230,31 @@ class UtilisateurDAO extends DAO{
             return null;
         }
     }
+
+    public function getAffichageSucces($nom){
+        $tab = [];
+        $sql = "SELECT SUCCES_OBTENU, SUCCES_NAME FROM SUCCES WHERE UTILISATEUR_ID = :pseudo ORDER BY SUCCES_NAME"; 
+        $succes = $this->queryAll($sql, array('pseudo' => $nom)); 
+        foreach($succes as $s){
+            $infos[] = []; 
+            $infos[] = $s[0]; 
+            $infos[] = $s[1]; 
+            $tab[] = $infos; 
+        }
+        return $tab; 
+    }
+
+    public function UpdateSucces($nom, $num_succes){
+        $sql = "UPDATE `SUCCES` 
+                SET SUCCES_OBTENU = 'TRUE'
+                WHERE UTILISATEUR_ID = :user AND SUCCES_NAME = :succes"; 
+        $this->update($sql, array(
+                "user"=>$nom, 
+                "succes"=>$num_succes
+        ));   
+ 
+    }
+
     public function getLastConnection($name){
         $sql = "SELECT LAST_CONNECTION FROM `UTILISATEUR` WHERE PSEUDO = :pseudo";
         $result = $this->queryRow($sql, array('pseudo' => $name));

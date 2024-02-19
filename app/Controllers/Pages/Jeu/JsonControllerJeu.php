@@ -60,4 +60,24 @@ class JsonControllerJeu implements DefaultJeuController{
         $tab =  json_encode($data, true);
         echo $tab; 
     }
+
+    public function affichageSucces(){
+        $userPoint = new UtilisateurDAO(); 
+        $data = $userPoint-> getAffichageSucces($_SESSION['nom']); 
+        $tab = json_encode($data, true);
+        echo $tab; 
+    }
+
+    public function updateSucces(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $userPoint = new UtilisateurDAO();
+            $data = file_get_contents("php://input"); 
+            var_dump($data);
+            $tab = json_decode($data, true); 
+            echo "le score: ".$tab['num_succes'];
+            $userPoint->UpdateSucces($_SESSION['nom'], $tab['num_succes']);
+        }
+    }
+
+
 }
