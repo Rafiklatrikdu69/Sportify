@@ -88,3 +88,52 @@ icone.forEach(function(e){
         desc.style.opacity = "0"; 
     });  
 }); 
+
+
+function setSucces(){
+    fetch("/public/json-jeu-getAffichageSucces")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erreur lors de la récupération des données');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data); 
+        changeOpacitySucces(data); 
+    })
+    .catch(error => {
+        console.error('Erreur lors de la récupération des données:', error);
+        return null; 
+    });
+}
+ 
+function changeOpacitySucces(tab){
+    var img = document.querySelectorAll(".cadreSucces img");
+    let indice = 0;  
+    img.forEach(function(e){
+        if(tab[indice][0] == "TRUE"){
+            e.style.opacity = "100%"; 
+        }
+        indice ++; 
+    })
+}
+
+function updateSuccesById(id){
+    function Score (score){
+        this.score = score;
+    }
+    e = new Score(id);
+    fetch("/public/json-jeu-UpdateSucces", {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+      
+        "body": JSON.stringify(e)
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    })
+}

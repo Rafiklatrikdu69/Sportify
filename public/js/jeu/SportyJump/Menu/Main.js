@@ -47,23 +47,6 @@ window.onload = function () {
         console.log(donnee); 
         point.innerHTML= "Vous avez "+donnee[1]+" points";
      });
-
-     setSucces();
-}
-
-function setSucces(){
-   fetch("/public/json-jeu-getAffichageSucces")
-     .then(response => {
-         if (!response.ok) {
-             throw new Error('Erreur lors de la récupération des données');
-         }
-         return response.json();
-     })
-     .then(data => {
-      console.log(data); 
-     })
-     .catch(error => {
-         console.error('Erreur lors de la récupération des données:', error);
-         return null; 
-     });
+ 
+     setSucces(); 
 }

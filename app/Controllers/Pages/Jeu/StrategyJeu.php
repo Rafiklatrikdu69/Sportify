@@ -23,4 +23,10 @@ class StrategyJeu{
     public function meilleurScoreUser(){
         return $this->strategy->meilleurScoreUser();
     }
+    public function affichageSucces(){
+        return $this->strategy->affichageSucces();
+    }
+    public function updateSucces(){
+        return $this->strategy->updateSucces(); 
+    }
 }

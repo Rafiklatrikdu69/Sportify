@@ -63,7 +63,8 @@ class JsonControllerJeu implements DefaultJeuController{
 
     public function affichageSucces(){
         $userPoint = new UtilisateurDAO(); 
-        $data = $userPoint-> getAffichageSucces($_SESSION['nom']); 
+        $id = $userPoint-> getUserId($_SESSION['nom']); 
+        $data = $userPoint->getAffichageSucces($id); 
         $tab = json_encode($data, true);
         echo $tab; 
     }
@@ -71,13 +72,12 @@ class JsonControllerJeu implements DefaultJeuController{
     public function updateSucces(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userPoint = new UtilisateurDAO();
-            $data = file_get_contents("php://input"); 
+            $id = $userPoint-> getUserId($_SESSION['nom']); 
+            $data = file_get_contents("php://input");
             var_dump($data);
-            $tab = json_decode($data, true); 
-            echo "le score: ".$tab['num_succes'];
-            $userPoint->UpdateSucces($_SESSION['nom'], $tab['num_succes']);
+            $succes =  json_decode($data, true);
+            echo "le score: ".$succes['score'];
+            $userPoint->updateSucces($id, $succes['score']);
         }
     }
-
-
 }

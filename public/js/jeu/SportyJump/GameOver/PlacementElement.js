@@ -117,7 +117,7 @@ function PlacementScore() {
     var activer = JSON.parse(localStorage.getItem("activerModification"));
     console.log(activer); 
     if(activer){
-         function Score (score){
+        function Score (score){
             this.score = score;
         }
         e = new Score(nbPieceTexte*1)
